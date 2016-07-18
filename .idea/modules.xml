@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lingo.iml" filepath="$PROJECT_DIR$/.idea/modules/lingo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lingo_main.iml" filepath="$PROJECT_DIR$/.idea/modules/lingo_main.iml" group="lingo" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lingo_test.iml" filepath="$PROJECT_DIR$/.idea/modules/lingo_test.iml" group="lingo" />
+    </modules>
+  </component>
+</project>
