@@ -78,7 +78,8 @@ public class Article {
                 "Author: '" + author + '\'' +
                 ", Url: '" + articleUrl + '\'' +
                 ", Title: '" + title + '\'' +
-                ", Id: " + id +
+                ", Id: " + id + '\'' +
+                ", Content: " + content +
                 '}';
     }
 }
