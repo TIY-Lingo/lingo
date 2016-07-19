@@ -1,8 +1,7 @@
-package services;
+package com.theironyard.services;
 
-import entities.Article;
+import com.theironyard.entities.Article;
 import org.springframework.data.repository.CrudRepository;
 
-//comment
 public interface ArticleRepository extends CrudRepository<Article, Integer>{
 }

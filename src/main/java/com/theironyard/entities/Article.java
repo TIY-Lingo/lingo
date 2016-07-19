@@ -1,4 +1,4 @@
-package entities;
+package com.theironyard.entities;
 
 import javax.persistence.*;
 
@@ -9,18 +9,22 @@ public class Article {
     @Id
     int id;
 
-    @Column
+    @Column (nullable = false)
     String title;
 
-    @Column
+    @Column (nullable = false)
+    String articleUrl;
+
+    @Column (nullable = false)
     String author;
 
-    @Column (length = 25000)
+    @Column (length = 25000, nullable = false)
     String content;
 
-    public Article(int id, String title, String author, String content) {
-        this.id = id;
+
+    public Article(String title, String articleUrl, String author, String content) {
         this.title = title;
+        this.articleUrl = articleUrl;
         this.author = author;
         this.content = content;
     }
@@ -58,5 +62,23 @@ public class Article {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getArticleUrl() {
+        return articleUrl;
+    }
+
+    public void setArticleUrl(String articleUrl) {
+        this.articleUrl = articleUrl;
+    }
+
+    @Override
+    public String toString() {
+        return "Article{" +
+                "Author: '" + author + '\'' +
+                ", Url: '" + articleUrl + '\'' +
+                ", Title: '" + title + '\'' +
+                ", Id: " + id +
+                '}';
     }
 }

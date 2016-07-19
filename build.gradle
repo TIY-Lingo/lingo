@@ -32,6 +32,11 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-mobile')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('com.h2database:h2')
+	compile('org.jsoup:jsoup:1.9.2')
+	compile('com.fasterxml.jackson.core:jackson-core:2.8.0')
+	compile('com.fasterxml.jackson.core:jackson-annotations:2.5.3')
+	compile('com.fasterxml.jackson.core:jackson-databind:2.5.3')
+	compile('com.squareup.okhttp3:okhttp:3.4.1')
 	runtime('org.postgresql:postgresql')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
