@@ -1,10 +1,10 @@
-package services;
+package com.theironyard.services;
 
 
-import entities.User;
+import com.theironyard.entities.User;
 import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepository extends CrudRepository<User, Integer>{
-    public User findFirstByName(String name);
+//    public User findFirstByName(String name);
 
 }
