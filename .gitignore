@@ -1,3 +1,6 @@
+node_modules
+DS_Store
+
 # Created by .ignore support plugin (hsz.mobi)
 ### JetBrains template
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
@@ -46,3 +49,5 @@ crashlytics-build.properties
 fabric.properties
 
 *db
+src/main/resources/static/
+src/main/resources/templates/
