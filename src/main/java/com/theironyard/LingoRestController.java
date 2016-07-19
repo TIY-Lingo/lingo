@@ -73,6 +73,10 @@ public class LingoRestController {
             }
             articles.save(article);                                    //Saving the article to the Repo
         }
+
+        String test = articles.findOne(1).getContent();
+        test = test.replace("school", "escuela");
+        System.out.println(test);
     }
     public static String apiRequest(String url) throws IOException {
         OkHttpClient client = new OkHttpClient();
