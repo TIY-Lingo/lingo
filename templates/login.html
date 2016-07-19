@@ -15,9 +15,7 @@
            <div class="small-2 columns">
              <span class="prefix"><i class="fi-mail"></i></span>
            </div>
-           <div class="small-10  columns">
-             <input type="text" placeholder="email">
-           </div>
+
          </div>
          <div class="row collapse">
            <div class="small-2 columns ">
@@ -28,8 +26,12 @@
            </div>
          </div>
        </form>
-       <a href="#" class="button ">Sign Up! </a>
-        <p>Already have an account? <a href="#">Login here &raquo</a></p>
+       <div class="button-group" data-grouptype="OR">
+  <button href="#" class="small button primary radius" ng-click="signUp()">Sign Up</button>
+  <button href="#" class="small button success radius" ng-click="signIn()">Sign In</button>
+</div>
+       <!-- <a href="#" class="button" ng-click="signUpForm()">Sign Up! </a>
+        <p>Already have an account? <a href="#" ng-click="sendToLogin()">Login here &raquo</a></p> -->
      </div>
    </div>
   </div>
