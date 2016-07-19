@@ -13,14 +13,18 @@ public class Article {
     String title;
 
     @Column
+    String articleUrl;
+
+    @Column
     String author;
 
     @Column (length = 25000)
     String content;
 
-    public Article(int id, String title, String author, String content) {
-        this.id = id;
+
+    public Article(String title, String articleUrl, String author, String content) {
         this.title = title;
+        this.articleUrl = articleUrl;
         this.author = author;
         this.content = content;
     }
@@ -58,5 +62,23 @@ public class Article {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getArticleUrl() {
+        return articleUrl;
+    }
+
+    public void setArticleUrl(String articleUrl) {
+        this.articleUrl = articleUrl;
+    }
+
+    @Override
+    public String toString() {
+        return "Article{" +
+                "author: '" + author + '\'' +
+                ", Url: '" + articleUrl + '\'' +
+                ", Title: '" + title + '\'' +
+                ", Id: " + id +
+                '}';
     }
 }
