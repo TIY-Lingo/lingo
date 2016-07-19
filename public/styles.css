@@ -103,6 +103,11 @@ body {
       margin-top: 0;
       text-align: center;
       text-transform: uppercase; }
+    .profile-card .profile-info h5 {
+      text-align: center; }
+    .profile-card .profile-info a {
+      text-align: center;
+      margin-left: 38%; }
     .profile-card .profile-info p {
       text-align: center; }
     .profile-card .profile-info .inline-list {
