@@ -45,43 +45,34 @@ public class LingoRestController {
     @PostConstruct
     public void scrapeAPIResults() throws IOException {
 
-        String apiURL = "https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=289858bf10514c09b02e561994f4ab45";
-        String returnedJson = apiRequest(apiURL);
+        String apiURL = "https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=289858bf10514c09b02e561994f4ab45";   // The Technology API url
+        String returnedJson = apiRequest(apiURL);                               //setting the returned Json string to a String object for use.
 
         ObjectMapper mapper = new ObjectMapper();
-        JsonNode actualObj = mapper.readValue(returnedJson, JsonNode.class);
+        JsonNode fullJsonReturn = mapper.readValue(returnedJson, JsonNode.class);    //converts Json String into a Node for use with Jackson
 
-        JsonNode results = actualObj.get("results");
+        JsonNode results = fullJsonReturn.get("results");                //Creating a sub-node containing only the "results" portion of the original json file
 
-        ArrayList<Article> articleList = new ArrayList<>();
+        for(JsonNode result : results){                                 // For every Result in the Results Node
+            JsonNode title = result.findValue("title");                 // grab the title
+            JsonNode returnedURL = result.findValue("url");             // grab the url
+            JsonNode author = result.findValue("byline");                // grab the byline - AKA the author
 
+            String urlClean = returnedURL.toString();                 // The returned url has an extra set of "" that need to be removed before it can be used to get the article contents
+            urlClean = urlClean.substring(1,urlClean.length()-1); // this line drops the extra quotes by dropping the first and last character of the string
 
-        for(JsonNode result : results){
-            JsonNode title = result.findValue("title");
-            JsonNode returnedURL = result.findValue("url");
-            JsonNode author = result.findValue("byline");
+            Document doc = Jsoup.connect(urlClean).get();             // This scrapes the provided webpage and puts it in a document Object for use with Jsoup
+            String content = doc.select("p").text();                  // this line grabs only the content from the css paragraph tags
+            content = content.substring(27, content.length());        // Removes the first few characters because they are consistently gibberish or advertisements
 
-            String urlCleaner = returnedURL.toString();
-            urlCleaner = urlCleaner.substring(1,urlCleaner.length()-1);
+            Article article = new Article(title.toString(),returnedURL.toString(), author.toString(), content.toString());  //creates an Article Object from the information grabbed above
 
-            Document doc = Jsoup.connect(urlCleaner).get();
-            String content = doc.select("p").text();
-            content = content.substring(27, content.length());
-
-            Article article = new Article(title.toString(),returnedURL.toString(), author.toString(), content.toString());
-            if(article.getContent().length() > 25000){
+            if(article.getContent().length() > 25000){                 //Checking to make sure it will fit the confines of a cell in the DB
                 article.setContent(article.getContent().substring(0,24999));
                 System.out.println("damn thats a big article");
             }
-
-            System.out.println("TESTING THIS SHIT" +  article.toString());
-            articles.save(article);
-            System.out.println("TESTING THIS SHIT" +  article.toString());
-
+            articles.save(article);                                    //Saving the article to the Repo
         }
-
-        System.out.println(articles.findOne(1).toString());
-
     }
     public static String apiRequest(String url) throws IOException {
         OkHttpClient client = new OkHttpClient();
