@@ -1,5 +1,6 @@
 package com.theironyard;
 
+import entities.User;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import entities.Article;
@@ -10,11 +11,15 @@ import org.h2.tools.Server;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import services.ArticleRepository;
 import services.UserRepository;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -26,7 +31,7 @@ public class LingoRestController {
     UserRepository users;
 
     @Autowired
-    ArticleRepository articleRepo;
+    ArticleRepository articles;
 
     @PostConstruct
     public void init() throws SQLException {
