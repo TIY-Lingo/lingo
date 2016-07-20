@@ -170,17 +170,23 @@ public class LingoRestController {
                 System.out.println("Currently Translating: " + article.getId());
                 String spanishArticle = article.getContent();  //set placeholder for manipulating to the original content
                 int count = 0;
-                while (count <= 30) {
+                int failedcount=0;
+                while (count <= 20) {
                     int seedValue = randomNum();   //grab a random number to check for in the article
                     if (spanishArticle.contains(dictionaries.findOne(seedValue).getEnglish())) {   //if the article contains the randomly selected english word from the language dictionary....
                         spanishArticle = spanishArticle.replace(dictionaries.findOne(seedValue).getEnglish(), "<span class='spanish'>" + dictionaries.findOne(seedValue).getSpanish() +"</span>"); //replace english seed value with spanish seed value
 
                         System.out.println("Replaced: " + dictionaries.findOne(seedValue).getEnglish() + " With: " + dictionaries.findOne(seedValue).getSpanish()); //for console testing
                         count++;
-                    } else if (count == 30) {
+                    } else if (count == 20) {
                         article.setSpan1(spanishArticle);  //once the count hits 6 save the spanish changes and save it back to the DB
                         articles.save(article);
                         break;
+                    } else{
+                        failedcount++;
+                        if (failedcount >200){
+                            break;
+                        }
                     }
                 }
             }
