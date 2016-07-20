@@ -6,6 +6,7 @@ import com.theironyard.entities.Article;
 import com.theironyard.entities.Dictionary;
 import com.theironyard.entities.User;
 import com.theironyard.services.DictionaryRepository;
+import com.theironyard.utils.PasswordStorage;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -20,6 +21,8 @@ import com.theironyard.services.ArticleRepository;
 import com.theironyard.services.UserRepository;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -46,10 +49,57 @@ public class LingoRestController {
     }
 
 
-    @RequestMapping(path="/", method = RequestMethod.GET)
-    public Iterable<User> findUser(){
-        return users.findAll();
+
+
+    @RequestMapping(path = "/login", method = RequestMethod.POST)
+    public void login(String username, String password,  HttpSession session, HttpServletResponse response) throws PasswordStorage.CannotPerformOperationException, IOException {
+        User user = users.findByName(username);
+        if (user == null) {
+            response.sendRedirect("/registerUser");
+        }
+        else {
+            session.setAttribute("username", username);
+            response.sendRedirect("/articles");
+        }
+
     }
+
+    @RequestMapping(path = "/registerUser", method = RequestMethod.POST)
+    public void register(String username, String password, HttpServletResponse response, HttpSession session) throws PasswordStorage.CannotPerformOperationException, IOException {
+       User user = new User(username, PasswordStorage.createHash(password));
+        users.save(user);
+        session.setAttribute("username", username);
+        response.sendRedirect("/preferences");
+
+    }
+
+    @RequestMapping(path = "/preferences", method = RequestMethod.GET)
+    public User getPreferences(String username, String language, Boolean technology, Boolean sports, Boolean business, Boolean politics, Boolean arts){
+        return users.findByName(username);
+    }
+
+
+
+//    @RequestMapping(path = "/preferences", method = RequestMethod.POST)
+//    public User setPreferences(String username, String language, Boolean technology, Boolean sports, Boolean business, Boolean politics, Boolean arts)
+//
+
+
+
+    @RequestMapping(path = "/articles", method = RequestMethod.GET)
+    public Iterable<Article> getArticles(){
+        return articles.findAll();
+
+    }
+
+
+
+    @RequestMapping(path = "/logout", method = RequestMethod.POST)
+    public void logout(HttpSession session, HttpServletResponse response) throws IOException {
+        session.invalidate();
+        response.sendRedirect("/home");
+    }
+
 
     @PostConstruct
     public void scrapeAPIResults() throws IOException {
