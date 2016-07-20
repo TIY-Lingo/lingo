@@ -16,6 +16,12 @@ public class User {
     @Column(nullable = false)
     String password;
 
+//    @Column(nullable = false)
+//    int daysVisited;
+//
+//    @Column(nullable = false)
+//    int lastVisited;
+
     @Column
     String language;
 
@@ -65,4 +71,20 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+//    public int getDaysVisited() {
+//        return daysVisited;
+//    }
+//
+//    public void setDaysVisited(int daysVisited) {
+//        this.daysVisited = daysVisited;
+//    }
+//
+//    public int getLastVisited() {
+//        return lastVisited;
+//    }
+//
+//    public void setLastVisited(int lastVisited) {
+//        this.lastVisited = lastVisited;
+//    }
 }
