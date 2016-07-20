@@ -1,7 +1,7 @@
 let app = angular.module('lingo', ['ngRoute']);
 // require('./controllers/UserController')(app);
-// require('./controllers/NewsController')(app);
-// require('./services/NewsService')(app);
+require('./controllers/NewsController')(app);
+require('./services/NewsService')(app);
 // require('./services/UserService')(app);
 
 app.config(['$routeProvider', function($routeProvider) {
