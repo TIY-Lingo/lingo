@@ -8,10 +8,9 @@ module.exports = function(app) {
 
 },{}],2:[function(require,module,exports){
 module.exports = function(app) {
-    app.controller('UserController', ['UserService',
-        '$scope', '$location',
-        function(UserService, $scope, $location) {
-
+    app.controller('UserController', ['UserService','$scope', '$location', function(UserService, $scope, $location) {
+          $scope.userInput = '';
+          $scope.userPassword = '';
             // $scope.signIn = function() {
             //     console.log("clicked log in");
             //     UserService.postUserInfo($scope.username)
@@ -103,27 +102,6 @@ module.exports = function(app) {
 module.exports = function(app) {
 
         app.factory('UserService', ['$http', function($http) {
-<<<<<<< HEAD
-
-                ////signIn() click event to post username and password to server//////
-                return {
-                    postUserInfo: function(name) {
-                        $http({
-                            url: '/login',
-                            method: 'POST',
-                            data: {
-                                username: name,
-                                password: "1234",
-                            },
-                        }).then(function(results) {
-                            console.log("posted")
-
-                            // if(response.data.isArtist === true){
-                            //   $location.path('/artist');
-                            //   angular.copy(response.data, currentUser )
-                            //   console.log(currentUser);
-                            // }
-=======
           // let currentUser= {};
                 ////signIn() click event to post username and password to server//////
                 return {
@@ -137,9 +115,15 @@ module.exports = function(app) {
                             },
                         }).then(function(results) {
                             console.log("posted")
+                            // if(response.data.isArtist === true){
+                            //   $location.path('/artist');
+                            //   angular.copy(response.data, currentUser )
+                            //   console.log(currentUser);
+                            // }
+
                             // angular.copy(response.data, currentUser);
                             // console.log(currentUser);
->>>>>>> 60d77eedc6cb1c7ba3ccc4c06297cda95a7452c6
+
                         });
                       }
                     };
@@ -168,16 +152,12 @@ module.exports = function(app) {
                     return {
                         // sendPrefInfo: function() {
                         //     return userPref;
-<<<<<<< HEAD
                         // },
                         // getCurrentUser: function() {
                             //   console.log("user info", currentUser);
                             //   return currentUser
                             // },
 
-=======
-                        // }
->>>>>>> 60d77eedc6cb1c7ba3ccc4c06297cda95a7452c6
                     }
                 }]);
         };

@@ -1,8 +1,7 @@
 module.exports = function(app) {
-    app.controller('UserController', ['UserService',
-        '$scope', '$location',
-        function(UserService, $scope, $location) {
-
+    app.controller('UserController', ['UserService','$scope', '$location', function(UserService, $scope, $location) {
+          $scope.userInput = '';
+          $scope.userPassword = '';
             // $scope.signIn = function() {
             //     console.log("clicked log in");
             //     UserService.postUserInfo($scope.username)
