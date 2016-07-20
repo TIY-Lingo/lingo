@@ -8,10 +8,9 @@ module.exports = function(app) {
 
 },{}],2:[function(require,module,exports){
 module.exports = function(app) {
-    app.controller('UserController', ['UserService',
-        '$scope', '$location',
-        function(UserService, $scope, $location) {
-
+    app.controller('UserController', ['UserService','$scope', '$location', function(UserService, $scope, $location) {
+          $scope.userInput = '';
+          $scope.userPassword = '';
             // $scope.signIn = function() {
             //     console.log("clicked log in");
             //     UserService.postUserInfo($scope.username)
@@ -116,8 +115,15 @@ module.exports = function(app) {
                             },
                         }).then(function(results) {
                             console.log("posted")
+                            // if(response.data.isArtist === true){
+                            //   $location.path('/artist');
+                            //   angular.copy(response.data, currentUser )
+                            //   console.log(currentUser);
+                            // }
+
                             // angular.copy(response.data, currentUser);
                             // console.log(currentUser);
+
                         });
                       }
                     };
@@ -146,7 +152,12 @@ module.exports = function(app) {
                     return {
                         // sendPrefInfo: function() {
                         //     return userPref;
-                        // }
+                        // },
+                        // getCurrentUser: function() {
+                            //   console.log("user info", currentUser);
+                            //   return currentUser
+                            // },
+
                     }
                 }]);
         };
