@@ -57,10 +57,10 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: 'UserController',
             templateUrl: 'templates/login.html',
         })
-        .when('/register', {
-            controller: 'UserController',
-            templateUrl: 'templates/registerUser.html',
-        })
+        // .when('/register', {
+        //     controller: 'UserController',
+        //     templateUrl: 'templates/registerUser.html',
+        // })
         .when('/preferences', {
             controller: 'UserController',
             templateUrl: 'templates/preferences.html',
