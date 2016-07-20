@@ -21,6 +21,14 @@ public class Article {
     @Column (length = 25000, nullable = false)
     String content;
 
+    @Column (length = 25000)
+    String span1;
+
+    @Column (length = 25000)
+    String span2;
+
+    @Column (length = 25000)
+    String span3;
 
     public Article(String title, String articleUrl, String author, String content) {
         this.title = title;
@@ -70,6 +78,30 @@ public class Article {
 
     public void setArticleUrl(String articleUrl) {
         this.articleUrl = articleUrl;
+    }
+
+    public String getSpan1() {
+        return span1;
+    }
+
+    public void setSpan1(String span1) {
+        this.span1 = span1;
+    }
+
+    public String getSpan2() {
+        return span2;
+    }
+
+    public void setSpan2(String span2) {
+        this.span2 = span2;
+    }
+
+    public String getSpan3() {
+        return span3;
+    }
+
+    public void setSpan3(String span3) {
+        this.span3 = span3;
     }
 
     @Override

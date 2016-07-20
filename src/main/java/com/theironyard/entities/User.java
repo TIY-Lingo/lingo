@@ -16,6 +16,24 @@ public class User {
     @Column(nullable = false)
     String password;
 
+    @Column
+    String language;
+
+    @Column
+    Boolean technology;
+
+    @Column
+    Boolean sports;
+
+    @Column
+    Boolean business;
+
+    @Column
+    Boolean politics;
+
+    @Column
+    Boolean arts;
+
     public User(String username, String password) {
         this.username = username;
         this.password = password;
