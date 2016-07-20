@@ -8,8 +8,9 @@ module.exports = function(app) {
           url: '/articles',
       }).then(function(response) {
           let newsObject = response.data;
-          console.log("object with news", newsObject);
           angular.copy(newsObject, newsArray)
+          console.log("object with news", newsArray);
+
       });
 
       return {
