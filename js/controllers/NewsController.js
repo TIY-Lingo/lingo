@@ -1,5 +1,6 @@
 module.exports = function(app) {
-    app.controller('NewsController', ['NewsService','UserService', '$scope', '$location', function(NewsService,UserService, $scope, $location) {
-      $scope.news = NewsService.getNewsRequest();
+    app.controller('NewsController', ['NewsService', '$scope', '$location', function(NewsService, $scope, $location) {
+      $scope.newsArray = NewsService.getNewsRequest();
+      console.log($scope.newsArray);
     }]);
 }
