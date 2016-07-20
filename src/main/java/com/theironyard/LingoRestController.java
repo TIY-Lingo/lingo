@@ -14,6 +14,8 @@ import org.h2.tools.Server;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,8 +46,9 @@ public class LingoRestController {
     DictionaryRepository dictionaries;
 
     @PostConstruct
-    public void init() throws SQLException {
+    public void init() throws SQLException, IOException {
         Server.createWebServer().start();
+        scrapeAPIResults();
     }
 
 
@@ -101,10 +104,10 @@ public class LingoRestController {
     }
 
 
-    @PostConstruct
+    @Async
     public void scrapeAPIResults() throws IOException {
         parseDictionary();               //Brings language dictionary into the DB if it isn't already there.
-
+        System.out.println("Retrieving Json from API...");               //for console testing
         String apiURL = "https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=289858bf10514c09b02e561994f4ab45";   // The Technology API url
         String returnedJson = apiRequest(apiURL);                        //setting the returned Json string to a String object for use.
 
@@ -112,7 +115,7 @@ public class LingoRestController {
         JsonNode fullJsonReturn = mapper.readValue(returnedJson, JsonNode.class);    //converts Json String into a Node for use with Jackson
 
         JsonNode results = fullJsonReturn.get("results");                //Creating a sub-node containing only the "results" portion of the original json file
-
+        System.out.println("Parsing Json and populating Article List...");  //for console testing
         for(JsonNode result : results) {                                 // For every Result in the Results Node
 
             JsonNode title = result.findValue("title");                 // grab the title
@@ -138,6 +141,7 @@ public class LingoRestController {
                 articles.save(article);                                    //Saving the article to the Repo
             }
         }
+        System.out.println("Processing Articles...");  //for console testing
         wordReplacement();
     }
 
@@ -153,31 +157,31 @@ public class LingoRestController {
     }
 
     public int randomNum(){
-        int n = (int) (Math.random() * (dictionaries.count()+1));
+        int n = (int) (1 + (Math.random() * (dictionaries.count())));
         return n;
     }
 
     public void wordReplacement(){
         for (Article article: articles.findAll()){
             if (article.getSpan1()!= null){             //if spanish has already been injected, move onto the next article
-                System.out.println("Its not so null");
+                System.out.println("This article - #" + article.getId() + " - Has Already Been translated ");
                 continue;
             }else {                                     //otherwise, get to hotswappin'
-                String spanishArticle = "";
+                System.out.println("Currently Translating: " + article.getId());
+                String spanishArticle = article.getContent();  //set placeholder for manipulating to the original content
                 int count = 0;
-                while (count <= 6) {
-                    int seedValue = randomNum();
-                    if (article.getContent().contains(dictionaries.findOne(seedValue).getEnglish())) {   //if the article contains the randomly selected english word from the language dictionary....
-                        spanishArticle = article.getContent().replace(dictionaries.findOne(seedValue).getEnglish(), dictionaries.findOne(seedValue).getSpanish()); //replace english seed value with spanish seed value
+                while (count <= 30) {
+                    int seedValue = randomNum();   //grab a random number to check for in the article
+                    if (spanishArticle.contains(dictionaries.findOne(seedValue).getEnglish())) {   //if the article contains the randomly selected english word from the language dictionary....
+                        spanishArticle = spanishArticle.replace(dictionaries.findOne(seedValue).getEnglish(), "<span class='spanish'>" + dictionaries.findOne(seedValue).getSpanish() +"</span>"); //replace english seed value with spanish seed value
 
                         System.out.println("Replaced: " + dictionaries.findOne(seedValue).getEnglish() + " With: " + dictionaries.findOne(seedValue).getSpanish()); //for console testing
                         count++;
-                    } else if (count == 6) {
+                    } else if (count == 30) {
                         article.setSpan1(spanishArticle);  //once the count hits 6 save the spanish changes and save it back to the DB
                         articles.save(article);
                         break;
                     }
-
                 }
             }
         }
@@ -194,10 +198,9 @@ public class LingoRestController {
                 Dictionary dictEntry = new Dictionary(arrayString[0], arrayString[1], arrayString[2]);
                 dictionaries.save(dictEntry);
             }
-
-            System.out.println("Language Dictionary has been created");
+            System.out.println("Language Dictionary has been created");//for console testing
         } else {
-            System.out.println("Language Dictionary already exists");
+            System.out.println("Language Dictionary already exists");//for console testing
         }
     }
 }
