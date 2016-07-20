@@ -185,6 +185,7 @@ public class LingoRestController {
                 }
             }
         }
+        System.out.println("Finished Processing Articles...");
     }
 
     public void parseDictionary() throws FileNotFoundException {
