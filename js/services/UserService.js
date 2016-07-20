@@ -1,25 +1,28 @@
 module.exports = function(app) {
 
         app.factory('UserService', ['$http', function($http) {
-
+          // let currentUser= {};
                 ////signIn() click event to post username and password to server//////
                 return {
-                    postUserInfo: function(name) {
+                    postUserInfo: function(name,pw) {
                         $http({
-                            url: '/login',
+                            url: '/registerUser',
                             method: 'POST',
                             data: {
                                 username: name,
-                                password: "1234",
+                                password: pw,
                             },
                         }).then(function(results) {
                             console.log("posted")
-
                             // if(response.data.isArtist === true){
                             //   $location.path('/artist');
                             //   angular.copy(response.data, currentUser )
                             //   console.log(currentUser);
                             // }
+
+                            // angular.copy(response.data, currentUser);
+                            // console.log(currentUser);
+
                         });
                       }
                     };

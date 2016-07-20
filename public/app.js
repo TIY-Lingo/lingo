@@ -12,15 +12,25 @@ module.exports = function(app) {
         '$scope', '$location',
         function(UserService, $scope, $location) {
 
-            $scope.signIn = function() {
+            // $scope.signIn = function() {
+            //     console.log("clicked log in");
+            //     UserService.postUserInfo($scope.username)
+            //     console.log('clicked')
+            //     if ($scope.username != null) {
+            //         $location.path('/home');
+            //     } else {
+            //         alert('Please enter a username');
+            //     }
+            // }
+
+            $scope.signUp = function() {
                 console.log("clicked log in");
-                UserService.postUserInfo($scope.username)
-                console.log('clicked')
-                if ($scope.username != null) {
-                    $location.path('/home');
-                } else {
-                    alert('Please enter a username');
-                }
+                UserService.postUserInfo($scope.userInput, $scope.userPassword)
+                // if ($scope.username != null) {
+                //     $location.path('/home');
+                // } else {
+                //     alert('Please enter a username');
+                // }
             }
 
         }
@@ -47,10 +57,10 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: 'UserController',
             templateUrl: 'templates/login.html',
         })
-        .when('/register', {
-            controller: 'UserController',
-            templateUrl: 'templates/registerUser.html',
-        })
+        // .when('/register', {
+        //     controller: 'UserController',
+        //     templateUrl: 'templates/registerUser.html',
+        // })
         .when('/preferences', {
             controller: 'UserController',
             templateUrl: 'templates/preferences.html',
@@ -93,6 +103,7 @@ module.exports = function(app) {
 module.exports = function(app) {
 
         app.factory('UserService', ['$http', function($http) {
+<<<<<<< HEAD
 
                 ////signIn() click event to post username and password to server//////
                 return {
@@ -112,6 +123,23 @@ module.exports = function(app) {
                             //   angular.copy(response.data, currentUser )
                             //   console.log(currentUser);
                             // }
+=======
+          // let currentUser= {};
+                ////signIn() click event to post username and password to server//////
+                return {
+                    postUserInfo: function(name,pw) {
+                        $http({
+                            url: '/registerUser',
+                            method: 'POST',
+                            data: {
+                                username: name,
+                                password: pw,
+                            },
+                        }).then(function(results) {
+                            console.log("posted")
+                            // angular.copy(response.data, currentUser);
+                            // console.log(currentUser);
+>>>>>>> 60d77eedc6cb1c7ba3ccc4c06297cda95a7452c6
                         });
                       }
                     };
@@ -140,12 +168,16 @@ module.exports = function(app) {
                     return {
                         // sendPrefInfo: function() {
                         //     return userPref;
+<<<<<<< HEAD
                         // },
                         // getCurrentUser: function() {
                             //   console.log("user info", currentUser);
                             //   return currentUser
                             // },
 
+=======
+                        // }
+>>>>>>> 60d77eedc6cb1c7ba3ccc4c06297cda95a7452c6
                     }
                 }]);
         };
