@@ -3,7 +3,9 @@ package com.theironyard;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.theironyard.entities.Article;
+import com.theironyard.entities.Dictionary;
 import com.theironyard.entities.User;
+import com.theironyard.services.DictionaryRepository;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -18,9 +20,12 @@ import com.theironyard.services.ArticleRepository;
 import com.theironyard.services.UserRepository;
 
 import javax.annotation.PostConstruct;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 @RestController
 public class LingoRestController {
@@ -30,6 +35,9 @@ public class LingoRestController {
 
     @Autowired
     ArticleRepository articles;
+
+    @Autowired
+    DictionaryRepository dictionaries;
 
     @PostConstruct
     public void init() throws SQLException {
@@ -44,6 +52,7 @@ public class LingoRestController {
 
     @PostConstruct
     public void scrapeAPIResults() throws IOException {
+        parseDictionary();
 
         String apiURL = "https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=289858bf10514c09b02e561994f4ab45";   // The Technology API url
         String returnedJson = apiRequest(apiURL);                               //setting the returned Json string to a String object for use.
@@ -89,4 +98,16 @@ public class LingoRestController {
         }
     }
 
+
+    public void parseDictionary() throws FileNotFoundException {
+        File f = new File("LanguageDB-V0.0.1.csv");
+        Scanner scanner = new Scanner(f);
+        scanner.nextLine();
+        while (scanner.hasNext()) {
+            String[] arrayString = scanner.nextLine().split(",");
+            Dictionary dictEntry = new Dictionary(arrayString[0], arrayString[1], arrayString[2]);
+            dictionaries.save(dictEntry);
+            System.out.println(" ");
+        }
+    }
 }
