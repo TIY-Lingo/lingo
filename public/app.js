@@ -13,6 +13,7 @@ module.exports = function(app) {
         function(UserService, $scope, $location) {
 
             $scope.signIn = function() {
+                console.log("clicked log in");
                 UserService.postUserInfo($scope.username)
                 console.log('clicked')
                 if ($scope.username != null) {
@@ -22,9 +23,6 @@ module.exports = function(app) {
                 }
             }
 
-            $scope.meetTheTeam = function() {
-                $location.path('/team');
-            }
         }
     ]);
 }
@@ -35,7 +33,7 @@ let app = angular.module('lingo', ['ngRoute', 'ngSanitize']);
 require('./controllers/UserController')(app);
 require('./controllers/NewsController')(app);
 require('./services/NewsService')(app);
-require('./services/UserService')(app);
+// require('./services/UserService')(app);
 
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
@@ -67,7 +65,7 @@ app.config(['$routeProvider', function($routeProvider) {
         })
 }]);
 
-},{"./controllers/NewsController":1,"./controllers/UserController":2,"./services/NewsService":4,"./services/UserService":5}],4:[function(require,module,exports){
+},{"./controllers/NewsController":1,"./controllers/UserController":2,"./services/NewsService":4}],4:[function(require,module,exports){
 module.exports = function(app) {
 
     app.factory('NewsService', ['$http', function($http) {
@@ -90,55 +88,5 @@ module.exports = function(app) {
       }
     }]);
 };
-
-},{}],5:[function(require,module,exports){
-module.exports = function(app) {
-
-        app.factory('UserService', ['$http', function($http) {
-
-                ////signIn() click event to post username and password to server//////
-                return {
-                    postUserInfo: function(name) {
-                        $http({
-                            url: '/login',
-                            method: 'POST',
-                            data: {
-                                username: name,
-                                password: "1234",
-                            },
-                        }).then(function(results) {
-                            console.log("posted")
-                        });
-                      }
-                    };
-
-                    // createPreferences: function(pref) {
-                    //     userPref = pref;
-                    //     console.log(userPref);
-                    //
-                    //     $http({
-                    //         method: 'POST',
-                    //         url: '/preferences',
-                    //         data: {
-                    //             language: 'spanish',
-                    //             business: false,
-                    //             sports: false,
-                    //             politics: false,
-                    //             technology: false,
-                    //             arts: false,
-                    //         }
-                    //     }).then(function(response) {
-                    //         let userPrefObject = response.data;
-                    //         console.log("object with user preferences", userPrefObject);
-                    //     });
-                    // }
-
-                    return {
-                        // sendPrefInfo: function() {
-                        //     return userPref;
-                        // }
-                    }
-                }]);
-        };
 
 },{}]},{},[3])
