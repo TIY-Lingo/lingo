@@ -110,21 +110,20 @@ public class LingoRestController {
 
     public void wordReplacement(){
         for (Article article: articles.findAll()){
-            if (article.getSpan1()!= null){
+            if (article.getSpan1()!= null){             //if spanish has already been injected, move onto the next article
                 System.out.println("Its not so null");
                 continue;
-            }else {
+            }else {                                     //otherwise, get to hotswappin'
                 String spanishArticle = "";
                 int count = 0;
                 while (count <= 6) {
-
                     int seedValue = randomNum();
                     if (article.getContent().contains(dictionaries.findOne(seedValue).getEnglish())) {   //if the article contains the randomly selected english word from the language dictionary....
                         spanishArticle = article.getContent().replace(dictionaries.findOne(seedValue).getEnglish(), dictionaries.findOne(seedValue).getSpanish()); //replace english seed value with spanish seed value
-                        System.out.println("Replaced: " + dictionaries.findOne(seedValue).getEnglish() + " With: " + dictionaries.findOne(seedValue).getSpanish());
+                        System.out.println("Replaced: " + dictionaries.findOne(seedValue).getEnglish() + " With: " + dictionaries.findOne(seedValue).getSpanish()); //for console testing
                         count++;
                     } else if (count == 6) {
-                        article.setSpan1(spanishArticle);
+                        article.setSpan1(spanishArticle);  //once the count hits 6 save the spanish changes and save it back to the DB
                         articles.save(article);
                         break;
                     }
