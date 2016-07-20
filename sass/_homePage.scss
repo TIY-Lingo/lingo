@@ -6,74 +6,76 @@
 	margin-top: 5%;
 	max-width: 500px;
 }
-
 .signup-panel {
-  padding: 15px;
+	padding: 15px;
 }
-
 .signup-panel i {
-  font-size: 30px;
-  line-height: 50px;
-  color: #999;
+	font-size: 30px;
+	line-height: 50px;
+	color: #999;
 }
-
-.signup-panel form input, .signup-panel form span {
-  height: 50px;
+.signup-panel form input,
+.signup-panel form span {
+	height: 50px;
 }
-
 .signup-panel .welcome {
-  font-size: 26px;
-  text-align: center;
-  margin-left: 0;
+	font-size: 26px;
+	text-align: center;
+	margin-left: 0;
 }
-
 .signup-panel .button {
-  margin-left: 35%;
+	margin-left: 35%;
 }
-
 section.active {
 	padding-top: 75px !important;
 }
-
 p.title {
 	border-bottom: 1px solid #cccccc !important;
 }
-
-.content{
+.content {
 	height: 450px;
 }
-
 // PARALAX CSS
 body {
-  font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
-  font-weight: 200;
-  font-size: 20px;
+	font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
+	font-weight: 200;
+	font-size: 20px;
 }
-
 .parallax-background {
-  background-color: #0078A0;
-  height: 620px;
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  position: fixed;
-  width: 100%;
+	// background-color: #0078A0;
+	background: url('images/heroimagelogo.png') no-repeat center center;
+	// background-size: cover;
+	height: 620px;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	position: fixed;
+	width: 100%;
 }
-
 .intro-text {
-  font-size: 50px;
-  color: #fff;
-  text-align: center;
-  margin-top: 15%;
+	font-size: 50px;
+	color: #fff;
+	text-align: center;
+	margin-top: 15%;
 }
-
 .parallax-content {
-  max-width: 100%;
-  position: relative;
-  top: 500px;
-  padding: 50px;
-  font-size: 20px;
-  background-color: #fff;
+	max-width: 100%;
+	position: relative;
+	top: 500px;
+	padding: 50px;
+	font-size: 20px;
+	background-color: #fff;
+}
+.homeglobe {
+	width: 4%;
+	float: left;
+	opacity: 0.5;
+	margin-top: -13%;
+	margin-left: 2%;
+}
+.homearrow {
+	width: 3%;
+	margin-bottom: -42%;
 }
