@@ -20,13 +20,13 @@ attack,l'attaque,el ataque
 authority,l'autorité,la autoridad
 average,la moyenne,el término medio
 bag,le sac,el saco
-ball,"la balle, le ballon",la bola
+ball,la balle,la bola
 battle,la bataille,la batalla
 beauty,la beauté,la belleza
 beginning,le commencement,el principio
 birth,la naissance,el nacimiento
 blot,la tache,el borrón
-blow (hit),le coup,el golpe
+blow,le coup,el golpe
 bottom,le fond,el fondo
 burn,la brûlure,la quemadura
 business,les affaires,los negocios
@@ -111,7 +111,7 @@ expense,les frais,los gastos
 explanation,l'explication,la explicación
 fact,le fait,el hecho
 fall,la baisse,la caída
-fear,"la peur, la crainte","el temor, el miedo"
+fear,la peur,el temor
 flight,le vol,el vuelo
 fold,le pli,el pliegue
 food,la nourriture,el alimento
@@ -284,7 +284,7 @@ smile,le sourir,la sonrisa
 song,la chanson,la canción
 sound,le son,el sonido
 space,l'espace,el espacio
-speech (discourse),le discours,el discurso
+speech ,le discours,el discurso
 speed,la vitesse,la velocidad
 sport,le sport,el deporte
 square,le carré,el cuadrado
