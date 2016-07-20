@@ -4,6 +4,7 @@
 <head>    <meta charset="utf-8">
     <title>Lingo</title>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles.css">
     <!-- Compressed CSS -->
 
@@ -16,15 +17,16 @@
     <script src="app.js"></script>
 </head>
 
+
 <body>
+  <main ng-view></main>
 
-    <main ng-view></main>
 
+    <a href="#home">Home</a>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
     <script>
         $(document).foundation();
     </script>
-
 </body>
 
 </html>
