@@ -4,6 +4,7 @@ module.exports = function(app) {
         function(UserService, $scope, $location) {
 
             $scope.signIn = function() {
+                console.log("clicked log in");
                 UserService.postUserInfo($scope.username)
                 console.log('clicked')
                 if ($scope.username != null) {
@@ -13,9 +14,6 @@ module.exports = function(app) {
                 }
             }
 
-            $scope.meetTheTeam = function() {
-                $location.path('/team');
-            }
         }
     ]);
 }
