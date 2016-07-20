@@ -25,6 +25,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 @RestController
@@ -65,7 +66,7 @@ public class LingoRestController {
         for(JsonNode result : results) {                                 // For every Result in the Results Node
 
             JsonNode title = result.findValue("title");                 // grab the title
-            if (articles.findByTitle(title.toString()) != null) {       // use the title to see if it's in the DB, if it is move on, otherwise add it
+            if (articles.findByTitle(title.toString()) != null) {       // use the title to see if it's in the DB, if it's there move on, otherwise add it
                 continue;
             } else {
                 JsonNode returnedURL = result.findValue("url");          // grab the url
@@ -87,6 +88,7 @@ public class LingoRestController {
                 articles.save(article);                                    //Saving the article to the Repo
             }
         }
+        wordReplacement();
     }
     public static String apiRequest(String url) throws IOException {
         OkHttpClient client = new OkHttpClient();
@@ -100,6 +102,38 @@ public class LingoRestController {
     }
 
 
+    public int randomNum(){
+        int n = (int) (Math.random() * (dictionaries.count()+1));
+        return n;
+    }
+
+
+    public void wordReplacement(){
+        for (Article article: articles.findAll()){
+            if (article.getSpan1()!= null){
+                System.out.println("Its not so null");
+                continue;
+            }else {
+                String spanishArticle = "";
+                int count = 0;
+                while (count <= 6) {
+
+                    int seedValue = randomNum();
+                    if (article.getContent().contains(dictionaries.findOne(seedValue).getEnglish())) {   //if the article contains the randomly selected english word from the language dictionary....
+                        spanishArticle = article.getContent().replace(dictionaries.findOne(seedValue).getEnglish(), dictionaries.findOne(seedValue).getSpanish()); //replace english seed value with spanish seed value
+                        System.out.println("Replaced: " + dictionaries.findOne(seedValue).getEnglish() + " With: " + dictionaries.findOne(seedValue).getSpanish());
+                        count++;
+                    } else if (count == 6) {
+                        article.setSpan1(spanishArticle);
+                        articles.save(article);
+                        break;
+                    }
+
+                }
+            }
+        }
+    }
+
     public void parseDictionary() throws FileNotFoundException {
 
         if(dictionaries.count() == 0) {
@@ -112,9 +146,9 @@ public class LingoRestController {
                 dictionaries.save(dictEntry);
             }
 
-            System.out.println("Dictionary has been created");
+            System.out.println("Language Dictionary has been created");
         } else {
-            System.out.println("Dictionary has previously been instantiated");
+            System.out.println("Language Dictionary already exists");
         }
     }
 }
