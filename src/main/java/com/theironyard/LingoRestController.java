@@ -90,6 +90,7 @@ public class LingoRestController {
         }
         wordReplacement();
     }
+
     public static String apiRequest(String url) throws IOException {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
@@ -101,12 +102,10 @@ public class LingoRestController {
         }
     }
 
-
     public int randomNum(){
         int n = (int) (Math.random() * (dictionaries.count()+1));
         return n;
     }
-
 
     public void wordReplacement(){
         for (Article article: articles.findAll()){
@@ -120,6 +119,7 @@ public class LingoRestController {
                     int seedValue = randomNum();
                     if (article.getContent().contains(dictionaries.findOne(seedValue).getEnglish())) {   //if the article contains the randomly selected english word from the language dictionary....
                         spanishArticle = article.getContent().replace(dictionaries.findOne(seedValue).getEnglish(), dictionaries.findOne(seedValue).getSpanish()); //replace english seed value with spanish seed value
+
                         System.out.println("Replaced: " + dictionaries.findOne(seedValue).getEnglish() + " With: " + dictionaries.findOne(seedValue).getSpanish()); //for console testing
                         count++;
                     } else if (count == 6) {
