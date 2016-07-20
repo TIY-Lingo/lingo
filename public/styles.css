@@ -1,40 +1,4 @@
 @charset "UTF-8";
-.center.row {
-  height: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5%;
-  max-width: 500px; }
-
-.signup-panel {
-  padding: 15px; }
-
-.signup-panel i {
-  font-size: 30px;
-  line-height: 50px;
-  color: #999; }
-
-.signup-panel form input,
-.signup-panel form span {
-  height: 50px; }
-
-.signup-panel .welcome {
-  font-size: 26px;
-  text-align: center;
-  margin-left: 0; }
-
-.signup-panel .button {
-  margin-left: 35%; }
-
-section.active {
-  padding-top: 75px !important; }
-
-p.title {
-  border-bottom: 1px solid #cccccc !important; }
-
-.content {
-  height: 450px; }
-
 body {
   font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
   font-weight: 200;
@@ -311,6 +275,9 @@ body {
 
 .top-bar.expanded {
   background: #333333; }
+
+.spanish {
+  color: red; }
 
 .hero {
   background: url("http://static.pexels.com/wp-content/uploads/2014/07/beach-coast-holiday-2190-825x550.jpg") no-repeat center center;
