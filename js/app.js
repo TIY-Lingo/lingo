@@ -3,7 +3,7 @@ let app = angular.module('lingo', ['ngRoute', 'ngSanitize']);
 require('./controllers/UserController')(app);
 require('./controllers/NewsController')(app);
 require('./services/NewsService')(app);
-// require('./services/UserService')(app);
+require('./services/UserService')(app);
 
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
