@@ -14,8 +14,15 @@ module.exports = function(app) {
                             },
                         }).then(function(results) {
                             console.log("posted")
+                            // if(response.data.isArtist === true){
+                            //   $location.path('/artist');
+                            //   angular.copy(response.data, currentUser )
+                            //   console.log(currentUser);
+                            // }
+
                             // angular.copy(response.data, currentUser);
                             // console.log(currentUser);
+
                         });
                       }
                     };
@@ -44,7 +51,12 @@ module.exports = function(app) {
                     return {
                         // sendPrefInfo: function() {
                         //     return userPref;
-                        // }
+                        // },
+                        // getCurrentUser: function() {
+                            //   console.log("user info", currentUser);
+                            //   return currentUser
+                            // },
+
                     }
                 }]);
         };
