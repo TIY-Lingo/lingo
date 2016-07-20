@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="lingo">
 
-<head>    <meta charset="utf-8">
+<head>
+    <meta charset="utf-8">
     <title>Lingo</title>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <!-- this adds Foundation Icon Fonts -->
@@ -20,13 +21,20 @@
 
 
 <body>
-  <main ng-view></main>
+
+    <main ng-view></main>
 
 
-    <a href="#home">Home</a>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
     <script>
         $(document).foundation();
+        $(function() {
+            $(".right-off-canvas-toggle, .exit-off-canvas").click(function() {
+                $(".top-bar").toggleClass("top-bar-close");
+                $(".middle-bar").toggleClass("middle-bar-close");
+                $(".bottom-bar").toggleClass("bottom-bar-close");
+            });
+        });
     </script>
 </body>
 
