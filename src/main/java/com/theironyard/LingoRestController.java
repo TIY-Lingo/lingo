@@ -110,24 +110,24 @@ public class LingoRestController {
     public void wordReplacement(){
         for (Article article: articles.findAll()){
             if (article.getSpan1()!= null){             //if spanish has already been injected, move onto the next article
-                System.out.println("Its not so null");
+                System.out.println("This article - #" + article.getId() + " - Has Already Been translated ");
                 continue;
             }else {                                     //otherwise, get to hotswappin'
-                String spanishArticle = "";
+                System.out.println("Currently Translating: " + article.getId());
+                String spanishArticle = article.getContent();
                 int count = 0;
-                while (count <= 6) {
+                while (count <= 3) {
                     int seedValue = randomNum();
-                    if (article.getContent().contains(dictionaries.findOne(seedValue).getEnglish())) {   //if the article contains the randomly selected english word from the language dictionary....
-                        spanishArticle = article.getContent().replace(dictionaries.findOne(seedValue).getEnglish(), dictionaries.findOne(seedValue).getSpanish()); //replace english seed value with spanish seed value
+                    if (spanishArticle.contains(dictionaries.findOne(seedValue).getEnglish())) {   //if the article contains the randomly selected english word from the language dictionary....
+                        spanishArticle = spanishArticle.replace(dictionaries.findOne(seedValue).getEnglish(), "<span class='spanish'>" + dictionaries.findOne(seedValue).getSpanish() +"</span>"); //replace english seed value with spanish seed value
 
                         System.out.println("Replaced: " + dictionaries.findOne(seedValue).getEnglish() + " With: " + dictionaries.findOne(seedValue).getSpanish()); //for console testing
                         count++;
-                    } else if (count == 6) {
+                    } else if (count == 3) {
                         article.setSpan1(spanishArticle);  //once the count hits 6 save the spanish changes and save it back to the DB
                         articles.save(article);
                         break;
                     }
-
                 }
             }
         }
