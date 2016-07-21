@@ -16,9 +16,9 @@ module.exports = function(app) {
                             console.log("these are the results", results.data);
                             console.log("posted new user")
                             if (results.data === false) {
-                                $location.path('/preferences');
-                            } else {
                               alert("This Username is taken. If you already have an account, please sign in, if not, please choose another Username")
+                            } else {
+                              $location.path('/preferences');
                             }
 
                             // if(response.data.business === true || response.data.technology === true || response.data.business === true ){
