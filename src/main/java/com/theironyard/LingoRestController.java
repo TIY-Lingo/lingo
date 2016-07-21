@@ -14,8 +14,9 @@ import org.h2.tools.Server;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.stereotype.Service;
+
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -47,34 +48,36 @@ public class LingoRestController {
     DictionaryRepository dictionaries;
 
     @PostConstruct
-    public void init() throws SQLException, IOException {
+    public void init() throws SQLException, IOException, InterruptedException {
         Server.createWebServer().start();
         scrapeAPIResults();
     }
 
 
-
-
     @RequestMapping(path = "/login", method = RequestMethod.POST)
-    public void login(@RequestBody User user,  HttpSession session, HttpServletResponse response) throws PasswordStorage.CannotPerformOperationException, IOException {
+    public Boolean login(@RequestBody User user, HttpSession session, HttpServletResponse response) throws Exception {
         User user1 = users.findByUsername(user.getUsername());
-        if (user == null) {
-            response.sendRedirect("/registerUser");
+        if (user1 == null) {
+            return false;
         }
-        else {
-            session.setAttribute("username", user1.getUsername());
-            response.sendRedirect("/articles");
+        else if (!PasswordStorage.verifyPassword(user.getPassword(), user1.getPassword())){
+            return false;
         }
+        session.setAttribute("username", user1.getUsername());
+        return true;
 
     }
 
     @RequestMapping(path = "/registerUser", method = RequestMethod.POST)
-    public void register(@RequestBody User user, HttpServletResponse response, HttpSession session) throws PasswordStorage.CannotPerformOperationException, IOException {
-        User user1 = new User(user.getUsername(), PasswordStorage.createHash(user.getPassword()));
-        users.save(user1);
-        session.setAttribute("username", user1.getUsername());
-        response.sendRedirect("/preferences");
-
+    public Boolean register(@RequestBody User user, HttpServletResponse response, HttpSession session) throws PasswordStorage.CannotPerformOperationException, IOException {
+        if(users.findByUsername(user.getUsername())!= null){   // If the username is in the DB return false
+            return false;
+        }else {                                                 //Otherwise create the user and add it to the DB
+            User user1 = new User(user.getUsername(), PasswordStorage.createHash(user.getPassword()));
+            users.save(user1);
+            session.setAttribute("username", user1.getUsername());
+            return true;
+        }
     }
 
     @RequestMapping(path = "/preferences", method = RequestMethod.GET)
@@ -84,9 +87,18 @@ public class LingoRestController {
 
 
 
-//    @RequestMapping(path = "/preferences", method = RequestMethod.POST)
-//    public User setPreferences(String username, String language, Boolean technology, Boolean sports, Boolean business, Boolean politics, Boolean arts)
-//
+    @RequestMapping(path = "/preferences", method = RequestMethod.POST)
+    public void setPreferences(@RequestBody User user ){
+        User userA = users.findByUsername(user.getUsername());
+        userA.setArts(user.getArts());
+        userA.setBusiness(user.getBusiness());
+        userA.setLanguage(user.getLanguage());
+        userA.setPolitics(user.getPolitics());
+        userA.setSports(user.getSports());
+        userA.setTechnology(user.getTechnology());
+        users.save(userA);
+    }
+
 
 
 
@@ -106,7 +118,7 @@ public class LingoRestController {
 
 
     @Async
-    public void scrapeAPIResults() throws IOException {
+    public void scrapeAPIResults() throws IOException, InterruptedException {
         parseDictionary();               //Brings language dictionary into the DB if it isn't already there.
         System.out.println("Retrieving Json from API...");               //for console testing
         String apiURL = "https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=289858bf10514c09b02e561994f4ab45";   // The Technology API url
@@ -185,7 +197,7 @@ public class LingoRestController {
                         break;
                     } else{
                         failedcount++;
-                        if (failedcount >400){
+                        if (failedcount >4000){
                             article.setSpan1(spanishArticle);
                             articles.save(article);
                             System.out.println("THIS ARTICLE DOESN'T HAVE ENOUGH WORDS TO TRANSLATE");
@@ -201,7 +213,7 @@ public class LingoRestController {
     public void parseDictionary() throws FileNotFoundException {
 
         if(dictionaries.count() == 0) {
-            File f = new File("LanguageDB-V0.0.1.csv");
+            File f = new File("Tri-Lingual-Library.csv");
             Scanner scanner = new Scanner(f);
             scanner.nextLine();
             while (scanner.hasNext()) {
