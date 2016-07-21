@@ -60,7 +60,6 @@ public class LingoRestController {
         User user1 = users.findByUsername(user.getUsername());
         if (user1 == null) {
             return false;
-
         }
         else if (!PasswordStorage.verifyPassword(user.getPassword(), user1.getPassword())){
             return false;
@@ -71,10 +70,15 @@ public class LingoRestController {
     }
 
     @RequestMapping(path = "/registerUser", method = RequestMethod.POST)
-    public void register(@RequestBody User user, HttpServletResponse response, HttpSession session) throws PasswordStorage.CannotPerformOperationException, IOException {
-        User user1 = new User(user.getUsername(), PasswordStorage.createHash(user.getPassword()));
-        users.save(user1);
-        session.setAttribute("username", user1.getUsername());
+    public Boolean register(@RequestBody User user, HttpServletResponse response, HttpSession session) throws PasswordStorage.CannotPerformOperationException, IOException {
+        if(users.findByUsername(user.getUsername())!= null){   // If the username is in the DB return false
+            return false;
+        }else {                                                 //Otherwise create the user and add it to the DB
+            User user1 = new User(user.getUsername(), PasswordStorage.createHash(user.getPassword()));
+            users.save(user1);
+            session.setAttribute("username", user1.getUsername());
+            return true;
+        }
     }
 
     @RequestMapping(path = "/preferences", method = RequestMethod.GET)
@@ -84,9 +88,18 @@ public class LingoRestController {
 
 
 
-//    @RequestMapping(path = "/preferences", method = RequestMethod.POST)
-//    public User setPreferences(String username, String language, Boolean technology, Boolean sports, Boolean business, Boolean politics, Boolean arts)
-//
+    @RequestMapping(path = "/preferences", method = RequestMethod.POST)
+    public void setPreferences(@RequestBody User user ){
+        User userA = users.findByUsername(user.getUsername());
+        userA.setArts(user.getArts());
+        userA.setBusiness(user.getBusiness());
+        userA.setLanguage(user.getLanguage());
+        userA.setPolitics(user.getPolitics());
+        userA.setSports(user.getSports());
+        userA.setTechnology(user.getTechnology());
+        users.save(userA);
+    }
+
 
 
 
