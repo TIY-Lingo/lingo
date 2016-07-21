@@ -52,8 +52,6 @@ public class LingoRestController {
     }
 
 
-
-
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public void login(String username, String password,  HttpSession session, HttpServletResponse response) throws PasswordStorage.CannotPerformOperationException, IOException {
         User user = users.findByUsername(username);
