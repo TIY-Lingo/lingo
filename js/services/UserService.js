@@ -24,39 +24,33 @@ module.exports = function(app) {
                             // console.log(currentUser);
 
                         });
-                      }
-                    };
+                      },
+                      // user preferences
+                      createPreferences: function(updatedPref) {
+                          // userPref = pref;
+                          // console.log(userPref);
 
-                    // createPreferences: function(pref) {
-                    //     userPref = pref;
-                    //     console.log(userPref);
-                    //
-                    //     $http({
-                    //         method: 'POST',
-                    //         url: '/preferences',
-                    //         data: {
-                    //             language: 'spanish',
-                    //             business: false,
-                    //             sports: false,
-                    //             politics: false,
-                    //             technology: false,
-                    //             arts: false,
-                    //         }
-                    //     }).then(function(response) {
-                    //         let userPrefObject = response.data;
-                    //         console.log("object with user preferences", userPrefObject);
-                    //     });
-                    // }
-
-                    return {
-                        // sendPrefInfo: function() {
-                        //     return userPref;
-                        // },
-                        // getCurrentUser: function() {
-                            //   console.log("user info", currentUser);
-                            //   return currentUser
-                            // },
+                          $http({
+                              method: 'POST',
+                              url: '/preferences',
+                              data: updatedPref
+                          }).then(function(response) {
+                              let userPrefObject = response.data;
+                              console.log("object with user preferences", userPrefObject);
+                              // if (userPrefObject === prefCategory.technology) {
+                                // angular.copy(prefCategory.technology, userPrefObject)
+                              // }
+                          });
+                      },
+                      sendPrefInfo: function() {
+                          return userPref;
+                      },
+                      getCurrentUser: function() {
+                            console.log("user info", currentUser);
+                            return userPrefObject
+                          },
 
                     }
+
                 }]);
-        };
+              }

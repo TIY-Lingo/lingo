@@ -11,27 +11,58 @@ module.exports = function(app) {
     app.controller('UserController', ['UserService','$scope', '$location', function(UserService, $scope, $location) {
           $scope.userInput = '';
           $scope.userPassword = '';
-            // $scope.signIn = function() {
-            //     console.log("clicked log in");
-            //     UserService.postUserInfo($scope.username)
-            //     console.log('clicked')
-            //     if ($scope.username != null) {
-            //         $location.path('/home');
-            //     } else {
-            //         alert('Please enter a username');
-            //     }
-            // }
+
+          $scope.userPrefObj = {
+            language: 'spanish',
+            business: $scope.business,
+            sports: $scope.sports,
+            politics: $scope.politics,
+            technology: $scope.technology,
+            arts: $scope.arts,
+          };
+
+            $scope.signIn = function() {
+                console.log("clicked log in");
+                UserService.postUserInfo($scope.username)
+                console.log('clicked')
+                if ($scope.username != null) {
+                    $location.path('/home');
+                } else {
+                    alert('Please enter a username');
+                }
+            }
 
             $scope.signUp = function() {
                 console.log("clicked log in");
                 UserService.postUserInfo($scope.userInput, $scope.userPassword)
                 // if ($scope.username != null) {
-                //     $location.path('/home');
+                    // $location.path('/home');
                 // } else {
                 //     alert('Please enter a username');
                 // }
             }
 
+            $scope.pref = function(technology) {
+              console.log('tech');
+
+              UserService.createPreferences(updatedPref);
+            }
+            // $scope.politics = function() {
+            //   console.log('tech');
+            //
+            // }
+            // $scope.arts = function() {
+            //   console.log('tech');
+            //
+            // }
+            // $scope.sports = function() {
+            //   console.log('tech');
+            //
+            // }
+            // $scope.business = function() {
+            //   console.log('tech');
+            //
+            // }
         }
     ]);
 }
@@ -125,41 +156,35 @@ module.exports = function(app) {
                             // console.log(currentUser);
 
                         });
-                      }
-                    };
+                      },
+                      // user preferences
+                      createPreferences: function(updatedPref) {
+                          // userPref = pref;
+                          // console.log(userPref);
 
-                    // createPreferences: function(pref) {
-                    //     userPref = pref;
-                    //     console.log(userPref);
-                    //
-                    //     $http({
-                    //         method: 'POST',
-                    //         url: '/preferences',
-                    //         data: {
-                    //             language: 'spanish',
-                    //             business: false,
-                    //             sports: false,
-                    //             politics: false,
-                    //             technology: false,
-                    //             arts: false,
-                    //         }
-                    //     }).then(function(response) {
-                    //         let userPrefObject = response.data;
-                    //         console.log("object with user preferences", userPrefObject);
-                    //     });
-                    // }
-
-                    return {
-                        // sendPrefInfo: function() {
-                        //     return userPref;
-                        // },
-                        // getCurrentUser: function() {
-                            //   console.log("user info", currentUser);
-                            //   return currentUser
-                            // },
+                          $http({
+                              method: 'POST',
+                              url: '/preferences',
+                              data: updatedPref
+                          }).then(function(response) {
+                              let userPrefObject = response.data;
+                              console.log("object with user preferences", userPrefObject);
+                              // if (userPrefObject === prefCategory.technology) {
+                                // angular.copy(prefCategory.technology, userPrefObject)
+                              // }
+                          });
+                      },
+                      sendPrefInfo: function() {
+                          return userPref;
+                      },
+                      getCurrentUser: function() {
+                            console.log("user info", currentUser);
+                            return userPrefObject
+                          },
 
                     }
+
                 }]);
-        };
+              }
 
 },{}]},{},[3])
