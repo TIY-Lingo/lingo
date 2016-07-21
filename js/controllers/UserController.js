@@ -11,7 +11,7 @@ module.exports = function(app) {
             $scope.signUp = function() {
                 console.log("clicked sign up");
                 UserService.postUserInfo($scope.userInput, $scope.userPassword)
-                $location.path('/preferences');
+                // $location.path('/preferences');
                 // if ($scope.username != null) {
                 //     $location.path('/home');
                 // } else {
