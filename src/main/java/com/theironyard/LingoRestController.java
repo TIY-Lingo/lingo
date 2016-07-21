@@ -185,7 +185,7 @@ public class LingoRestController {
                         break;
                     } else{
                         failedcount++;
-                        if (failedcount >400){
+                        if (failedcount >4000){
                             article.setSpan1(spanishArticle);
                             articles.save(article);
                             System.out.println("THIS ARTICLE DOESN'T HAVE ENOUGH WORDS TO TRANSLATE");
@@ -201,7 +201,7 @@ public class LingoRestController {
     public void parseDictionary() throws FileNotFoundException {
 
         if(dictionaries.count() == 0) {
-            File f = new File("LanguageDB-V0.0.1.csv");
+            File f = new File("Tri-Lingual-Library.csv");
             Scanner scanner = new Scanner(f);
             scanner.nextLine();
             while (scanner.hasNext()) {
