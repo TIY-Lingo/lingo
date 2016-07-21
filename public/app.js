@@ -24,9 +24,8 @@ module.exports = function(app) {
     app.controller('UserController', ['UserService','$scope', '$location', function(UserService, $scope, $location) {
           $scope.userInput = '';
           $scope.userPassword = '';
-<<<<<<< HEAD
-
-          $scope.userPrefObj = {
+          //
+          $scope.UserPrefences = {
             language: 'spanish',
             business: $scope.business,
             sports: $scope.sports,
@@ -34,19 +33,6 @@ module.exports = function(app) {
             technology: $scope.technology,
             arts: $scope.arts,
           };
-
-            $scope.signIn = function() {
-                console.log("clicked log in");
-                UserService.postUserInfo($scope.username)
-                console.log('clicked')
-                if ($scope.username != null) {
-                    $location.path('/home');
-                } else {
-                    alert('Please enter a username');
-                }
-            }
-=======
->>>>>>> 7d7bd9ebfb8b1304eddc7dc9563eb8e9abe99c06
 
             $scope.signIn = function() {
                 console.log("clicked log in");
@@ -63,28 +49,32 @@ module.exports = function(app) {
                 //     alert('Please enter a username');
                 // }
             }
+            //when controller loads, we get our user Preference object from the server;
+            // $scope.UserPrefences = UserService.getPreferences();
 
-            $scope.pref = function(technology) {
-              console.log('tech');
 
-              UserService.createPreferences(updatedPref);
-            }
-            // $scope.politics = function() {
-            //   console.log('tech');
-            //
-            // }
-            // $scope.arts = function() {
-            //   console.log('tech');
-            //
-            // }
-            // $scope.sports = function() {
-            //   console.log('tech');
-            //
-            // }
-            // $scope.business = function() {
-            //   console.log('tech');
-            //
-            // }
+            //this saves our object to the server with our current values that changed on our model
+            $scope.logObj = function(){
+              UserService.updatePreferences($scope.UserPrefences);
+            };
+
+
+            //these toggle and change our values of our user preference model/object
+            $scope.turnOffTech = function(){
+              $scope.UserPrefences.technology = false;
+            };
+
+            $scope.turnOnTech = function(){
+              $scope.UserPrefences.technology = true;
+            };
+            $scope.turnOffBus = function(){
+              $scope.UserPrefences.business = false;
+            };
+
+            $scope.turnOnBus = function(){
+              $scope.UserPrefences.business = true;
+            };
+
         }
     ]);
 }
@@ -154,129 +144,128 @@ module.exports = function(app) {
 },{}],5:[function(require,module,exports){
 module.exports = function(app) {
 
-        app.factory('UserService', ['$http', '$location', function($http, $location) {
-                ////signIn() click event to post username and password to server//////
-                return {
-                    postUserInfo: function(name,pw) {
-                        $http({
-                            url: '/registerUser',
-                            method: 'POST',
+    app.factory('UserService', ['$http', '$location', function($http, $location) {
+        var userPref = {};
 
-                            data: {
-                                username: name,
-                                password: pw,
-                            },
-                        }).then(function(results) {
-                            console.log("these are the results", results.data);
-                            console.log("posted new user")
-                            if (results.data === false) {
-                              alert("This Username is taken. If you already have an account, please sign in, if not, please choose another Username")
-                            } else {
-                              $location.path('/preferences');
-                            }
+        ////signIn() click event to post username and password to server//////
+        return {
+            postUserInfo: function(name, pw) {
+                $http({
+                    url: '/registerUser',
+                    method: 'POST',
 
-                            // if(response.data.business === true || response.data.technology === true || response.data.business === true ){
-                            //   $location.path('/artist');
-                            //   angular.copy(response.data, currentUser )
-                            //   console.log(currentUser);
-                            // }
-
-                            // angular.copy(response.data, currentUser);
-                            // console.log(currentUser);
-
-                        });
-                      },
-<<<<<<< HEAD
-                      // user preferences
-                      createPreferences: function(updatedPref) {
-                          // userPref = pref;
-                          // console.log(userPref);
-
-                          $http({
-                              method: 'POST',
-                              url: '/preferences',
-                              data: updatedPref
-                          }).then(function(response) {
-                              let userPrefObject = response.data;
-                              console.log("object with user preferences", userPrefObject);
-                              // if (userPrefObject === prefCategory.technology) {
-                                // angular.copy(prefCategory.technology, userPrefObject)
-                              // }
-                          });
-                      },
-                      sendPrefInfo: function() {
-                          return userPref;
-                      },
-                      getCurrentUser: function() {
-                            console.log("user info", currentUser);
-                            return userPrefObject
-                          },
-=======
-                      postExistingUser: function(username, password) {
-                          $http({
-                              url: '/login',
-                              method: 'POST',
-
-                              data: {
-                                  username: username,
-                                  password: password,
-                              },
-                          }).then(function(results) {
-                              console.log("these are the results", results.data);
-                              console.log("posted existing user")
-                              if (results.data === true) {
-                                  $location.path('/news');
-                              } else {
-                                alert("Password Incorrect")
-                              }
-                              // if(response.data.business === true || response.data.technology === true || response.data.business === true ){
-                              //   $location.path('/artist');
-                              //   angular.copy(response.data, currentUser )
-                              //   console.log(currentUser);
-                              // }
-
-                              // angular.copy(response.data, currentUser);
-                              // console.log(currentUser);
-
-                          });
-                        }
-                    };
-
-
-                    // createPreferences: function(pref) {
-                    //     userPref = pref;
-                    //     console.log(userPref);
-                    //
-                    //     $http({
-                    //         method: 'POST',
-                    //         url: '/preferences',
-                    //         data: {
-                    //             language: 'spanish',
-                    //             business: false,
-                    //             sports: false,
-                    //             politics: false,
-                    //             technology: false,
-                    //             arts: false,
-                    //         }
-                    //     }).then(function(response) {
-                    //         let userPrefObject = response.data;
-                    //         console.log("object with user preferences", userPrefObject);
-                    //     });
-                    // }
-
-                    return {
-                        // sendPrefInfo: function() {
-                        //     return userPref;
-                        // },
-                        // getCurrentUser: function() {
-                            //   console.log("user info", currentUser);
-                            //   return currentUser
-                            // },
->>>>>>> 7d7bd9ebfb8b1304eddc7dc9563eb8e9abe99c06
-
+                    data: {
+                        username: name,
+                        password: pw,
+                    },
+                }).then(function(results) {
+                    console.log("these are the results", results.data);
+                    console.log("posted new user")
+                    if (results.data === false) {
+                        alert("This Username is taken. If you already have an account, please sign in, if not, please choose another Username")
+                    } else {
+                        $location.path('/preferences');
                     }
 
-                }]);
-              }
+                    // if(response.data.business === true || response.data.technology === true || response.data.business === true ){
+                    //   $location.path('/artist');
+                    //   angular.copy(response.data, currentUser )
+                    //   console.log(currentUser);
+                    // }
+
+                    // angular.copy(response.data, currentUser);
+                    // console.log(currentUser);
+
+                });
+            },
+            postExistingUser: function(username, password) {
+                $http({
+                    url: '/login',
+                    method: 'POST',
+
+                    data: {
+                        username: username,
+                        password: password,
+                    },
+                }).then(function(results) {
+                    console.log("these are the results", results.data);
+                    console.log("posted existing user")
+                    if (results.data === true) {
+                        $location.path('/news');
+                    } else {
+                        alert("Password Incorrect")
+                    }
+                    // if(response.data.business === true || response.data.technology === true || response.data.business === true ){
+                    //   $location.path('/artist');
+                    //   angular.copy(response.data, currentUser )
+                    //   console.log(currentUser);
+                    // }
+
+                    // angular.copy(response.data, currentUser);
+                    // console.log(currentUser);
+
+                });
+            },
+            // UPDATE user preferences
+            updatePreferences: function() {
+                $http({
+                    method: 'POST',
+                    url: '/preferences',
+                    data: {},
+                    // {
+                    //   language: 'spanish',
+                    //   business: false,
+                    //   sports: false,
+                    //   politics: false,
+                    //   technology: false,
+                    //   arts: false,
+                    // }
+                }).then(function(response) {
+                    console.log("OK!");
+                });
+            },
+            // GET user preferences
+            // getPreferences: function(){
+            //       $http({
+            //         method: 'GET',
+            //         url:'/'
+            //       }).then(function(response){
+            //         //copies the response object from the data base to our userPref object/model
+            //         angular.copy(response.data[0], userPref);
+            //       })
+            //       return userPref
+            //     }
+
+
+
+
+            // updatePreferences: function(updatedPref) {
+            //     $http({
+            //         method: 'POST',
+            //         url: '/preferences',
+            //         data: updatedPref
+            //     }).then(function(response) {
+            //         let userPrefObject = response.data;
+            //         console.log("updated user preferences", userPrefObject);
+            //         // if (userPrefObject === prefCategory.technology) {
+            //           // angular.copy(prefCategory.technology, userPrefObject)
+            //         // }
+            //     });
+            // },
+            // getPreferences: function() {
+            //     $http({
+            //         method: 'GET',
+            //         url: '/preferences'
+            //     }).then(function(response) {
+            //         console.log("got user preferences");
+            //         angular.copy(response.data[0], userPref);
+            //     });
+            //     return userPref;
+            // },
+
+        };
+
+    }]);
+}
 
 },{}]},{},[3])
