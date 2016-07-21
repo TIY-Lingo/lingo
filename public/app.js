@@ -145,7 +145,7 @@ module.exports = function(app) {
                                   password: password,
                               },
                           }).then(function(results) {
-                              console.log("these are the results", results);
+                              console.log("these are the results", results.data);
                               console.log("posted existing user")
                               if (results.data === "true") {
                                   $location.path('/news');
