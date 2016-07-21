@@ -2,7 +2,6 @@ package com.theironyard;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.deploy.net.HttpResponse;
 import com.theironyard.entities.Article;
 import com.theironyard.entities.Dictionary;
 import com.theironyard.entities.User;
@@ -15,9 +14,9 @@ import org.h2.tools.Server;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.stereotype.Service;
+
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
