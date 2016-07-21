@@ -125,7 +125,7 @@ module.exports = function(app) {
                         }).then(function(results) {
                             console.log("these are the results", results.data);
                             console.log("posted new user")
-                            if (results.data === true) {
+                            if (results.data === false) {
                                 $location.path('/preferences');
                             } else {
                               alert("This Username is taken. If you already have an account, please sign in, if not, please choose another Username")
