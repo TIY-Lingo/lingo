@@ -105,14 +105,14 @@ module.exports = function(app) {
           // let currentUser= {};
                 ////signIn() click event to post username and password to server//////
                 return {
-                    postUserInfo: function(name,pw) {
+                    postUserInfo: function() {
                         $http({
                             url: '/registerUser',
                             method: 'POST',
 
                             data: {
-                                username: name,
-                                password: pw,
+                                username: "name",
+                                password: "pw",
                             },
                         }).then(function(results) {
                             console.log("posted")
