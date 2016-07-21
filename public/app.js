@@ -123,7 +123,14 @@ module.exports = function(app) {
                                 password: pw,
                             },
                         }).then(function(results) {
-                            console.log("posted")
+                            console.log("these are the results", results.data);
+                            console.log("posted new user")
+                            if (results.data === true) {
+                                $location.path('/preferences');
+                            } else {
+                              alert("This Username is taken. If you already have an account, please sign in, if not, please choose another Username")
+                            }
+
                             // if(response.data.business === true || response.data.technology === true || response.data.business === true ){
                             //   $location.path('/artist');
                             //   angular.copy(response.data, currentUser )
