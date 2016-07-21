@@ -16,6 +16,7 @@ import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -55,23 +56,23 @@ public class LingoRestController {
 
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
-    public void login(String username, String password,  HttpSession session, HttpServletResponse response) throws PasswordStorage.CannotPerformOperationException, IOException {
-        User user = users.findByUsername(username);
+    public void login(@RequestBody User user,  HttpSession session, HttpServletResponse response) throws PasswordStorage.CannotPerformOperationException, IOException {
+        User user1 = users.findByUsername(user.getUsername());
         if (user == null) {
             response.sendRedirect("/registerUser");
         }
         else {
-            session.setAttribute("username", username);
+            session.setAttribute("username", user1.getUsername());
             response.sendRedirect("/articles");
         }
 
     }
 
     @RequestMapping(path = "/registerUser", method = RequestMethod.POST)
-    public void register(String username, String password, HttpServletResponse response, HttpSession session) throws PasswordStorage.CannotPerformOperationException, IOException {
-       User user = new User(username, PasswordStorage.createHash(password));
-        users.save(user);
-        session.setAttribute("username", username);
+    public void register(@RequestBody User user, HttpServletResponse response, HttpSession session) throws PasswordStorage.CannotPerformOperationException, IOException {
+        User user1 = new User(user.getUsername(), PasswordStorage.createHash(user.getPassword()));
+        users.save(user1);
+        session.setAttribute("username", user1.getUsername());
         response.sendRedirect("/preferences");
 
     }
@@ -170,21 +171,31 @@ public class LingoRestController {
                 System.out.println("Currently Translating: " + article.getId());
                 String spanishArticle = article.getContent();  //set placeholder for manipulating to the original content
                 int count = 0;
-                while (count <= 30) {
+                int failedcount=0;
+                while (count <= 20) {
                     int seedValue = randomNum();   //grab a random number to check for in the article
                     if (spanishArticle.contains(dictionaries.findOne(seedValue).getEnglish())) {   //if the article contains the randomly selected english word from the language dictionary....
                         spanishArticle = spanishArticle.replace(dictionaries.findOne(seedValue).getEnglish(), "<span class='spanish'>" + dictionaries.findOne(seedValue).getSpanish() +"</span>"); //replace english seed value with spanish seed value
 
                         System.out.println("Replaced: " + dictionaries.findOne(seedValue).getEnglish() + " With: " + dictionaries.findOne(seedValue).getSpanish()); //for console testing
                         count++;
-                    } else if (count == 30) {
+                    } else if (count == 20) {
                         article.setSpan1(spanishArticle);  //once the count hits 6 save the spanish changes and save it back to the DB
                         articles.save(article);
                         break;
+                    } else{
+                        failedcount++;
+                        if (failedcount >400){
+                            article.setSpan1(spanishArticle);
+                            articles.save(article);
+                            System.out.println("THIS ARTICLE DOESN'T HAVE ENOUGH WORDS TO TRANSLATE");
+                            break;
+                        }
                     }
                 }
             }
         }
+        System.out.println("Finished Processing Articles...");
     }
 
     public void parseDictionary() throws FileNotFoundException {
