@@ -1,8 +1,21 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 module.exports = function(app) {
     app.controller('NewsController', ['NewsService', '$scope', '$location', function(NewsService, $scope, $location) {
-      $scope.newsArray = NewsService.getNewsRequest();
-      console.log($scope.newsArray);
+        $scope.pageNumber = 1;
+        $scope.itemsPerPage = 2;
+        $scope.newsArray = NewsService.getNewsRequest();
+
+        $scope.goback = function() {
+            $scope.pageNumber = $scope.pageNumber - 1;
+            $scope.newsArray = NewsService.getNewsRequest($scope.pageNumber, $scope.itemsPerPage)
+        }
+        $scope.goforward = function() {
+            $scope.pageNumber = $scope.pageNumber + 1;
+            $scope.newsArray = NewsService.getNewsRequest($scope.pageNumber, $scope.itemsPerPage);
+        }
+
+        $scope.newsArray = NewsService.getNewsRequest();
+        console.log($scope.newsArray);
     }]);
 }
 
@@ -11,20 +24,16 @@ module.exports = function(app) {
     app.controller('UserController', ['UserService','$scope', '$location', function(UserService, $scope, $location) {
           $scope.userInput = '';
           $scope.userPassword = '';
-            // $scope.signIn = function() {
-            //     console.log("clicked log in");
-            //     UserService.postUserInfo($scope.username)
-            //     console.log('clicked')
-            //     if ($scope.username != null) {
-            //         $location.path('/home');
-            //     } else {
-            //         alert('Please enter a username');
-            //     }
-            // }
+
+            $scope.signIn = function() {
+                console.log("clicked log in");
+                UserService.postExistingUser($scope.userInput, $scope.userPassword)
+            }
 
             $scope.signUp = function() {
-                console.log("clicked log in");
+                console.log("clicked sign up");
                 UserService.postUserInfo($scope.userInput, $scope.userPassword)
+                $location.path('/preferences');
                 // if ($scope.username != null) {
                 //     $location.path('/home');
                 // } else {
@@ -116,7 +125,7 @@ module.exports = function(app) {
                             },
                         }).then(function(results) {
                             console.log("posted")
-                            // if(response.data.isArtist === true){
+                            // if(response.data.business === true || response.data.technology === true || response.data.business === true ){
                             //   $location.path('/artist');
                             //   angular.copy(response.data, currentUser )
                             //   console.log(currentUser);
@@ -126,8 +135,31 @@ module.exports = function(app) {
                             // console.log(currentUser);
 
                         });
-                      }
+                      },
+                      postExistingUser: function(username, password) {
+                          $http({
+                              url: '/registerUser',
+                              method: 'POST',
+
+                              data: {
+                                  username: username,
+                                  password: password,
+                              },
+                          }).then(function(results) {
+                              console.log("posted existing user")
+                              // if(response.data.business === true || response.data.technology === true || response.data.business === true ){
+                              //   $location.path('/artist');
+                              //   angular.copy(response.data, currentUser )
+                              //   console.log(currentUser);
+                              // }
+
+                              // angular.copy(response.data, currentUser);
+                              // console.log(currentUser);
+
+                          });
+                        }
                     };
+
 
                     // createPreferences: function(pref) {
                     //     userPref = pref;
