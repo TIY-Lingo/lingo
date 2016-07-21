@@ -3,6 +3,7 @@ module.exports = function(app) {
           $scope.userInput = '';
           $scope.userPassword = '';
 
+
           $scope.userPrefObj = {
             language: 'spanish',
             business: $scope.business,
@@ -14,18 +15,13 @@ module.exports = function(app) {
 
             $scope.signIn = function() {
                 console.log("clicked log in");
-                UserService.postUserInfo($scope.username)
-                console.log('clicked')
-                if ($scope.username != null) {
-                    $location.path('/home');
-                } else {
-                    alert('Please enter a username');
-                }
+                UserService.postExistingUser($scope.userInput, $scope.userPassword)
             }
 
             $scope.signUp = function() {
-                console.log("clicked log in");
+                console.log("clicked sign up");
                 UserService.postUserInfo($scope.userInput, $scope.userPassword)
+                // $location.path('/preferences');
                 // if ($scope.username != null) {
                     // $location.path('/home');
                 // } else {

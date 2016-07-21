@@ -72,7 +72,55 @@ public class User {
         this.password = password;
     }
 
-//    public int getDaysVisited() {
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public Boolean getTechnology() {
+        return technology;
+    }
+
+    public void setTechnology(Boolean technology) {
+        this.technology = technology;
+    }
+
+    public Boolean getSports() {
+        return sports;
+    }
+
+    public void setSports(Boolean sports) {
+        this.sports = sports;
+    }
+
+    public Boolean getBusiness() {
+        return business;
+    }
+
+    public void setBusiness(Boolean business) {
+        this.business = business;
+    }
+
+    public Boolean getPolitics() {
+        return politics;
+    }
+
+    public void setPolitics(Boolean politics) {
+        this.politics = politics;
+    }
+
+    public Boolean getArts() {
+        return arts;
+    }
+
+    public void setArts(Boolean arts) {
+        this.arts = arts;
+    }
+
+    //    public int getDaysVisited() {
 //        return daysVisited;
 //    }
 //
