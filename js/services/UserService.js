@@ -28,7 +28,7 @@ module.exports = function(app) {
                       },
                       postExistingUser: function(username, password) {
                           $http({
-                              url: '/registerUser',
+                              url: '/login',
                               method: 'POST',
 
                               data: {
