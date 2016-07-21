@@ -1,7 +1,6 @@
 module.exports = function(app) {
 
         app.factory('UserService', ['$http', '$location', function($http, $location) {
-          // let currentUser= {};
                 ////signIn() click event to post username and password to server//////
                 return {
                     postUserInfo: function(name,pw) {
@@ -37,12 +36,10 @@ module.exports = function(app) {
                               },
                           }).then(function(results) {
                               console.log("posted existing user")
-                              if (HttpStatus === "OK") {
-                                $location.path('/news');
-                              } else if (HttpStatus === "FORBIDDEN"){
-                                alert("Oops, looks like you don't have an account. Please register below.")
-                              } else if (HttpStatus === "UNAUTHORIZED") {
-                                alert("Your password is incorrect, click OK to try again.")
+                              if (results === "true") {
+                                  $location.path('/news');
+                              } else {
+                                alert("Password Incorrect")
                               }
                               // if(response.data.business === true || response.data.technology === true || response.data.business === true ){
                               //   $location.path('/artist');
