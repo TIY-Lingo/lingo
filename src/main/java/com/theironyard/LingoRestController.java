@@ -47,7 +47,7 @@ public class LingoRestController {
     DictionaryRepository dictionaries;
 
     @PostConstruct
-    public void init() throws SQLException, IOException {
+    public void init() throws SQLException, IOException, InterruptedException {
         Server.createWebServer().start();
         scrapeAPIResults();
     }
@@ -56,15 +56,16 @@ public class LingoRestController {
 
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
-    public void login(@RequestBody User user,  HttpSession session, HttpServletResponse response) throws PasswordStorage.CannotPerformOperationException, IOException {
+    public void login(@RequestBody User user,  HttpSession session, HttpServletResponse response) throws Exception {
         User user1 = users.findByUsername(user.getUsername());
-        if (user == null) {
-            response.sendRedirect("/registerUser");
+        if (user1 == null) {
+            throw new Exception("User Not Found, Please Register");
         }
-        else {
-            session.setAttribute("username", user1.getUsername());
-            response.sendRedirect("/articles");
+        else if (!PasswordStorage.verifyPassword(user.getPassword(), user1.getPassword())){
+            throw new Exception("Password incorrect!");
         }
+        session.setAttribute("username", user1.getUsername());
+        response.sendRedirect("/articles");
 
     }
 
@@ -106,7 +107,7 @@ public class LingoRestController {
 
 
     @Async
-    public void scrapeAPIResults() throws IOException {
+    public void scrapeAPIResults() throws IOException, InterruptedException {
         parseDictionary();               //Brings language dictionary into the DB if it isn't already there.
         System.out.println("Retrieving Json from API...");               //for console testing
         String apiURL = "https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=289858bf10514c09b02e561994f4ab45";   // The Technology API url
