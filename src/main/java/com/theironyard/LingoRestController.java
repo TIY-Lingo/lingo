@@ -16,6 +16,7 @@ import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -68,10 +69,10 @@ public class LingoRestController {
     }
 
     @RequestMapping(path = "/registerUser", method = RequestMethod.POST)
-    public void register(String username, String password, HttpServletResponse response, HttpSession session) throws PasswordStorage.CannotPerformOperationException, IOException {
-       User user = new User(username, PasswordStorage.createHash(password));
-        users.save(user);
-        session.setAttribute("username", username);
+    public void register(@RequestBody User user, HttpServletResponse response, HttpSession session) throws PasswordStorage.CannotPerformOperationException, IOException {
+        User user1 = new User(user.getUsername(), PasswordStorage.createHash(user.getPassword()));
+        users.save(user1);
+        session.setAttribute("username", user1.getUsername());
         response.sendRedirect("/preferences");
 
     }
@@ -184,7 +185,10 @@ public class LingoRestController {
                         break;
                     } else{
                         failedcount++;
-                        if (failedcount >200){
+                        if (failedcount >400){
+                            article.setSpan1(spanishArticle);
+                            articles.save(article);
+                            System.out.println("THIS ARTICLE DOESN'T HAVE ENOUGH WORDS TO TRANSLATE");
                             break;
                         }
                     }
