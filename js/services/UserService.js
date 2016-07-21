@@ -37,6 +37,13 @@ module.exports = function(app) {
                               },
                           }).then(function(results) {
                               console.log("posted existing user")
+                              if (HttpStatus === "OK") {
+                                $location.path('/news');
+                              } else if (HttpStatus === "FORBIDDEN"){
+                                alert("Oops, looks like you don't have an account. Please register below.")
+                              } else if (HttpStatus === "UNAUTHORIZED") {
+                                alert("Your password is incorrect, click OK to try again.")
+                              }
                               // if(response.data.business === true || response.data.technology === true || response.data.business === true ){
                               //   $location.path('/artist');
                               //   angular.copy(response.data, currentUser )
