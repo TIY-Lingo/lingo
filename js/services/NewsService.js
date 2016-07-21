@@ -1,22 +1,27 @@
 module.exports = function(app) {
 
     app.factory('NewsService', ['$http', function($http) {
-      let newsArray = [];
+      var  newsArray = {
+        async: function(pageNum, perPage) {
 
-      $http({
-          method: 'GET',
-          url: '/articles',
-      }).then(function(response) {
-          let newsObject = response.data;
-          angular.copy(newsObject, newsArray)
-          console.log("object with news", newsArray);
+            var promise = $http({
+                method: 'GET',
+                url: '/articles',
+            }).then(function(response) {
+                // let newsObject = response.data;
+                // angular.copy(newsObject, newsArray)
+                console.log("object with news", newsArray);
+                let start = (pageNum + 1) * perPage;
+                console.log("getNewsRequest");
 
-      });
+                return response.data.slice(start, start + perPage);
 
-      return {
-          getNewsRequest: function() {
-              return newsArray;
-          }
-      }
+            });
+          return promise;
+        }
+
+      };
+      return newsArray;
+
     }]);
 };
