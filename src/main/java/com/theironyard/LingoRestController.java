@@ -2,6 +2,7 @@ package com.theironyard;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sun.deploy.net.HttpResponse;
 import com.theironyard.entities.Article;
 import com.theironyard.entities.Dictionary;
 import com.theironyard.entities.User;
@@ -14,6 +15,7 @@ import org.h2.tools.Server;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -53,19 +55,18 @@ public class LingoRestController {
     }
 
 
-
-
     @RequestMapping(path = "/login", method = RequestMethod.POST)
-    public void login(@RequestBody User user,  HttpSession session, HttpServletResponse response) throws Exception {
+    public Boolean login(@RequestBody User user, HttpSession session, HttpServletResponse response) throws Exception {
         User user1 = users.findByUsername(user.getUsername());
         if (user1 == null) {
-            throw new Exception("User Not Found, Please Register");
+            return false;
+
         }
         else if (!PasswordStorage.verifyPassword(user.getPassword(), user1.getPassword())){
-            throw new Exception("Password incorrect!");
+            return false;
         }
         session.setAttribute("username", user1.getUsername());
-        response.sendRedirect("/articles");
+        return true;
 
     }
 
@@ -74,8 +75,6 @@ public class LingoRestController {
         User user1 = new User(user.getUsername(), PasswordStorage.createHash(user.getPassword()));
         users.save(user1);
         session.setAttribute("username", user1.getUsername());
-        response.sendRedirect("/preferences");
-
     }
 
     @RequestMapping(path = "/preferences", method = RequestMethod.GET)
