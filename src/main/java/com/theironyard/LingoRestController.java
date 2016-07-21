@@ -56,13 +56,13 @@ public class LingoRestController {
 
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
-    public void login(String username, String password,  HttpSession session, HttpServletResponse response) throws PasswordStorage.CannotPerformOperationException, IOException {
-        User user = users.findByUsername(username);
+    public void login(@RequestBody User user,  HttpSession session, HttpServletResponse response) throws PasswordStorage.CannotPerformOperationException, IOException {
+        User user1 = users.findByUsername(user.getUsername());
         if (user == null) {
             response.sendRedirect("/registerUser");
         }
         else {
-            session.setAttribute("username", username);
+            session.setAttribute("username", user1.getUsername());
             response.sendRedirect("/articles");
         }
 
