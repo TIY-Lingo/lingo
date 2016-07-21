@@ -101,7 +101,7 @@ module.exports = function(app) {
 },{}],5:[function(require,module,exports){
 module.exports = function(app) {
 
-        app.factory('UserService', ['$http', function($http) {
+        app.factory('UserService', ['$http', '$location', function($http, $location) {
           // let currentUser= {};
                 ////signIn() click event to post username and password to server//////
                 return {
@@ -109,6 +109,7 @@ module.exports = function(app) {
                         $http({
                             url: '/registerUser',
                             method: 'POST',
+
                             data: {
                                 username: name,
                                 password: pw,
