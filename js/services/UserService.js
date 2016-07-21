@@ -15,7 +15,7 @@ module.exports = function(app) {
                             },
                         }).then(function(results) {
                             console.log("posted")
-                            // if(response.data.isArtist === true){
+                            // if(response.data.business === true || response.data.technology === true || response.data.business === true ){
                             //   $location.path('/artist');
                             //   angular.copy(response.data, currentUser )
                             //   console.log(currentUser);
@@ -25,8 +25,31 @@ module.exports = function(app) {
                             // console.log(currentUser);
 
                         });
-                      }
+                      },
+                      postExistingUser: function(username, password) {
+                          $http({
+                              url: '/registerUser',
+                              method: 'POST',
+
+                              data: {
+                                  username: username,
+                                  password: password,
+                              },
+                          }).then(function(results) {
+                              console.log("posted existing user")
+                              // if(response.data.business === true || response.data.technology === true || response.data.business === true ){
+                              //   $location.path('/artist');
+                              //   angular.copy(response.data, currentUser )
+                              //   console.log(currentUser);
+                              // }
+
+                              // angular.copy(response.data, currentUser);
+                              // console.log(currentUser);
+
+                          });
+                        }
                     };
+
 
                     // createPreferences: function(pref) {
                     //     userPref = pref;
