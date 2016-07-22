@@ -55,62 +55,28 @@ module.exports = function(app) {
                 });
             },
             // UPDATE user preferences
-            updatePreferences: function() {
+            updatePreferences: function(userPref) {
+              console.log(userPref);
                 $http({
                     method: 'POST',
                     url: '/preferences',
-                    data: {},
-                    // {
-                    //   language: 'spanish',
-                    //   business: false,
-                    //   sports: false,
-                    //   politics: false,
-                    //   technology: false,
-                    //   arts: false,
-                    // }
+                    data: userPref
                 }).then(function(response) {
-                    console.log("OK!");
+                    console.log("posted preferences");
                 });
             },
             // GET user preferences
-            // getPreferences: function(){
-            //       $http({
-            //         method: 'GET',
-            //         url:'/'
-            //       }).then(function(response){
-            //         //copies the response object from the data base to our userPref object/model
-            //         angular.copy(response.data[0], userPref);
-            //       })
-            //       return userPref
-            //     }
-
-
-
-
-            // updatePreferences: function(updatedPref) {
-            //     $http({
-            //         method: 'POST',
-            //         url: '/preferences',
-            //         data: updatedPref
-            //     }).then(function(response) {
-            //         let userPrefObject = response.data;
-            //         console.log("updated user preferences", userPrefObject);
-            //         // if (userPrefObject === prefCategory.technology) {
-            //           // angular.copy(prefCategory.technology, userPrefObject)
-            //         // }
-            //     });
-            // },
-            // getPreferences: function() {
-            //     $http({
-            //         method: 'GET',
-            //         url: '/preferences'
-            //     }).then(function(response) {
-            //         console.log("got user preferences");
-            //         angular.copy(response.data[0], userPref);
-            //     });
-            //     return userPref;
-            // },
-
+            getPreferences: function(){
+                  $http({
+                    method: 'GET',
+                    url:'/preferences'
+                  }).then(function(response){
+                    //copies the response object from the data base to our userPref object/model
+                    angular.copy(response.data[0], userPref);
+                    console.log('getting user preferences:', userPref);
+                  })
+                  return userPref
+                }
         };
 
     }]);

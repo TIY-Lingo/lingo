@@ -2,14 +2,14 @@ module.exports = function(app) {
     app.controller('UserController', ['UserService','$scope', '$location', function(UserService, $scope, $location) {
           $scope.userInput = '';
           $scope.userPassword = '';
-          //
+
           $scope.UserPrefences = {
             language: 'spanish',
-            business: $scope.business,
-            sports: $scope.sports,
-            politics: $scope.politics,
-            technology: $scope.technology,
-            arts: $scope.arts,
+            technology: false,
+            sports: false,
+            business: false,
+            politics: false,
+            arts: false
           };
 
 // WORKING CODE
@@ -40,29 +40,34 @@ module.exports = function(app) {
 
 
             //this saves our object to the server with our current values that changed on our model
-            $scope.logObj = function(){
+            $scope.savePref = function(){
               UserService.updatePreferences($scope.UserPrefences);
+              console.log('saving preferences');
+              $location.path('/news');
             };
+           //these toggle and change our values of our user preference model/object
 
-
-            //these toggle and change our values of our user preference model/object
-            $scope.turnOffTech = function(){
-              $scope.UserPrefences.technology = false;
+            // TOGGLE ON AND OFF POLITICS PREFERENCE
+            $scope.turnOffPol = function(){
+              $scope.UserPrefences.politics = false;
             };
-
-            $scope.turnOnTech = function(){
-              $scope.UserPrefences.technology = true;
+            $scope.turnOnPol = function(){
+              $scope.UserPrefences.politics = true;
             };
-            $scope.turnOffBus = function(){
-              $scope.UserPrefences.business = false;
+            // TOGGLE ON AND OFF ARTS PREFERENCE
+            $scope.turnOffArts = function(){
+              $scope.UserPrefences.arts = false;
             };
-
-            $scope.turnOnBus = function(){
-              $scope.UserPrefences.business = true;
+            $scope.turnOnArts = function(){
+              $scope.UserPrefences.arts = true;
             };
-
-
-
+            // TOGGLE ON AND OFF SPORTS PREFERENCE
+            $scope.turnOffSports = function(){
+              $scope.UserPrefences.sports = false;
+            };
+            $scope.turnOnSports = function(){
+              $scope.UserPrefences.sports = true;
+            };
         }
     ]);
 }
