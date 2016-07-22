@@ -113,11 +113,7 @@ public class LingoRestController {
         }else {
             return articles.findAll();
         }
-
-
     }
-
-
 
     @RequestMapping(path = "/logout", method = RequestMethod.POST)
     public void logout(HttpSession session) throws IOException {
