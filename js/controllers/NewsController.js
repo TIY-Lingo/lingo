@@ -18,7 +18,6 @@ module.exports = function(app) {
               $scope.newsArray = newsArray;
           });
 
-            //$scope.newsArray = NewsService.getNewsRequest($scope.pageNumber, $scope.itemsPerPage)
         }
         $scope.goforward = function() {
 
@@ -29,10 +28,12 @@ module.exports = function(app) {
                 $scope.newsArray = newsArray;
             });
 
-
-            //$scope.newsArray = NewsService.getNewsRequest($scope.pageNumber, $scope.itemsPerPage);
         }
-        // $scope.newsArray = NewsService.getNewsRequest();
-        // console.log($scope.newsArray);
+
+        $scope.signOut = function (){
+          console.log("clicked logout");
+          NewsService.signOutUser();
+        };
+
     }]);
 }

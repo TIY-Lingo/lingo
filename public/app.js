@@ -19,7 +19,6 @@ module.exports = function(app) {
               $scope.newsArray = newsArray;
           });
 
-            //$scope.newsArray = NewsService.getNewsRequest($scope.pageNumber, $scope.itemsPerPage)
         }
         $scope.goforward = function() {
 
@@ -30,11 +29,13 @@ module.exports = function(app) {
                 $scope.newsArray = newsArray;
             });
 
-
-            //$scope.newsArray = NewsService.getNewsRequest($scope.pageNumber, $scope.itemsPerPage);
         }
-        // $scope.newsArray = NewsService.getNewsRequest();
-        // console.log($scope.newsArray);
+
+        $scope.signOut = function (){
+          console.log("clicked logout");
+          NewsService.signOutUser();
+        };
+
     }]);
 }
 
@@ -53,6 +54,7 @@ module.exports = function(app) {
             arts: false
           };
 
+// WORKING CODE
             $scope.signIn = function() {
                 console.log("clicked log in");
                 UserService.postExistingUser($scope.userInput, $scope.userPassword)
@@ -61,6 +63,7 @@ module.exports = function(app) {
             $scope.signUp = function() {
                 console.log("clicked sign up");
                 UserService.postUserInfo($scope.userInput, $scope.userPassword)
+
                 // $location.path('/preferences');
                 // if ($scope.username != null) {
                     // $location.path('/home');
@@ -68,6 +71,12 @@ module.exports = function(app) {
                 //     alert('Please enter a username');
                 // }
             }
+////END WORKING CODE
+            // $scope.signOut = function (){
+            //   console.log("clicked logout");
+            //   UserService.signOutUser();
+            // }
+
             //when controller loads, we get our user Preference object from the server;
             // $scope.UserPrefences = UserService.getPreferences();
 
@@ -93,6 +102,7 @@ module.exports = function(app) {
             $scope.turnOnBus = function(){
               $scope.UserPrefences.business = true;
             };
+<<<<<<< HEAD
             // TOGGLE ON AND OFF POLITICS PREFERENCE
             $scope.turnOffPol = function(){
               $scope.UserPrefences.politics = false;
@@ -114,6 +124,11 @@ module.exports = function(app) {
             $scope.turnOnSports = function(){
               $scope.UserPrefences.sports = true;
             };
+=======
+
+
+
+>>>>>>> 728428057e9e5867540271ad5293b8fe105d2193
         }
     ]);
 }
@@ -128,9 +143,9 @@ require('./services/UserService')(app);
 
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
-        .when('/', {
-            redirectTo: '/home',
-        })
+        // .when('/', {
+        //     redirectTo: '/home',
+        // })
         .when('/home', {
             templateUrl: 'templates/homePage.html',
         })
@@ -154,12 +169,14 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: 'NewsController',
             templateUrl: 'templates/articles.html',
         })
+
 }]);
 
 },{"./controllers/NewsController":1,"./controllers/UserController":2,"./services/NewsService":4,"./services/UserService":5}],4:[function(require,module,exports){
 module.exports = function(app) {
 
     app.factory('NewsService', ['$http', function($http) {
+
       var  newsArray = {
         async: function(pageNum, perPage) {
 
@@ -177,7 +194,20 @@ module.exports = function(app) {
 
             });
           return promise;
-        }
+        },
+        //////WORKING ON SIGN OUT FUNCTION//////
+                    signOutUser: function(){
+                      console.log("running sign out again?? more");
+
+                      $http({
+                          url: '/logout',
+                          method: 'POST'
+                      })
+                      .then(function(results) {
+                          console.log("signed out the user");
+                      });
+                    }
+        //////END WORKING ON SIGN OUT FUNCTION/////////
 
       };
       return newsArray;
@@ -211,17 +241,9 @@ module.exports = function(app) {
                         $location.path('/preferences');
                     }
 
-                    // if(response.data.business === true || response.data.technology === true || response.data.business === true ){
-                    //   $location.path('/artist');
-                    //   angular.copy(response.data, currentUser )
-                    //   console.log(currentUser);
-                    // }
-
-                    // angular.copy(response.data, currentUser);
-                    // console.log(currentUser);
-
                 });
             },
+
             postExistingUser: function(username, password) {
                 $http({
                     url: '/login',

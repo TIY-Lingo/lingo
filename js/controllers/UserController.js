@@ -12,6 +12,7 @@ module.exports = function(app) {
             arts: false
           };
 
+// WORKING CODE
             $scope.signIn = function() {
                 console.log("clicked log in");
                 UserService.postExistingUser($scope.userInput, $scope.userPassword)
@@ -20,6 +21,7 @@ module.exports = function(app) {
             $scope.signUp = function() {
                 console.log("clicked sign up");
                 UserService.postUserInfo($scope.userInput, $scope.userPassword)
+
                 // $location.path('/preferences');
                 // if ($scope.username != null) {
                     // $location.path('/home');
@@ -27,6 +29,12 @@ module.exports = function(app) {
                 //     alert('Please enter a username');
                 // }
             }
+////END WORKING CODE
+            // $scope.signOut = function (){
+            //   console.log("clicked logout");
+            //   UserService.signOutUser();
+            // }
+
             //when controller loads, we get our user Preference object from the server;
             // $scope.UserPrefences = UserService.getPreferences();
 
@@ -38,20 +46,7 @@ module.exports = function(app) {
               $location.path('/news');
             };
            //these toggle and change our values of our user preference model/object
-            // TOGGLE ON AND OFF TECHNOLOGY PREFERENCE
-            $scope.turnOffTech = function(){
-              $scope.UserPrefences.technology = false;
-            };
-            $scope.turnOnTech = function(){
-              $scope.UserPrefences.technology = true;
-            };
-            // TOGGLE ON AND OFF BUSINESS PREFERENCE
-            $scope.turnOffBus = function(){
-              $scope.UserPrefences.business = false;
-            };
-            $scope.turnOnBus = function(){
-              $scope.UserPrefences.business = true;
-            };
+
             // TOGGLE ON AND OFF POLITICS PREFERENCE
             $scope.turnOffPol = function(){
               $scope.UserPrefences.politics = false;
