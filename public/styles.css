@@ -30,11 +30,13 @@ body {
   background-color: #fff; }
 
 .homeglobe {
-  width: 4%;
+  width: 3%;
   float: left;
-  opacity: 0.5;
   margin-top: -13%;
   margin-left: 2%; }
+
+.homeglobe:hover {
+  transform: scale(1.1); }
 
 .homearrow {
   width: 3%;

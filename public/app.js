@@ -44,8 +44,10 @@ module.exports = function(app) {
     app.controller('UserController', ['UserService','$scope', '$location', function(UserService, $scope, $location) {
           $scope.userInput = '';
           $scope.userPassword = '';
+          let currentuser = UserService.postUserInfo($scope.userInput);
 
           $scope.UserPrefences = {
+            username: currentuser,
             language: 'spanish',
             technology: false,
             sports: false,
@@ -137,9 +139,9 @@ require('./services/UserService')(app);
 
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
-        // .when('/', {
-        //     redirectTo: '/home',
-        // })
+        .when('/', {
+            redirectTo: '/home',
+        })
         .when('/home', {
             templateUrl: 'templates/homePage.html',
         })
