@@ -1,32 +1,54 @@
+<!-- NAV BAR -->
+<link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 
-<div class="row">
-   <div class="large-6 columns">
-     <div class="signup-panel">
-       <p class="welcome"> lingo</p>
-       <form>
-         <div class="row collapse">
-           <div class="small-2  columns">
-             <span class="prefix"><i class="fi-torso-female"></i></span>
-           </div>
-           <div class="small-10  columns">
-             <input type="text" placeholder="username" ng-model="userInput">
-           </div>
-         </div>
-         <div class="row collapse">
-           <div class="small-2 columns ">
-             <span class="prefix"><i class="fi-lock"></i></span>
-           </div>
-           <div class="small-10 columns ">
-             <input type="password" placeholder="password" ng-model="userPassword">
-           </div>
-         </div>
-       </form>
-       <div class="button-group" data-grouptype="OR">
-  <button href="#" class="small button primary radius" ng-click="signUp()">Sign Up</button>
-  <button href="#" class="small button success radius" ng-click="signIn()">Sign In</button>
-</div>
-       <!-- <a href="#" class="button" ng-click="signUpForm()">Sign Up! </a>
+<nav class="menu">
+    <h1 class="name"><i class="fi-widget"></i> <a href="#home">lingo</a></h1>
+
+    <ul class="inline-list hide-for-small-only account-action">
+        <li class=""><a class="signup" href="#home" data-reveal-id="myModal">Home</a></li>
+    </ul>
+
+</nav>
+
+<!-- modal content -->
+
+<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="login or sign up" aria-hidden="true" role="dialog">
+
+
+
+
+
+
+    <!-- END NAV BAR -->
+
+    <div class="row">
+        <div class="large-6 columns">
+            <div class="signup-panel">
+                <p class="welcome"> lingo</p>
+                <form>
+                    <div class="row collapse">
+                        <div class="small-2  columns">
+                            <span class="prefix"><i class="fi-torso-female"></i></span>
+                        </div>
+                        <div class="small-10  columns">
+                            <input type="text" placeholder="username" ng-model="userInput">
+                        </div>
+                    </div>
+                    <div class="row collapse">
+                        <div class="small-2 columns ">
+                            <span class="prefix"><i class="fi-lock"></i></span>
+                        </div>
+                        <div class="small-10 columns ">
+                            <input type="password" placeholder="password" ng-model="userPassword">
+                        </div>
+                    </div>
+                </form>
+                <div class="button-group" data-grouptype="OR">
+                    <button href="#" class="small button primary radius" ng-click="signUp()">Sign Up</button>
+                    <button href="#" class="small button success radius" ng-click="signIn()">Sign In</button>
+                </div>
+                <!-- <a href="#" class="button" ng-click="signUpForm()">Sign Up! </a>
         <p>Already have an account? <a href="#" ng-click="sendToLogin()">Login here &raquo</a></p> -->
-     </div>
-   </div>
-  </div>
+            </div>
+        </div>
+    </div>
