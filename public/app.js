@@ -151,7 +151,7 @@ app.config(['$routeProvider', function($routeProvider) {
 },{"./controllers/NewsController":1,"./controllers/UserController":2,"./services/NewsService":4,"./services/UserService":5}],4:[function(require,module,exports){
 module.exports = function(app) {
 
-    app.factory('NewsService', ['$http', function($http) {
+    app.factory('NewsService', ['$http', '$location', function($http, $location) {
 
       var  newsArray = {
         async: function(pageNum, perPage) {
@@ -177,10 +177,12 @@ module.exports = function(app) {
 
                       $http({
                           url: '/logout',
-                          method: 'POST'
+                          method: 'POST',
+                          data: {username: 'Winnie'}
                       })
                       .then(function(results) {
                           console.log("signed out the user");
+                          // $location('#/home')
                       });
                     }
         //////END WORKING ON SIGN OUT FUNCTION/////////
