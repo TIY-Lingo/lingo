@@ -12,6 +12,7 @@ module.exports = function(app) {
             arts: $scope.arts,
           };
 
+// WORKING CODE
             $scope.signIn = function() {
                 console.log("clicked log in");
                 UserService.postExistingUser($scope.userInput, $scope.userPassword)
@@ -28,6 +29,12 @@ module.exports = function(app) {
                 //     alert('Please enter a username');
                 // }
             }
+////END WORKING CODE
+            // $scope.signOut = function (){
+            //   console.log("clicked logout");
+            //   UserService.signOutUser();
+            // }
+
             //when controller loads, we get our user Preference object from the server;
             // $scope.UserPrefences = UserService.getPreferences();
 

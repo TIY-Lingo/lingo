@@ -33,4 +33,5 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: 'NewsController',
             templateUrl: 'templates/articles.html',
         })
+
 }]);

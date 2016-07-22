@@ -23,17 +23,23 @@ module.exports = function(app) {
                         $location.path('/preferences');
                     }
 
-                    // if(response.data.business === true || response.data.technology === true || response.data.business === true ){
-                    //   $location.path('/artist');
-                    //   angular.copy(response.data, currentUser )
-                    //   console.log(currentUser);
-                    // }
-
-                    // angular.copy(response.data, currentUser);
-                    // console.log(currentUser);
-
                 });
             },
+// //////WORKING ON SIGN OUT FUNCTION//////
+//             signOutUser: function(){
+//               $http({
+//                   url: '/logout',
+//                   method: 'POST',
+//                   //
+//                   // data: {
+//                   //     username: username,
+//                   // },
+//               }).then(function(results) {
+//                   console.log("signed out the user");
+//               });
+//             },
+// //////END WORKING ON SIGN OUT FUNCTION/////////
+
             postExistingUser: function(username, password) {
                 $http({
                     url: '/login',

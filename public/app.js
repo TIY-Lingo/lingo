@@ -19,7 +19,6 @@ module.exports = function(app) {
               $scope.newsArray = newsArray;
           });
 
-            //$scope.newsArray = NewsService.getNewsRequest($scope.pageNumber, $scope.itemsPerPage)
         }
         $scope.goforward = function() {
 
@@ -30,11 +29,13 @@ module.exports = function(app) {
                 $scope.newsArray = newsArray;
             });
 
-
-            //$scope.newsArray = NewsService.getNewsRequest($scope.pageNumber, $scope.itemsPerPage);
         }
-        // $scope.newsArray = NewsService.getNewsRequest();
-        // console.log($scope.newsArray);
+
+        $scope.signOut = function (){
+          console.log("clicked logout");
+          NewsService.signOutUser();
+        };
+
     }]);
 }
 
@@ -53,6 +54,7 @@ module.exports = function(app) {
             arts: $scope.arts,
           };
 
+// WORKING CODE
             $scope.signIn = function() {
                 console.log("clicked log in");
                 UserService.postExistingUser($scope.userInput, $scope.userPassword)
@@ -61,6 +63,7 @@ module.exports = function(app) {
             $scope.signUp = function() {
                 console.log("clicked sign up");
                 UserService.postUserInfo($scope.userInput, $scope.userPassword)
+
                 // $location.path('/preferences');
                 // if ($scope.username != null) {
                     // $location.path('/home');
@@ -68,6 +71,12 @@ module.exports = function(app) {
                 //     alert('Please enter a username');
                 // }
             }
+////END WORKING CODE
+            // $scope.signOut = function (){
+            //   console.log("clicked logout");
+            //   UserService.signOutUser();
+            // }
+
             //when controller loads, we get our user Preference object from the server;
             // $scope.UserPrefences = UserService.getPreferences();
 
@@ -93,6 +102,8 @@ module.exports = function(app) {
             $scope.turnOnBus = function(){
               $scope.UserPrefences.business = true;
             };
+
+
 
         }
     ]);
@@ -134,12 +145,15 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: 'NewsController',
             templateUrl: 'templates/articles.html',
         })
+
 }]);
 
 },{"./controllers/NewsController":1,"./controllers/UserController":2,"./services/NewsService":4,"./services/UserService":5}],4:[function(require,module,exports){
 module.exports = function(app) {
 
     app.factory('NewsService', ['$http', function($http) {
+
+      //////END WORKING ON SIGN OUT FUNCTION/////////
       var  newsArray = {
         async: function(pageNum, perPage) {
 
@@ -157,8 +171,21 @@ module.exports = function(app) {
 
             });
           return promise;
-        }
-
+        },
+        //////WORKING ON SIGN OUT FUNCTION//////
+                    signOutUser: function(){
+                      console.log("running sign out");
+                      $http({
+                          url: '/logout',
+                          method: 'POST',
+                          //
+                          // data: {
+                          //     username: username,
+                          // },
+                      }).then(function(results) {
+                          console.log("signed out the user");
+                      });
+                    }
       };
       return newsArray;
 
@@ -191,17 +218,23 @@ module.exports = function(app) {
                         $location.path('/preferences');
                     }
 
-                    // if(response.data.business === true || response.data.technology === true || response.data.business === true ){
-                    //   $location.path('/artist');
-                    //   angular.copy(response.data, currentUser )
-                    //   console.log(currentUser);
-                    // }
-
-                    // angular.copy(response.data, currentUser);
-                    // console.log(currentUser);
-
                 });
             },
+// //////WORKING ON SIGN OUT FUNCTION//////
+//             signOutUser: function(){
+//               $http({
+//                   url: '/logout',
+//                   method: 'POST',
+//                   //
+//                   // data: {
+//                   //     username: username,
+//                   // },
+//               }).then(function(results) {
+//                   console.log("signed out the user");
+//               });
+//             },
+// //////END WORKING ON SIGN OUT FUNCTION/////////
+
             postExistingUser: function(username, password) {
                 $http({
                     url: '/login',
