@@ -135,4 +135,14 @@ public class User {
 //    public void setLastVisited(int lastVisited) {
 //        this.lastVisited = lastVisited;
 //    }
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", language='" + language + '\'' +
+                '}';
+    }
 }

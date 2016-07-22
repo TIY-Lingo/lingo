@@ -88,8 +88,11 @@ public class LingoRestController {
 
 
     @RequestMapping(path = "/preferences", method = RequestMethod.POST)
-    public void setPreferences(@RequestBody User user ){
-        User userA = users.findByUsername(user.getUsername());
+    public void setPreferences(@RequestBody User user, HttpSession session){
+        System.out.println(session.getAttribute("username"));
+        //User newUser = users.findByUsername(session.getAttribute("username"));
+        User userA = users.findByUsername((String) session.getAttribute("username"));
+        System.out.println(userA.toString());
         userA.setArts(user.getArts());
         userA.setBusiness(user.getBusiness());
         userA.setLanguage(user.getLanguage());
@@ -97,6 +100,7 @@ public class LingoRestController {
         userA.setSports(user.getSports());
         userA.setTechnology(user.getTechnology());
         users.save(userA);
+        System.out.println("New User saved to Database...");
     }
 
 
