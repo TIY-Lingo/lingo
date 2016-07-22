@@ -81,34 +81,39 @@ public class LingoRestController {
     }
 
     @RequestMapping(path = "/preferences", method = RequestMethod.GET)
-    public User getPreferences(String username, String language, Boolean technology, Boolean sports, Boolean business, Boolean politics, Boolean arts){
-        return users.findByUsername(username);
+    public User getPreferences(String username, HttpSession session) throws Exception {
+       if (session.getAttribute("username") != username){
+           throw new Exception("Something went wrong - Session username doesn't match supplied username!");
+       } else{
+           return users.findByUsername(username);
+       }
     }
-
-
 
     @RequestMapping(path = "/preferences", method = RequestMethod.POST)
-    public void setPreferences(@RequestBody User user, HttpSession session){
-        System.out.println(session.getAttribute("username"));
-        //User newUser = users.findByUsername(session.getAttribute("username"));
-        User userA = users.findByUsername((String) session.getAttribute("username"));
-        System.out.println(userA.toString());
-        userA.setArts(user.getArts());
-        userA.setBusiness(user.getBusiness());
-        userA.setLanguage(user.getLanguage());
-        userA.setPolitics(user.getPolitics());
-        userA.setSports(user.getSports());
-        userA.setTechnology(user.getTechnology());
-        users.save(userA);
-        System.out.println("New User saved to Database...");
+    public void setPreferences(@RequestBody User user, HttpSession session) throws Exception {
+        if (session.getAttribute("username") ==null){
+            throw new Exception("You must Login to view or change preferences!");
+        }else {
+            User userA = users.findByUsername((String) session.getAttribute("username"));
+            userA.setArts(user.getArts());
+            userA.setBusiness(user.getBusiness());
+            userA.setLanguage(user.getLanguage());
+            userA.setPolitics(user.getPolitics());
+            userA.setSports(user.getSports());
+            userA.setTechnology(user.getTechnology());
+            users.save(userA);
+            System.out.println("New User saved to Database...");
+        }
     }
 
-
-
-
     @RequestMapping(path = "/articles", method = RequestMethod.GET)
-    public Iterable<Article> getArticles(){
-        return articles.findAll();
+    public Iterable<Article> getArticles(HttpSession session) throws Exception {
+        if (session.getAttribute("username")==null){
+            throw new Exception("You must log in to view this page");
+        }else {
+            return articles.findAll();
+        }
+
 
     }
 
