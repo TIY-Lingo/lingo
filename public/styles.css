@@ -31,9 +31,7 @@ body {
 
 .homeglobe {
   width: 3%;
-  float: left;
-  margin-top: -13%;
-  margin-left: 2%; }
+  float: left; }
 
 .homeglobe:hover {
   transform: scale(1.1);
@@ -47,11 +45,14 @@ body {
   position: relative;
   width: 992px;
   height: 125px;
+  margin-top: -13%;
+  margin-left: 3%;
+  font-size: 25px;
   /*dimensions of image*/ }
 
 #logo-holder .homeglobe,
 #logo-holder .text {
-  transition: opacity 0.5s ease-in-out; }
+  transition: opacity 0.2s ease-in-out; }
 
 #logo-holder .text {
   position: absolute;
