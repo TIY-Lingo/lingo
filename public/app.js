@@ -102,7 +102,6 @@ module.exports = function(app) {
             $scope.turnOnBus = function(){
               $scope.UserPrefences.business = true;
             };
-
             // TOGGLE ON AND OFF POLITICS PREFERENCE
             $scope.turnOffPol = function(){
               $scope.UserPrefences.politics = false;
