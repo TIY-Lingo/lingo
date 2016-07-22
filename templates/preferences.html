@@ -24,11 +24,11 @@
 
                 <!-- toggle our values of our user Object -->
                 <div ng-if="UserPrefences.technology">
-                    Tech:
+                    Technology:
                     <button ng-click="turnOffTech()">OFF</button>
                 </div>
                 <div ng-if="!UserPrefences.technology">
-                    Tech:
+                    Technology:
                     <button ng-click="turnOnTech()">ON</button>
                 </div>
                 <div ng-if="UserPrefences.business">Business:
@@ -37,11 +37,26 @@
                 <div ng-if="!UserPrefences.business">Business:
                     <button ng-click="turnOnBus()">ON</button>
                 </div>
-
-
-                <button ng-click="logObj()">log</button>
-
-                <a href="#" class="button">Save</a>
+                <div ng-if="UserPrefences.politics">Politics:
+                    <button ng-click="turnOffPol()">OFF</button>
+                </div>
+                <div ng-if="!UserPrefences.politics">Politics:
+                    <button ng-click="turnOnPol()">ON</button>
+                </div>
+                <div ng-if="UserPrefences.arts">Arts:
+                    <button ng-click="turnOffArts()">OFF</button>
+                </div>
+                <div ng-if="!UserPrefences.arts">Arts:
+                    <button ng-click="turnOnArts()">ON</button>
+                </div>
+                <div ng-if="UserPrefences.sports">Sports:
+                    <button ng-click="turnOffSports()">OFF</button>
+                </div>
+                <div ng-if="!UserPrefences.sports">Sports:
+                    <button ng-click="turnOnSports()">ON</button>
+                </div>
+                <!-- <button ng-click="logObj()">log</button> -->
+                <a href="#" ng-click='savePref()' class="button">Update</a>
             </div>
         </div>
     </div>
