@@ -36,11 +36,34 @@ body {
   margin-left: 2%; }
 
 .homeglobe:hover {
-  transform: scale(1.1); }
+  transform: scale(1.1);
+  transform: rotate(180deg); }
 
 .homearrow {
   width: 3%;
   margin-bottom: -42%; }
+
+#logo-holder {
+  position: relative;
+  width: 992px;
+  height: 125px;
+  /*dimensions of image*/ }
+
+#logo-holder .homeglobe,
+#logo-holder .text {
+  transition: opacity 0.5s ease-in-out; }
+
+#logo-holder .text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0; }
+
+#logo-holder:hover .homeglobe {
+  opacity: 0; }
+
+#logo-holder:hover .text {
+  opacity: 1; }
 
 .signup-panel {
   border-radius: 5px;
@@ -80,6 +103,65 @@ body {
     top: 0.35rem; }
   .button-group button + button {
     margin-left: 5px; }
+
+.row {
+  max-width: 100%; }
+
+.menu {
+  background-color: #292c2f;
+  padding: 1.5rem 3rem;
+  height: auto; }
+  .menu .inline-list {
+    text-align: center; }
+    .menu .inline-list li {
+      float: none;
+      display: inline-block; }
+    .menu .inline-list a {
+      color: #fff;
+      padding-bottom: 0.5rem; }
+      .menu .inline-list a:hover {
+        color: #87D37C;
+        transition: all .3s ease-in-out; }
+    .menu .inline-list .active a {
+      color: #87D37C; }
+  .menu .account {
+    position: absolute;
+    top: 3%;
+    right: 3%; }
+    .menu .account a, .menu .account i {
+      color: #fff; }
+  @media only screen and (min-width: 40.063em) {
+    .menu {
+      height: 5rem; }
+      .menu .inline-list {
+        float: left;
+        margin: 0 0 0 1.5rem; }
+      .menu a:hover {
+        border-bottom: 2px solid #87D37C; } }
+  .menu .account-action {
+    float: right;
+    margin: -.75rem 0 0 0; }
+    .menu .account-action li {
+      margin-left: .2rem; }
+    .menu .account-action a {
+      padding: 0.75rem 1rem; }
+    .menu .account-action a.signup {
+      font-weight: bold;
+      background-color: #3d4146;
+      border-radius: 3px; }
+
+.name {
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  margin: 0 0 1rem 0;
+  color: #fff; }
+  .name i {
+    color: #87D37C;
+    margin-right: 0.5rem; }
+  @media only screen and (min-width: 40.063em) {
+    .name {
+      float: left; } }
 
 .box {
   border-radius: 3px;
@@ -187,6 +269,65 @@ h4 {
 
 #cb5 {
   display: none; }
+
+.row {
+  max-width: 100%; }
+
+.menu {
+  background-color: #292c2f;
+  padding: 1.5rem 3rem;
+  height: auto; }
+  .menu .inline-list {
+    text-align: center; }
+    .menu .inline-list li {
+      float: none;
+      display: inline-block; }
+    .menu .inline-list a {
+      color: #fff;
+      padding-bottom: 0.5rem; }
+      .menu .inline-list a:hover {
+        color: #87D37C;
+        transition: all .3s ease-in-out; }
+    .menu .inline-list .active a {
+      color: #87D37C; }
+  .menu .account {
+    position: absolute;
+    top: 3%;
+    right: 3%; }
+    .menu .account a, .menu .account i {
+      color: #fff; }
+  @media only screen and (min-width: 40.063em) {
+    .menu {
+      height: 5rem; }
+      .menu .inline-list {
+        float: left;
+        margin: 0 0 0 1.5rem; }
+      .menu a:hover {
+        border-bottom: 2px solid #87D37C; } }
+  .menu .account-action {
+    float: right;
+    margin: -.75rem 0 0 0; }
+    .menu .account-action li {
+      margin-left: .2rem; }
+    .menu .account-action a {
+      padding: 0.75rem 1rem; }
+    .menu .account-action a.signup {
+      font-weight: bold;
+      background-color: #3d4146;
+      border-radius: 3px; }
+
+.name {
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  margin: 0 0 1rem 0;
+  color: #fff; }
+  .name i {
+    color: #87D37C;
+    margin-right: 0.5rem; }
+  @media only screen and (min-width: 40.063em) {
+    .name {
+      float: left; } }
 
 body {
   background: #333; }
