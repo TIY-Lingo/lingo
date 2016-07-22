@@ -102,7 +102,6 @@ module.exports = function(app) {
             $scope.turnOnBus = function(){
               $scope.UserPrefences.business = true;
             };
-<<<<<<< HEAD
             // TOGGLE ON AND OFF POLITICS PREFERENCE
             $scope.turnOffPol = function(){
               $scope.UserPrefences.politics = false;
@@ -124,11 +123,6 @@ module.exports = function(app) {
             $scope.turnOnSports = function(){
               $scope.UserPrefences.sports = true;
             };
-=======
-
-
-
->>>>>>> 728428057e9e5867540271ad5293b8fe105d2193
         }
     ]);
 }

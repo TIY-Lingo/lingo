@@ -46,7 +46,20 @@ module.exports = function(app) {
               $location.path('/news');
             };
            //these toggle and change our values of our user preference model/object
-
+            // TOGGLE ON AND OFF TECHNOLOGY PREFERENCE
+            $scope.turnOffTech = function(){
+              $scope.UserPrefences.technology = false;
+            };
+            $scope.turnOnTech = function(){
+              $scope.UserPrefences.technology = true;
+            };
+            // TOGGLE ON AND OFF BUSINESS PREFERENCE
+            $scope.turnOffBus = function(){
+              $scope.UserPrefences.business = false;
+            };
+            $scope.turnOnBus = function(){
+              $scope.UserPrefences.business = true;
+            };
             // TOGGLE ON AND OFF POLITICS PREFERENCE
             $scope.turnOffPol = function(){
               $scope.UserPrefences.politics = false;
