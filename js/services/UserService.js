@@ -23,17 +23,9 @@ module.exports = function(app) {
                         $location.path('/preferences');
                     }
 
-                    // if(response.data.business === true || response.data.technology === true || response.data.business === true ){
-                    //   $location.path('/artist');
-                    //   angular.copy(response.data, currentUser )
-                    //   console.log(currentUser);
-                    // }
-
-                    // angular.copy(response.data, currentUser);
-                    // console.log(currentUser);
-
                 });
             },
+
             postExistingUser: function(username, password) {
                 $http({
                     url: '/login',
