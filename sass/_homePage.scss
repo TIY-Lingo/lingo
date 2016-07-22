@@ -44,8 +44,21 @@ body {
 }
 .homeglobe:hover {
 	transform: scale(1.1);
+	transform: rotate(180deg);
 }
 .homearrow {
 	width: 3%;
 	margin-bottom: -42%;
 }
+
+
+
+
+/////lOGO HOVER TO TEXT
+#logo-holder {position:relative; width:992px; height:125px; /*dimensions of image*/}
+#logo-holder .homeglobe,
+#logo-holder .text {transition: opacity 0.5s ease-in-out;}
+#logo-holder .text {position:absolute; top:0; left:0; opacity:0;}
+
+#logo-holder:hover .homeglobe {opacity:0;}
+#logo-holder:hover .text {opacity:1;}
