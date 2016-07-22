@@ -44,10 +44,8 @@ module.exports = function(app) {
     app.controller('UserController', ['UserService','$scope', '$location', function(UserService, $scope, $location) {
           $scope.userInput = '';
           $scope.userPassword = '';
-          let currentuser = UserService.postUserInfo($scope.userInput);
 
           $scope.UserPrefences = {
-            username: currentuser,
             language: 'spanish',
             technology: false,
             sports: false,
