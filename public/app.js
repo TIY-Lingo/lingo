@@ -119,9 +119,9 @@ require('./services/UserService')(app);
 
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
-        .when('/', {
-            redirectTo: '/home',
-        })
+        // .when('/', {
+        //     redirectTo: '/home',
+        // })
         .when('/home', {
             templateUrl: 'templates/homePage.html',
         })
@@ -153,7 +153,6 @@ module.exports = function(app) {
 
     app.factory('NewsService', ['$http', function($http) {
 
-      //////END WORKING ON SIGN OUT FUNCTION/////////
       var  newsArray = {
         async: function(pageNum, perPage) {
 
@@ -174,18 +173,18 @@ module.exports = function(app) {
         },
         //////WORKING ON SIGN OUT FUNCTION//////
                     signOutUser: function(){
-                      console.log("running sign out");
+                      console.log("running sign out again?? more");
+
                       $http({
                           url: '/logout',
-                          method: 'POST',
-                          //
-                          // data: {
-                          //     username: username,
-                          // },
-                      }).then(function(results) {
+                          method: 'POST'
+                      })
+                      .then(function(results) {
                           console.log("signed out the user");
                       });
                     }
+        //////END WORKING ON SIGN OUT FUNCTION/////////
+
       };
       return newsArray;
 
@@ -220,20 +219,6 @@ module.exports = function(app) {
 
                 });
             },
-// //////WORKING ON SIGN OUT FUNCTION//////
-//             signOutUser: function(){
-//               $http({
-//                   url: '/logout',
-//                   method: 'POST',
-//                   //
-//                   // data: {
-//                   //     username: username,
-//                   // },
-//               }).then(function(results) {
-//                   console.log("signed out the user");
-//               });
-//             },
-// //////END WORKING ON SIGN OUT FUNCTION/////////
 
             postExistingUser: function(username, password) {
                 $http({

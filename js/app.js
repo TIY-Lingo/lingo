@@ -7,9 +7,9 @@ require('./services/UserService')(app);
 
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
-        .when('/', {
-            redirectTo: '/home',
-        })
+        // .when('/', {
+        //     redirectTo: '/home',
+        // })
         .when('/home', {
             templateUrl: 'templates/homePage.html',
         })

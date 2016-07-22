@@ -25,20 +25,6 @@ module.exports = function(app) {
 
                 });
             },
-// //////WORKING ON SIGN OUT FUNCTION//////
-//             signOutUser: function(){
-//               $http({
-//                   url: '/logout',
-//                   method: 'POST',
-//                   //
-//                   // data: {
-//                   //     username: username,
-//                   // },
-//               }).then(function(results) {
-//                   console.log("signed out the user");
-//               });
-//             },
-// //////END WORKING ON SIGN OUT FUNCTION/////////
 
             postExistingUser: function(username, password) {
                 $http({
