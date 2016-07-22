@@ -111,9 +111,9 @@ public class LingoRestController {
 
 
     @RequestMapping(path = "/logout", method = RequestMethod.POST)
-    public void logout(HttpSession session, HttpServletResponse response) throws IOException {
+    public void logout(HttpSession session) throws IOException {
         session.invalidate();
-        response.sendRedirect("/home");
+        System.out.println("Session has been invalidated");
     }
 
 

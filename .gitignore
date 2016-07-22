@@ -25,6 +25,10 @@ DS_Store
 .idea/gradle.xml
 .idea/libraries
 
+# Gradle
+.gradle
+build/
+
 # Mongo Explorer plugin:
 .idea/mongoSettings.xml
 
