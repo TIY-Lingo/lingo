@@ -44,14 +44,14 @@ module.exports = function(app) {
     app.controller('UserController', ['UserService','$scope', '$location', function(UserService, $scope, $location) {
           $scope.userInput = '';
           $scope.userPassword = '';
-          //
+
           $scope.UserPrefences = {
             language: 'spanish',
-            business: $scope.business,
-            sports: $scope.sports,
-            politics: $scope.politics,
-            technology: $scope.technology,
-            arts: $scope.arts,
+            technology: false,
+            sports: false,
+            business: false,
+            politics: false,
+            arts: false
           };
 
 // WORKING CODE
@@ -82,29 +82,47 @@ module.exports = function(app) {
 
 
             //this saves our object to the server with our current values that changed on our model
-            $scope.logObj = function(){
+            $scope.savePref = function(){
               UserService.updatePreferences($scope.UserPrefences);
+              console.log('saving preferences');
+              $location.path('/news');
             };
-
-
-            //these toggle and change our values of our user preference model/object
+           //these toggle and change our values of our user preference model/object
+            // TOGGLE ON AND OFF TECHNOLOGY PREFERENCE
             $scope.turnOffTech = function(){
               $scope.UserPrefences.technology = false;
             };
-
             $scope.turnOnTech = function(){
               $scope.UserPrefences.technology = true;
             };
+            // TOGGLE ON AND OFF BUSINESS PREFERENCE
             $scope.turnOffBus = function(){
               $scope.UserPrefences.business = false;
             };
-
             $scope.turnOnBus = function(){
               $scope.UserPrefences.business = true;
             };
-
-
-
+            // TOGGLE ON AND OFF POLITICS PREFERENCE
+            $scope.turnOffPol = function(){
+              $scope.UserPrefences.politics = false;
+            };
+            $scope.turnOnPol = function(){
+              $scope.UserPrefences.politics = true;
+            };
+            // TOGGLE ON AND OFF ARTS PREFERENCE
+            $scope.turnOffArts = function(){
+              $scope.UserPrefences.arts = false;
+            };
+            $scope.turnOnArts = function(){
+              $scope.UserPrefences.arts = true;
+            };
+            // TOGGLE ON AND OFF SPORTS PREFERENCE
+            $scope.turnOffSports = function(){
+              $scope.UserPrefences.sports = false;
+            };
+            $scope.turnOnSports = function(){
+              $scope.UserPrefences.sports = true;
+            };
         }
     ]);
 }
@@ -251,62 +269,28 @@ module.exports = function(app) {
                 });
             },
             // UPDATE user preferences
-            updatePreferences: function() {
+            updatePreferences: function(userPref) {
+              console.log(userPref);
                 $http({
                     method: 'POST',
                     url: '/preferences',
-                    data: {},
-                    // {
-                    //   language: 'spanish',
-                    //   business: false,
-                    //   sports: false,
-                    //   politics: false,
-                    //   technology: false,
-                    //   arts: false,
-                    // }
+                    data: userPref
                 }).then(function(response) {
-                    console.log("OK!");
+                    console.log("posted preferences");
                 });
             },
             // GET user preferences
-            // getPreferences: function(){
-            //       $http({
-            //         method: 'GET',
-            //         url:'/'
-            //       }).then(function(response){
-            //         //copies the response object from the data base to our userPref object/model
-            //         angular.copy(response.data[0], userPref);
-            //       })
-            //       return userPref
-            //     }
-
-
-
-
-            // updatePreferences: function(updatedPref) {
-            //     $http({
-            //         method: 'POST',
-            //         url: '/preferences',
-            //         data: updatedPref
-            //     }).then(function(response) {
-            //         let userPrefObject = response.data;
-            //         console.log("updated user preferences", userPrefObject);
-            //         // if (userPrefObject === prefCategory.technology) {
-            //           // angular.copy(prefCategory.technology, userPrefObject)
-            //         // }
-            //     });
-            // },
-            // getPreferences: function() {
-            //     $http({
-            //         method: 'GET',
-            //         url: '/preferences'
-            //     }).then(function(response) {
-            //         console.log("got user preferences");
-            //         angular.copy(response.data[0], userPref);
-            //     });
-            //     return userPref;
-            // },
-
+            getPreferences: function(){
+                  $http({
+                    method: 'GET',
+                    url:'/preferences'
+                  }).then(function(response){
+                    //copies the response object from the data base to our userPref object/model
+                    angular.copy(response.data[0], userPref);
+                    console.log('getting user preferences:', userPref);
+                  })
+                  return userPref
+                }
         };
 
     }]);
