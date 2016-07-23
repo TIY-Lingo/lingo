@@ -50,7 +50,7 @@ public class LingoRestController {
     @PostConstruct
     public void init() throws SQLException, IOException, InterruptedException {
         Server.createWebServer().start();
-        scrapeAPIResults();
+//        scrapeAPIResults();
     }
 
 
@@ -113,6 +113,7 @@ public class LingoRestController {
         }else {
             return articles.findAll();
         }
+
     }
 
     @RequestMapping(path = "/logout", method = RequestMethod.POST)
@@ -162,6 +163,7 @@ public class LingoRestController {
         System.out.println("Processing Articles...");  //for console testing
         wordReplacement();
     }
+
 
     public static String apiRequest(String url) throws IOException {
         OkHttpClient client = new OkHttpClient();
