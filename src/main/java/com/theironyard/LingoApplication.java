@@ -1,5 +1,6 @@
 package com.theironyard;
 
+import com.theironyard.entities.ResultContainter;
 import com.theironyard.entities.Results;
 import com.theironyard.services.ApiLookupService;
 import org.springframework.beans.factory.annotation.Autowired;

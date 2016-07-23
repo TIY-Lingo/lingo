@@ -3,7 +3,7 @@ package com.theironyard.entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Results {
+public class Results{
     String title;
     String url;
     String byline;
