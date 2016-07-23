@@ -4,11 +4,14 @@ package com.theironyard.services;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.theironyard.LingoRestController;
+import com.theironyard.entities.Article;
 import com.theironyard.entities.ResultContainter;
 import com.theironyard.entities.Results;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
@@ -27,17 +30,20 @@ public class ApiLookupService {
             System.out.println("Looking up " + url);
             ResultContainter results = restTemplate.getForObject(url, ResultContainter.class);
             // Artificial delay of 1s for demonstration purposes
-            System.out.println("temp");
-            Thread.sleep(1000L);
+            for (Results result: results.getResults()){
+                System.out.println(result.getTitle());
 
-//            String apiURL = "https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=289858bf10514c09b02e561994f4ab45";   // The Technology API url
-//            String returnedJson = LingoRestController.apiRequest(apiURL);                        //setting the returned Json string to a String object for use.
+//                String urlClean = returnedURL.toString();                 // The returned url has an extra set of "" that need to be removed before it can be used to get the article contents
+//                urlClean = urlClean.substring(1, urlClean.length() - 1); // this line drops the extra quotes by dropping the first and last character of the string
 //
-//            ObjectMapper mapper = new ObjectMapper();
-//            JsonNode fullJsonReturn = mapper.readValue(returnedJson, JsonNode.class);    //converts Json String into a Node for use with Jackson
+//                Document doc = Jsoup.connect(urlClean).get();             // This scrapes the provided webpage and puts it in a document Object for use with Jsoup
+//                String content = doc.select("p").text();                  // this line grabs only the content from the css paragraph tags
+//                content = content.substring(27, content.length());
 //
-//            JsonNode nodeResults = fullJsonReturn.get("results");
-//            Results results = new Results(nodeResults.get("title").toString(),nodeResults.get("url").toString(), nodeResults.get("byline").toString());
+                Article article = new Article(result.getTitle(),result.getUrl(), result.getByline())
+
+            }
+
             return new AsyncResult<>(results);
         }
 

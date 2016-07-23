@@ -123,7 +123,7 @@ public class LingoRestController {
     }
 
 
-    @Async
+
     public void scrapeAPIResults() throws IOException, InterruptedException {
         parseDictionary();               //Brings language dictionary into the DB if it isn't already there.
         System.out.println("Retrieving Json from API...");               //for console testing
