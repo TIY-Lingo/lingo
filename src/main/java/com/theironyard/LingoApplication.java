@@ -24,19 +24,19 @@ public class LingoApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		long start = System.currentTimeMillis();
 
-		Future<Results> page1 = apiLookupService.findResults("https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=289858bf10514c09b02e561994f4ab45");
-		Future<Results> page2 = apiLookupService.findResults("https://api.nytimes.com/svc/topstories/v2/sports.json?api-key=289858bf10514c09b02e561994f4ab45");
-		Future<Results> page3 = apiLookupService.findResults("https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=289858bf10514c09b02e561994f4ab45");
+		Future<ResultContainter> page1 = apiLookupService.findResults("https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=289858bf10514c09b02e561994f4ab45");
+		Future<ResultContainter> page2 = apiLookupService.findResults("https://api.nytimes.com/svc/topstories/v2/sports.json?api-key=289858bf10514c09b02e561994f4ab45");
+		Future<ResultContainter> page3 = apiLookupService.findResults("https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=289858bf10514c09b02e561994f4ab45");
 
-		while (!(page1.isDone() && page2.isDone() && page3.isDone())) {
-			Thread.sleep(10); //10-millisecond pause between each check
-		}
+//		while (!(page1.isDone() && page2.isDone() && page3.isDone())) {
+//			Thread.sleep(10); //10-millisecond pause between each check
+//		}
 
 		// Print results, including elapsed time
 		System.out.println("Elapsed time: " + (System.currentTimeMillis() - start));
-		System.out.println(page1.get());
-		System.out.println(page2.get());
-		System.out.println(page3.get());
+		System.out.println(page1.get().getResults().get(0).getTitle());
+		System.out.println(page2.get().getResults().get(0).getTitle());
+		System.out.println(page3.get().getResults().get(0).getTitle());
 
 	} //end run method
 
