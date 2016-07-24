@@ -134,49 +134,155 @@ h4 {
 #cb5 {
   display: none;
 }
-// .onoffswitch {
-//     position: relative; width: 90px;
-//     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
-// }
-// .onoffswitch-checkbox {
-//     display: none;
-// }
-// .onoffswitch-label {
-//     display: block; overflow: hidden; cursor: pointer;
-//     border: 2px solid #999999; border-radius: 20px;
-// }
-// .onoffswitch-inner {
-//     display: block; width: 200%; margin-left: -100%;
-//     transition: margin 0.3s ease-in 0s;
-// }
-// .onoffswitch-inner:before, .onoffswitch-inner:after {
-//     display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
-//     font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
-//     box-sizing: border-box;
-// }
-// .onoffswitch-inner:before {
-//     content: "Yes";
-//     padding-left: 10px;
-//     background-color: #34A7C1; color: #FFFFFF;
-// }
-// .onoffswitch-inner:after {
-//     content: "No";
-//     padding-right: 10px;
-//     background-color: #EEEEEE; color: #999999;
-//     text-align: right;
-// }
-// .onoffswitch-switch {
-//     display: block; width: 18px; margin: 6px;
-//     background: #FFFFFF;
-//     position: absolute; top: 0; bottom: 0;
-//     right: 56px;
-//     border: 2px solid #999999; border-radius: 20px;
-//     transition: all 0.3s ease-in 0s;
-// }
-//
-// .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-//     margin-left: 0;
-// }
-// .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-//     right: 0px;
-// }
+
+
+// BEGIN NAV BAR CSS
+$background-color: #292c2f;
+$primary-color: #87D37C;
+
+.row {
+  max-width: 100%;
+}
+
+.menu {
+  background-color: $background-color;
+  padding: 1.5rem 3rem;
+  height: auto;
+
+  .inline-list {
+    text-align: center;
+
+    li {
+      float: none;
+      display: inline-block;
+    }
+
+    a {
+      color: #fff;
+      padding-bottom: 0.5rem;
+
+      &:hover {
+        color: $primary-color;
+        transition: all .3s ease-in-out;
+      }
+    }
+
+    .active a {
+      color: $primary-color;
+    }
+  }
+
+  .account {
+    position: absolute;
+    top: 3%;
+    right: 3%;
+
+    a , i {
+      color: #fff;
+    }
+  }
+
+  @media only screen and (min-width: 40.063em) {
+  height: 5rem;
+
+  .inline-list {
+    float: left;
+    margin: 0 0 0 1.5rem;
+    }
+
+    a:hover {
+      border-bottom: 2px solid $primary-color;
+    }
+  }
+
+  .account-action {
+    float: right;
+    margin: -.75rem 0 0 0;
+
+    li {
+      margin-left: .2rem;
+    }
+
+    a { padding: 0.75rem 1rem;}
+
+    a.signup {
+      font-weight: bold;
+      background-color: scale-color($background-color, $lightness: 10%);
+      border-radius: 3px;
+    }
+  }
+}
+
+.name {
+  text-align: center;
+  font-size:  1.5rem;
+  line-height: 1;
+  margin: 0 0 1rem 0;
+  color: #fff;
+
+  i {
+    color: $primary-color;
+    margin-right: 0.5rem;
+  }
+
+  @media only screen and (min-width: 40.063em) {
+    float: left;
+  }
+}
+
+
+////Footer
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+
+.hero {
+  background: url('http://static.pexels.com/wp-content/uploads/2014/07/beach-coast-holiday-2190-825x550.jpg') no-repeat center center;
+	background-size: cover;
+  height: 50vh;
+  overflow: hidden;
+  h1 {
+    color: #fff;
+    text-align: center;
+    @include vertical-align;
+  }
+}
+
+.footer {
+  background-color: #292c2f;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 4rem;
+  p {
+    &.slogan {
+      color: #8d9093;
+      font-size: 1.8rem;
+      margin: 0 0 1rem;
+    }
+    &.copywrite {
+      color: #8f9296;
+      font-size: 0.875rem;
+      margin: 0;
+    }
+  }
+  .links a {
+    list-style: none;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 3rem 0 2rem;
+    margin: 0;
+    &::after {
+      content: "•";
+      padding: 0 0.4rem 0 0.8rem;
+    }
+    &:last-child::after {
+      content: "";
+      padding: 0 0.4rem 0 0.8rem;
+    }
+  }
+}
