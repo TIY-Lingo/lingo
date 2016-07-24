@@ -37,12 +37,7 @@ public class LingoApplication implements CommandLineRunner {
 //		Future<ResultContainter> page2 = apiLookupService.findResults("https://api.nytimes.com/svc/topstories/v2/sports.json?api-key=289858bf10514c09b02e561994f4ab45");
 //		Future<ResultContainter> page3 = apiLookupService.findResults("https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=289858bf10514c09b02e561994f4ab45");
 
-//		while (!(page1.isDone() && page2.isDone() && page3.isDone())) {
-//			Thread.sleep(10); //10-millisecond pause between each check
-//		}
-
-		// Print results, including elapsed time
-//		System.out.println("Elapsed time: " + (System.currentTimeMillis() - start));
+		System.out.println("Elapsed time: " + (System.currentTimeMillis() - start));
 
 	} //end run method
 
