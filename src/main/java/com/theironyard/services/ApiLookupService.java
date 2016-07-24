@@ -1,6 +1,7 @@
 package com.theironyard.services;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.theironyard.entities.Article;
 import com.theironyard.entities.ResultContainter;
 import com.theironyard.entities.Results;
@@ -51,6 +52,7 @@ public class ApiLookupService {
                     article = new Article(result.getTitle(), result.getUrl(), result.getByline(), content, results.getSection());
                     articles.save(article);
                 }
+                langInjection(article, "french");
                 langInjection(article, "spanish");
                 System.out.println("article translation complete");
             }
@@ -62,22 +64,29 @@ public class ApiLookupService {
     public void langInjection(Article article, String language) {
         System.out.println("translation of: " + article.getTitle() +  " has begun");
         Random r = new Random();
-        String placeholder = article.getContent();
+        String contentPlaceholder = article.getContent();
         int count = 0;
         int failures = 0;
         while (count <= 20) {
             int seedValue = (1 + r.nextInt((int) dictionaries.count()-1));
-            if (placeholder.contains(dictionaries.findOne(seedValue).getEnglish())) {
-                placeholder = placeholder.replace(dictionaries.findOne(seedValue).getEnglish(), "<span class=\'" + language + "\'>" + dictionaries.findOne(seedValue).getSpanish() + "</span>");
+            Object langPlaceholder;
+
+            if(language.equals("spanish")){
+                langPlaceholder = dictionaries.findOne(seedValue).getSpanish();
+            }else{
+                langPlaceholder = dictionaries.findOne(seedValue).getFrench();
+            }
+            if (contentPlaceholder.contains(dictionaries.findOne(seedValue).getEnglish())) {
+                contentPlaceholder = contentPlaceholder.replace(dictionaries.findOne(seedValue).getEnglish(), "<span class=\'" + language + "\'>" + langPlaceholder + "</span>");
                 count++;
             } else if (count == 5) {
                 if (language.equals("spanish")) {
-                    article.setSpan1(placeholder);
+                    article.setSpan1(contentPlaceholder);
                     articles.save(article);
                     count++;
                     System.out.println("level 1 complete");
                 } else if (language.equals("french")) {
-                    article.setFrench1(placeholder);
+                    article.setFrench1(contentPlaceholder);
                     articles.save(article);
                     count++;
                     System.out.println("level 1 complete");
@@ -86,12 +95,12 @@ public class ApiLookupService {
                 }
             } else if (count == 10) {
                 if (language.equals("spanish")) {
-                    article.setSpan2(placeholder);
+                    article.setSpan2(contentPlaceholder);
                     articles.save(article);
                     count++;
                     System.out.println("level 2 complete");
                 } else if (language.equals("french")) {
-                    article.setFrench2(placeholder);
+                    article.setFrench2(contentPlaceholder);
                     articles.save(article);
                     count++;
                     System.out.println("level 2 complete");
@@ -100,13 +109,13 @@ public class ApiLookupService {
                 }
             } else if (count == 15) {
                 if (language.equals("spanish")) {
-                    article.setSpan3(placeholder);
+                    article.setSpan3(contentPlaceholder);
                     articles.save(article);
                     count++;
                     System.out.println("level 3 complete");
                     break;
                 } else if (language.equals("french")) {
-                    article.setFrench3(placeholder);
+                    article.setFrench3(contentPlaceholder);
                     articles.save(article);
                     count++;
                     System.out.println("level 3 complete");
@@ -119,38 +128,38 @@ public class ApiLookupService {
                 if (failures > 500) {
                     if (language.equals("spanish")) {
                         if (count < 5) {
-                            article.setSpan1(placeholder);
-                            article.setSpan2(placeholder);
-                            article.setSpan3(placeholder);
+                            article.setSpan1(contentPlaceholder);
+                            article.setSpan2(contentPlaceholder);
+                            article.setSpan3(contentPlaceholder);
                             articles.save(article);
                             System.out.println(" failed before level 1 complete");
                             break;
                         } else if (count > 10 && count <= 15) {
-                            article.setSpan2(placeholder);
-                            article.setSpan3(placeholder);
+                            article.setSpan2(contentPlaceholder);
+                            article.setSpan3(contentPlaceholder);
                             articles.save(article);
                             System.out.println(" failed before level 2 complete");
                             break;
                         } else if (count > 15) {
-                            article.setSpan3(placeholder);
+                            article.setSpan3(contentPlaceholder);
                             articles.save(article);
                             System.out.println(" failed before level 3 complete");
                             break;
                         }
                     } else if (language.equals("french")) {
                         if (count < 5) {
-                            article.setFrench1(placeholder);
-                            article.setFrench2(placeholder);
-                            article.setFrench3(placeholder);
+                            article.setFrench1(contentPlaceholder);
+                            article.setFrench2(contentPlaceholder);
+                            article.setFrench3(contentPlaceholder);
                             articles.save(article);
                             break;
                         } else if (count > 10 && count <= 15) {
-                            article.setSpan2(placeholder);
-                            article.setSpan3(placeholder);
+                            article.setSpan2(contentPlaceholder);
+                            article.setSpan3(contentPlaceholder);
                             articles.save(article);
                             break;
                         } else if (count > 15) {
-                            article.setSpan3(placeholder);
+                            article.setSpan3(contentPlaceholder);
                             articles.save(article);
                             break;
                         }
