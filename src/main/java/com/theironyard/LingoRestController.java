@@ -50,6 +50,7 @@ public class LingoRestController {
     @PostConstruct
     public void init() throws SQLException, IOException, InterruptedException {
         Server.createWebServer().start();
+        parseDictionary();
 //        scrapeAPIResults();
     }
 
@@ -125,7 +126,7 @@ public class LingoRestController {
 
 
     public void scrapeAPIResults() throws IOException, InterruptedException {
-        parseDictionary();               //Brings language dictionary into the DB if it isn't already there.
+                       //Brings language dictionary into the DB if it isn't already there.
         System.out.println("Retrieving Json from API...");               //for console testing
         String apiURL = "https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=289858bf10514c09b02e561994f4ab45";   // The Technology API url
         String returnedJson = apiRequest(apiURL);                        //setting the returned Json string to a String object for use.

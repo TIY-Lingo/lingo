@@ -6,9 +6,11 @@ import java.util.ArrayList;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ResultContainter {
+    String section;
     ArrayList<Results> results;
 
-    public ResultContainter(ArrayList<Results> results) {
+    public ResultContainter(String section, ArrayList<Results> results) {
+        this.section = section;
         this.results = results;
     }
 
@@ -21,6 +23,14 @@ public class ResultContainter {
 
     public void setResults(ArrayList<Results> results) {
         this.results = results;
+    }
+
+    public String getSection() {
+        return section;
+    }
+
+    public void setSection(String section) {
+        this.section = section;
     }
 
     @Override

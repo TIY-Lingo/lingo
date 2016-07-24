@@ -32,6 +32,28 @@ public class Article {
     @Column (length = 25000)
     String span3;
 
+    @Column (length = 25000)
+    String french1;
+
+    @Column (length = 25000)
+    String french2;
+
+    @Column (length = 25000)
+    String french3;
+
+    @Column
+    String type;
+
+
+
+    public Article(String title, String articleUrl, String author, String content, String type) {
+        this.title = title;
+        this.articleUrl = articleUrl;
+        this.author = author;
+        this.content = content;
+        this.type = type;
+    }
+
     public Article(String title, String articleUrl, String author, String content) {
         this.title = title;
         this.articleUrl = articleUrl;
@@ -104,6 +126,38 @@ public class Article {
 
     public void setSpan3(String span3) {
         this.span3 = span3;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getFrench1() {
+        return french1;
+    }
+
+    public void setFrench1(String french1) {
+        this.french1 = french1;
+    }
+
+    public String getFrench2() {
+        return french2;
+    }
+
+    public void setFrench2(String french2) {
+        this.french2 = french2;
+    }
+
+    public String getFrench3() {
+        return french3;
+    }
+
+    public void setFrench3(String french3) {
+        this.french3 = french3;
     }
 
     @Override
