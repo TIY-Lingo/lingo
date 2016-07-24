@@ -52,34 +52,35 @@ public class ApiLookupService {
                     article = new Article(result.getTitle(), result.getUrl(), result.getByline(), content, results.getSection());
                     articles.save(article);
                 }
-                langInjection(article, "french");
+                langInjection(article, "french");                               //Run it once for spanish and once for french
                 langInjection(article, "spanish");
-                System.out.println("article translation complete");
+                System.out.println("Article translation complete");
             }
 
             System.out.println( results.getSection() + " thread has completed...");
             return new AsyncResult<>(results);
         }
-
+    @Async
     public void langInjection(Article article, String language) {
-        System.out.println("translation of: " + article.getTitle() +  " has begun");
+        System.out.println("translation of: " + article.getTitle() +  " has begun in " + language);
         Random r = new Random();
         String contentPlaceholder = article.getContent();
         int count = 0;
         int failures = 0;
-        while (count <= 20) {
-            int seedValue = (1 + r.nextInt((int) dictionaries.count()-1));
-            Object langPlaceholder;
+        while (count <= 60) {
+            int seedValue = (1 + r.nextInt((int) dictionaries.count()-1));  //random number adjusted for no Zeros since our DB doesn't have an ID = 0;
 
-            if(language.equals("spanish")){
+            Object langPlaceholder;
+            if(language.equals("spanish")){    //It sucks but this was needed to make the replacement work a few lines down.
                 langPlaceholder = dictionaries.findOne(seedValue).getSpanish();
             }else{
                 langPlaceholder = dictionaries.findOne(seedValue).getFrench();
             }
+
             if (contentPlaceholder.contains(dictionaries.findOne(seedValue).getEnglish())) {
                 contentPlaceholder = contentPlaceholder.replace(dictionaries.findOne(seedValue).getEnglish(), "<span class=\'" + language + "\'>" + langPlaceholder + "</span>");
                 count++;
-            } else if (count == 5) {
+            } else if (count == 15) {                   //if Level 1 count is hit, save it so if there is a failure it is not lost and continue rolling through the next levels
                 if (language.equals("spanish")) {
                     article.setSpan1(contentPlaceholder);
                     articles.save(article);
@@ -93,7 +94,7 @@ public class ApiLookupService {
                 } else {
                     System.out.println("This should never happen, You have 2 options: spanish or french");
                 }
-            } else if (count == 10) {
+            } else if (count == 30) {                  //if Level 2 count is hit, save it so if there is a failure it is not lost and continue rolling through the next levels
                 if (language.equals("spanish")) {
                     article.setSpan2(contentPlaceholder);
                     articles.save(article);
@@ -107,7 +108,7 @@ public class ApiLookupService {
                 } else {
                     System.out.println("This should never happen, You have 2 options: spanish or french");
                 }
-            } else if (count == 15) {
+            } else if (count == 60) {                    ////if Level 3 count is hit, save the content and kick out of the while loop
                 if (language.equals("spanish")) {
                     article.setSpan3(contentPlaceholder);
                     articles.save(article);
@@ -125,42 +126,39 @@ public class ApiLookupService {
                 }
             } else {
                 failures++;
-                if (failures > 500) {
-                    if (language.equals("spanish")) {
-                        if (count < 5) {
+                if (failures > 12000) {                       //If there is a catastrophic failure save each level with whatever has been completed up to that point.
+                    if (language.equals("spanish")) {         //They save along the way regardless so we only have to save the level based on where the Counter is at
+                        if (count < 15) {
                             article.setSpan1(contentPlaceholder);
-                            article.setSpan2(contentPlaceholder);
-                            article.setSpan3(contentPlaceholder);
                             articles.save(article);
-                            System.out.println(" failed before level 1 complete");
+                            System.out.println("S failed before level 1 complete");
                             break;
-                        } else if (count > 10 && count <= 15) {
+                        } else if (count > 15 && count <= 30) {
                             article.setSpan2(contentPlaceholder);
-                            article.setSpan3(contentPlaceholder);
                             articles.save(article);
-                            System.out.println(" failed before level 2 complete");
+                            System.out.println("S failed before level 2 complete");
                             break;
-                        } else if (count > 15) {
+                        } else if (count > 30) {
                             article.setSpan3(contentPlaceholder);
                             articles.save(article);
-                            System.out.println(" failed before level 3 complete");
+                            System.out.println("S failed before level 3 complete");
                             break;
                         }
                     } else if (language.equals("french")) {
-                        if (count < 5) {
+                        if (count < 15) {
                             article.setFrench1(contentPlaceholder);
-                            article.setFrench2(contentPlaceholder);
-                            article.setFrench3(contentPlaceholder);
                             articles.save(article);
+                            System.out.println("F failed before level 1 complete");
                             break;
-                        } else if (count > 10 && count <= 15) {
+                        } else if (count > 15 && count <= 30) {
                             article.setSpan2(contentPlaceholder);
-                            article.setSpan3(contentPlaceholder);
                             articles.save(article);
+                            System.out.println("F failed before level 2 complete");
                             break;
-                        } else if (count > 15) {
+                        } else if (count > 30) {
                             article.setSpan3(contentPlaceholder);
                             articles.save(article);
+                            System.out.println("F failed before level 3 complete");
                             break;
                         }
                     }
