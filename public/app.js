@@ -233,6 +233,7 @@ module.exports = function(app) {
     app.factory('UserService', ['$http', '$location', function($http, $location) {
         var userPref = {};
 
+        var updatedStuff = {};
         ////signIn() click event to post username and password to server//////
         return {
             postUserInfo: function(name, pw) {
@@ -296,15 +297,15 @@ module.exports = function(app) {
                 });
             },
             // GET user preferences
-            getPreferences: function(userPref){
+            getPreferences: function(updatedStuff){
                   $http({
                     method: 'GET',
                     url:'/preferences',
-                    data: userPref,
+                    data: updatedStuff,
                   }).then(function(response){
                     console.log("this is the response from getPreferences", response);
                     //copies the response object from the data base to our userPref object/model
-                    angular.copy(response.data[0], userPref);
+                    angular.copy(response.data, userPref);
                     console.log('getting user preferences:', userPref);
                   })
                   return userPref
