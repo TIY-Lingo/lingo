@@ -83,10 +83,10 @@ public class LingoRestController {
 
     @RequestMapping(path = "/preferences", method = RequestMethod.GET)
     public User getPreferences(String username, HttpSession session) throws Exception {
-       if (session.getAttribute("username") != username){
-           throw new Exception("Something went wrong - Session username doesn't match supplied username!");
+       if (session.getAttribute("username") != null){
+           return users.findByUsername((String) session.getAttribute("username"));
        } else{
-           return users.findByUsername(username);
+           throw new Exception("you mst be logged in to change preferences");
        }
     }
 
@@ -103,7 +103,7 @@ public class LingoRestController {
             userA.setSports(user.getSports());
             userA.setTechnology(user.getTechnology());
             users.save(userA);
-            System.out.println("New User saved to Database...");
+            System.out.println("User saved to Database...");
         }
     }
 
