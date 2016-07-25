@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.theironyard.entities.Article;
 import com.theironyard.entities.Dictionary;
+import com.theironyard.entities.JavaCurrentTimeStamp;
 import com.theironyard.entities.User;
 import com.theironyard.services.DictionaryRepository;
 import com.theironyard.utils.PasswordStorage;
@@ -31,12 +32,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
 @RestController
-public class LingoRestController {
+public class LingoRestController extends JavaCurrentTimeStamp{
 
     @Autowired
     UserRepository users;
@@ -56,7 +58,8 @@ public class LingoRestController {
 
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
-    public Boolean login(@RequestBody User user, HttpSession session, HttpServletResponse response) throws Exception {
+    public Boolean login(@RequestBody User user, HttpSession session,  java.util.Date date) throws Exception {
+
         User user1 = users.findByUsername(user.getUsername());
         if (user1 == null) {
             return false;
@@ -66,6 +69,7 @@ public class LingoRestController {
         }
         session.setAttribute("username", user1.getUsername());
         return true;
+
 
     }
 

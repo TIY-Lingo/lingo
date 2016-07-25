@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User extends JavaCurrentTimeStamp{
     @GeneratedValue
     @Id
     int id;
@@ -16,9 +16,10 @@ public class User {
     @Column(nullable = false)
     String password;
 
+
 //    @Column(nullable = false)
 //    int daysVisited;
-//
+
 //    @Column(nullable = false)
 //    int lastVisited;
 
