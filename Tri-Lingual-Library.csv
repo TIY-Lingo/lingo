@@ -118,7 +118,6 @@ English , French , Spanish
  force , la force , la fuerza
  friend , l'ami , el amigo
  friendship , l'amitié , la amistad
- front , le front , el frente
  frontier , la frontière , la frontera
  fuel , le combustible , el combustible
  future , l'avenir , el futuro
@@ -222,7 +221,6 @@ English , French , Spanish
  plant , la plante , la planta
  pleasure , le plaisir , el placer
  poetry , la poésie , la poesía
- point , le point , el punto
  poison , le poison , el veneno
  politeness , la politesse , la cortesía
  politics , la politique , la política
@@ -237,7 +235,6 @@ English , French , Spanish
  prize , le prix , el premio
  problem , le problème , el problema
  product , le produit , el producto
- profit , le profit , el provecho
  progress , le progrès , el progreso
  proof , la preuve , le prueba
  property , la propriété , la propiedad
@@ -294,7 +291,6 @@ English , French , Spanish
  struggle , la lutte , la lucha
  study , l'étude , el estudio
  success , le succès , el éxito
- suggestion , la suggestion , la sugerencia
  sum , la somme , la suma
  summary , le résumé , el resumen
  summit , le sommet , la cumbre
@@ -574,19 +570,13 @@ English , French , Spanish
  gear lever , le levier de vitesse , la palanca de cambrio
  water bottle , la bouteille d'eau , la botella del agua
  athletics , l'athlétisme , el atletismo
- badminton , le badminton , el bádminton
- baseball , le baseball , el béisbol
  basketball , le basket , el baloncesto
  bowling , le bowling , los bolos
  boxing , la boxe , el boxeo
  cycling , le cyclisme , el ciclismo
- golf , le golf , el golf
  handball , le hand , el balonmano
- hockey , le hockey , el hockey
  horse-riding , l'équitation , la equitación
  skating , le patin , el patínaje
- jogging , le jogging , el footing
- rugby , le rugby , el rugby
  sailing , la voile , la vela
  skiing , le ski , el esquí
  soccer , le football , el fútbol
@@ -604,7 +594,6 @@ English , French , Spanish
  ball , le ballon , el balón
  golf clubs , les clubs de golf , los palos de golf
  golf ball , la balle de golf , la bola de golf
- tee , le tee , el tee
  glove , le gant , la manopla
  helmet , le casque , el casco
  banjo , le banjo , el banjo
@@ -692,7 +681,6 @@ English , French , Spanish
  mountain range , la chaîne de montagnes , la sierra
  river mouth , l'embouchure , la desembocadura
  mud , la vase , el barro
- nature , la nature , la naturaleza
  north , le nord , el norte
  peninsula , la péninsule , la península
  plain , la plaine , el llano
@@ -705,7 +693,6 @@ English , French , Spanish
  river , le fleuve , el río
  rock , le rocher , la roca
  root , la racine , la raíz
- rose , la rose , la rosa
  sand , le sable , la arena
  sea , la mer , el mar
  shadow , l'ombre  , la sombra
@@ -758,10 +745,7 @@ English , French , Spanish
  Mercury , Mercure , Mercurio
  Venus , Vénus , Venus
  Earth , Terre , Tierra
- Mars , Mars , Marte
- Jupiter , Jupiter , Júpiter
  Saturn , Saturne , Saturno
- Uranus , Uranus , Urano
  Neptune , Neptuno , Neptuno
  Pluto , Pluton , Plutón
  bookbag , le cartable , la mochila
@@ -776,14 +760,12 @@ English , French , Spanish
  chair , la chaise , la silla
  chalk , la craie , la tiza
  crayon , le crayon de couleur , el crayón
- date , la date , la fecha
  desk , le bureau , el escritorio
  dictionary , le dictionnaire , el diccionario
  drawer , le tiroir , el cajón
  envelope , l'enveloppe  , el sobre
  eraser , la gomme , la goma
  exercise book , le cahier , el cuaderno
- globe , le globe , el globo terráqueo
  glue , la colle , el pegamento
  ink , l'encre  , la tinta
  lamp , la lampe , la lámpara
@@ -792,7 +774,6 @@ English , French , Spanish
  newspaper , le journal , el períodico
  notebook , le cahier , el cuaderno
  novel , le roman , la novela
- page , la page , la página
  paper , le papier , el papel
  pen , le stylo , el bolígrafo
  pencil , le crayon , el lápiz
@@ -813,11 +794,7 @@ English , French , Spanish
  keyboard , le clavier , el teclado
  mouse , la souris , el ratón
  printer , l'imprimante , la impresora
- scanner , le scanner , el explorador
- cable , le câble , el cable
- microphone , le microphone , el micrófono
  disk , le disquette , el disquete
- document , le document , el documento
  fax machine , la télécopieur , el fax
  photocopier , la photocopieuse , la fotocopiadora
  software , le logiciel , el software
