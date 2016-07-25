@@ -64,15 +64,7 @@ module.exports = function(app) {
         $scope.itemsPerPage = 1;
         let prefArray = {};
 
-<<<<<<< HEAD
-        var getPreferencesInNewsPage = function(){
-          UserService.getPreferences();
-=======
->>>>>>> 1fd724d213e9cb5f934278173fb391c1d18be712
-
           $scope.specificPref = UserService.getPreferences();
-
-
 
         var getArts = function(){
           NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
@@ -81,14 +73,6 @@ module.exports = function(app) {
         }
 
         getArts();
-
-<<<<<<< HEAD
-        // $scope.updatePreferences = NewsService.updatePreferences($scope.getPreferences).then(function(){
-        //   getArts();
-        // })
-=======
->>>>>>> 1fd724d213e9cb5f934278173fb391c1d18be712
-
 
         console.log($scope.newsArray)
 
