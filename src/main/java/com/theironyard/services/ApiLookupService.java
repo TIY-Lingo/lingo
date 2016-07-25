@@ -7,6 +7,7 @@ import com.theironyard.entities.ResultContainter;
 import com.theironyard.entities.Results;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.safety.Whitelist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
@@ -50,8 +51,9 @@ public class ApiLookupService {
                 if (content.length() >= 22999) {                               // if it's over 25k characters cut off anything extra...
                     content = content.substring(0, 22999);
                 }
+                String cleanContent = Jsoup.clean(content, Whitelist.basic());
 
-                article = new Article(result.getTitle(), result.getUrl(), result.getByline(), content, results.getSection());
+                article = new Article(result.getTitle(), result.getUrl(), result.getByline(), cleanContent, results.getSection());
                 articles.save(article);
             }
             langInjection(article, "french");                               //Run it once for spanish and once for french
