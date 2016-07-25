@@ -39,8 +39,8 @@ public class User{
     @Column
     boolean arts;
 
-    @Column
-    LocalDateTime timestamp;
+//    @Column
+//    LocalDateTime timestamp;
 
 
     public User(String username, String password) {
@@ -130,23 +130,14 @@ public class User{
 //    public void setDaysVisited(int daysVisited) {
 //        this.daysVisited = daysVisited;
 //    }
-//
-//    public int getLastVisited() {
-//        return lastVisited;
+
+//    public LocalDateTime getTimestamp() {
+//        return timestamp;
 //    }
 //
-//    public void setLastVisited(int lastVisited) {
-//        this.lastVisited = lastVisited;
+//    public void setTimestamp(LocalDateTime timestamp) {
+//        this.timestamp = timestamp;
 //    }
-
-
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
-    }
 
     @Override
     public String toString() {
