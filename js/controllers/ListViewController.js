@@ -1,5 +1,5 @@
 module.exports = function(app) {
-    app.controller('NewsController', ['NewsService', '$scope', '$location', function(NewsService, $scope, $location) {
+    app.controller('ListViewController', ['NewsService', '$scope', '$location', function(NewsService, $scope, $location) {
         $scope.pageNumber = 1;
         $scope.itemsPerPage = 1;
 
@@ -46,7 +46,7 @@ module.exports = function(app) {
         };
 
         $scope.clickedFullArticle = function(){
-          
+
         };
         $scope.clickedListView = function(){
 

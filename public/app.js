@@ -1,6 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 module.exports = function(app) {
-    app.controller('NewsController', ['NewsService', '$scope', '$location', function(NewsService, $scope, $location) {
+    app.controller('ListViewController', ['NewsService', '$scope', '$location', function(NewsService, $scope, $location) {
         $scope.pageNumber = 1;
         $scope.itemsPerPage = 1;
 
@@ -50,12 +50,69 @@ module.exports = function(app) {
 
         };
         $scope.clickedListView = function(){
-          
+
         };
     }]);
 }
 
 },{}],2:[function(require,module,exports){
+module.exports = function(app) {
+    app.controller('NewsController', ['NewsService', '$scope', '$location', function(NewsService, $scope, $location) {
+        $scope.pageNumber = 1;
+        $scope.itemsPerPage = 1;
+
+
+
+        var getArts = function(){
+          NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
+              $scope.newsArray = newsArray;
+          });
+        }
+
+        getArts();
+
+        // $scope.updatePreferences = NewsService.updatePreferences($scope.userPreferences).then(function(){
+        //   getArts();
+        // })
+
+
+        console.log($scope.newsArray)
+
+        $scope.goback = function() {
+
+            $scope.pageNumber -= 1;
+            $scope.itemsPerPage = 1;
+
+            NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
+                $scope.newsArray = newsArray;
+            });
+
+        }
+        $scope.goforward = function() {
+
+            $scope.pageNumber += 1;
+            $scope.itemsPerPage = 1;
+
+            NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
+                $scope.newsArray = newsArray;
+            });
+
+        }
+
+        $scope.signOut = function() {
+            NewsService.signOutUser();
+        };
+
+        $scope.clickedFullArticle = function(){
+          
+        };
+        $scope.clickedListView = function(){
+
+        };
+    }]);
+}
+
+},{}],3:[function(require,module,exports){
 module.exports = function(app) {
     app.controller('UserController', ['UserService','$scope', '$location', function(UserService, $scope, $location) {
           $scope.userInput = '';
@@ -146,11 +203,12 @@ module.exports = function(app) {
     ]);
 }
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 let app = angular.module('lingo', ['ngRoute', 'ngSanitize']);
 
 require('./controllers/UserController')(app);
 require('./controllers/NewsController')(app);
+require('./controllers/ListViewController')(app);
 require('./services/NewsService')(app);
 require('./services/UserService')(app);
 
@@ -182,10 +240,14 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: 'NewsController',
             templateUrl: 'templates/articles.html',
         })
+        .when('/news/list', {
+            controller: 'ListViewController',
+            templateUrl: 'templates/listview.html',
+        })
 
 }]);
 
-},{"./controllers/NewsController":1,"./controllers/UserController":2,"./services/NewsService":4,"./services/UserService":5}],4:[function(require,module,exports){
+},{"./controllers/ListViewController":1,"./controllers/NewsController":2,"./controllers/UserController":3,"./services/NewsService":5,"./services/UserService":6}],5:[function(require,module,exports){
 module.exports = function(app) {
 
     app.factory('NewsService', ['$http', '$location', function($http, $location) {
@@ -227,7 +289,7 @@ module.exports = function(app) {
     }]);
 };
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 module.exports = function(app) {
 
     app.factory('UserService', ['$http', '$location', function($http, $location) {
@@ -315,4 +377,4 @@ module.exports = function(app) {
     }]);
 }
 
-},{}]},{},[3])
+},{}]},{},[4])

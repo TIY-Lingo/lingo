@@ -2,6 +2,7 @@ let app = angular.module('lingo', ['ngRoute', 'ngSanitize']);
 
 require('./controllers/UserController')(app);
 require('./controllers/NewsController')(app);
+require('./controllers/ListViewController')(app);
 require('./services/NewsService')(app);
 require('./services/UserService')(app);
 
@@ -32,6 +33,10 @@ app.config(['$routeProvider', function($routeProvider) {
         .when('/news', {
             controller: 'NewsController',
             templateUrl: 'templates/articles.html',
+        })
+        .when('/news/list', {
+            controller: 'ListViewController',
+            templateUrl: 'templates/listview.html',
         })
 
 }]);
