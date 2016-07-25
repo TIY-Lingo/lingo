@@ -30,8 +30,10 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -56,7 +58,8 @@ public class LingoRestController {
 
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
-    public Boolean login(@RequestBody User user, HttpSession session, HttpServletResponse response) throws Exception {
+    public Boolean login(@RequestBody User user, HttpSession session,  java.util.Date date) throws Exception {
+
         User user1 = users.findByUsername(user.getUsername());
         if (user1 == null) {
             return false;
@@ -64,8 +67,11 @@ public class LingoRestController {
         else if (!PasswordStorage.verifyPassword(user.getPassword(), user1.getPassword())){
             return false;
         }
+        user1.setTimestamp(LocalDateTime.now());
+        users.save(user1);
         session.setAttribute("username", user1.getUsername());
         return true;
+
 
     }
 
