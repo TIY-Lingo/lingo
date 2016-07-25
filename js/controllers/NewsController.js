@@ -3,9 +3,20 @@ module.exports = function(app) {
         $scope.pageNumber = 1;
         $scope.itemsPerPage = 1;
 
-        NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
-            $scope.newsArray = newsArray;
-        });
+
+
+        var getArts = function(){
+          NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
+              $scope.newsArray = newsArray;
+          });
+        }
+
+        getArts();
+
+        // $scope.updatePreferences = NewsService.updatePreferences($scope.userPreferences).then(function(){
+        //   getArts();
+        // })
+
 
         console.log($scope.newsArray)
 
@@ -34,5 +45,11 @@ module.exports = function(app) {
             NewsService.signOutUser();
         };
 
+        $scope.clickedFullArticle = function(){
+
+        };
+        $scope.clickedListView = function(){
+          
+        };
     }]);
 }

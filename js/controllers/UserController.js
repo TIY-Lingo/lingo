@@ -3,14 +3,17 @@ module.exports = function(app) {
           $scope.userInput = '';
           $scope.userPassword = '';
 
-          $scope.UserPrefences = {
-            language: 'spanish',
-            technology: false,
-            sports: false,
-            business: false,
-            politics: false,
-            arts: false
-          };
+          // $scope.UserPrefences = {
+          //   language: 'spanish',
+          //   technology: false,
+          //   sports: false,
+          //   business: true,
+          //   politics: false,
+          //   arts: true
+          // };
+
+          $scope.UserPrefences = UserService.getPreferences();
+
 
 // WORKING CODE
             $scope.signIn = function() {
