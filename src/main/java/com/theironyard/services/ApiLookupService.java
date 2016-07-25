@@ -31,7 +31,7 @@ public class ApiLookupService {
     RestTemplate restTemplate = new RestTemplate();
 
     @Async
-    public Future<ResultContainter> findResults(String url) throws InterruptedException, IOException {
+    public Future<ResultContainter> findResults(String url) throws InterruptedException, IOException {     //Method to find and scrape the articles
         System.out.println("Parsing from: " + url);
         ResultContainter results = restTemplate.getForObject(url, ResultContainter.class);
 

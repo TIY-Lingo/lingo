@@ -2,29 +2,22 @@
 module.exports = function(app) {
     app.controller('ListViewController', ['NewsService', '$scope', '$location', function(NewsService, $scope, $location) {
         $scope.pageNumber = 1;
-        $scope.itemsPerPage = 1;
+        $scope.itemsPerPage = 25;
 
-
-
-        var getArts = function(){
-          NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
-              $scope.newsArray = newsArray;
-          });
+        var getArts = function() {
+            NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
+                $scope.newsArray = newsArray;
+            });
         }
 
         getArts();
-
-        // $scope.updatePreferences = NewsService.updatePreferences($scope.userPreferences).then(function(){
-        //   getArts();
-        // })
-
 
         console.log($scope.newsArray)
 
         $scope.goback = function() {
 
             $scope.pageNumber -= 1;
-            $scope.itemsPerPage = 1;
+            $scope.itemsPerPage = 25;
 
             NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
                 $scope.newsArray = newsArray;
@@ -34,7 +27,7 @@ module.exports = function(app) {
         $scope.goforward = function() {
 
             $scope.pageNumber += 1;
-            $scope.itemsPerPage = 1;
+            $scope.itemsPerPage = 25;
 
             NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
                 $scope.newsArray = newsArray;
@@ -46,21 +39,33 @@ module.exports = function(app) {
             NewsService.signOutUser();
         };
 
-        $scope.clickedFullArticle = function(){
+        $scope.selectedArticle = function() {
+          console.log($scope.newsArray.title);
+          // $scope.newsArray.map(function (element){
+          //   for (var i = 0; i < newsArray.length; i ++){
+          //     if (newsArray[i] === $scope.newsArray.title){
+          //       getArts();
+          //     } else
+          //   }
+          // })
+        }
 
-        };
-        $scope.clickedListView = function(){
 
-        };
+
     }]);
 }
 
 },{}],2:[function(require,module,exports){
 module.exports = function(app) {
-    app.controller('NewsController', ['NewsService', '$scope', '$location', function(NewsService, $scope, $location) {
+    app.controller('NewsController', ['NewsService', 'UserService', '$scope', '$location', function(NewsService, UserService, $scope, $location) {
         $scope.pageNumber = 1;
         $scope.itemsPerPage = 1;
 
+        var getPreferencesInNewsPage = function(){
+          UserService.userPreferences();
+
+        }
+        getPreferencesInNewsPage();
 
 
         var getArts = function(){
@@ -104,7 +109,7 @@ module.exports = function(app) {
         };
 
         $scope.clickedFullArticle = function(){
-          
+
         };
         $scope.clickedListView = function(){
 

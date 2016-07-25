@@ -1,8 +1,13 @@
 module.exports = function(app) {
-    app.controller('NewsController', ['NewsService', '$scope', '$location', function(NewsService, $scope, $location) {
+    app.controller('NewsController', ['NewsService', 'UserService', '$scope', '$location', function(NewsService, UserService, $scope, $location) {
         $scope.pageNumber = 1;
         $scope.itemsPerPage = 1;
 
+        var getPreferencesInNewsPage = function(){
+          UserService.userPreferences();
+
+        }
+        getPreferencesInNewsPage();
 
 
         var getArts = function(){
@@ -46,7 +51,7 @@ module.exports = function(app) {
         };
 
         $scope.clickedFullArticle = function(){
-          
+
         };
         $scope.clickedListView = function(){
 
