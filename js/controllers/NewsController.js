@@ -4,10 +4,7 @@ module.exports = function(app) {
         $scope.itemsPerPage = 1;
         let prefArray = {};
 
-
           $scope.specificPref = UserService.getPreferences();
-
-
 
         var getArts = function(){
           NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
@@ -16,8 +13,6 @@ module.exports = function(app) {
         }
 
         getArts();
-
-
 
         console.log($scope.newsArray)
 
