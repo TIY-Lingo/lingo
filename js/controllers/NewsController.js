@@ -1,9 +1,10 @@
 module.exports = function(app) {
-    app.controller('NewsController', ['NewsService', '$scope', '$location', function(NewsService, $scope, $location) {
+    app.controller('NewsController', ['NewsService', 'UserService', '$scope', '$location', function(NewsService, UserService, $scope, $location) {
         $scope.pageNumber = 1;
         $scope.itemsPerPage = 1;
+        let prefArray = {};
 
-
+          $scope.specificPref = UserService.getPreferences();
 
         var getArts = function(){
           NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
@@ -12,11 +13,6 @@ module.exports = function(app) {
         }
 
         getArts();
-
-        // $scope.updatePreferences = NewsService.updatePreferences($scope.userPreferences).then(function(){
-        //   getArts();
-        // })
-
 
         console.log($scope.newsArray)
 
@@ -49,7 +45,7 @@ module.exports = function(app) {
 
         };
         $scope.clickedListView = function(){
-          
+
         };
     }]);
 }

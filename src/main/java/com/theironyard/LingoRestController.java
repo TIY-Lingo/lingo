@@ -1,21 +1,13 @@
 package com.theironyard;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.theironyard.entities.Article;
 import com.theironyard.entities.Dictionary;
 import com.theironyard.entities.User;
 import com.theironyard.services.DictionaryRepository;
 import com.theironyard.utils.PasswordStorage;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import org.h2.tools.Server;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.scheduling.annotation.Async;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,12 +22,11 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Random;
 import java.util.Scanner;
+import java.sql.SQLException;
+
 
 @RestController
 public class LingoRestController {
@@ -110,11 +101,30 @@ public class LingoRestController {
     }
 
     @RequestMapping(path = "/articles", method = RequestMethod.GET)
-    public Iterable<Article> getArticles(HttpSession session) throws Exception {
+    public ArrayList<Iterable<Article>> getArticles(HttpSession session) throws Exception {
         if (session.getAttribute("username")==null){
             throw new Exception("You must log in to view this page");
         }else {
-            return articles.findAll();
+            User user = users.findByUsername((String) session.getAttribute("username"));
+
+            ArrayList<Iterable<Article>> articleList = new ArrayList<>();
+            if (user.getTechnology()){
+                articleList.add((Iterable<Article>) articles.findArticleByType("technology"));
+            }
+            if(user.getSports()){
+                articleList.add((Iterable<Article>) articles.findArticleByType("sports"));
+            }
+            if(user.getPolitics()){
+                articleList.add((Iterable<Article>) articles.findArticleByType("politics"));
+            }
+            if(user.getArts()){
+                articleList.add((Iterable<Article>) articles.findArticleByType("arts"));
+            }
+            if (user.getBusiness()){
+                articleList.add((Iterable<Article>) articles.findArticleByType("business"));
+            }
+
+        return articleList;
         }
 
     }

@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User{
     @GeneratedValue
     @Id
     int id;
@@ -20,9 +20,6 @@ public class User {
 
 //    @Column(nullable = false)
 //    int daysVisited;
-
-//    @Column(nullable = false)
-//    int lastVisited;
 
     @Column
     String language;
