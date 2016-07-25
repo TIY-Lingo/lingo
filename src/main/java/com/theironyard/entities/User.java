@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users")
-public class User extends JavaCurrentTimeStamp{
+public class User {
     @GeneratedValue
     @Id
     int id;
