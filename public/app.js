@@ -4,9 +4,20 @@ module.exports = function(app) {
         $scope.pageNumber = 1;
         $scope.itemsPerPage = 1;
 
-        NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
-            $scope.newsArray = newsArray;
-        });
+
+
+        var getArts = function(){
+          NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
+              $scope.newsArray = newsArray;
+          });
+        }
+
+        getArts();
+
+        // $scope.updatePreferences = NewsService.updatePreferences($scope.userPreferences).then(function(){
+        //   getArts();
+        // })
+
 
         console.log($scope.newsArray)
 
@@ -35,6 +46,12 @@ module.exports = function(app) {
             NewsService.signOutUser();
         };
 
+        $scope.clickedFullArticle = function(){
+
+        };
+        $scope.clickedListView = function(){
+          
+        };
     }]);
 }
 
@@ -44,14 +61,17 @@ module.exports = function(app) {
           $scope.userInput = '';
           $scope.userPassword = '';
 
-          $scope.UserPrefences = {
-            language: 'spanish',
-            technology: false,
-            sports: false,
-            business: false,
-            politics: false,
-            arts: false
-          };
+          // $scope.UserPrefences = {
+          //   language: 'spanish',
+          //   technology: false,
+          //   sports: false,
+          //   business: true,
+          //   politics: false,
+          //   arts: true
+          // };
+
+          $scope.UserPrefences = UserService.getPreferences();
+
 
 // WORKING CODE
             $scope.signIn = function() {
@@ -169,7 +189,7 @@ app.config(['$routeProvider', function($routeProvider) {
 module.exports = function(app) {
 
     app.factory('NewsService', ['$http', '$location', function($http, $location) {
-      
+
       var  newsArray = {
         async: function(pageNum, perPage) {
 
@@ -177,9 +197,7 @@ module.exports = function(app) {
                 method: 'GET',
                 url: '/articles',
             }).then(function(response) {
-                console.log(response);
-                // let newsObject = response.data;
-                // angular.copy(newsObject, newsArray)
+                console.log(response, "HEY THERE!");
                 let start = (pageNum + 1) * perPage;
 
                 return response.data.slice(start, start + perPage);
@@ -187,6 +205,7 @@ module.exports = function(app) {
             });
           return promise;
         },
+
         //////SIGN OUT FUNCTION//////
                     signOutUser: function(){
 
@@ -201,6 +220,7 @@ module.exports = function(app) {
                     }
         //////SIGN OUT FUNCTION/////////
 
+
       };
       return newsArray;
 
@@ -213,6 +233,7 @@ module.exports = function(app) {
     app.factory('UserService', ['$http', '$location', function($http, $location) {
         var userPref = {};
 
+        var updatedStuff = {};
         ////signIn() click event to post username and password to server//////
         return {
             postUserInfo: function(name, pw) {
@@ -276,13 +297,15 @@ module.exports = function(app) {
                 });
             },
             // GET user preferences
-            getPreferences: function(){
+            getPreferences: function(updatedStuff){
                   $http({
                     method: 'GET',
-                    url:'/preferences'
+                    url:'/preferences',
+                    data: updatedStuff,
                   }).then(function(response){
+                    console.log("this is the response from getPreferences", response);
                     //copies the response object from the data base to our userPref object/model
-                    angular.copy(response.data[0], userPref);
+                    angular.copy(response.data, userPref);
                     console.log('getting user preferences:', userPref);
                   })
                   return userPref
