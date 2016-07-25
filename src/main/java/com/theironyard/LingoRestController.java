@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.theironyard.entities.Article;
 import com.theironyard.entities.Dictionary;
-import com.theironyard.entities.JavaCurrentTimeStamp;
 import com.theironyard.entities.User;
 import com.theironyard.services.DictionaryRepository;
 import com.theironyard.utils.PasswordStorage;
@@ -31,14 +30,15 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.sql.Timestamp;
+import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Random;
 import java.util.Scanner;
 
 @RestController
-public class LingoRestController extends JavaCurrentTimeStamp{
+public class LingoRestController {
 
     @Autowired
     UserRepository users;
@@ -67,6 +67,8 @@ public class LingoRestController extends JavaCurrentTimeStamp{
         else if (!PasswordStorage.verifyPassword(user.getPassword(), user1.getPassword())){
             return false;
         }
+        user1.setTimestamp(LocalDateTime.now());
+        users.save(user1);
         session.setAttribute("username", user1.getUsername());
         return true;
 

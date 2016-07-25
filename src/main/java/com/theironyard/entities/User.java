@@ -2,6 +2,7 @@ package com.theironyard.entities;
 
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users")
@@ -40,6 +41,10 @@ public class User extends JavaCurrentTimeStamp{
 
     @Column
     Boolean arts;
+
+    @Column
+    LocalDateTime timestamp;
+
 
     public User(String username, String password) {
         this.username = username;
@@ -137,6 +142,14 @@ public class User extends JavaCurrentTimeStamp{
 //        this.lastVisited = lastVisited;
 //    }
 
+
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
+    }
 
     @Override
     public String toString() {
