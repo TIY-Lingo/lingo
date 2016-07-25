@@ -25,19 +25,19 @@ public class User{
     String language;
 
     @Column
-    Boolean technology;
+    boolean technology;
 
     @Column
-    Boolean sports;
+    boolean sports;
 
     @Column
-    Boolean business;
+    boolean business;
 
     @Column
-    Boolean politics;
+    boolean politics;
 
     @Column
-    Boolean arts;
+    boolean arts;
 
     @Column
     LocalDateTime timestamp;

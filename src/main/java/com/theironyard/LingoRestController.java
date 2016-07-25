@@ -78,7 +78,7 @@ public class LingoRestController {
     }
 
     @RequestMapping(path = "/preferences", method = RequestMethod.GET)
-    public User getPreferences(String username, HttpSession session) throws Exception {
+    public User getPreferences( HttpSession session) throws Exception {
        if (session.getAttribute("username") != null){
            return users.findByUsername((String) session.getAttribute("username"));
        } else{
@@ -126,7 +126,6 @@ public class LingoRestController {
             if (user.getBusiness()){
                 articleList.add((Iterable<Article>) articles.findArticleByType("business"));
             }
-
         return articleList;
         }
 
