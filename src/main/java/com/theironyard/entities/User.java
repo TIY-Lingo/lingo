@@ -2,10 +2,11 @@ package com.theironyard.entities;
 
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User{
     @GeneratedValue
     @Id
     int id;
@@ -16,11 +17,9 @@ public class User {
     @Column(nullable = false)
     String password;
 
+
 //    @Column(nullable = false)
 //    int daysVisited;
-//
-//    @Column(nullable = false)
-//    int lastVisited;
 
     @Column
     String language;
@@ -39,6 +38,10 @@ public class User {
 
     @Column
     Boolean arts;
+
+    @Column
+    LocalDateTime timestamp;
+
 
     public User(String username, String password) {
         this.username = username;
@@ -136,6 +139,14 @@ public class User {
 //        this.lastVisited = lastVisited;
 //    }
 
+
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
+    }
 
     @Override
     public String toString() {
