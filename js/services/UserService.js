@@ -66,11 +66,13 @@ module.exports = function(app) {
                 });
             },
             // GET user preferences
-            getPreferences: function(){
+            getPreferences: function(userPref){
                   $http({
                     method: 'GET',
-                    url:'/preferences'
+                    url:'/preferences',
+                    data: userPref,
                   }).then(function(response){
+                    console.log("this is the response from getPreferences", response);
                     //copies the response object from the data base to our userPref object/model
                     angular.copy(response.data[0], userPref);
                     console.log('getting user preferences:', userPref);
