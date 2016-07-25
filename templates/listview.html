@@ -15,11 +15,16 @@
 <!-- ARTICLE BODY -->
 <a href="#news" ng-click="clickedFullArticle()">Full Article</a>
 <a href="#news/list" ng-click="clickedListView()">List View</a>
+<a href="#" ng-show="specificPref.politics">Politics</a>
+<a href="#" ng-show="specificPref.business">Business</a>
+<a href="#" ng-show="specificPref.technology">Technology</a>
+<a href="#" ng-show="specificPref.arts">Arts</a>
+<a href="#" ng-show="specificPref.sports">Sports</a>
 <div class="row">
 
     <div class="small-8 medium-6 large-9 small-centered columns">
 
-        <div class="header panel" ng-repeat="article in newsArray" >
+        <div class="header panel" ng-repeat="article in newsArray">
 
             <h1 id="listViewRow"><a href="#" ng-click="selectedArticle()">{{article.title}}</a></h1>
 
@@ -40,7 +45,7 @@
             <p class="slogan">lingo</p>
             <p class="links">
                 <a href="#home">Home</a>
-                <a href="#" ng-click='signOut()'>Sign out</a>
+                <a href="#home" ng-click='signOut()'>Sign out</a>
                 <a href="#team">Meet the team</a>
             </p>
             <p class="copywrite">The Iron Yard © 2016</p>

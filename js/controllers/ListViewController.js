@@ -1,7 +1,10 @@
 module.exports = function(app) {
-    app.controller('ListViewController', ['NewsService', '$scope', '$location', function(NewsService, $scope, $location) {
+    app.controller('ListViewController', ['NewsService', 'UserService', '$scope', '$location', function(NewsService, UserService, $scope, $location) {
         $scope.pageNumber = 1;
         $scope.itemsPerPage = 25;
+
+        $scope.specificPref = UserService.getPreferences();
+
 
         var getArts = function() {
             NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
