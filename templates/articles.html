@@ -19,6 +19,8 @@
   <div class="small-8 medium-6 large-9 small-centered columns" >
 
     <div class="header panel" ng-repeat="article in newsArray" >
+      <a href="#" ng-click="clickedFullArticle()">Full Article</a>
+      <a href="#" ng-click="clickedListView()">List View</a>
       <div class="sign">
         <h1>{{article.title}}</h1>
       </div>

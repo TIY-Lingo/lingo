@@ -1,7 +1,7 @@
 module.exports = function(app) {
 
     app.factory('NewsService', ['$http', '$location', function($http, $location) {
-      
+
       var  newsArray = {
         async: function(pageNum, perPage) {
 
@@ -9,9 +9,7 @@ module.exports = function(app) {
                 method: 'GET',
                 url: '/articles',
             }).then(function(response) {
-                console.log(response);
-                // let newsObject = response.data;
-                // angular.copy(newsObject, newsArray)
+                console.log(response, "HEY THERE!");
                 let start = (pageNum + 1) * perPage;
 
                 return response.data.slice(start, start + perPage);
@@ -19,6 +17,7 @@ module.exports = function(app) {
             });
           return promise;
         },
+
         //////SIGN OUT FUNCTION//////
                     signOutUser: function(){
 
@@ -32,6 +31,7 @@ module.exports = function(app) {
                       });
                     }
         //////SIGN OUT FUNCTION/////////
+
 
       };
       return newsArray;
