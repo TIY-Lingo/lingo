@@ -40,15 +40,14 @@ module.exports = function(app) {
         };
 
         $scope.selectedArticle = function() {
-          console.log($scope.newsArray.title);
-          // $scope.newsArray.map(function (element){
-          //   for (var i = 0; i < newsArray.length; i ++){
-          //     if (newsArray[i] === $scope.newsArray.title){
-          //       getArts();
-          //     } else
-          //   }
-          // })
-        }
+          $scope.newsArray.map(function (element){
+            for (var i = 0; i < newsArray.length; i ++){
+              if (newsArray[i] === $scope.newsArray.title){
+                getArts();
+              }
+      }
+    })
+      }
 
 
 
@@ -60,12 +59,16 @@ module.exports = function(app) {
     app.controller('NewsController', ['NewsService', 'UserService', '$scope', '$location', function(NewsService, UserService, $scope, $location) {
         $scope.pageNumber = 1;
         $scope.itemsPerPage = 1;
+        let prefArray = {};
 
+<<<<<<< HEAD
         var getPreferencesInNewsPage = function(){
           UserService.getPreferences();
+=======
+>>>>>>> 1fd724d213e9cb5f934278173fb391c1d18be712
 
-        }
-        getPreferencesInNewsPage();
+          $scope.specificPref = UserService.getPreferences();
+
 
 
         var getArts = function(){
@@ -76,9 +79,12 @@ module.exports = function(app) {
 
         getArts();
 
+<<<<<<< HEAD
         // $scope.updatePreferences = NewsService.updatePreferences($scope.getPreferences).then(function(){
         //   getArts();
         // })
+=======
+>>>>>>> 1fd724d213e9cb5f934278173fb391c1d18be712
 
 
         console.log($scope.newsArray)

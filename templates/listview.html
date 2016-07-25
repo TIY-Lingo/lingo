@@ -19,9 +19,9 @@
 
     <div class="small-8 medium-6 large-9 small-centered columns">
 
-        <div class="header panel" ng-repeat="article in newsArray">
+        <div class="header panel" ng-repeat="article in newsArray" >
 
-            <h1><a href="#" ng-click="selectedArticle()">{{article.title}}</a></h1>
+            <h1 id="listViewRow"><a href="#" ng-click="selectedArticle()">{{article.title}}</a></h1>
 
         </div>
         <button ng-click="goback()">
