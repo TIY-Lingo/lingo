@@ -39,15 +39,14 @@ module.exports = function(app) {
         };
 
         $scope.selectedArticle = function() {
-          console.log($scope.newsArray.title);
-          // $scope.newsArray.map(function (element){
-          //   for (var i = 0; i < newsArray.length; i ++){
-          //     if (newsArray[i] === $scope.newsArray.title){
-          //       getArts();
-          //     } else
-          //   }
-          // })
-        }
+          $scope.newsArray.map(function (element){
+            for (var i = 0; i < newsArray.length; i ++){
+              if (newsArray[i] === $scope.newsArray.title){
+                getArts();
+              }
+      }
+    })
+      }
 
 
 

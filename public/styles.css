@@ -432,7 +432,8 @@ body {
 .header.panel {
   margin: 3rem auto;
   border: 2px solid #444;
-  background: #fff; }
+  background: #fff;
+  padding: 10px; }
   .header.panel p {
     font: 1rem "Avenir Next";
     padding: 1rem 2rem 2rem 2rem;
@@ -703,3 +704,6 @@ body {
       font-size: 2.5rem; }
     .hero p {
       text-align: right; } }
+
+#listViewRow {
+  font-size: 20px; }
