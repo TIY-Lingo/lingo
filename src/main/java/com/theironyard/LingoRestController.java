@@ -11,6 +11,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.h2.tools.Server;
+import org.hibernate.mapping.Collection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +33,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 @RestController
 public class LingoRestController {
@@ -108,11 +111,23 @@ public class LingoRestController {
     }
 
     @RequestMapping(path = "/articles", method = RequestMethod.GET)
-    public Iterable<Article> getArticles(HttpSession session) throws Exception {
+    public Stream<Iterable<Article>> getArticles(HttpSession session) throws Exception {
         if (session.getAttribute("username")==null){
             throw new Exception("You must log in to view this page");
         }else {
-            return articles.findAll();
+            User user = users.findByUsername((String) session.getAttribute("username"));
+            if (user.getBusiness()){
+                Iterable<Article> business = articles.findArticleByType("business");
+            }
+            if (user.getArts()){
+                Iterable<Article> arts = articles.findArticleByType("arts");
+            }
+            Iterable<Article> sports =  articles.findArticleByType("sports");
+
+            Iterable<Article> politics = articles.findArticleByType("politics");
+            Iterable<Article> technology = articles.findArticleByType("technology");
+
+            return Stream.of(business,sports,arts,politics,technology).flatMap(Collection::stream);
         }
 
     }
