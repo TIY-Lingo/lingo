@@ -14,7 +14,7 @@ module.exports = function(app) {
 
 // WORKING CODE
             $scope.signIn = function() {
-                console.log("clicked log in");
+                console.log("clicked log in", $scope.UserPrefences);
                 UserService.postExistingUser($scope.userInput, $scope.userPassword)
             }
 
@@ -42,7 +42,7 @@ module.exports = function(app) {
             //this saves our object to the server with our current values that changed on our model
             $scope.savePref = function(){
               UserService.updatePreferences($scope.UserPrefences);
-              console.log('saving preferences');
+              console.log('saving preferences', $scope.UserPrefences);
               $location.path('/news');
             };
            //these toggle and change our values of our user preference model/object

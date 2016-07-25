@@ -3,7 +3,7 @@ module.exports = function(app) {
         $scope.pageNumber = 1;
         $scope.itemsPerPage = 1;
 
-        NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray){
+        NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
             $scope.newsArray = newsArray;
         });
 
@@ -11,12 +11,12 @@ module.exports = function(app) {
 
         $scope.goback = function() {
 
-          $scope.pageNumber -= 1;
-          $scope.itemsPerPage = 1;
+            $scope.pageNumber -= 1;
+            $scope.itemsPerPage = 1;
 
-          NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray){
-              $scope.newsArray = newsArray;
-          });
+            NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
+                $scope.newsArray = newsArray;
+            });
 
         }
         $scope.goforward = function() {
@@ -24,15 +24,14 @@ module.exports = function(app) {
             $scope.pageNumber += 1;
             $scope.itemsPerPage = 1;
 
-            NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray){
+            NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
                 $scope.newsArray = newsArray;
             });
 
         }
 
-        $scope.signOut = function (){
-          console.log("clicked logout");
-          NewsService.signOutUser();
+        $scope.signOut = function() {
+            NewsService.signOutUser();
         };
 
     }]);
