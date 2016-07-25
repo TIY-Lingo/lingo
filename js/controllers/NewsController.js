@@ -4,7 +4,7 @@ module.exports = function(app) {
         $scope.itemsPerPage = 1;
 
         var getPreferencesInNewsPage = function(){
-          UserService.userPreferences();
+          UserService.getPreferences();
 
         }
         getPreferencesInNewsPage();
@@ -18,7 +18,7 @@ module.exports = function(app) {
 
         getArts();
 
-        // $scope.updatePreferences = NewsService.updatePreferences($scope.userPreferences).then(function(){
+        // $scope.updatePreferences = NewsService.updatePreferences($scope.getPreferences).then(function(){
         //   getArts();
         // })
 
