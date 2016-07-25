@@ -4,7 +4,7 @@ module.exports = function(app) {
         $scope.pageNumber = 1;
         $scope.itemsPerPage = 1;
 
-        NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray){
+        NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
             $scope.newsArray = newsArray;
         });
 
@@ -12,12 +12,12 @@ module.exports = function(app) {
 
         $scope.goback = function() {
 
-          $scope.pageNumber -= 1;
-          $scope.itemsPerPage = 1;
+            $scope.pageNumber -= 1;
+            $scope.itemsPerPage = 1;
 
-          NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray){
-              $scope.newsArray = newsArray;
-          });
+            NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
+                $scope.newsArray = newsArray;
+            });
 
         }
         $scope.goforward = function() {
@@ -25,15 +25,14 @@ module.exports = function(app) {
             $scope.pageNumber += 1;
             $scope.itemsPerPage = 1;
 
-            NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray){
+            NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
                 $scope.newsArray = newsArray;
             });
 
         }
 
-        $scope.signOut = function (){
-          console.log("clicked logout");
-          NewsService.signOutUser();
+        $scope.signOut = function() {
+            NewsService.signOutUser();
         };
 
     }]);
@@ -56,7 +55,7 @@ module.exports = function(app) {
 
 // WORKING CODE
             $scope.signIn = function() {
-                console.log("clicked log in");
+                console.log("clicked log in", $scope.UserPrefences);
                 UserService.postExistingUser($scope.userInput, $scope.userPassword)
             }
 
@@ -84,7 +83,7 @@ module.exports = function(app) {
             //this saves our object to the server with our current values that changed on our model
             $scope.savePref = function(){
               UserService.updatePreferences($scope.UserPrefences);
-              console.log('saving preferences');
+              console.log('saving preferences', $scope.UserPrefences);
               $location.path('/news');
             };
            //these toggle and change our values of our user preference model/object
@@ -170,7 +169,7 @@ app.config(['$routeProvider', function($routeProvider) {
 module.exports = function(app) {
 
     app.factory('NewsService', ['$http', '$location', function($http, $location) {
-
+      
       var  newsArray = {
         async: function(pageNum, perPage) {
 
@@ -178,20 +177,18 @@ module.exports = function(app) {
                 method: 'GET',
                 url: '/articles',
             }).then(function(response) {
+                console.log(response);
                 // let newsObject = response.data;
                 // angular.copy(newsObject, newsArray)
-                console.log("object with news", newsArray);
                 let start = (pageNum + 1) * perPage;
-                console.log("getNewsRequest");
 
                 return response.data.slice(start, start + perPage);
 
             });
           return promise;
         },
-        //////WORKING ON SIGN OUT FUNCTION//////
+        //////SIGN OUT FUNCTION//////
                     signOutUser: function(){
-                      console.log("running sign out again?? more");
 
                       $http({
                           url: '/logout',
@@ -199,11 +196,10 @@ module.exports = function(app) {
                           data: {username: 'Winnie'}
                       })
                       .then(function(results) {
-                          console.log("signed out the user");
                           // $location('#/home')
                       });
                     }
-        //////END WORKING ON SIGN OUT FUNCTION/////////
+        //////SIGN OUT FUNCTION/////////
 
       };
       return newsArray;
