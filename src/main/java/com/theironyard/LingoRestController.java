@@ -32,10 +32,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @RestController
@@ -111,23 +109,30 @@ public class LingoRestController {
     }
 
     @RequestMapping(path = "/articles", method = RequestMethod.GET)
-    public Stream<Iterable<Article>> getArticles(HttpSession session) throws Exception {
+    public ArrayList<Iterable<Article>> getArticles(HttpSession session) throws Exception {
         if (session.getAttribute("username")==null){
             throw new Exception("You must log in to view this page");
         }else {
             User user = users.findByUsername((String) session.getAttribute("username"));
+
+            ArrayList<Iterable<Article>> articleList = new ArrayList<>();
+            if (user.getTechnology()){
+                articleList.add((Iterable<Article>) articles.findArticleByType("technology"));
+            }
+            if(user.getSports()){
+                articleList.add((Iterable<Article>) articles.findArticleByType("sports"));
+            }
+            if(user.getPolitics()){
+                articleList.add((Iterable<Article>) articles.findArticleByType("politics"));
+            }
+            if(user.getArts()){
+                articleList.add((Iterable<Article>) articles.findArticleByType("arts"));
+            }
             if (user.getBusiness()){
-                Iterable<Article> business = articles.findArticleByType("business");
+                articleList.add((Iterable<Article>) articles.findArticleByType("business"));
             }
-            if (user.getArts()){
-                Iterable<Article> arts = articles.findArticleByType("arts");
-            }
-            Iterable<Article> sports =  articles.findArticleByType("sports");
 
-            Iterable<Article> politics = articles.findArticleByType("politics");
-            Iterable<Article> technology = articles.findArticleByType("technology");
-
-            return Stream.of(business,sports,arts,politics,technology).flatMap(Collection::stream);
+        return articleList;
         }
 
     }
