@@ -104,29 +104,29 @@ public class LingoRestController {
     }
 
     @RequestMapping(path = "/articles", method = RequestMethod.GET)
-    public ArrayList<Iterable<Article>> getArticles(HttpSession session) throws Exception {
+    public Iterable<Article> getArticles(HttpSession session) throws Exception {
         if (session.getAttribute("username")==null){
             throw new Exception("You must log in to view this page");
         }else {
             User user = users.findByUsername((String) session.getAttribute("username"));
 
-            ArrayList<Iterable<Article>> articleList = new ArrayList<>();
-            if (user.getTechnology()){
-                articleList.add((Iterable<Article>) articles.findArticleByType("technology"));
-            }
-            if(user.getSports()){
-                articleList.add((Iterable<Article>) articles.findArticleByType("sports"));
-            }
-            if(user.getPolitics()){
-                articleList.add((Iterable<Article>) articles.findArticleByType("politics"));
-            }
-            if(user.getArts()){
-                articleList.add((Iterable<Article>) articles.findArticleByType("arts"));
-            }
-            if (user.getBusiness()){
-                articleList.add((Iterable<Article>) articles.findArticleByType("business"));
-            }
-        return articleList;
+//            ArrayList<Iterable<Article>> articleList = new ArrayList<>();
+//            if (user.getTechnology()){
+//                articleList.add((Iterable<Article>) articles.findArticleByType("technology"));
+//            }
+//            if(user.getSports()){
+//                articleList.add((Iterable<Article>) articles.findArticleByType("sports"));
+//            }
+//            if(user.getPolitics()){
+//                articleList.add((Iterable<Article>) articles.findArticleByType("politics"));
+//            }
+//            if(user.getArts()){
+//                articleList.add((Iterable<Article>) articles.findArticleByType("arts"));
+//            }
+//            if (user.getBusiness()){
+//                articleList.add((Iterable<Article>) articles.findArticleByType("business"));
+//            }
+        return articles.findAll();
         }
 
     }
