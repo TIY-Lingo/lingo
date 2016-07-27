@@ -1,0 +1,77 @@
+nav {
+	z-index: 1;
+}
+body {
+	background: #222;
+}
+.bg-skew-main {
+	height: 65%;
+	background: dodgerblue;
+	margin-top: -100px;
+}
+.content {
+	.intro {
+		width: 80%;
+		margin: 0 auto;
+		h1 {
+			color: #fff;
+			text-transform: uppercase;
+			font-weight: 800;
+			text-align: center;
+			margin: 0 auto;
+			span {
+				color: red;
+			}
+		}
+		p {
+			color: #fff;
+			text-transform: none;
+			text-align: center;
+			margin-bottom: 9rem;
+		}
+	}
+	h2,
+	h3 {
+		padding-top: 1%;
+		font-family: "Avenir Next";
+		text-align: center;
+		color: #003366;
+		margin-bottom: 1rem;
+	}
+	p {
+		color: #fff;
+		text-align: left;
+	}
+}
+.bg-skew-contact {
+	background: #fff;
+	margin-top: -.7%;
+	opacity: 0.95;
+	.contact {}
+	.social li a {
+		color: #fff;
+		text-decoration: underline;
+	}
+}
+@media only screen and (min-width: 40.063em) and (max-width: 64.062em) {
+	.intro {
+		p.subheader {
+			margin-bottom: 14rem;
+		}
+		h2 {
+			margin: 2rem;
+		}
+	}
+	.bg-skew-contact {}
+}
+@media only screen and (min-width: 64.063em) {
+	.intro {
+		p.subheader {
+			margin-bottom: 18rem;
+		}
+	}
+	.bg-skew-contact {}
+}
+#go {
+	color: #C1E120;
+}
