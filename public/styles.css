@@ -170,16 +170,16 @@ body {
   .small-up-5.columns h5 {
     color: #003366; }
 
-.button.expanded {
-  border-radius: 10%;
+#newsprefbutton {
+  border-radius: 5%;
   background-color: transparent;
   color: #548FCE;
   border: solid 1px #C1E120;
   font-weight: bold;
-  width: 25%;
-  margin-left: 37%;
+  width: 56%;
+  margin-bottom: 12%;
   margin-top: 15%; }
-  .button.expanded:hover {
+  #newsprefbutton:hover {
     transform: scale(1.1); }
 
 .categories {
