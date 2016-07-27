@@ -2,69 +2,128 @@
 
 <div class="parallax-background">
     <!-- TOP NAV -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+
+    <nav class="menu">
+        <a href="#login"><img src="images/O(white).png" alt="earth" class="homeglobe" /></a>
+        <ul class="inline-list">
+        </ul>
+        <ul class="inline-list hide-for-small-only account-action">
+            <li><a href="#login" data-reveal-id="myModal">Register</a></li>
+            <li class=""><a class="signup" href="#login" data-reveal-id="myModal">Login</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- modal content -->
+    <img src="images/lingowhite.png" id="logoimage" alt="" />
+
+    <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="login or sign up" aria-hidden="true" role="dialog">
+        <div class="row">
+        </div>
+    </div>
+    <img src="images/arrow.png" alt="arrow" class="homearrow" />
 
     <!-- Begin code for globe menu  -->
 
     <!-- END GLOBE MENU CODE -->
     <div class="intro-text">
-        <div id="logo-holder">
-            <a href="#login"><img src="images/O(white).png" alt="earth" class="homeglobe" /></a>
-            <div class="text">Sign In</div>
-        </div>
-        <img src="images/arrow.png" alt="arrow" class="homearrow" />
     </div>
 </div>
 
 <div class="parallax-content">
-    <p>Lingo has created a way for our users to enhance their language skills while reading the news. As a member of Lingo, you will be able to ready partially translated articles in the language of your choice. Based on the frequency of your visits to Lingo,
-        we'll increase the dificulty of the words that are translated. </p>
+    <!-- <div class="lingodescription">
+    <p>Lingo has created a way for our users to enhance their language skills while reading the news. As a member of Lingo, you will be able to ready partially translated articles in the language of your choice. Based on the frequency of your visits to Lingo, we'll increase the dificulty of the words that are translated. </p>
+  </div> -->
+
+    <div class="row" id="description">
+        <div class="small-12 medium-10 large-12 large-centered columns">
+
+            <div class="header panel">
+                <div class="sign">
+                    <h1>Who We Are</h1>
+                </div>
+                <p><span>Lingo</span> has created a way for our users to enhance their language skills while reading the news. As a member of Lingo, you will be able to ready partially translated articles in the language of your choice. Based on the frequency
+                    of your visits to Lingo, we'll increase the dificulty of the words that are translated.</p>
+            </div>
+
+        </div>
+    </div>
+
 
     <!-- BEGIN ONBOARDING SECTION -->
-    <section>
-        <div class="row">
-            <div class="small-12 large-4 columns benefit">
-                <i class="fi-map icon"></i>
-                <h5> Shop anywhere, anytime </h5>
-                <hr>
-                <p>Cupcake ipsum dolor sit. Amet I love liquorice jujubes pudding croissant I love pudding. Apple pie macaroon toffee jujubes pie tart. </p>
+    <br />
+    <br />
+
+    <div class="row" id="onboarding">
+        <div class="small-4 columns">
+
+            <div class="service">
+                <div class="service-icon-box">
+                    <img src="images/O(white).png" alt="" class="service-icon">
+                </div>
+                <h4 class="service-heading">How to get started</h4>
+                <p class="service-description">It has been a very busy few months for the Project Voyager team. But the fruits of labor are finally starting to pay off. </p>
             </div>
-            <div class="small-12 large-4 columns benefit">
-                <i class="fi-shopping-cart icon"></i>
-                <h5> All your favorite brands</h5>
-                <hr>
-                <p>Cupcake ipsum dolor sit. Amet I love liquorice jujubes pudding croissant I love pudding. Apple pie macaroon toffee jujubes pie tart. </p>
-            </div>
-            <div class="small-12 large-4 columns benefit">
-                <i class="fi-trophy icon"></i>
-                <h5> Get rewards &amp; points</h5>
-                <hr>
-                <p>Cupcake ipsum dolor sit. Amet I love liquorice jujubes pudding croissant I love pudding. Apple pie macaroon toffee jujubes pie tart. </p>
-            </div>
+
         </div>
-    </section>
+        <div class="small-4 columns">
+
+            <div class="service">
+                <div class="service-icon-box">
+                    <img src="images/O(white).png" alt="" class="service-icon">
+
+                </div>
+                <h4 class="service-heading">What to expect</h4>
+                <p class="service-description">It has been a very busy few months for the Project Voyager team. But the fruits of labor are finally starting to pay off. </p>
+            </div>
+
+        </div>
+        <div class="small-4 columns">
+
+            <div class="service">
+                <div class="service-icon-box">
+                    <img src="images/O(white).png" alt="" class="service-icon">
+
+                </div>
+                <h4 class="service-heading">How to Lingo</h4>
+                <p class="service-description">It has been a very busy few months for the Project Voyager team. But the fruits of labor are finally starting to pay off. </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- BEGIN GET STARTED  -->
+
+    <div class="bg-skew-contact">
+        <div class="content">
+            <form class="contact">
+                <h2>Ready to lin<span id="go">GO?<span></h2>
+                <div class="getstartedbutton">
+                    <button href="#" class="small button primary radius" id="signinbutton">Sign In</button>
+                    <button href="#" class="small button success radius" id="registerbutton">Register</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+
+    <!--  END GET STARTED-->
+    <!-- BEGIN FOOTER HTML -->
+
     <footer class="footer">
-        <div class="row full-width">
-            <div class="small-12 medium-3 large-4 columns">
-                <i class="fi-laptop"></i>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum maiores alias ea sunt facilis impedit fuga dignissimos illo quaerat iure in nobis id quos, eaque nostrum! Unde, voluptates suscipit repudiandae!</p>
-            </div>
-            <div class="small-12 medium-3 large-4 columns">
-                <i class="fi-html5"></i>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit impedit consequuntur at! Amet sed itaque nostrum, distinctio eveniet odio, id ipsam fuga quam minima cumque nobis veniam voluptates deserunt!</p>
-            </div>
-            <div class="small-6 medium-3 large-2 columns">
-                <h4>Want to learn more?</h4>
-                <ul class="footer-links">
-                    <li><a href="#team">Meet The Team</a></li>
-                    <ul>
+        <div class="row">
+            <div class="small-12 columns">
+                <img src="images/O(white).png" alt="" id="homefooter" />
+                <p class="links">
+                    <a href="#home">Home</a>
+                    <a href="#team">Meet The Team</a>
+                </p>
+                <p class="copywrite">The Iron Yard © 2016</p>
             </div>
         </div>
     </footer>
 </div>
-
-
-
-
-<!-- END ONBOARDING SECTION -->
-
-<!-- BEGIN FOOTER HTML -->

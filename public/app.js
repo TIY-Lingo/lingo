@@ -64,7 +64,17 @@ module.exports = function(app) {
         $scope.itemsPerPage = 1;
         let prefArray = {};
 
-          $scope.specificPref = UserService.getPreferences();
+        // $scope.articleArray = NewsService.async();
+        // console.log("this is the article array", $scope.articleArray);
+        let getCats = function() {
+          NewsService.async().then(function (categoryArray) {
+            $scope.articleArray = categoryArray;
+            console.log(categoryArray);
+          })
+        }
+        getCats();
+
+        $scope.specificPref = UserService.getPreferences();
 
         var getArts = function(){
           NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
@@ -74,7 +84,6 @@ module.exports = function(app) {
 
         getArts();
 
-        console.log($scope.newsArray)
 
         $scope.goback = function() {
 
@@ -249,41 +258,45 @@ app.config(['$routeProvider', function($routeProvider) {
 module.exports = function(app) {
 
     app.factory('NewsService', ['$http', '$location', function($http, $location) {
+        let categoryArray = [];
 
-      var  newsArray = {
-        async: function(pageNum, perPage) {
+        var newsArray = {
+            async: function(pageNum, perPage) {
 
-            var promise = $http({
-                method: 'GET',
-                url: '/articles',
-            }).then(function(response) {
-                console.log(response, "HEY THERE!");
-                let start = (pageNum + 1) * perPage;
+                var promise = $http({
+                    method: 'GET',
+                    url: '/articles',
+                }).then(function(response) {
+                    let allTheArticles = response.data;
+                    angular.copy(allTheArticles, categoryArray);
+                    console.log(categoryArray);
+                    // let start = (pageNum + 1) * perPage;
+                    //
+                    // return response.data.slice(start, start + perPage);
+                    return categoryArray;
+                });
+                return promise;
+            },
 
-                return response.data.slice(start, start + perPage);
+            //////SIGN OUT FUNCTION//////
+            signOutUser: function() {
 
-            });
-          return promise;
-        },
-
-        //////SIGN OUT FUNCTION//////
-                    signOutUser: function(){
-
-                      $http({
-                          url: '/logout',
-                          method: 'POST',
-                          data: {username: 'Winnie'}
-                      })
-                      .then(function(results) {
-                          // $location('#/home')
-                      });
-                    }
-        //////SIGN OUT FUNCTION/////////
+                    $http({
+                            url: '/logout',
+                            method: 'POST',
+                            data: {
+                                username: 'Winnie'
+                            }
+                        })
+                        .then(function(results) {
+                            // $location('#/home')
+                        });
+                }
+                //////SIGN OUT FUNCTION/////////
 
 
-      };
-      return newsArray;
-
+        };
+        return newsArray;
     }]);
 };
 
