@@ -3,35 +3,16 @@
     display: inline-block;
     // margin: 1rem 0;
     margin-left: 37%;
-    &:before {
-        content: attr(data-grouptype);
-        z-index: 99999;
-        color: #999;
-        display: block;
-        font-size: 1rem;
-        padding: 0.25em;
-        border-radius: 50%;
-        background: #fff;
-        position: absolute;
-        left: 42.5%;
-        top: 0.35rem;
         .small.button.primary.radius {
             // background-color: #C1E120;
             color: #fefefe;
             border-radius: 10px;
-        }
-        .button.success {
-            // background-color: #C1E120;
         }
         .small.button.success.radius {
             // background-color: #C1E120;
             border-radius: 10px;
         }
     }
-    button + button {
-        margin-left: 16px;
-    }
-}
 .getstartedbutton {
     margin-left: 44%;
     margin-right: 42%;
