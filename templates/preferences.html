@@ -129,35 +129,44 @@
 <!-- END LANGUAGE SELECTOR -->
 
     <div class="row column text-center">
-      <h2>New Preferences</h2>
+      <h2>News Preferences</h2>
       <hr>
     </div>
-
     <div class="small-up-5 columns">
-      <div class="column">
-        <img class="thumbnail" src="http://placehold.it/300x400">
+
+      <!-- TECH PREFERENCE SETTING -->
+      <div class="column" ng-if="UserPreferences.technology">
+        <img class="thumbnail" src="images/computer-mouse.png">
         <h5>Technology</h5>
-        <a href="#" class="button expanded">ON</a>
+        <button ng-click='turnOffTech()' class="button expanded">Turn Off</button>
       </div>
+      <div class="column" ng-if="!UserPreferences.technology">
+        <img class="thumbnail" src="images/computer-mouse.png">
+        <h5>Technology</h5>
+        <button ng-click='turnOnTech()' class="button expanded">Turn On</button>
+      </div>
+
+
       <div class="column">
         <img class="thumbnail" src="images/suitcase.png">
         <h5>Business</h5>
-        <a href="#" class="button expanded">ON</a>
+        <a href="#" class="button expanded">Turn On</a>
       </div>
       <div class="column">
-        <img class="thumbnail" src="http://placehold.it/300x400">
+        <img class="thumbnail" src="images/capitol.png">
         <h5>Politics</h5>
-        <a href="#" class="button expanded">ON</a>
+        <a href="#" class="button expanded">Turn On</a>
       </div>
       <div class="column">
-        <img class="thumbnail" src="http://placehold.it/300x400">
+        <img class="thumbnail" src="images/color-filters.png">
         <h5>Arts</h5>
-        <a href="#" class="button expanded">ON</a>
+        <a href="#" class="button expanded">Turn On</a>
       </div>
       <div class="column">
-        <img class="thumbnail" src="http://placehold.it/300x400">
+        <img class="thumbnail" src="images/american-football.png">
         <h5>Sports</h5>
-        <a href="#" class="button expanded">ON</a>
+
+        <a href="#" class="button expanded">Turn On</a>
       </div>
     </div>
 
