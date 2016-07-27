@@ -2,19 +2,18 @@
 <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 
 <nav class="menu">
-    <h1 class="name"><i class="fi-widget"></i><a href="#home">lingo</a></h1>
-
+    <a href="#login"><img src="images/O(white).png" alt="earth" class="homeglobe" /></a>
+    <ul class="inline-list">
+    </ul>
     <ul class="inline-list hide-for-small-only account-action">
+        <li><a href="#home" data-reveal-id="myModal" ng-click="signOut()">Sign Out</a></li>
         <li class=""><a class="signup" href="#home" data-reveal-id="myModal">Home</a></li>
     </ul>
 
 </nav>
-
-<!-- modal content -->
-
-<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="login or sign up" aria-hidden="true" role="dialog">
-
 <!-- END NAV BAR -->
+
+
 
 <!-- this adds Foundation Icon Fonts!! -->
 <!-- <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
@@ -85,6 +84,49 @@
     </div>
 </div> -->
 
+<!-- LANGUAGE SELCTOR -->
+<div class="languageselector">
+  <div class="row">
+    <div class="small-3 columns">
+
+      <div class="image-wrapper overlay-fade-in">
+
+        <img src="images/spanish.png" />
+
+        <div class="image-overlay-content">
+          <h2>Spanish</h2>
+          <a href="#" class="button">Choose</a>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="small-3 columns">
+
+      <div class="image-wrapper overlay-fade-in">
+
+        <img src="images/french.png" />
+
+        <div class="image-overlay-content">
+          <h2>French</h2>
+          <a href="#" class="button">Choose</a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="small-4 columns">
+
+
+  </div>
+
+
+  </div>
+
+</div>
+
+<!-- END LANGUAGE SELECTOR -->
 
     <div class="row column text-center">
       <h2>New Preferences</h2>
@@ -98,7 +140,7 @@
         <a href="#" class="button expanded">ON</a>
       </div>
       <div class="column">
-        <img class="thumbnail" src="http://placehold.it/300x400">
+        <img class="thumbnail" src="images/suitcase.png">
         <h5>Business</h5>
         <a href="#" class="button expanded">ON</a>
       </div>
@@ -124,17 +166,17 @@
 
 <!-- BEGIN FOOTER  -->
 
-
 <footer class="footer">
-  <div class="row">
-    <div class="small-12 columns">
-      <p class="slogan">lingo</p>
-      <p class="links">
-        <a href="#home">Home</a>
-        <a href="#">Blog</a>
-        <a href="#team">Meet The Team</a>
-      </p>
-      <p class="copywrite">The Iron Yard © 2016</p>
+    <div class="row">
+        <div class="small-12 columns">
+            <img src="images/O(white).png" alt="" id="homefooter" />
+            <p class="links">
+                <a href="#home">Home</a>
+                <a href="#team">Meet The Team</a>
+                <a href="#team" ng-click="signOut()">Sign Out</a>
+            </p>
+            <p class="copywrite">The Iron Yard © 2016</p>
+        </div>
     </div>
-  </div>
 </footer>
+</div>
