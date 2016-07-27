@@ -152,6 +152,9 @@ body {
   color: white;
   height: 500px; }
 
+.preferences {
+  background-color: white; }
+
 .box {
   border-radius: 3px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -357,6 +360,9 @@ h4 {
     .footer .links a:last-child::after {
       content: "";
       padding: 0 0.4rem 0 0.8rem; }
+
+.categories {
+  background-color: white; }
 
 .header.panel {
   margin: 3rem auto;

@@ -41,6 +41,9 @@
 
 
                 <!-- toggle our values of our user Object -->
+                <div class="preferences">
+
+
                 <div ng-if="UserPrefences.technology">
                     Technology:
                     <button ng-click="turnOffTech()">OFF</button>
@@ -72,6 +75,7 @@
                 </div>
                 <div ng-if="!UserPrefences.sports">Sports:
                     <button ng-click="turnOnSports()">ON</button>
+                </div>
                 </div>
                 <!-- <button ng-click="logObj()">log</button> -->
                 <a href="#news" ng-click='savePref()' class="button">Update</a>
