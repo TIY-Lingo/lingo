@@ -12,22 +12,26 @@
 
 <!-- END ARTICLE HEADER -->
 
-<!-- ARTICLE BODY -->
-<a href="#news" ng-click="clickedFullArticle()">Full Article</a>
-<a href="#news/list" ng-click="clickedListView()">List View</a>
-<a href="#" ng-show="specificPref.politics">Politics</a>
-<a href="#" ng-show="specificPref.business">Business</a>
-<a href="#" ng-show="specificPref.technology">Technology</a>
-<a href="#" ng-show="specificPref.arts">Arts</a>
-<a href="#" ng-show="specificPref.sports">Sports</a>
+<!-- START CATEGORIES -->
 <div class="row">
+    <div class="small-3 columns">
+        <a href="#news" ng-click="clickedFullArticle()">Full Article</a>
+        <a href="#news/list" ng-click="clickedListView()">List View</a>
+        <a href="#" ng-show="specificPref.politics">Politics</a>
+        <a href="#" ng-show="specificPref.business">Business</a>
+        <a href="#" ng-show="specificPref.technology">Technology</a>
+        <a href="#" ng-show="specificPref.arts">Arts</a>
+        <a href="#" ng-show="specificPref.sports">Sports</a>
+    </div>
+</div>
+<!-- END CATEGORIES -->
 
-    <div class="small-8 medium-6 large-9 small-centered columns">
-
+<!-- START ARTICLE BODY -->
+<div class="row">
+    <div class="small-9 large-centered columns">
         <div class="header panel" ng-repeat="article in newsArray">
-
-            <h1 id="listViewRow"><a href="#" ng-click="selectedArticle()">{{article.title}}</a></h1>
-
+            <h1 id="listViewRow"><a href="#/articles/{{article.id}}"
+              >{{article.title}}</a></h1>
         </div>
         <button ng-click="goback()">
             <</button>
@@ -38,7 +42,6 @@
 <!-- END ARTICLE BODY -->
 
 <!-- ARTICLE FOOTER -->
-
 <footer class="footer">
     <div class="row">
         <div class="small-12 columns">
@@ -52,7 +55,6 @@
         </div>
     </div>
 </footer>
-
 <!-- END ARTICLE FOOTER -->
 
 <!--
