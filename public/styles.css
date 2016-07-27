@@ -879,12 +879,15 @@ body {
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease; }
   .service .service-heading {
+    color: #fff;
     font-family: "Avenir Next";
     position: relative;
     top: 80px;
     -webkit-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
     transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55); }
   .service .service-description {
+    font-weight: 500;
+    color: #fff;
     width: 80%;
     margin: 0 auto;
     opacity: 0;
@@ -894,7 +897,7 @@ body {
     -ms-transform: scale(0);
     transform: scale(0); }
   .service .service-icon-box > img.service-icon {
-    width: 25px; }
+    width: 45px; }
   .service:hover {
     border-color: #548FCE; }
   .service:hover .service-icon-box {
