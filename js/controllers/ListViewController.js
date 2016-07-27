@@ -14,7 +14,7 @@ module.exports = function(app) {
 
         getArts();
 
-        console.log($scope.newsArray)
+        console.log('this is the news array:', $scope.newsArray)
 
         $scope.goback = function() {
 
@@ -41,14 +41,14 @@ module.exports = function(app) {
             NewsService.signOutUser();
         };
 
-        $scope.selectedArticle = function() {
-          $scope.newsArray.map(function (element){
-            for (var i = 0; i < newsArray.length; i ++){
-              if (newsArray[i] === $scope.newsArray.title){
-                getArts();
-              }
-      }
-    })
+        $scope.selectedArticle = function(id) {
+
+          console.log("id is: ", id);
+
+
+          // Go to server and get article (id)
+          // return article content
+
       }
 
 

@@ -1,0 +1,78 @@
+
+.signup-panel{
+  padding: 15px;
+  margin: 0 auto;
+  background-color: #003366;
+  opacity: .91;
+  border-radius: 20px;
+  i{
+    font-size: 30px;
+    line-height: 50px;
+    color: #FFF;
+  }
+  form{
+    input, span{
+    height: 40px;
+    text-align: center;
+    color: black;
+    width: 55%;
+  }
+    .row.collapse {
+    margin-left: 18%;
+    margin-top: 2%;
+    }
+  }
+  .small-2.columns {
+    margin-bottom: 5%;
+  }
+  .welcome{
+    font-size: 26px;
+    text-align: center;
+    margin-left: 0;
+      img {
+        max-width: 20%;
+      }
+  }
+  p{
+    font-size: 13px;
+    font-weight: 200;
+    margin-left: 25%;
+  }
+}
+
+// BEGIN SPECIAL BUTTONS
+.button-group {
+  position: relative;
+  display: inline-block;
+  // margin: 1rem 0;
+  margin-left: 39%;
+  .button {
+    font-size: 12px;
+  }
+  .small.button.primary.radius {
+    color: #fefefe;
+    background-color: transparent;
+    border: solid #548FCE 1px;
+    border-radius: 10%;
+    &:hover {
+      transform: scale(1.1);
+    }
+}
+.small.button.success.radius {
+  border-radius: 10%;
+  border: solid #C1E120 1px;
+  background-color: transparent;
+  margin-left: 16px;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+  button + button {
+    // margin-left: 16px;
+  }
+}
+.small-6.large-centered.columns {
+  margin: 0 auto;
+  color: white;
+  height: 500px;
+}
