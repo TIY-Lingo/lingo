@@ -134,42 +134,75 @@
     </div>
     <div class="small-up-5 columns">
 
+
+
+
       <!-- TECH PREFERENCE SETTING -->
-      <div class="column" ng-if="UserPreferences.technology">
+      <div class="column">
         <img class="thumbnail" src="images/computer-mouse.png">
-        <h5>Technology</h5>
-        <button ng-click='turnOffTech()' class="button expanded">Turn Off</button>
-      </div>
-      <div class="column" ng-if="!UserPreferences.technology">
-        <img class="thumbnail" src="images/computer-mouse.png">
-        <h5>Technology</h5>
-        <button ng-click='turnOnTech()' class="button expanded">Turn On</button>
+        <div ng-if="UserPrefences.technology">
+            <h5>Technology</h5>
+            <button id="newsprefbutton" ng-click="turnOffTech()">Turn Off</button>
+        </div>
+        <div ng-if="!UserPrefences.technology">
+          <h5>Technology</h5>
+            <button id="newsprefbutton" ng-click="turnOnTech()">Turn On</button>
+        </div>
       </div>
 
+      <!-- BUSINESS SETTING -->
 
       <div class="column">
         <img class="thumbnail" src="images/suitcase.png">
-        <h5>Business</h5>
-        <a href="#" class="button expanded">Turn On</a>
+        <div ng-if="UserPrefences.business">
+            <h5>Business</h5>
+            <button id="newsprefbutton" ng-click="turnOffBus()">Turn Off</button>
+        </div>
+        <div ng-if="!UserPrefences.business">
+          <h5>Business</h5>
+            <button id="newsprefbutton" ng-click="turnOnBus()">Turn On</button>
+        </div>
       </div>
+
+      <!-- POLITICS SETTING -->
       <div class="column">
         <img class="thumbnail" src="images/capitol.png">
-        <h5>Politics</h5>
-        <a href="#" class="button expanded">Turn On</a>
+        <div ng-if="UserPrefences.politics">
+            <h5>Politics</h5>
+            <button id="newsprefbutton" ng-click="turnOffPol()">Turn Off</button>
+        </div>
+        <div ng-if="!UserPrefences.politics">
+          <h5>Politics</h5>
+            <button id="newsprefbutton" ng-click="turnOnPol()">Turn On</button>
+        </div>
       </div>
+
+      <!-- ARTS SETTING -->
+
       <div class="column">
         <img class="thumbnail" src="images/color-filters.png">
-        <h5>Arts</h5>
-        <a href="#" class="button expanded">Turn On</a>
+        <div ng-if="UserPrefences.arts">
+            <h5>Arts</h5>
+            <button id="newsprefbutton" ng-click="turnOffArts()">Turn Off</button>
+        </div>
+        <div ng-if="!UserPrefences.arts">
+          <h5>Arts</h5>
+            <button id="newsprefbutton" ng-click="turnOnArts()">Turn On</button>
+        </div>
       </div>
+
+      <!-- SPORTSS SETTING -->
+
       <div class="column">
         <img class="thumbnail" src="images/american-football.png">
-        <h5>Sports</h5>
-<<<<<<< HEAD
-        <a href="#" class="button expanded">ON</a>
-=======
-        <a href="#" class="button expanded">Turn On</a>
->>>>>>> 8884a467a1fb05512bf5021f30a1d828d4a20cd0
+        <div ng-if="UserPrefences.sports">
+            <h5>Sports</h5>
+            <button id="newsprefbutton" ng-click="turnOffSports()">Turn Off</button>
+        </div>
+        <div ng-if="!UserPrefences.sports">
+          <h5>Sports</h5>
+            <button id="newsprefbutton" ng-click="turnOnSports()">Turn On</button>
+        </div>
       </div>
     </div>
 

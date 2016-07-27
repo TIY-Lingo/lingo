@@ -170,7 +170,7 @@ body {
   .small-up-5.columns h5 {
     color: #003366; }
 
-.button.expanded {
+#newsprefbutton {
   border-radius: 10%;
   background-color: transparent;
   color: #548FCE;
@@ -179,7 +179,7 @@ body {
   width: 25%;
   margin-left: 37%;
   margin-top: 15%; }
-  .button.expanded:hover {
+  #newsprefbutton:hover {
     transform: scale(1.1); }
 
 .categories {
