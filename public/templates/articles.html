@@ -5,8 +5,8 @@
   <h1 class="main-header"><img src="images/lingowhite.png" alt="logo" class="lingologo" /></h1>
   <ul class="header-subnav">
     <li><a href="#preferences">Preferences</a></li>
-    <li><a href="#home" class="is-active" ng-click="signOut()">Sign Out</a></li>
-    <li><a target="_blank" href="#home">Home</a></li>
+    <li><a href="#home" class="is-active" >Home</a></li>
+    <li><a target="_blank" href="#home" ng-click="signOut()">Sign Out</a></li>
   </ul>
 </header>
 
@@ -23,9 +23,10 @@
 
   <div class="small-8 medium-6 large-9 small-centered columns" >
 
-    <div class="header panel" ng-repeat="article in newsArray" >
+    <div class="header panel" ng-repeat="category in categoryArray" >
 
-      <div class="sign">
+      {{category.type}}
+      <!-- <div class="sign">
         <h1>{{article.title}}</h1>
       </div>
       <p><span>{{article.author}}</span>
@@ -35,7 +36,7 @@
       <a href="#news/list" ng-click="clickedListView()">List View</a>
       <button ng-click="goback()"><</button>
           <span>{{pageNumber}}</span>
-        <button ng-click="goforward()">></button>
+        <button ng-click="goforward()">></button> -->
     </div>
   </div>
 </div>

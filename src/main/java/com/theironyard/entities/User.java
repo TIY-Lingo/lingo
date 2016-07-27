@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users")
-public class User extends JavaCurrentTimeStamp{
+public class User{
     @GeneratedValue
     @Id
     int id;
@@ -21,29 +21,26 @@ public class User extends JavaCurrentTimeStamp{
 //    @Column(nullable = false)
 //    int daysVisited;
 
-//    @Column(nullable = false)
-//    int lastVisited;
-
     @Column
     String language;
 
     @Column
-    Boolean technology;
+    boolean technology;
 
     @Column
-    Boolean sports;
+    boolean sports;
 
     @Column
-    Boolean business;
+    boolean business;
 
     @Column
-    Boolean politics;
+    boolean politics;
 
     @Column
-    Boolean arts;
+    boolean arts;
 
-    @Column
-    LocalDateTime timestamp;
+//    @Column
+//    LocalDateTime timestamp;
 
 
     public User(String username, String password) {
@@ -133,23 +130,14 @@ public class User extends JavaCurrentTimeStamp{
 //    public void setDaysVisited(int daysVisited) {
 //        this.daysVisited = daysVisited;
 //    }
-//
-//    public int getLastVisited() {
-//        return lastVisited;
+
+//    public LocalDateTime getTimestamp() {
+//        return timestamp;
 //    }
 //
-//    public void setLastVisited(int lastVisited) {
-//        this.lastVisited = lastVisited;
+//    public void setTimestamp(LocalDateTime timestamp) {
+//        this.timestamp = timestamp;
 //    }
-
-
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
-    }
 
     @Override
     public String toString() {
