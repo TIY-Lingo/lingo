@@ -88,12 +88,17 @@ body {
   margin-left: 37%;
   margin-top: 1%; }
 
+#loginForm {
+  margin-left: 13%; }
+
 .signup-panel {
   padding: 15px;
   margin: 0 auto;
   background-color: #003366;
   opacity: .91;
   border-radius: 20px; }
+  .signup-panel i.fi-lock {
+    margin-right: 74%; }
   .signup-panel i {
     font-size: 30px;
     line-height: 50px;
@@ -102,7 +107,7 @@ body {
     height: 40px;
     text-align: center;
     color: black;
-    width: 55%; }
+    width: 100%; }
   .signup-panel form .row.collapse {
     margin-left: 18%;
     margin-top: 2%; }
@@ -119,25 +124,25 @@ body {
     font-weight: 200;
     margin-left: 25%; }
 
-.button-group {
+#loginPageButtons.button-group {
   position: relative;
   display: inline-block;
-  margin-left: 39%; }
-  .button-group .button {
+  margin-left: 33%; }
+  #loginPageButtons.button-group .button {
     font-size: 12px; }
-  .button-group .small.button.primary.radius {
+  #loginPageButtons.button-group .small.button.primary.radius {
     color: #fefefe;
     background-color: transparent;
     border: solid #548FCE 1px;
     border-radius: 10%; }
-    .button-group .small.button.primary.radius:hover {
+    #loginPageButtons.button-group .small.button.primary.radius:hover {
       transform: scale(1.1); }
-  .button-group .small.button.success.radius {
+  #loginPageButtons.button-group .small.button.success.radius {
     border-radius: 10%;
     border: solid #C1E120 1px;
     background-color: transparent;
     margin-left: 16px; }
-    .button-group .small.button.success.radius:hover {
+    #loginPageButtons.button-group .small.button.success.radius:hover {
       transform: scale(1.1); }
 
 .small-6.large-centered.columns {
@@ -350,9 +355,6 @@ h4 {
     .footer .links a:last-child::after {
       content: "";
       padding: 0 0.4rem 0 0.8rem; }
-
-body {
-  background: #333; }
 
 .header.panel {
   margin: 3rem auto;
@@ -740,7 +742,7 @@ body {
     font-size: 0.875rem;
     margin: 0; }
   .footer p img {
-    max-width: 2%; }
+    max-width: 10%; }
   .footer .links a {
     list-style: none;
     font-weight: bold;
@@ -814,9 +816,6 @@ body {
   @media only screen and (min-width: 40.063em) {
     .name {
       float: left; } }
-
-body {
-  background: #333; }
 
 .header.panel {
   margin: 3rem auto;
@@ -917,9 +916,6 @@ body {
 nav {
   z-index: 1; }
 
-body {
-  background: #222; }
-
 .bg-skew-main {
   height: 65%;
   background: dodgerblue;
@@ -979,25 +975,11 @@ body {
   position: relative;
   display: inline-block;
   margin-left: 37%; }
-  .button-group:before {
-    content: attr(data-grouptype);
-    z-index: 99999;
-    color: #999;
-    display: block;
-    font-size: 1rem;
-    padding: 0.25em;
-    border-radius: 50%;
-    background: #fff;
-    position: absolute;
-    left: 42.5%;
-    top: 0.35rem; }
-    .button-group:before .small.button.primary.radius {
-      color: #fefefe;
-      border-radius: 10px; }
-    .button-group:before .small.button.success.radius {
-      border-radius: 10px; }
-  .button-group button + button {
-    margin-left: 16px; }
+  .button-group .small.button.primary.radius {
+    color: #fefefe;
+    border-radius: 10px; }
+  .button-group .small.button.success.radius {
+    border-radius: 10px; }
 
 .getstartedbutton {
   margin-left: 44%;

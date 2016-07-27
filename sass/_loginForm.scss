@@ -1,10 +1,15 @@
-
+#loginForm {
+  margin-left: 13%;
+}
 .signup-panel{
   padding: 15px;
   margin: 0 auto;
   background-color: #003366;
   opacity: .91;
   border-radius: 20px;
+  i.fi-lock {
+    margin-right: 74%;
+  }
   i{
     font-size: 30px;
     line-height: 50px;
@@ -15,7 +20,7 @@
     height: 40px;
     text-align: center;
     color: black;
-    width: 55%;
+    width: 100%;
   }
     .row.collapse {
     margin-left: 18%;
@@ -41,11 +46,11 @@
 }
 
 // BEGIN SPECIAL BUTTONS
-.button-group {
+#loginPageButtons.button-group {
   position: relative;
   display: inline-block;
   // margin: 1rem 0;
-  margin-left: 39%;
+  margin-left: 33%;
   .button {
     font-size: 12px;
   }
