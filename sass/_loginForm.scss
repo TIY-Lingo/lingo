@@ -59,6 +59,7 @@
     background-color: transparent;
     border: solid #548FCE 1px;
     border-radius: 10%;
+    font-weight: bold;
     &:hover {
       transform: scale(1.1);
     }
@@ -68,6 +69,7 @@
   border: solid #C1E120 1px;
   background-color: transparent;
   margin-left: 16px;
+  font-weight: bold;
   &:hover {
     transform: scale(1.1);
   }
