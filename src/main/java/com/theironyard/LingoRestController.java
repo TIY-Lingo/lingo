@@ -116,6 +116,7 @@ public class LingoRestController {
             throw new Exception("You must Login to view or change preferences!");
         }else {
             User userA = users.findByUsername((String) session.getAttribute("username"));
+
             userA.setLanguage(user.getLanguage());
             if (user.getArts()) {
                 Category cat = categories.findFirstByType("arts");
@@ -140,6 +141,7 @@ public class LingoRestController {
 
             users.save(userA);
             System.out.println("User saved to Database...");
+
         }
     }
 

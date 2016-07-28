@@ -93,13 +93,21 @@ public class ApiLookupService {
                 if (contentPlaceholder.contains(dictionaries.findOne(seedValue).getEnglish())) {
                     contentPlaceholder = contentPlaceholder.replace(dictionaries.findOne(seedValue).getEnglish(),
 
-                            ("<span class='"
-                                    + language +
-                                    "' onmouseover='this.innerHTML=$(this).attr('original-word')' onmouseout='this.innerHTML=$(this).attr('translated-word')' original-word='"
+                            ("<span data-tranny=\"" + dictionaries.findOne(seedValue).getEnglish()  + "\"  class=\"" + language + "\"" +
+                                    " onmouseover=\"this.innerHTML=$(this).attr('original-word')\" onmouseout=\"this.innerHTML=$(this).attr('translated-word')\" original-word=\""
                                     + dictionaries.findOne(seedValue).getEnglish() +
-                                    "' translated-word='" + langPlaceholder + "'> " +
+                                    "\" translated-word=\"" + langPlaceholder + "\"> " +
                                     langPlaceholder +
                                     " </span>"));
+
+
+//                            ("<span data-tranny='" + dictionaries.findOne(seedValue).getEnglish()  + "'  class='"
+//                                    + language +
+//                                    "' onmouseover='this.innerHTML=$(this).attr('original-word')' onmouseout='this.innerHTML=$(this).attr('translated-word')' original-word='"
+//                                    + dictionaries.findOne(seedValue).getEnglish() +
+//                                    "' translated-word='" + langPlaceholder + "'> " +
+//                                    langPlaceholder +
+//                                    " </span>"));
 
 
                     count++;
