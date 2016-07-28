@@ -22,7 +22,7 @@ module.exports = function(app) {
             }
 
             $scope.signUp = function() {
-                console.log("clicked sign up");
+                // console.log("clicked sign up");
                 UserService.postUserInfo($scope.userInput, $scope.userPassword)
 
                 // $location.path('/preferences');
