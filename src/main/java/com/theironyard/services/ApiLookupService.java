@@ -91,7 +91,7 @@ public class ApiLookupService {
                 }
 
                 if (contentPlaceholder.contains(dictionaries.findOne(seedValue).getEnglish())) {
-                    contentPlaceholder = contentPlaceholder.replace(dictionaries.findOne(seedValue).getEnglish(), "<span class=\'" + language + "\'>" + langPlaceholder + "</span>");
+                    contentPlaceholder = contentPlaceholder.replace(dictionaries.findOne(seedValue).getEnglish(), "<span class=\'" + language + "\' title=\'" + dictionaries.findOne(seedValue).getEnglish() + "\'>" + langPlaceholder + "</span>");
                     count++;
                 } else if (count == 15) {                   //if Level 1 count is hit, save it so if there is a failure it is not lost and continue rolling through the next levels
                     if (language.equals("spanish")) {
