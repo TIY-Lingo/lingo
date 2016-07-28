@@ -125,27 +125,27 @@ public class LingoRestController {
             userA.setSports(user.getSports());
             userA.setPolitics(user.getPolitics());
 
-//
-//            if (user.getArts()) {
-//                Category cat = categories.findFirstByType("arts");
-//                userA.getCatList().add(cat);
-//            }
-//            if(user.getBusiness()){
-//                Category cat = categories.findFirstByType("business");
-//                userA.getCatList().add(cat);
-//            }
-//            if(user.getPolitics()){
-//                Category cat = categories.findFirstByType("politics");
-//                userA.getCatList().add(cat);
-//            }
-//            if(user.getSports()){
-//                Category cat = categories.findFirstByType("sports");
-//                userA.getCatList().add(cat);
-//            }
-//            if(user.getTechnology()){
-//                Category cat = categories.findFirstByType("technology");
-//                userA.getCatList().add(cat);
-//            }
+
+            if (user.getArts()) {
+                Category cat = categories.findFirstByType("arts");
+                userA.getCatList().add(cat);
+            }
+            if(user.getBusiness()){
+                Category cat = categories.findFirstByType("business");
+                userA.getCatList().add(cat);
+            }
+            if(user.getPolitics()){
+                Category cat = categories.findFirstByType("politics");
+                userA.getCatList().add(cat);
+            }
+            if(user.getSports()){
+                Category cat = categories.findFirstByType("sports");
+                userA.getCatList().add(cat);
+            }
+            if(user.getTechnology()){
+                Category cat = categories.findFirstByType("technology");
+                userA.getCatList().add(cat);
+            }
             System.out.println("User saved to Database...");
 
             return users.save(userA);
