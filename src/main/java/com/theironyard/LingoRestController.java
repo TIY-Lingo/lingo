@@ -109,6 +109,7 @@ public class LingoRestController {
            throw new Exception("you mst be logged in to change preferences");
        }
     }
+
     //random comment
     @RequestMapping(path = "/preferences", method = RequestMethod.POST)
     public User setPreferences(@RequestBody User user, HttpSession session) throws Exception {
@@ -117,31 +118,40 @@ public class LingoRestController {
         }else {
             User userA = users.findByUsername((String) session.getAttribute("username"));
             userA.setLanguage(user.getLanguage());
-            if (user.getArts()) {
-                Category cat = categories.findFirstByType("arts");
-                userA.getCatList().add(cat);
-            }
-            if(user.getBusiness()){
-                Category cat = categories.findFirstByType("business");
-                userA.getCatList().add(cat);
-            }
-            if(user.getPolitics()){
-                Category cat = categories.findFirstByType("politics");
-                userA.getCatList().add(cat);
-            }
-            if(user.getSports()){
-                Category cat = categories.findFirstByType("sports");
-                userA.getCatList().add(cat);
-            }
-            if(user.getTechnology()){
-                Category cat = categories.findFirstByType("technology");
-                userA.getCatList().add(cat);
-            }
 
-            users.save(userA);
+            userA.setTechnology(user.getTechnology());
+            userA.setArts(user.getArts());
+            userA.setBusiness(user.getBusiness());
+            userA.setSports(user.getSports());
+            userA.setPolitics(user.getPolitics());
+
+//
+//            if (user.getArts()) {
+//                Category cat = categories.findFirstByType("arts");
+//                userA.getCatList().add(cat);
+//            }
+//            if(user.getBusiness()){
+//                Category cat = categories.findFirstByType("business");
+//                userA.getCatList().add(cat);
+//            }
+//            if(user.getPolitics()){
+//                Category cat = categories.findFirstByType("politics");
+//                userA.getCatList().add(cat);
+//            }
+//            if(user.getSports()){
+//                Category cat = categories.findFirstByType("sports");
+//                userA.getCatList().add(cat);
+//            }
+//            if(user.getTechnology()){
+//                Category cat = categories.findFirstByType("technology");
+//                userA.getCatList().add(cat);
+//            }
             System.out.println("User saved to Database...");
+
+            return users.save(userA);
+
         }
-        return users.findByUsername((String) session.getAttribute("username"));
+       // return users.findByUsername((String) session.getAttribute("username"));
     }
 
     @RequestMapping(path = "/articles", method = RequestMethod.GET)
