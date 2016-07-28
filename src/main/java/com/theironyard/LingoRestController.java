@@ -111,7 +111,7 @@ public class LingoRestController {
     }
 
     @RequestMapping(path = "/preferences", method = RequestMethod.POST)
-    public void setPreferences(@RequestBody User user, HttpSession session) throws Exception {
+    public User setPreferences(@RequestBody User user, HttpSession session) throws Exception {
         if (session.getAttribute("username") ==null){
             throw new Exception("You must Login to view or change preferences!");
         }else {
@@ -141,6 +141,7 @@ public class LingoRestController {
             users.save(userA);
             System.out.println("User saved to Database...");
         }
+        return users.findByUsername((String) session.getAttribute("username"));
     }
 
     @RequestMapping(path = "/articles", method = RequestMethod.GET)
