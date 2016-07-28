@@ -21,13 +21,13 @@
 <!-- END ARTICLE HEADER -->
 
 <!-- ARTICLE BODY -->
-<a href="#" ng-show="specificPref.politics">Politics</a>
+<!-- <a href="#" ng-show="specificPref.politics">Politics</a>
 <a href="#" ng-show="specificPref.business">Business</a>
 <a href="#" ng-show="specificPref.technology">Technology</a>
 <a href="#" ng-show="specificPref.arts">Arts</a>
-<a href="#" ng-show="specificPref.sports">Sports</a>
+<a href="#" ng-show="specificPref.sports">Sports</a> -->
 
-<div class="row">
+<!-- <div class="row">
 
  <div class="small-8 medium-6 large-9 small-centered columns" >
 
@@ -46,7 +46,89 @@
        <button ng-click="goforward()">></button>
    </div>
  </div>
+</div> -->
+
+
+<!-- SHOWS PREFERENCES -->
+
+<div class="row" id="articlesview">
+<div class="medium-3 large-3 text-center columns">
+<h4><a href="#" ng-show="specificPref.politics">Politics</a></h4>
 </div>
+<div class="medium-3 large-3 text-center column">
+<h4><a href="#" ng-show="specificPref.business">Business</a>
+</h4>
+</div>
+<div class="medium-3 large-3 text-center column">
+<h4><a href="#" ng-show="specificPref.technology">Technology</a>
+</h4>
+</div>
+<div class="medium-3 large-3 text-center column">
+<h4><a href="#" ng-show="specificPref.arts">Arts</a>
+</h4>
+</div>
+<div class="medium-3 large-3 text-center column">
+<h4><a href="#" ng-show="specificPref.sports">Sports</a>
+</h4>
+</div>
+</div>
+
+
+<ul class="example-orbit-content" data-orbit>
+<li data-orbit-slide="headline-1">
+<div class="text-center panel" ng-repeat="article in newsArray">
+<h2>{{article.title}}</h2>
+<h3>{{article.author}}</h3>
+<p ng-bind-html="article.span1"></p>
+</div>
+</li>
+</ul>
+
+
+<!-- <ul class="example-orbit-content" data-orbit>
+<li data-orbit-slide="headline-1">
+<div class="text-center panel">
+<h2>Headline 1</h2>
+<h3>Subheadline</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos animi, nobis illo. Repellendus atque dolorem, officia recusandae autem, laudantium consectetur, neque!</p>
+</div>
+</li>
+<li data-orbit-slide="headline-2">
+<div class="text-center panel">
+<h2>Headline 2</h2>
+<h3>Subheadline</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos animi, nobis illo. Repellendus atque dolorem, officia recusandae autem, laudantium consectetur, neque!</p>
+</div>
+</li>
+<li data-orbit-slide="headline-3">
+<div class="text-center panel">
+<h2>Headline 3</h2>
+<h3>Subheadline</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos animi, nobis illo. Repellendus atque dolorem, officia recusandae autem, laudantium consectetur, neque!</p>
+</div>
+</li>
+</ul> -->
+
+<hr>
+
+
+<div class="panel">
+<div class="row">
+<div class="medium-6 large-6 columns">
+<ul class="inline-list right">
+
+<li>  <a href="#" ng-click="clickedFullArticle()">Full Article</a>
+</li>
+<li>  <a href="#news/list" ng-click="clickedListView()">List View</a>
+</li>
+<button ng-click="goback()"><</button>
+    <span>{{pageNumber}}</span>
+  <button ng-click="goforward()">></button>
+</ul>
+</div>
+</div>
+</div>
+
 <!-- END ARTICLE BODY -->
 
 <!-- CATEGORY SELECTION -->

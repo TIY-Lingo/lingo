@@ -215,7 +215,7 @@ body {
   padding: 10px; }
   .header.panel p {
     font: 1rem "Avenir Next";
-    padding: 1rem 2rem 2rem 2rem;
+    padding: 1rem 2rem 2rem;
     margin-top: -1.25rem; }
     .header.panel p span {
       text-transform: uppercase;
@@ -272,7 +272,7 @@ body {
       .header-subnav li a:hover {
         background: rgba(250, 250, 250, 0.7);
         color: #333;
-        transition: all .25s ease-in-out; }
+        transition: all 0.25s ease-in-out; }
 
 @media only screen and (min-width: 40em) {
   .top-bar {
@@ -296,7 +296,7 @@ body {
   background: #333333; }
 
 .spanish {
-  color: red; }
+  background-color: yellow; }
 
 .hero {
   background: url("http://static.pexels.com/wp-content/uploads/2014/07/beach-coast-holiday-2190-825x550.jpg") no-repeat center center;
@@ -337,6 +337,11 @@ body {
     .footer .links a:last-child::after {
       content: "";
       padding: 0 0.4rem 0 0.8rem; }
+
+#articlesview {
+  background-color: white;
+  margin-left: 5%;
+  margin-right: 5%; }
 
 .profile-card {
   padding: 1rem;
