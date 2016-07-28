@@ -1,5 +1,10 @@
-body {
-  // background:#333;
+.articlebody {
+  background-image: url('images/login2new.png');
+  // background-color: red;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
 }
 .categories {
   background-color: white;
@@ -27,7 +32,7 @@ body {
     background:#fff;
     width: 150px;
     height: 2.4rem;
-    border: 2px solid #444;
+    border: 2px solid #C1E120;
     position: relative;
     top: -2.5rem;
     margin: auto;
@@ -36,7 +41,7 @@ body {
       text-transform: uppercase;
       font: bolder 0.875rem "Avenir Next";
       letter-spacing: 3px;
-      color: #666;
+      color: #003366;
       font-size: 70%;
       text-align: center;
       line-height: 2rem;
@@ -53,7 +58,7 @@ body {
   padding: 4rem;
 
   .main-header {
-    color: #666;
+    color: #003366;
   }
   img {
     max-width: 10%;
