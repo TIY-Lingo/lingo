@@ -224,7 +224,6 @@ body {
       font-weight: bold; }
   .header.panel .sign {
     background: #fff;
-    width: 150px;
     height: 2.4rem;
     border: 2px solid #C1E120;
     position: relative;
@@ -339,9 +338,16 @@ body {
       padding: 0 0.4rem 0 0.8rem; }
 
 #articlesview {
+  margin-top: 2%;
   background-color: white;
   margin-left: 5%;
   margin-right: 5%; }
+
+#articletitle {
+  width: 90%; }
+
+#author {
+  color: #000; }
 
 .profile-card {
   padding: 1rem;

@@ -17,26 +17,26 @@ module.exports = function(app) {
                method: 'GET',
                url: '/articles',
            }).then(function(response) {
-              let newsArrayResponse = response.data;
-               newsArrayResponse.filter(function (element){
-                 if (element.type === "arts" && personLoggedIn.arts === true) {
-                   userSpecificArticles.push(element);
-                   artsArticles.push(element);
-                 } else if (element.type === "sports" && personLoggedIn.sports === true) {
-                   userSpecificArticles.push(element);
-                   sportsArticles.push(element);
-                 } else if (element.type === "business" && personLoggedIn.business === true) {
-                   userSpecificArticles.push(element);
-                   businessArticles.push(element);
-                 } else if (element.type === "politics" && personLoggedIn.politics === true) {
-                   userSpecificArticles.push(element);
-                   politicsArticles.push(element);
-                 } else if (element.type === "technology" && personLoggedIn.technology === true){
-                   userSpecificArticles.push(element);
-                   technologyArticles.push(element);
-                 }
-
-               })
+              // let newsArrayResponse = response.data;
+              //  newsArrayResponse.filter(function (element){
+              //    if (element.type === "arts" && personLoggedIn.arts === true) {
+              //      userSpecificArticles.push(element);
+              //      artsArticles.push(element);
+              //    } else if (element.type === "sports" && personLoggedIn.sports === true) {
+              //      userSpecificArticles.push(element);
+              //      sportsArticles.push(element);
+              //    } else if (element.type === "business" && personLoggedIn.business === true) {
+              //      userSpecificArticles.push(element);
+              //      businessArticles.push(element);
+              //    } else if (element.type === "politics" && personLoggedIn.politics === true) {
+              //      userSpecificArticles.push(element);
+              //      politicsArticles.push(element);
+              //    } else if (element.type === "technology" && personLoggedIn.technology === true){
+              //      userSpecificArticles.push(element);
+              //      technologyArticles.push(element);
+              //    }
+              //
+              //  })
 
 
                let start = (pageNum + 1) * perPage;
