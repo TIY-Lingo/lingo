@@ -40,3 +40,14 @@
       transform: scale(1.1);
     }
 }
+#savebutton {
+    font-family: "Avenir Next";
+    font-weight: 600;
+    border: solid 1.5px #548FCE;
+    background-color: transparent;
+    color: #003366;
+    border-radius: 10%;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
