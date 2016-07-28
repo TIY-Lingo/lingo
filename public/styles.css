@@ -75,7 +75,6 @@ body {
   .benefits h5 {
     font-weight: 300; }
   .benefits p {
-    color: #666;
     font-weight: 300; }
   .benefits .benefit {
     margin-top: 30px; }
@@ -152,6 +151,13 @@ body {
   color: white;
   height: 500px; }
 
+.prefbody {
+  background-image: url("images/login2new.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%; }
+
 .small-up-5.columns {
   background-color: #FFF;
   box-shadow: transparent;
@@ -182,6 +188,13 @@ body {
   #newsprefbutton:hover {
     transform: scale(1.1); }
 
+.articlebody {
+  background-image: url("images/login2new.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%; }
+
 .categories {
   background-color: white; }
 
@@ -203,7 +216,7 @@ body {
     background: #fff;
     width: 150px;
     height: 2.4rem;
-    border: 2px solid #444;
+    border: 2px solid #C1E120;
     position: relative;
     top: -2.5rem;
     margin: auto; }
@@ -211,7 +224,7 @@ body {
       text-transform: uppercase;
       font: bolder 0.875rem "Avenir Next";
       letter-spacing: 3px;
-      color: #666;
+      color: #003366;
       font-size: 70%;
       text-align: center;
       line-height: 2rem; }
@@ -222,7 +235,7 @@ body {
   background-size: cover;
   padding: 4rem; }
   .header .main-header {
-    color: #666; }
+    color: #003366; }
   .header img {
     max-width: 10%; }
 
@@ -536,7 +549,7 @@ body {
       border-radius: 3px;
       border: #C1E120 solid 1px; }
 
-body {
+.loginBody {
   background-image: url("images/login2new.png");
   background-position: center;
   background-repeat: no-repeat;
@@ -649,11 +662,11 @@ body {
 
 .header.panel {
   margin: 3rem auto;
-  border: 2px solid #444;
+  border: 2px solid #C1E120;
   background: #fff; }
   .header.panel p {
     font: 1.5rem "Avenir Next";
-    padding: 1rem 2rem 2rem;
+    padding: 1.2rem 2rem 2rem;
     margin-top: -1.25rem; }
     .header.panel p span {
       color: #548FCE;
@@ -668,22 +681,22 @@ body {
     border: 2px solid #C1E120;
     position: relative;
     top: -2.5rem;
-    margin: auto; }
+    margin: auto;
+    font-weight: 400; }
     .header.panel .sign h1 {
       text-transform: uppercase;
       font: bolder 0.875rem "Avenir Next";
       letter-spacing: 3px;
-      color: #666;
+      color: #003366;
       font-size: 70%;
       text-align: center;
       line-height: 2rem;
       background-color: #fff;
-      height: 98%;
-      color: #19232E; }
+      height: 98%; }
 
 #description {
   background-color: #003366;
-  opacity: .95; }
+  opacity: 0.95; }
 
 .service {
   font-family: "Avenir Next";
@@ -738,7 +751,8 @@ body {
     transform: scale(1); }
 
 .row {
-  display: inline-block; }
+  display: inline-block;
+  margin-top: -4%; }
 
 .service {
   display: inline-block; }
@@ -786,7 +800,8 @@ nav {
 .bg-skew-contact {
   background: #fff;
   margin-top: -.7%;
-  opacity: 0.95; }
+  opacity: 0.95;
+  margin-top: -2.9%; }
   .bg-skew-contact .social li a {
     color: #fff;
     text-decoration: underline; }
@@ -968,8 +983,7 @@ nav {
   opacity: 0;
   transition: all 0.2s ease-in-out; }
   .overlay-fade-in-new-background .button:hover {
-    box-shadow: 0 0 5px #fff;
-    background-color: #222; }
+    box-shadow: 0 0 5px #fff; }
 
 .overlay-fade-in-new-background p {
   font-size: 28px; }
@@ -1020,8 +1034,8 @@ body {
   border: 2px solid #444;
   background: #fff; }
   .header.panel p {
-    font: 1rem "Avenir Next";
-    padding: 1rem 2rem 2rem 2rem;
+    font: 1.1rem "Avenir Next";
+    padding: 1rem 2rem 2rem;
     margin-top: -1.25rem; }
     .header.panel p span {
       text-transform: uppercase;
@@ -1032,7 +1046,7 @@ body {
     background: #fff;
     width: 150px;
     height: 2.4rem;
-    border: 2px solid #444;
+    border: 2px solid #C1E120;
     position: relative;
     top: -2.5rem;
     margin: auto; }
@@ -1040,7 +1054,7 @@ body {
       text-transform: uppercase;
       font: bolder 0.875rem "Avenir Next";
       letter-spacing: 3px;
-      color: #666;
+      color: #003366;
       font-size: 70%;
       text-align: center;
       line-height: 2rem; }
