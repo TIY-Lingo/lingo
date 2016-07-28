@@ -16,8 +16,8 @@ module.exports = function(app) {
                         password: pw,
                     },
                 }).then(function(results) {
-                    console.log("these are the results", results.data);
-                    console.log("posted new user")
+                    // console.log("these are the results", results.data);
+                    // console.log("posted new user")
                     if (results.data === false) {
                         alert("This Username is taken. If you already have an account, please sign in, if not, please choose another Username")
                     } else {
@@ -37,8 +37,8 @@ module.exports = function(app) {
                         password: password,
                     },
                 }).then(function(results) {
-                    console.log("these are the results", results.data);
-                    console.log("posted existing user")
+                    // console.log("these are the results", results.data);
+                    // console.log("posted existing user")
                     if (results.data === true) {
                         $location.path('/news');
                     } else {
@@ -57,14 +57,17 @@ module.exports = function(app) {
             },
             // UPDATE user preferences
             updatePreferences: function(userPref) {
-              console.log(userPref);
-                $http({
+              // console.log('this is user pref', userPref);
+                var promise = $http({
                     method: 'POST',
                     url: '/preferences',
                     data: userPref
                 }).then(function(response) {
-                    console.log("posted preferences");
+                    console.log("posted preferences", response);
+                    return response;
                 });
+                return promise;
+
             },
             // GET user preferences
             getPreferences: function(updatedStuff){
@@ -73,7 +76,8 @@ module.exports = function(app) {
                     url:'/preferences',
                     data: updatedStuff,
                   }).then(function(response){
-                    console.log("this is the response from getPreferences", response);
+                    console.log("response", response);
+                    // console.log("this is the response from getPreferences", response);
                     //copies the response object from the data base to our userPref object/model
                     angular.copy(response.data, userPref);
                     console.log('getting user preferences:', userPref);

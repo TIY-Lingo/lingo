@@ -8,7 +8,7 @@ module.exports = function(app) {
      let sportsArticles= [];
      let politicsArticles= [];
      let businessArticles=[];
-     let technologyaArticles = [];
+     let technologyArticles = [];
 
      var  newsArray = {
        async: function(pageNum, perPage) {
