@@ -62,7 +62,7 @@ public class ApiLookupService {
             }
             System.out.println(articles.count());
             langInjection(article, "french");                               //Run it once for spanish and once for french
-            langInjection(article, "spanish");
+             langInjection(article, "spanish");
             System.out.println("Article translation complete");
         }
 
@@ -91,7 +91,17 @@ public class ApiLookupService {
                 }
 
                 if (contentPlaceholder.contains(dictionaries.findOne(seedValue).getEnglish())) {
-                    contentPlaceholder = contentPlaceholder.replace(dictionaries.findOne(seedValue).getEnglish(), "<span class=\'" + language + "\'>" + langPlaceholder + "</span>");
+                    contentPlaceholder = contentPlaceholder.replace(dictionaries.findOne(seedValue).getEnglish(),
+
+                            ("<span class='"
+                                    + language +
+                                    "' onmouseover='this.innerHTML=$(this).attr('original-word')' onmouseout='this.innerHTML=$(this).attr('translated-word')' original-word='"
+                                    + dictionaries.findOne(seedValue).getEnglish() +
+                                    "' translated-word='" + langPlaceholder + "'> " +
+                                    langPlaceholder +
+                                    " </span>"));
+
+
                     count++;
                 } else if (count == 15) {                   //if Level 1 count is hit, save it so if there is a failure it is not lost and continue rolling through the next levels
                     if (language.equals("spanish")) {
