@@ -9,7 +9,7 @@ module.exports = function(app) {
         let getCats = function() {
           NewsService.async().then(function (categoryArray) {
             $scope.articleArray = categoryArray;
-            console.log(categoryArray);
+            // console.log(categoryArray);
           })
         }
         getCats();
@@ -19,6 +19,7 @@ module.exports = function(app) {
         var getArts = function(){
           NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
               $scope.newsArray = newsArray;
+              console.log($scope.newsArray);
           });
         }
 
