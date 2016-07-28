@@ -39,7 +39,6 @@ dependencies {
 	compile('com.squareup.okhttp3:okhttp:3.4.1')
 	runtime('org.postgresql:postgresql')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-0
 	compile('org.hibernate:hibernate-java8:5.0.9.Final')
 }
 
