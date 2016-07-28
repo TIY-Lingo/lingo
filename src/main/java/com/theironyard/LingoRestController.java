@@ -56,8 +56,8 @@ public class LingoRestController {
         else if (!PasswordStorage.verifyPassword(user.getPassword(), user1.getPassword())){
             return false;
         }
-        user1.setTimestamp(LocalDateTime.now());
-        users.save(user1);
+//        user1.setTimestamp(LocalDateTime.now());
+//        users.save(user1);
         session.setAttribute("username", user1.getUsername());
         return true;
     }
