@@ -1,0 +1,71 @@
+.service {
+	font-family: "Avenir Next";
+	background-color: #548FCE;
+	width: 100%;
+	height: 320px;
+	margin: 80px 0;
+	text-align: center;
+	border: 3px solid #003366;
+	border-radius: 2%;
+	color: #fff;
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+	.service-icon-box {
+		position: relative;
+		top: 100px;
+		display: inline-block;
+		margin-bottom: 40px;
+		padding: 10px;
+		-webkit-transition: all 0.3s ease;
+		transition: all 0.3s ease;
+	}
+	.service-heading {
+		color: #fff;
+		font-family: "Avenir Next";
+		position: relative;
+		top: 80px;
+		-webkit-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+		transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	}
+	.service-description {
+		font-weight: 500;
+		color: #fff;
+		width: 80%;
+		margin: 0 auto;
+		opacity: 0;
+		-webkit-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+		transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+		-webkit-transform: scale(0);
+		-ms-transform: scale(0);
+		transform: scale(0);
+	}
+	.service-icon-box > img.service-icon {
+		width: 45px;
+	}
+	&:hover {
+		border-color: #548FCE;
+	}
+	&:hover .service-icon-box {
+		top: -30px;
+	}
+	&:hover .service-heading {
+		top: -30px;
+	}
+	&:hover .service-description {
+		opacity: 1;
+		-webkit-transform: scale(1);
+		-ms-transform: scale(1);
+		transform: scale(1);
+	}
+}
+.row {
+	display: inline-block;
+	margin-top: -4%;
+}
+.service {
+	display: inline-block;
+}
+#onboarding {
+	// background-color: #fff;
+	opacity: 0.95;
+}

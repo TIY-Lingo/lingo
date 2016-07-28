@@ -1,8 +1,8 @@
 package com.theironyard.services;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.theironyard.entities.Article;
+import com.theironyard.entities.Category;
 import com.theironyard.entities.ResultContainter;
 import com.theironyard.entities.Results;
 import org.jsoup.Jsoup;
@@ -16,7 +16,6 @@ import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.util.concurrent.Future;
 
@@ -27,6 +26,8 @@ public class ApiLookupService {
 
     @Autowired
     DictionaryRepository dictionaries;
+    @Autowired
+    CategoryRepository categories;
 
     RestTemplate restTemplate = new RestTemplate();
 
@@ -54,14 +55,19 @@ public class ApiLookupService {
                 String cleanContent = Jsoup.clean(content, Whitelist.basic());
 
                 article = new Article(result.getTitle(), result.getUrl(), result.getByline(), cleanContent, results.getSection());
-                articles.save(article);
+                article = articles.save(article);
+                Category cat = categories.findByType(results.getSection());
+                cat.getArticles().add(article);
+                categories.save(cat);
             }
+            System.out.println(articles.count());
             langInjection(article, "french");                               //Run it once for spanish and once for french
             langInjection(article, "spanish");
             System.out.println("Article translation complete");
         }
 
         System.out.println(results.getSection() + " thread has completed...");
+
         return new AsyncResult<>(results);
     }
 

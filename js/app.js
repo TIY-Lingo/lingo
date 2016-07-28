@@ -38,5 +38,9 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: 'ListViewController',
             templateUrl: 'templates/listview.html',
         })
+        .when('/news/{articleId}', {
+            controller: 'ListViewController',
+            templateUrl: 'templates/articles.html',
+        })
 
 }]);

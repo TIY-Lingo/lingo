@@ -15,7 +15,7 @@ module.exports = function(app) {
 
         getArts();
 
-        console.log($scope.newsArray)
+        console.log('this is the news array:', $scope.newsArray)
 
         $scope.goback = function() {
 
@@ -42,14 +42,14 @@ module.exports = function(app) {
             NewsService.signOutUser();
         };
 
-        $scope.selectedArticle = function() {
-          $scope.newsArray.map(function (element){
-            for (var i = 0; i < newsArray.length; i ++){
-              if (newsArray[i] === $scope.newsArray.title){
-                getArts();
-              }
-      }
-    })
+        $scope.selectedArticle = function(id) {
+
+          console.log("id is: ", id);
+
+
+          // Go to server and get article (id)
+          // return article content
+
       }
 
 
@@ -64,17 +64,27 @@ module.exports = function(app) {
         $scope.itemsPerPage = 1;
         let prefArray = {};
 
-          $scope.specificPref = UserService.getPreferences();
+        // $scope.articleArray = NewsService.async();
+        // console.log("this is the article array", $scope.articleArray);
+        let getCats = function() {
+          NewsService.async().then(function (categoryArray) {
+            $scope.articleArray = categoryArray;
+            // console.log(categoryArray);
+          })
+        }
+        getCats();
+
+        $scope.specificPref = UserService.getPreferences();
 
         var getArts = function(){
           NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
               $scope.newsArray = newsArray;
+              console.log($scope.newsArray);
           });
         }
 
         getArts();
 
-        console.log($scope.newsArray)
 
         $scope.goback = function() {
 
@@ -135,7 +145,7 @@ module.exports = function(app) {
             }
 
             $scope.signUp = function() {
-                console.log("clicked sign up");
+                // console.log("clicked sign up");
                 UserService.postUserInfo($scope.userInput, $scope.userPassword)
 
                 // $location.path('/preferences');
@@ -161,7 +171,17 @@ module.exports = function(app) {
               console.log('saving preferences', $scope.UserPrefences);
               $location.path('/news');
             };
+
            //these toggle and change our values of our user preference model/object
+           //SET LANGUAGE PREFERENCE
+           $scope.setLanguagePref = function() {
+             if ($scope.UserPrefences.language !== 'spanish') {
+               $scope.UserPrefences.language = 'french';
+               console.log($scope.UserPrefences.language);
+            } else if ($scope.UserPrefences.language !== 'french') {
+              $scope.UserPrefences.language = 'spanish';
+            }
+           }
             // TOGGLE ON AND OFF TECHNOLOGY PREFERENCE
             $scope.turnOffTech = function(){
               $scope.UserPrefences.technology = false;
@@ -242,49 +262,82 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: 'ListViewController',
             templateUrl: 'templates/listview.html',
         })
+        .when('/news/{articleId}', {
+            controller: 'ListViewController',
+            templateUrl: 'templates/articles.html',
+        })
 
 }]);
 
 },{"./controllers/ListViewController":1,"./controllers/NewsController":2,"./controllers/UserController":3,"./services/NewsService":5,"./services/UserService":6}],5:[function(require,module,exports){
 module.exports = function(app) {
 
-    app.factory('NewsService', ['$http', '$location', function($http, $location) {
+   app.factory('NewsService', ['UserService', '$http', '$location', function(UserService, $http, $location) {
 
-      var  newsArray = {
-        async: function(pageNum, perPage) {
+     let personLoggedIn = UserService.getPreferences();
+     let userSpecificArticles = [];
+     let artsArticles= [];
+     let sportsArticles= [];
+     let politicsArticles= [];
+     let businessArticles=[];
+     let technologyaArticles = [];
 
-            var promise = $http({
-                method: 'GET',
-                url: '/articles',
-            }).then(function(response) {
-                console.log(response, "HEY THERE!");
-                let start = (pageNum + 1) * perPage;
+     var  newsArray = {
+       async: function(pageNum, perPage) {
 
-                return response.data.slice(start, start + perPage);
+           var promise = $http({
+               method: 'GET',
+               url: '/articles',
+           }).then(function(response) {
+              let newsArrayResponse = response.data;
+               newsArrayResponse.filter(function (element){
+                 if (element.type === "arts" && personLoggedIn.arts === true) {
+                   userSpecificArticles.push(element);
+                   artsArticles.push(element);
+                 } else if (element.type === "sports" && personLoggedIn.sports === true) {
+                   userSpecificArticles.push(element);
+                   sportsArticles.push(element);
+                 } else if (element.type === "business" && personLoggedIn.business === true) {
+                   userSpecificArticles.push(element);
+                   businessArticles.push(element);
+                 } else if (element.type === "politics" && personLoggedIn.politics === true) {
+                   userSpecificArticles.push(element);
+                   politicsArticles.push(element);
+                 } else if (element.type === "technology" && personLoggedIn.technology === true){
+                   userSpecificArticles.push(element);
+                   technologyArticles.push(element);
+                 }
 
-            });
-          return promise;
-        },
-
-        //////SIGN OUT FUNCTION//////
-                    signOutUser: function(){
-
-                      $http({
-                          url: '/logout',
-                          method: 'POST',
-                          data: {username: 'Winnie'}
-                      })
-                      .then(function(results) {
-                          // $location('#/home')
-                      });
-                    }
-        //////SIGN OUT FUNCTION/////////
+               })
 
 
-      };
-      return newsArray;
+               let start = (pageNum + 1) * perPage;
 
-    }]);
+               return response.data.slice(start, start + perPage);
+
+           });
+         return promise;
+       },
+
+       //////SIGN OUT FUNCTION//////
+                   signOutUser: function(){
+
+                     $http({
+                         url: '/logout',
+                         method: 'POST',
+                         data: {username: 'Winnie'}
+                     })
+                     .then(function(results) {
+                         // $location('#/home')
+                     });
+                   }
+       //////SIGN OUT FUNCTION/////////
+
+
+     };
+     return newsArray;
+
+   }]);
 };
 
 },{}],6:[function(require,module,exports){

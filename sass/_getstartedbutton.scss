@@ -1,0 +1,41 @@
+.button-group {
+    position: relative;
+    display: inline-block;
+    // margin: 1rem 0;
+    margin-left: 37%;
+        .small.button.primary.radius {
+            // background-color: #C1E120;
+            color: #fefefe;
+            border-radius: 10px;
+        }
+        .small.button.success.radius {
+            // background-color: #C1E120;
+            border-radius: 10px;
+        }
+    }
+.getstartedbutton {
+    margin-left: 44%;
+    margin-right: 42%;
+}
+#registerbutton {
+    font-family: "Avenir Next";
+    font-weight: 600;
+    border: solid 1.5px #C1E120;
+    background-color: transparent;
+    color: #003366;
+    border-radius: 10%;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+#signinbutton {
+    font-family: "Avenir Next";
+    font-weight: 600;
+    border: solid 1.5px #548FCE;
+    background-color: transparent;
+    color: #003366;
+    border-radius: 10%;
+    &:hover {
+        transform: scale(1.1);
+    }
+}

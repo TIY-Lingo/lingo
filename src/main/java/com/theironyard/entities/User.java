@@ -3,6 +3,7 @@ package com.theironyard.entities;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -39,7 +40,18 @@ public class User{
     @Column
     boolean arts;
 
-//    @Column
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    List<Category> catList;
+
+    public List<Category> getCatList() {
+        return catList;
+    }
+
+    public void setCatList(List<Category> catList) {
+        this.catList = catList;
+    }
+
+    //    @Column
 //    LocalDateTime timestamp;
 
 
@@ -74,6 +86,8 @@ public class User{
     public void setPassword(String password) {
         this.password = password;
     }
+
+
 
     public String getLanguage() {
         return language;
@@ -130,15 +144,6 @@ public class User{
 //    public void setDaysVisited(int daysVisited) {
 //        this.daysVisited = daysVisited;
 //    }
-//
-//    public int getLastVisited() {
-//        return lastVisited;
-//    }
-//
-//    public void setLastVisited(int lastVisited) {
-//        this.lastVisited = lastVisited;
-//    }
-
 
 //    public LocalDateTime getTimestamp() {
 //        return timestamp;

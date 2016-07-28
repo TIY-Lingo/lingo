@@ -1,8 +1,7 @@
 package com.theironyard.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "articles" )
@@ -44,7 +43,8 @@ public class Article {
     @Column
     String type;
 
-
+    public Article() {
+    }
 
     public Article(String title, String articleUrl, String author, String content, String type) {
         this.title = title;
@@ -61,15 +61,20 @@ public class Article {
         this.content = content;
     }
 
-    public Article() {
-    }
-
     public String getTitle() {
         return title;
     }
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getArticleUrl() {
+        return articleUrl;
+    }
+
+    public void setArticleUrl(String articleUrl) {
+        this.articleUrl = articleUrl;
     }
 
     public String getAuthor() {
@@ -86,22 +91,6 @@ public class Article {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getArticleUrl() {
-        return articleUrl;
-    }
-
-    public void setArticleUrl(String articleUrl) {
-        this.articleUrl = articleUrl;
     }
 
     public String getSpan1() {
@@ -128,14 +117,6 @@ public class Article {
         this.span3 = span3;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getFrench1() {
         return french1;
     }
@@ -158,6 +139,22 @@ public class Article {
 
     public void setFrench3(String french3) {
         this.french3 = french3;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override

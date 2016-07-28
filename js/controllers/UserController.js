@@ -22,7 +22,7 @@ module.exports = function(app) {
             }
 
             $scope.signUp = function() {
-                console.log("clicked sign up");
+                // console.log("clicked sign up");
                 UserService.postUserInfo($scope.userInput, $scope.userPassword)
 
                 // $location.path('/preferences');
@@ -48,7 +48,17 @@ module.exports = function(app) {
               console.log('saving preferences', $scope.UserPrefences);
               $location.path('/news');
             };
+
            //these toggle and change our values of our user preference model/object
+           //SET LANGUAGE PREFERENCE
+           $scope.setLanguagePref = function() {
+             if ($scope.UserPrefences.language !== 'spanish') {
+               $scope.UserPrefences.language = 'french';
+               console.log($scope.UserPrefences.language);
+            } else if ($scope.UserPrefences.language !== 'french') {
+              $scope.UserPrefences.language = 'spanish';
+            }
+           }
             // TOGGLE ON AND OFF TECHNOLOGY PREFERENCE
             $scope.turnOffTech = function(){
               $scope.UserPrefences.technology = false;
