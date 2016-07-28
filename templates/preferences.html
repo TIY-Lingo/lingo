@@ -1,240 +1,155 @@
 <div class="prefbody">
 
+    <!-- NAV BAR -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 
-<!-- NAV BAR -->
-<link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+    <nav class="menu">
+        <a href="#login"><img src="images/O(white).png" alt="earth" class="homeglobe" /></a>
+        <ul class="inline-list">
+        </ul>
+        <ul class="inline-list hide-for-small-only account-action">
+            <li><a href="#home" data-reveal-id="myModal" ng-click="signOut()">Sign Out</a></li>
+            <li class=""><a class="signup" href="#home" data-reveal-id="myModal">Home</a></li>
+        </ul>
+    </nav>
+    <!-- END NAV BAR -->
 
-<nav class="menu">
-    <a href="#login"><img src="images/O(white).png" alt="earth" class="homeglobe" /></a>
-    <ul class="inline-list">
-    </ul>
-    <ul class="inline-list hide-for-small-only account-action">
-        <li><a href="#home" data-reveal-id="myModal" ng-click="signOut()">Sign Out</a></li>
-        <li class=""><a class="signup" href="#home" data-reveal-id="myModal">Home</a></li>
-    </ul>
+    <!-- PREFERENCES INSTRUCTIONS -->
+    <div class="row">
+        <div class="large-1 columns"></div>
+        <div class="large-9 large-offset-2 columns">
 
-</nav>
-<!-- END NAV BAR -->
-
-
-
-<!-- this adds Foundation Icon Fonts!! -->
-<!-- <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
-
-<div class="row">
-    <div class="medium-6 columns">
-        <div class="box">
-            <div class="box-icon">
-                <span class="fi-widget"></span>
+            <div class="header panel">
+                <div class="sign">
+                    <h1>new products</h1>
+                </div>
+                <p><span>Dude! I Want that!</span> In addition to their portability and minimal space requirements for storage, the Equalizer bars also simplify workouts by consolidating all exercises to a single machine that requires no weight stack adjustments
+                    or significant alterations between them. Each weighs 8 pounds, and the system has been tested to support up to 400 pounds of body weight.</p>
             </div>
-            <div class="info">
-                <h4 class="text-center">Settings</h4> -->
-                <!-- <ul class="tg-list">
-                  <li class="tg-list-item">
-                    <h4>Tech</h4>
-                    <input ng-Model="userPrefObj" id="cb5" section="checkbox" class="tgl tgl-flip" />
-                    <label value="prefCategory.technology" ng-click="pref(technology)" data-tg-off="Nope" data-tg-on="Yeah!" for="cb5" class="tgl-btn"></label>
-                  </li>
-                  <hr/>
-                </ul> -->
 
-                <!-- <input section="text" ng-model="UserPrefences.language"> -->
+        </div>
+    </div>
+    <!-- END PREFERENCES INSTRUCTIONS  -->
 
+    <!-- LANGUAGE SELCTOR -->
+    <div class="row column text-center">
+        <h2>Language Preferences</h2>
+        <hr>
+    </div>
 
+    <div class="languageselector">
+        <div class="row">
+            <div class="small-3 columns">
+                <div class="image-wrapper overlay-fade-in">
+                    <img src="images/spanish.png" />
+                    <div class="image-overlay-content">
+                        <h2><a ng-click="setSpanish()">Spanish</a></h2>
+                    </div>
 
-                <!-- toggle our values of our user Object -->
-                <!-- <div class="preferences">
-
-
-                <div ng-if="UserPrefences.technology">
-                    Technology:
-                    <button ng-click="turnOffTech()">OFF</button>
                 </div>
-                <div ng-if="!UserPrefences.technology">
-                    Technology:
-                    <button ng-click="turnOnTech()">ON</button>
-                </div>
-                <div ng-if="UserPrefences.business">Business:
-                    <button ng-click="turnOffBus()">OFF</button>
-                </div>
-                <div ng-if="!UserPrefences.business">Business:
-                    <button ng-click="turnOnBus()">ON</button>
-                </div>
-                <div ng-if="UserPrefences.politics">Politics:
-                    <button ng-click="turnOffPol()">OFF</button>
-                </div>
-                <div ng-if="!UserPrefences.politics">Politics:
-                    <button ng-click="turnOnPol()">ON</button>
-                </div>
-                <div ng-if="UserPrefences.arts">Arts:
-                    <button ng-click="turnOffArts()">OFF</button>
-                </div>
-                <div ng-if="!UserPrefences.arts">Arts:
-                    <button ng-click="turnOnArts()">ON</button>
-                </div>
-                <div ng-if="UserPrefences.sports">Sports:
-                    <button ng-click="turnOffSports()">OFF</button>
-                </div>
-                <div ng-if="!UserPrefences.sports">Sports:
-                    <button ng-click="turnOnSports()">ON</button>
-                </div>
-                </div>
-                <! <button ng-click="logObj()">log</button> -->
-                <!-- <a href="#news" ng-click='savePref()' class="button">Update</a>
             </div>
+
+            <div class="small-3 columns">
+                <div class="image-wrapper overlay-fade-in">
+                    <img src="images/french.png" />
+                    <div class="image-overlay-content">
+                      <h2 ng-click="setFrench()">French</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="small-4 columns"></div>
         </div>
-
     </div>
-</div> -->
-
-<!-- PREFERENCES INSTRUCTIONS -->
-<div class="row">
-  <div class="large-1 columns"></div>
-  <div class="large-9 large-offset-2 columns">
-
-    <div class="header panel">
-      <div class="sign">
-        <h1>new products</h1>
-      </div>
-      <p><span>Dude! I Want that!</span> In addition to their portability and minimal space requirements for storage, the Equalizer bars also simplify workouts by consolidating all exercises to a single machine that requires no weight stack adjustments or significant alterations between them. Each weighs 8 pounds, and the system has been tested to support up to 400 pounds of body weight.</p>
-    </div>
-
-  </div>
-</div>
-<!-- END PREFERENCES INSTRUCTIONS  -->
-
-<!-- LANGUAGE SELCTOR -->
-<div class="row column text-center">
-  <h2>Language Preferences</h2>
-  <hr>
-</div>
-
-<div class="languageselector">
-  <div class="row">
-    <div class="small-3 columns">
-      <div class="image-wrapper overlay-fade-in">
-        <img src="images/spanish.png" />
-        <div class="image-overlay-content">
-          <h2>Spanish</h2>
-          <button ng-click="setLanguagePref()" href="#" class="spanishButton">Turn On</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="small-3 columns">
-      <div class="image-wrapper overlay-fade-in">
-        <img src="images/french.png" />
-        <div class="image-overlay-content">
-          <h2>French</h2>
-          <button ng-click="setLanguagePref()" href="#" class="frenchButton">Turn On</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="small-4 columns"></div>
-  </div>
-</div>
-
-<!-- END LANGUAGE SELECTOR -->
+    <!-- END LANGUAGE SELECTOR -->
 
     <div class="row column text-center">
-      <h2>News Preferences</h2>
-      <hr>
+        <h2>News Preferences</h2>
+        <hr>
     </div>
     <div class="small-up-5 columns">
 
-
-
-
-      <!-- TECH PREFERENCE SETTING -->
-      <div class="column">
-        <img class="thumbnail" src="images/computer-mouse.png">
-        <div ng-if="UserPrefences.technology">
-            <h5>Technology</h5>
-            <button id="newsprefbutton" ng-click="turnOffTech()">Turn Off</button>
+        <!-- TECH PREFERENCE SETTING -->
+        <div class="column">
+            <img class="thumbnail" src="images/computer-mouse.png">
+            <div ng-if="UserPrefences.technology">
+                <h5>Technology {{UserPrefences.technology}}</h5>
+                <button id="newsprefbutton" ng-click="toggleTechnology(false)">Turn Off</button>
+            </div>
+            <div ng-if="!UserPrefences.technology">
+                <h5>Technology {{UserPrefences.technology}}</h5>
+                <button id="newsprefbutton" ng-click="toggleTechnology(true)">Turn On</button>
+            </div>
         </div>
-        <div ng-if="!UserPrefences.technology">
-          <h5>Technology</h5>
-            <button id="newsprefbutton" ng-click="turnOnTech()">Turn On</button>
-        </div>
-      </div>
 
-      <!-- BUSINESS SETTING -->
+        <!-- BUSINESS SETTING -->
+        <div class="column">
+            <img class="thumbnail" src="images/suitcase.png">
+            <div ng-if="UserPrefences.business">
+                <h5>Business</h5>
+                <button id="newsprefbutton" ng-click="toggleBusiness(false)">Turn Off</button>
+            </div>
+            <div ng-if="!UserPrefences.business">
+                <h5>Business</h5>
+                <button id="newsprefbutton" ng-click="toggleBusiness(true)">Turn On</button>
+            </div>
+        </div>
 
-      <div class="column">
-        <img class="thumbnail" src="images/suitcase.png">
-        <div ng-if="UserPrefences.business">
-            <h5>Business</h5>
-            <button id="newsprefbutton" ng-click="turnOffBus()">Turn Off</button>
+        <!-- POLITICS SETTING -->
+        <div class="column">
+            <img class="thumbnail" src="images/capitol.png">
+            <div ng-if="UserPrefences.politics">
+                <h5>Politics</h5>
+                <button id="newsprefbutton" ng-click="togglePolitics(false)">Turn Off</button>
+            </div>
+            <div ng-if="!UserPrefences.politics">
+                <h5>Politics</h5>
+                <button id="newsprefbutton" ng-click="togglePolitics(true)">Turn On</button>
+            </div>
         </div>
-        <div ng-if="!UserPrefences.business">
-          <h5>Business</h5>
-            <button id="newsprefbutton" ng-click="turnOnBus()">Turn On</button>
-        </div>
-      </div>
 
-      <!-- POLITICS SETTING -->
-      <div class="column">
-        <img class="thumbnail" src="images/capitol.png">
-        <div ng-if="UserPrefences.politics">
-            <h5>Politics</h5>
-            <button id="newsprefbutton" ng-click="turnOffPol()">Turn Off</button>
+        <!-- ARTS SETTING -->
+        <div class="column">
+            <img class="thumbnail" src="images/color-filters.png">
+            <div ng-if="UserPrefences.arts">
+                <h5>Arts</h5>
+                <button id="newsprefbutton" ng-click="toggleArts(false)">Turn Off</button>
+            </div>
+            <div ng-if="!UserPrefences.arts">
+                <h5>Arts</h5>
+                <button id="newsprefbutton" ng-click="toggleArts(true)">Turn On</button>
+            </div>
         </div>
-        <div ng-if="!UserPrefences.politics">
-          <h5>Politics</h5>
-            <button id="newsprefbutton" ng-click="turnOnPol()">Turn On</button>
-        </div>
-      </div>
 
-      <!-- ARTS SETTING -->
-
-      <div class="column">
-        <img class="thumbnail" src="images/color-filters.png">
-        <div ng-if="UserPrefences.arts">
-            <h5>Arts</h5>
-            <button id="newsprefbutton" ng-click="turnOffArts()">Turn Off</button>
+        <!-- SPORTS SETTING -->
+        <div class="column">
+            <img class="thumbnail" src="images/american-football.png">
+            <div ng-if="UserPrefences.sports">
+                <h5>Sports</h5>
+                <button id="newsprefbutton" ng-click="toggleSports(false)">Turn Off</button>
+            </div>
+            <div ng-if="!UserPrefences.sports">
+                <h5>Sports</h5>
+                <button id="newsprefbutton" ng-click="toggleSports(true)">Turn On</button>
+            </div>
         </div>
-        <div ng-if="!UserPrefences.arts">
-          <h5>Arts</h5>
-            <button id="newsprefbutton" ng-click="turnOnArts()">Turn On</button>
-        </div>
-      </div>
-
-      <!-- SPORTS SETTING -->
-
-      <div class="column">
-        <img class="thumbnail" src="images/american-football.png">
-        <div ng-if="UserPrefences.sports">
-            <h5>Sports</h5>
-            <button id="newsprefbutton" ng-click="turnOffSports()">Turn Off</button>
-        </div>
-        <div ng-if="!UserPrefences.sports">
-          <h5>Sports</h5>
-            <button id="newsprefbutton" ng-click="turnOnSports()">Turn On</button>
-        </div>
-      </div>
     </div>
     <div class="saveButton">
-      <button ng-click='savePref()' href="#news" class="small button primary radius" id="savebutton"><a href="#news">Save</a></button>
+        <button ng-click='savePref()' class="small button primary radius" id="savebutton">Save</button>
     </div>
-
     <hr>
-
-
-<!-- BEGIN FOOTER  -->
-
-<footer class="footer">
-    <div class="row">
-        <div class="small-12 columns">
-            <img src="images/O(white).png" alt="" id="homefooter" />
-            <p class="links">
-                <a href="#home">Home</a>
-                <a href="#team">Meet The Team</a>
-                <a href="#team" ng-click="signOut()">Sign Out</a>
-            </p>
-            <p class="copywrite">The Iron Yard © 2016</p>
+    <!-- BEGIN FOOTER  -->
+    <footer class="footer">
+        <div class="row">
+            <div class="small-12 columns">
+                <img src="images/O(white).png" alt="" id="homefooter" />
+                <p class="links">
+                    <a href="#home">Home</a>
+                    <a href="#team">Meet The Team</a>
+                    <a href="#team" ng-click="signOut()">Sign Out</a>
+                </p>
+                <p class="copywrite">The Iron Yard © 2016</p>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 </div>
 </div>
