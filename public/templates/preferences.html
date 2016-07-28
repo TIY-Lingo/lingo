@@ -112,42 +112,27 @@
 <div class="languageselector">
   <div class="row">
     <div class="small-3 columns">
-
       <div class="image-wrapper overlay-fade-in">
-
         <img src="images/spanish.png" />
-
         <div class="image-overlay-content">
           <h2>Spanish</h2>
-          <a href="#" class="button">Choose</a>
+          <button ng-click="setLanguagePref()" href="#" class="spanishButton">Turn On</button>
         </div>
-
       </div>
-
     </div>
+
     <div class="small-3 columns">
-
       <div class="image-wrapper overlay-fade-in">
-
         <img src="images/french.png" />
-
         <div class="image-overlay-content">
           <h2>French</h2>
-          <a href="#" class="button">Choose</a>
+          <button ng-click="setLanguagePref()" href="#" class="frenchButton">Turn On</button>
         </div>
-
       </div>
-
     </div>
 
-    <div class="small-4 columns">
-
-
+    <div class="small-4 columns"></div>
   </div>
-
-
-  </div>
-
 </div>
 
 <!-- END LANGUAGE SELECTOR -->
@@ -215,7 +200,7 @@
         </div>
       </div>
 
-      <!-- SPORTSS SETTING -->
+      <!-- SPORTS SETTING -->
 
       <div class="column">
         <img class="thumbnail" src="images/american-football.png">
@@ -228,6 +213,9 @@
             <button id="newsprefbutton" ng-click="turnOnSports()">Turn On</button>
         </div>
       </div>
+    </div>
+    <div class="saveButton">
+      <button ng-click='savePref()' href="#news" class="small button primary radius" id="savebutton"><a href="#news">Save</a></button>
     </div>
 
     <hr>
