@@ -91,6 +91,7 @@ public class LingoRestController {
         if (session.getAttribute("username") ==null){
             throw new Exception("You must Login to view or change preferences!");
         }else {
+
             User userA = users.findByUsername((String) session.getAttribute("username"));
             userA.setArts(user.getArts());
             userA.setBusiness(user.getBusiness());
