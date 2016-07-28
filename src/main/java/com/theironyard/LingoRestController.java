@@ -109,7 +109,7 @@ public class LingoRestController {
            throw new Exception("you mst be logged in to change preferences");
        }
     }
-
+    //random comment
     @RequestMapping(path = "/preferences", method = RequestMethod.POST)
     public User setPreferences(@RequestBody User user, HttpSession session) throws Exception {
         if (session.getAttribute("username") ==null){
