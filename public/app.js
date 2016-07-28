@@ -149,7 +149,7 @@ module.exports = function(app) {
                 console.log('saved saved saved Technology is: ', $scope.UserPrefences.technology);
             });
             //console.log('saving preferencesss:', $scope.UserPrefences);
-            //$location.path('/news');
+            $location.path('/news');
         };
 
         //these toggle and change our values of our user preference model/object
