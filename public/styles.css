@@ -204,9 +204,6 @@ body {
   #savebutton:hover {
     transform: scale(1.1); }
 
-[ng\:cloak], [ng-cloak], .ng-cloak {
-  display: none !important; }
-
 .articlebody {
   background-image: url("images/login2new.png");
   background-position: center;
@@ -1101,4 +1098,5 @@ input[data-toggle]:checked + label:active {
   margin: 0 -0.9rem; }
 
 .translated {
-  background-color: yellow; }
+  background-color: yellow;
+  text-overflow: clip; }

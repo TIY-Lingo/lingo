@@ -22,18 +22,18 @@
 <a href="#" ng-show="specificPref.arts" >Arts</a>
 <a href="#" ng-show="specificPref.sports" >Sports</a>
 
-    <div class="row" ng-cloak>
+    <div class="row" >
 
  <div class="small-8 medium-6 large-9 small-centered columns" >
 
-   <div class="header panel" ng-repeat="article in newsArray" ng-cloak >
+   <div class="header panel" ng-repeat="article in newsArray" >
 
      <div class="sign" id="articletitle">
-       <h1 ng-cloak>{{article.title}}</h1>
+       <h1 >{{article.title}}</h1>
      </div>
-     <p><span ng-cloak>{{article.author}}</span>
+     <p><span >{{article.author}}</span>
 
-       <span ng-bind-html="makeArticleSafe(article.span1)" ng-cloak></span>
+       <span ng-bind-html="makeArticleSafe(article.span1)" ></span>
      </p>
      <a href="#" ng-click="clickedFullArticle()">Full Article</a>
      <a href="#news/list" ng-click="clickedListView()">List View</a>
