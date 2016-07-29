@@ -62,7 +62,7 @@ public class ApiLookupService {
             }
             System.out.println(articles.count());
             langInjection(article, "french");                               //Run it once for spanish and once for french
-             langInjection(article, "spanish");
+            langInjection(article, "spanish");
             System.out.println("Article translation complete");
         }
 
@@ -74,9 +74,10 @@ public class ApiLookupService {
 
     String setHTML(String token, String translatedWord, String language) {
 
-        String spanTag = "<span class=\"translated\" onMouseOver=\"%s\" onMouseOut=\"%s\" original-word=\"%s\" translated-word=\"%s\">%s</span>";
+        String spanTag = "<span class=\"translated\" onMouseOver=\"this.innerHTML=$(this).attr('original-word')\" onMouseOut=\"this.innerHTML=$(this).attr('translated-word')\" original-word=\"%s\" translated-word=\"%s\">%s</span>";
 
-        spanTag = String.format(spanTag, token, token, token, translatedWord, translatedWord);
+//        String spanTag = "<span class=\"translated\" onMouseOver=\"%s\" onMouseOut=\"%s\" original-word=\"%s\" translated-word=\"%s\">%s</span>";
+        spanTag = String.format(spanTag, token, translatedWord, translatedWord);
 
         return spanTag;
 
