@@ -40,6 +40,12 @@ public class User{
     @Column
     boolean arts;
 
+    @Column
+    String langLevel;
+
+
+
+
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     List<Category> catList;
 
@@ -135,6 +141,14 @@ public class User{
 
     public void setArts(Boolean arts) {
         this.arts = arts;
+    }
+
+    public String getLangLevel() {
+        return langLevel;
+    }
+
+    public void setLangLevel(String langLevel) {
+        this.langLevel = langLevel;
     }
 
     //    public int getDaysVisited() {

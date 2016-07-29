@@ -123,6 +123,7 @@ public class LingoRestController {
             userA.setBusiness(user.getBusiness());
             userA.setSports(user.getSports());
             userA.setPolitics(user.getPolitics());
+            userA.setLangLevel(user.getLangLevel());
 
 
             if (user.getArts()) {
@@ -161,7 +162,7 @@ public class LingoRestController {
         }else {
             User user = users.findByUsername((String) session.getAttribute("username"));
 
-            String sql = "SELECT ca.CATEGORY_ID, " + "a.span1 " + ", a.title, a.type"  + "  FROM Articles a " +
+            String sql = "SELECT ca.CATEGORY_ID, a." + user.getLangLevel() + ", a.title, a.type"  + "  FROM Articles a " +
             "INNER JOIN CATEGORY_ARTICLE ca ON ca.article_id = a.ID " +
             "INNER JOIN USERS_CATEGORIES uc on uc.catlist_ID = ca.CATEGORY_ID " +
             "WHERE uc.user_id = ? ";
