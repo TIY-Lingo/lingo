@@ -161,7 +161,7 @@ public class LingoRestController {
             throw new Exception("You must log in to view this page");
         }else {
             User user = users.findByUsername((String) session.getAttribute("username"));
-
+            System.out.println(user.getLangLevel());
             String sql = "SELECT ca.CATEGORY_ID, a." + user.getLangLevel() + ", a.title, a.type"  + "  FROM Articles a " +
             "INNER JOIN CATEGORY_ARTICLE ca ON ca.article_id = a.ID " +
             "INNER JOIN USERS_CATEGORIES uc on uc.catlist_ID = ca.CATEGORY_ID " +
