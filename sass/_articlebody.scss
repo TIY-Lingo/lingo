@@ -2,5 +2,10 @@
   // background-color: white;
 }
 .translated {
-  background-color: yellow;
+  // text-overflow: el;
+  text-decoration: underline;
+  cursor: pointer;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
 }
