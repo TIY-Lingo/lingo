@@ -3,7 +3,7 @@ module.exports = function(app) {
    app.factory('NewsService', ['UserService', '$http', '$location', function(UserService, $http, $location) {
 
      let personLoggedIn = UserService.getPreferences();
-     let userSpecificArticles = [];
+    //  let userSpecificArticles = [];
      let artsArticles= [];
      let sportsArticles= [];
      let politicsArticles= [];
@@ -19,20 +19,15 @@ module.exports = function(app) {
            }).then(function(response) {
               // let newsArrayResponse = response.data;
               //  newsArrayResponse.filter(function (element){
-              //    if (element.type === "arts" && personLoggedIn.arts === true) {
-              //      userSpecificArticles.push(element);
+              //    if (element.type === "arts") {
               //      artsArticles.push(element);
-              //    } else if (element.type === "sports" && personLoggedIn.sports === true) {
-              //      userSpecificArticles.push(element);
+              //    } else if (element.type === "sports") {
               //      sportsArticles.push(element);
-              //    } else if (element.type === "business" && personLoggedIn.business === true) {
-              //      userSpecificArticles.push(element);
+              //    } else if (element.type === "business") {
               //      businessArticles.push(element);
-              //    } else if (element.type === "politics" && personLoggedIn.politics === true) {
-              //      userSpecificArticles.push(element);
+              //    } else if (element.type === "politics") {
               //      politicsArticles.push(element);
-              //    } else if (element.type === "technology" && personLoggedIn.technology === true){
-              //      userSpecificArticles.push(element);
+              //    } else if (element.type === "technology"){
               //      technologyArticles.push(element);
               //    }
               //
