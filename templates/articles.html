@@ -1,4 +1,4 @@
-<div class="articlebody">
+<!-- <div class="articlebody"> -->
     <!-- ARTICLE HEADER -->
     <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 
@@ -33,7 +33,7 @@
      </div>
      <p><span>{{article.author}}</span>
 
-       <span ng-bind-html="article.span1"></span>
+       <span ng-bind-html="makeArticleSafe(article.span1)"></span>
      </p>
      <a href="#" ng-click="clickedFullArticle()">Full Article</a>
      <a href="#news/list" ng-click="clickedListView()">List View</a>
@@ -65,4 +65,4 @@
 
     <!-- END ARTICLE FOOTER -->
 
-</div>
+<!-- </div> -->
