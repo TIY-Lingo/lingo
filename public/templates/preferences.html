@@ -36,30 +36,9 @@
         <h2>Language Preferences</h2>
         <hr>
     </div>
-
     <div class="languageselector">
         <div class="row">
-            <div class="row">
-                <div class="small-9 small-centered columns">
-
-                    <h4>How much do you know?</h4>
-
-                    <ul class="button-group round toggle" data-toggle="buttons-radio">
-                        <li>
-                            <input ng-click='toggleEasyLevel()' type="radio" id="r1" name="r-group" data-toggle="button">
-                            <label class="button" for="r1">Easy</label>
-                        </li>
-                        <li>
-                            <input ng-click='toggleMediumLevel()' type="radio" id="r2" name="r-group" data-toggle="button">
-                            <label class="button" for="r2">Intermediate</label>
-                        </li>
-                        <li>
-                            <input ng-click='toggleHardLevel()' type="radio" id="r3" name="r-group" data-toggle="button">
-                            <label class="button" for="r3">Hard</label>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+<!-- SPANISH FLAG/LANGUAGE SELECTION -->
             <div class="small-3 columns">
                 <div class="image-wrapper overlay-fade-in">
                     <img src="images/spanish.png" />
@@ -68,7 +47,33 @@
                     </div>
                 </div>
             </div>
+<!-- END SPANISH FLAG/LANGUAGE SELECTION -->
 
+<!-- SPANISH LEVEL BUTTONS -->
+<div class="row">
+    <div class="small-9 small-centered columns">
+
+        <h4>How much do you know?</h4>
+
+        <ul class="button-group round toggle" data-toggle="buttons-radio">
+            <li>
+                <input ng-click='toggleSpanishEasyLevel()' type="radio" id="spanlevel1" name="r-group" data-toggle="button">
+                <label class="button" for="spanlevel1">Easy</label>
+            </li>
+            <li>
+                <input ng-click='toggleSpanishMediumLevel()' type="radio" id="spanlevel2" name="r-group" data-toggle="button">
+                <label class="button" for="spanlevel2">Intermediate</label>
+            </li>
+            <li>
+                <input ng-click='toggleSpanishHardLevel()' type="radio" id="spanlevel3" name="r-group" data-toggle="button">
+                <label class="button" for="spanlevel3">Hard</label>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- SPANISH LEVEL BUTTONS END -->
+
+<!-- FRENCH FLAG/LANGUAGE SELECTION -->
             <div class="small-3 columns">
                 <div class="image-wrapper overlay-fade-in">
                     <img src="images/french.png" />
@@ -77,7 +82,29 @@
                     </div>
                 </div>
             </div>
-            <div class="small-4 columns"></div>
+<!-- END FRENCH FLAG/LANGUAGE SELECTION -->
+
+<!-- FRENCH LEVEL BUTTONS -->
+<div class="row">
+    <div class="small-9 small-centered columns">
+
+        <ul class="button-group round toggle" data-toggle="buttons-radio">
+            <li>
+                <input ng-click='toggleFrenchEasyLevel()' type="radio" id="frenchlevel1" name="r-group" data-toggle="button">
+                <label class="button" for="frenchlevel1">Easy</label>
+            </li>
+            <li>
+                <input ng-click='toggleFrenchMediumLevel()' type="radio" id="frenchlevel2" name="r-group" data-toggle="button">
+                <label class="button" for="frenchlevel2">Intermediate</label>
+            </li>
+            <li>
+                <input ng-click='toggleFrenchHardLevel()' type="radio" id="frenchlevel3" name="r-group" data-toggle="button">
+                <label class="button" for="frenchlevel3">Hard</label>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- FRENCH LEVEL BUTTONS END -->
         </div>
     </div>
     <!-- END LANGUAGE SELECTOR -->
@@ -96,7 +123,7 @@
                 <button id="newsprefbutton" ng-click="toggleTechnology(false)">Turn Off</button>
             </div>
             <div ng-if="!UserPrefences.technology">
-                <h5>Technology {{UserPrefences.technology}}</h5>
+                <h5>Technology</h5>
                 <button id="newsprefbutton" ng-click="toggleTechnology(true)">Turn On</button>
             </div>
         </div>

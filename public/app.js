@@ -170,18 +170,33 @@ module.exports = function(app) {
             $scope.UserPrefences.language = "french";
         };
 
-        // LANGUAGE DIFFICULTY
-        $scope.toggleEasyLevel = function(value) {
-          console.log('easy level is:', value);
-          $scope.UserPrefences.langLevel = value;
+        // SPANISH LANGUAGE DIFFICULTY
+        $scope.toggleSpanishEasyLevel = function() {
+          $scope.UserPrefences.langLevel = 'span1';
+          console.log('spanish is:', $scope.UserPrefences.langLevel);
+
         };
-        $scope.toggleMediumLevel = function(value) {
-          console.log('medium level is:', value);
-          $scope.UserPrefences.langLevel = value;
+        $scope.toggleSpanishMediumLevel = function() {
+          $scope.UserPrefences.langLevel = 'span2';
+          console.log('spanish is:', $scope.UserPrefences.langLevel);
         };
-        $scope.toggleHardLevel = function(value) {
-          console.log('hard level is:', value);
-          $scope.UserPrefences.langLevel = value;
+        $scope.toggleSpanishHardLevel = function() {
+          $scope.UserPrefences.langLevel = 'span3';
+          console.log('spanish is:', $scope.UserPrefences.langLevel);
+        };
+
+        // FRENCH LANGUAGE DIFFICULTY
+        $scope.toggleFrenchEasyLevel = function() {
+          $scope.UserPrefences.langLevel = 'french1';
+          console.log('french is:', $scope.UserPrefences.langLevel);
+        };
+        $scope.toggleFrenchMediumLevel = function() {
+          $scope.UserPrefences.langLevel = 'french2';
+          console.log('french is:', $scope.UserPrefences.langLevel);
+        };
+        $scope.toggleFrenchHardLevel = function() {
+          $scope.UserPrefences.langLevel = 'french3';
+          console.log('french is:', $scope.UserPrefences.langLevel);
         };
 
         // TOGGLE ON AND OFF TECHNOLOGY PREFERENCE
