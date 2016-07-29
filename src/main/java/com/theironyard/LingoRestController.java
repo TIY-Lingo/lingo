@@ -110,7 +110,6 @@ public class LingoRestController {
        }
     }
 
-    //random comment
     @RequestMapping(path = "/preferences", method = RequestMethod.POST)
     public User setPreferences(@RequestBody User user, HttpSession session) throws Exception {
         if (session.getAttribute("username") ==null){
@@ -146,12 +145,13 @@ public class LingoRestController {
                 Category cat = categories.findFirstByType("technology");
                 userA.getCatList().add(cat);
             }
+
+            users.save(userA);
             System.out.println("User saved to Database...");
 
             return users.save(userA);
 
         }
-       // return users.findByUsername((String) session.getAttribute("username"));
     }
 
     @RequestMapping(path = "/articles", method = RequestMethod.GET)
@@ -182,7 +182,7 @@ public class LingoRestController {
             }
 
             conn.close();
-
+            System.out.println(" ");
             return returnArray;
         }
     }
