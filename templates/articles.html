@@ -33,7 +33,7 @@
      </div>
      <p><span>{{article.author}}</span>
 
-       <span ng-bind-html="article.span1"></span>
+       <span ng-bind-html="makeArticleSafe(article.span1)"></span>
      </p>
      <a href="#" ng-click="clickedFullArticle()">Full Article</a>
      <a href="#news/list" ng-click="clickedListView()">List View</a>
