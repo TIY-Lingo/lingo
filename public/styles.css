@@ -1083,10 +1083,6 @@ body {
       text-align: center;
       line-height: 2rem; }
 
-<<<<<<< HEAD
-.translated {
-  background-color: yellow; }
-=======
 input[data-toggle] {
   display: none; }
 
@@ -1097,4 +1093,10 @@ input[data-toggle]:checked + label:active {
 
 .button-group.toggle li:not(first-child) {
   margin: 0 -0.9rem; }
->>>>>>> 24a8deef92468373f5a6864f22758ee2b1276e80
+
+.translated {
+  text-decoration: underline;
+  cursor: pointer;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden; }
