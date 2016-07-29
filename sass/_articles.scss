@@ -27,7 +27,6 @@
     }
     .sign {
         background: #fff;
-        width: 150px;
         height: 2.4rem;
         border: 2px solid #C1E120;
         position: relative;
@@ -169,7 +168,14 @@
     }
 }
 #articlesview {
+    margin-top: 2%;
     background-color: white;
     margin-left: 5%;
     margin-right: 5%;
+}
+#articletitle {
+    width: 90%;
+}
+#author {
+  color: #000;
 }

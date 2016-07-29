@@ -111,13 +111,20 @@ public class LingoRestController {
     }
 
     @RequestMapping(path = "/preferences", method = RequestMethod.POST)
-    public void setPreferences(@RequestBody User user, HttpSession session) throws Exception {
+    public User setPreferences(@RequestBody User user, HttpSession session) throws Exception {
         if (session.getAttribute("username") ==null){
             throw new Exception("You must Login to view or change preferences!");
         }else {
             User userA = users.findByUsername((String) session.getAttribute("username"));
-
             userA.setLanguage(user.getLanguage());
+
+            userA.setTechnology(user.getTechnology());
+            userA.setArts(user.getArts());
+            userA.setBusiness(user.getBusiness());
+            userA.setSports(user.getSports());
+            userA.setPolitics(user.getPolitics());
+
+
             if (user.getArts()) {
                 Category cat = categories.findFirstByType("arts");
                 userA.getCatList().add(cat);
@@ -141,6 +148,8 @@ public class LingoRestController {
 
             users.save(userA);
             System.out.println("User saved to Database...");
+
+            return users.save(userA);
 
         }
     }

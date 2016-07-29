@@ -1,42 +1,38 @@
 <div class="articlebody">
+    <!-- ARTICLE HEADER -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 
+    <nav class="menu">
+        <a href="#login"><img src="images/O(white).png" alt="earth" class="homeglobe" /></a>
+        <ul class="inline-list">
+        </ul>
+        <ul class="inline-list hide-for-small-only account-action">
+            <li><a href="#preferences" data-reveal-id="myModal">Preferences</a></li>
+            <li><a href="#home" data-reveal-id="myModal" ng-click="signOut()">Sign Out</a></li>
+            <li class=""><a class="signup" href="#home" data-reveal-id="myModal">Home</a></li>
+        </ul>
 
+    </nav>
+    <!-- END ARTICLE HEADER -->
 
-<!-- ARTICLE HEADER -->
-<link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
-
-<nav class="menu">
-    <a href="#login"><img src="images/O(white).png" alt="earth" class="homeglobe" /></a>
-    <ul class="inline-list">
-    </ul>
-    <ul class="inline-list hide-for-small-only account-action">
-        <li><a href="#preferences" data-reveal-id="myModal">Preferences</a></li>
-        <li><a href="#home" data-reveal-id="myModal" ng-click="signOut()">Sign Out</a></li>
-        <li class=""><a class="signup" href="#home" data-reveal-id="myModal">Home</a></li>
-    </ul>
-
-</nav>
-
-
-<!-- END ARTICLE HEADER -->
-
-<!-- ARTICLE BODY -->
-<!-- <a href="#" ng-show="specificPref.politics">Politics</a>
+    <!-- ARTICLE BODY -->
+    <a href="#" ng-show="specificPref.politics">Politics</a>
 <a href="#" ng-show="specificPref.business">Business</a>
 <a href="#" ng-show="specificPref.technology">Technology</a>
 <a href="#" ng-show="specificPref.arts">Arts</a>
 <a href="#" ng-show="specificPref.sports">Sports</a> -->
 
-<!-- <div class="row">
+    <div class="row">
 
  <div class="small-8 medium-6 large-9 small-centered columns" >
 
    <div class="header panel" ng-repeat="article in newsArray" >
 
-     <div class="sign">
+     <div class="sign" id="articletitle">
        <h1>{{article.title}}</h1>
      </div>
      <p><span>{{article.author}}</span>
+
        <span ng-bind-html="article.span1"></span>
      </p>
      <a href="#" ng-click="clickedFullArticle()">Full Article</a>
@@ -46,120 +42,27 @@
        <button ng-click="goforward()">></button>
    </div>
  </div>
-</div> -->
-
-
-<!-- SHOWS PREFERENCES -->
-
-<div class="row" id="articlesview">
-<div class="medium-3 large-3 text-center columns">
-<h4><a href="#" ng-show="specificPref.politics">Politics</a></h4>
-</div>
-<div class="medium-3 large-3 text-center column">
-<h4><a href="#" ng-show="specificPref.business">Business</a>
-</h4>
-</div>
-<div class="medium-3 large-3 text-center column">
-<h4><a href="#" ng-show="specificPref.technology">Technology</a>
-</h4>
-</div>
-<div class="medium-3 large-3 text-center column">
-<h4><a href="#" ng-show="specificPref.arts">Arts</a>
-</h4>
-</div>
-<div class="medium-3 large-3 text-center column">
-<h4><a href="#" ng-show="specificPref.sports">Sports</a>
-</h4>
-</div>
 </div>
 
-
-<ul class="example-orbit-content" data-orbit>
-<li data-orbit-slide="headline-1">
-<div class="text-center panel" ng-repeat="article in newsArray">
-<h2>{{article.title}}</h2>
-<h3>{{article.author}}</h3>
-<p ng-bind-html="article.span1"></p>
-</div>
-</li>
-</ul>
+    <!-- ARTICLE FOOTER -->
 
 
-<!-- <ul class="example-orbit-content" data-orbit>
-<li data-orbit-slide="headline-1">
-<div class="text-center panel">
-<h2>Headline 1</h2>
-<h3>Subheadline</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos animi, nobis illo. Repellendus atque dolorem, officia recusandae autem, laudantium consectetur, neque!</p>
-</div>
-</li>
-<li data-orbit-slide="headline-2">
-<div class="text-center panel">
-<h2>Headline 2</h2>
-<h3>Subheadline</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos animi, nobis illo. Repellendus atque dolorem, officia recusandae autem, laudantium consectetur, neque!</p>
-</div>
-</li>
-<li data-orbit-slide="headline-3">
-<div class="text-center panel">
-<h2>Headline 3</h2>
-<h3>Subheadline</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos animi, nobis illo. Repellendus atque dolorem, officia recusandae autem, laudantium consectetur, neque!</p>
-</div>
-</li>
-</ul> -->
-
-<hr>
-
-
-<div class="panel">
-<div class="row">
-<div class="medium-6 large-6 columns">
-<ul class="inline-list right">
-
-<li>  <a href="#" ng-click="clickedFullArticle()">Full Article</a>
-</li>
-<li>  <a href="#news/list" ng-click="clickedListView()">List View</a>
-</li>
-<button ng-click="goback()"><</button>
-    <span>{{pageNumber}}</span>
-  <button ng-click="goforward()">></button>
-</ul>
-</div>
-</div>
-</div>
-
-<!-- END ARTICLE BODY -->
-
-<!-- CATEGORY SELECTION -->
-
-
-
-<!-- END CATEGORY -->
-
-<!-- ARTICLE FOOTER -->
-
-
-<footer class="footer">
-    <div class="row">
-        <div class="small-12 columns">
-            <img src="images/O(white).png" alt="" id="homefooter" />
-            <p class="links">
-                <a href="#home">Home</a>
-                <a href="#team">Meet The Team</a>
-                <a href="#team" ng-click="signOut()">Sign Out</a>
-                <a href="#preferences">Preferences</a>
-            </p>
-            <p class="copywrite">The Iron Yard © 2016</p>
+    <footer class="footer">
+        <div class="row">
+            <div class="small-12 columns">
+                <img src="images/O(white).png" alt="" id="homefooter" />
+                <p class="links">
+                    <a href="#home">Home</a>
+                    <a href="#team">Meet The Team</a>
+                    <a href="#team" ng-click="signOut()">Sign Out</a>
+                    <a href="#preferences">Preferences</a>
+                </p>
+                <p class="copywrite">The Iron Yard © 2016</p>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
 
-<!-- END ARTICLE FOOTER -->
+    <!-- END ARTICLE FOOTER -->
 
-<!--
-<ul ng-repeat="article in newsArray">{{article.title}}</ul>
-
-<li><span>{{article.author}}</span> {{article.span1}}</li> -->
 </div>
