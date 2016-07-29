@@ -71,6 +71,17 @@ public class ApiLookupService {
         return new AsyncResult<>(results);
     }
 
+
+    String setHTML(String token, String translatedWord, String language) {
+
+        String spanTag = "<span class=\"translated\" onMouseOver=\"%s\" onMouseOut=\"%s\" original-word=\"%s\" translated-word=\"%s\">%s</span>";
+
+        spanTag = String.format(spanTag, token, token, token, translatedWord, translatedWord);
+
+        return spanTag;
+
+    }
+
     @Async
     public void langInjection(Article article, String language) {
         System.out.println("translation of: " + article.getTitle() + " has begun in " + language);
@@ -91,24 +102,21 @@ public class ApiLookupService {
                 }
 
                 if (contentPlaceholder.contains(dictionaries.findOne(seedValue).getEnglish())) {
-                    contentPlaceholder = contentPlaceholder.replace(dictionaries.findOne(seedValue).getEnglish(),
 
-                            ("<span data-tranny=\"" + dictionaries.findOne(seedValue).getEnglish()  + "\"  class=\"" + language + "\"" +
-                                    " onmouseover=\"this.innerHTML=$(this).attr('original-word')\" onmouseout=\"this.innerHTML=$(this).attr('translated-word')\" original-word=\""
-                                    + dictionaries.findOne(seedValue).getEnglish() +
-                                    "\" translated-word=\"" + langPlaceholder + "\"> " +
-                                    langPlaceholder +
-                                    " </span>"));
+                    String token = "$$" + langPlaceholder.toString();
 
+                    String replaced = setHTML(token, langPlaceholder.toString(), language);
 
-//                            ("<span data-tranny='" + dictionaries.findOne(seedValue).getEnglish()  + "'  class='"
-//                                    + language +
-//                                    "' onmouseover='this.innerHTML=$(this).attr('original-word')' onmouseout='this.innerHTML=$(this).attr('translated-word')' original-word='"
+                    contentPlaceholder = contentPlaceholder.replace(dictionaries.findOne(seedValue).getEnglish(), replaced);
+
+                    contentPlaceholder = contentPlaceholder.replace(token, dictionaries.findOne(seedValue).getEnglish());
+
+//                            ("<span data-tranny=\"" + dictionaries.findOne(seedValue).getEnglish()  + "\"  class=\"" + language + "\"" +
+//                                    " onmouseover=\"this.innerHTML=$(this).attr('original-word')\" onmouseout=\"this.innerHTML=$(this).attr('translated-word')\" original-word=\""
 //                                    + dictionaries.findOne(seedValue).getEnglish() +
-//                                    "' translated-word='" + langPlaceholder + "'> " +
+//                                    "\" translated-word=\"" + langPlaceholder + "\"> " +
 //                                    langPlaceholder +
 //                                    " </span>"));
-
 
                     count++;
                 } else if (count == 15) {                   //if Level 1 count is hit, save it so if there is a failure it is not lost and continue rolling through the next levels

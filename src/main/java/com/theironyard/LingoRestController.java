@@ -182,7 +182,7 @@ public class LingoRestController {
             }
 
             conn.close();
-
+            System.out.println(" ");
             return returnArray;
         }
     }
