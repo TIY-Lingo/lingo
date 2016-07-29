@@ -38,7 +38,6 @@ module.exports = function(app) {
               //
               //  })
 
-
                let start = (pageNum + 1) * perPage;
 
                return response.data.slice(start, start + perPage);
