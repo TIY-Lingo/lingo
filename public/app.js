@@ -59,7 +59,7 @@ module.exports = function(app) {
 
 },{}],2:[function(require,module,exports){
 module.exports = function(app) {
-    app.controller('NewsController', ['NewsService', 'UserService', '$scope', '$location', function(NewsService, UserService, $scope, $location) {
+    app.controller('NewsController', ['NewsService', 'UserService', '$scope','$sce', '$location', function(NewsService, UserService, $scope, $sce, $location) {
         $scope.pageNumber = 1;
         $scope.itemsPerPage = 1;
         let prefArray = {};
@@ -73,6 +73,11 @@ module.exports = function(app) {
           })
         }
         getCats();
+
+        $scope.makeArticleSafe = function (article) {
+          console.log("article", article);
+          return $sce.trustAsHtml(article);
+        }
 
         $scope.specificPref = UserService.getPreferences();
 
