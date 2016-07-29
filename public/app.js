@@ -164,6 +164,21 @@ module.exports = function(app) {
             console.log("Wee wee!!!!");
             $scope.UserPrefences.language = "french";
         };
+
+        // LANGUAGE DIFFICULTY
+        $scope.toggleEasyLevel = function(value) {
+          console.log('easy level is:', value);
+          $scope.UserPrefences.langLevel = value;
+        };
+        $scope.toggleMediumLevel = function(value) {
+          console.log('medium level is:', value);
+          $scope.UserPrefences.langLevel = value;
+        };
+        $scope.toggleHardLevel = function(value) {
+          console.log('hard level is:', value);
+          $scope.UserPrefences.langLevel = value;
+        };
+
         // TOGGLE ON AND OFF TECHNOLOGY PREFERENCE
         $scope.toggleTechnology = function(value) {
             console.log("Tech is: ", value);
@@ -280,7 +295,6 @@ module.exports = function(app) {
               //    }
               //
               //  })
-
 
                let start = (pageNum + 1) * perPage;
 
