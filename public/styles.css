@@ -1128,4 +1128,5 @@ input[data-toggle]:checked + label:active {
   cursor: pointer;
   max-width: 100%;
   white-space: nowrap;
-  overflow: hidden; }
+  overflow: hidden;
+  background-color: yellow; }
