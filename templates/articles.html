@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <div class="articlebody">
+=======
+``<!-- <div class="articlebody"> -->
+>>>>>>> d20f98ecc47f7a4cf3a5ee4f4b0f1feb5e931f12
     <!-- ARTICLE HEADER -->
     <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
     <nav class="menu" id="articleMenuNav">
@@ -23,16 +27,23 @@
     <!-- ARTICLE BODY -->
     <div class="row" id="articleRow">
 
+<!-- <a href="#" ng-show="specificPref.politics" >Politics</a>
+<a href="#" ng-show="specificPref.business" >Business</a>
+<a href="#" ng-show="specificPref.technology" >Technology</a>
+<a href="#" ng-show="specificPref.arts" >Arts</a>
+<a href="#" ng-show="specificPref.sports" >Sports</a> -->
+
+
  <div class="small-8 medium-6 large-9 small-centered columns" >
 
    <div class="header panel" ng-repeat="article in newsArray" >
 
      <div class="sign" id="articletitle">
-       <h1>{{article.title}}</h1>
+       <h1 >{{article.title}}</h1>
      </div>
-     <p><span>{{article.author}}</span>
+     <p><span >{{article.author}}</span>
 
-       <span ng-bind-html="makeArticleSafe(article.span1)"></span>
+       <span ng-bind-html="makeArticleSafe(article.span1)" ></span>
      </p>
      <a href="#" ng-click="clickedFullArticle()">Full Article</a>
      <a href="#news/list" ng-click="clickedListView()">List View</a>
