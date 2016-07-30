@@ -1,28 +1,27 @@
-<!-- <div class="articlebody"> -->
+<div class="articlebody">
     <!-- ARTICLE HEADER -->
     <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
-
-    <nav class="menu">
+    <nav class="menu" id="articleMenuNav">
         <a href="#login"><img src="images/O(white).png" alt="earth" class="homeglobe" /></a>
         <ul class="inline-list">
         </ul>
         <ul class="inline-list hide-for-small-only account-action">
-            <li><a href="#preferences" data-reveal-id="myModal">Preferences</a></li>
-            <li><a href="#home" data-reveal-id="myModal" ng-click="signOut()">Sign Out</a></li>
-            <li class=""><a class="signup" href="#home" data-reveal-id="myModal">Home</a></li>
+          <li><a href="#" ng-show="specificPref.business" data-reveal-id="myModal">Business</a></li>
+          <li><a href="#" ng-show="specificPref.politics" data-reveal-id="myModal">Politics</a></li>
+          <li><a href="#" ng-show="specificPref.technology" data-reveal-id="myModal">Technology</a></li>
+          <li><a href="#" ng-show="specificPref.arts" data-reveal-id="myModal">Arts</a></li>
+          <li><a href="#" ng-show="specificPref.sports" data-reveal-id="myModal">Sports</a></li>
+          <li><a href="#" ng-click='clickedFullArticle()' data-reveal-id="myModal">Full Articles</a></li>
+          <li><a href="#news/list" ng-click='clickedListView()' data-reveal-id="myModal">Headlines</a></li>
+          <li><a href="#preferences" data-reveal-id="myModal">Preferences</a></li>
+          <li><a href="#home" data-reveal-id="myModal" ng-click="signOut()">Sign Out</a></li>
+          <li class=""><a class="signup" href="#home" data-reveal-id="myModal">Home</a></li>
         </ul>
-
     </nav>
     <!-- END ARTICLE HEADER -->
 
     <!-- ARTICLE BODY -->
-<a href="#" ng-show="specificPref.politics">Politics</a>
-<a href="#" ng-show="specificPref.business">Business</a>
-<a href="#" ng-show="specificPref.technology">Technology</a>
-<a href="#" ng-show="specificPref.arts">Arts</a>
-<a href="#" ng-show="specificPref.sports">Sports</a>
-
-    <div class="row">
+    <div class="row" id="articleRow">
 
  <div class="small-8 medium-6 large-9 small-centered columns" >
 
@@ -37,9 +36,12 @@
      </p>
      <a href="#" ng-click="clickedFullArticle()">Full Article</a>
      <a href="#news/list" ng-click="clickedListView()">List View</a>
-     <button ng-click="goback()"><</button>
-         <span>{{pageNumber}}</span>
-       <button ng-click="goforward()">></button>
+     <div class="pagination">
+       <button ng-click="goback()"><</button>
+           <span>{{pageNumber}}</span>
+         <button ng-click="goforward()">></button>
+     </div>
+
    </div>
  </div>
 </div>
@@ -47,7 +49,7 @@
     <!-- ARTICLE FOOTER -->
 
 
-    <footer class="footer">
+    <footer class="footer" id="articlesFooter">
         <div class="row">
             <div class="small-12 columns">
                 <img src="images/O(white).png" alt="" id="homefooter" />
@@ -61,8 +63,6 @@
             </div>
         </div>
     </footer>
-
-
     <!-- END ARTICLE FOOTER -->
 
-<!-- </div> -->
+</div>
