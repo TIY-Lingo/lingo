@@ -156,9 +156,10 @@ module.exports = function(app) {
                 console.log("result > updatePreferences", result);
                 //$scope.UserPrefences = UserService.getPreferences();
                 console.log('saved saved saved Technology is: ', $scope.UserPrefences.technology);
+                $location.path('/news');
             });
             //console.log('saving preferencesss:', $scope.UserPrefences);
-            $location.path('/news');
+
         };
 
         // SPANISH LANGUAGE DIFFICULTY
