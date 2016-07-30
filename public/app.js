@@ -161,31 +161,44 @@ module.exports = function(app) {
             $location.path('/news');
         };
 
-        //these toggle and change our values of our user preference model/object
+        // SPANISH LANGUAGE DIFFICULTY
+        $scope.toggleSpanishEasyLevel = function() {
+          $scope.UserPrefences.langLevel = 'span1';
+          $scope.UserPrefences.language = "spanish";
+          console.log('spanish is:', $scope.UserPrefences.langLevel);
+          console.log('Your lengua es Espanol');
+        };
+        $scope.toggleSpanishMediumLevel = function() {
+          $scope.UserPrefences.langLevel = 'span2';
+          $scope.UserPrefences.language = "spanish";
+          console.log('spanish is:', $scope.UserPrefences.langLevel);
+          console.log('Your lengua es Espanol');
+        };
+        $scope.toggleSpanishHardLevel = function() {
+          $scope.UserPrefences.langLevel = 'span3';
+          $scope.UserPrefences.language = "spanish";
+          console.log('spanish is:', $scope.UserPrefences.langLevel);
+          console.log('Your lengua es Espanol');
+        };
 
-        // TOGGLE spanish
-        $scope.setSpanish = function() {
-            console.log("Your lengua es Espanol");
-            $scope.UserPrefences.language = "spanish";
+        // FRENCH LANGUAGE DIFFICULTY
+        $scope.toggleFrenchEasyLevel = function() {
+          $scope.UserPrefences.langLevel = 'french1';
+          $scope.UserPrefences.language = "french"
+          console.log('french is:', $scope.UserPrefences.langLevel);
+          console.log("Wee wee!!!!");
         };
-        // TOGGLE FRENCH
-        $scope.setFrench = function() {
-            console.log("Wee wee!!!!");
-            $scope.UserPrefences.language = "french";
+        $scope.toggleFrenchMediumLevel = function() {
+          $scope.UserPrefences.language = "french"
+          $scope.UserPrefences.langLevel = 'french2';
+          console.log('french is:', $scope.UserPrefences.langLevel);
+          console.log("Wee wee!!!!");
         };
-
-        // LANGUAGE DIFFICULTY
-        $scope.toggleEasyLevel = function(value) {
-          console.log('easy level is:', value);
-          $scope.UserPrefences.langLevel = value;
-        };
-        $scope.toggleMediumLevel = function(value) {
-          console.log('medium level is:', value);
-          $scope.UserPrefences.langLevel = value;
-        };
-        $scope.toggleHardLevel = function(value) {
-          console.log('hard level is:', value);
-          $scope.UserPrefences.langLevel = value;
+        $scope.toggleFrenchHardLevel = function() {
+          $scope.UserPrefences.language = "french"
+          $scope.UserPrefences.langLevel = 'french3';
+          console.log('french is:', $scope.UserPrefences.langLevel);
+          console.log("Wee wee!!!!");
         };
 
         // TOGGLE ON AND OFF TECHNOLOGY PREFERENCE

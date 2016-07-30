@@ -1098,5 +1098,8 @@ input[data-toggle]:checked + label:active {
   margin: 0 -0.9rem; }
 
 .translated {
-  background-color: yellow;
-  text-overflow: clip; }
+  text-decoration: underline;
+  cursor: pointer;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden; }
