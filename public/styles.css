@@ -162,18 +162,21 @@ body {
   width: 100%; }
 
 .small-up-5.columns {
-  background-color: #FFF;
   box-shadow: transparent;
-  opacity: .95;
+  opacity: 0.95;
   width: 93%;
   display: inherit;
-  margin-left: 3.5%;
   margin-bottom: 2%; }
   .small-up-5.columns .column {
     text-align: center;
-    margin-top: 3%; }
+    margin-top: 3%;
+    border: solid 1px #548FCE;
+    background-color: #fff;
+    border-radius: 3%;
+    padding: 2%;
+    margin-right: 1%; }
   .small-up-5.columns .thumbnail {
-    max-width: 25%;
+    max-width: 20%;
     border: none;
     box-shadow: 0 0 0 0; }
   .small-up-5.columns h5 {
@@ -185,24 +188,44 @@ body {
 #newsprefbutton {
   border-radius: 5%;
   background-color: transparent;
-  color: #548FCE;
+  color: #C1E120;
   border: solid 1px #C1E120;
   font-weight: bold;
-  width: 56%;
   margin-bottom: 12%;
   margin-top: 15%; }
   #newsprefbutton:hover {
     transform: scale(1.1); }
 
-#savebutton {
-  font-family: "Avenir Next";
-  font-weight: 600;
-  border: solid 1.5px #548FCE;
-  background-color: transparent;
-  color: #003366;
-  border-radius: 10%; }
-  #savebutton:hover {
+#savePreferences {
+  border: solid 1px #548FCE;
+  font-size: 41px;
+  padding: 4px;
+  color: #003366; }
+  #savePreferences:hover {
+    border-color: #C1E120; }
+
+.saveButton {
+  text-align: center;
+  padding-bottom: 2%;
+  padding-top: 2%; }
+  .saveButton:hover {
     transform: scale(1.1); }
+
+#prefSaveBold {
+  color: #C1E120; }
+
+#languageinstructions,
+#topicinstructions {
+  width: 100%;
+  background-color: #003366;
+  opacity: 0.95;
+  margin-top: -1%; }
+
+#titlepref {
+  text-align: center;
+  color: white;
+  font: bolder 4rem "Avenir Next";
+  font-family: "Avenir Next"; }
 
 .articlebody {
   background-image: url("images/login2new.png");
