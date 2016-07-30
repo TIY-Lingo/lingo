@@ -6,11 +6,10 @@
   width: 100%;
 }
 .translated {
-
-  // text-overflow: el;
   text-decoration: underline;
   cursor: pointer;
   max-width: 100%;
   white-space: nowrap;
   overflow: hidden;
+  background-color: yellow;
 }
