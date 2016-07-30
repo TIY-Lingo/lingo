@@ -227,16 +227,6 @@ body {
   font: bolder 4rem "Avenir Next";
   font-family: "Avenir Next"; }
 
-.articlebody {
-  background-image: url("images/login2new.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%; }
-
-.categories {
-  background-color: white; }
-
 .header.panel {
   margin: 3rem auto;
   border: 2px solid #444;
@@ -277,6 +267,11 @@ body {
   .header img {
     max-width: 10%; }
 
+#articleMenuNav {
+  background-color: #003366;
+  border-bottom: #C1E120 solid 1px;
+  padding: 1.5rem 3rem; }
+
 .header-subnav {
   float: none;
   position: relative;
@@ -302,6 +297,14 @@ body {
         color: #333;
         transition: all 0.25s ease-in-out; }
 
+#articleRow {
+  margin-top: 1%; }
+
+.pagination {
+  display: -webkit-inline-box;
+  color: #003366;
+  font-size: 22px; }
+
 @media only screen and (min-width: 40em) {
   .top-bar {
     text-align: center; }
@@ -323,9 +326,6 @@ body {
 .top-bar.expanded {
   background: #333333; }
 
-.spanish {
-  background-color: yellow; }
-
 .hero {
   background: url("http://static.pexels.com/wp-content/uploads/2014/07/beach-coast-holiday-2190-825x550.jpg") no-repeat center center;
   background-size: cover;
@@ -340,29 +340,28 @@ body {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%); }
 
-.footer {
-  background-color: #7A7A85;
+#articlesFooter {
   text-align: center;
   font-size: 1.2rem;
   padding: 4rem; }
-  .footer p.slogan {
+  #articlesFooter p.slogan {
     color: #8d9093;
     font-size: 1.8rem;
     margin: 0 0 1rem; }
-  .footer p.copywrite {
+  #articlesFooter p.copywrite {
     color: #8f9296;
     font-size: 0.875rem;
     margin: 0; }
-  .footer .links a {
+  #articlesFooter .links a {
     list-style: none;
     font-weight: bold;
     color: #ffffff;
     padding: 3rem 0 2rem;
     margin: 0; }
-    .footer .links a::after {
+    #articlesFooter .links a::after {
       content: "•";
       padding: 0 0.4rem 0 0.8rem; }
-    .footer .links a:last-child::after {
+    #articlesFooter .links a:last-child::after {
       content: "";
       padding: 0 0.4rem 0 0.8rem; }
 
@@ -1076,9 +1075,6 @@ nav {
 .overlay-fade-in-new-background:hover .button {
   transition-delay: 0.2s; }
 
-body {
-  background: #333; }
-
 .header.panel {
   margin: 3rem auto;
   border: 2px solid #444;
@@ -1119,6 +1115,13 @@ input[data-toggle]:checked + label:active {
 
 .button-group.toggle li:not(first-child) {
   margin: 0 -0.9rem; }
+
+.articlebody {
+  background-image: url("images/login2new.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%; }
 
 .translated {
   text-decoration: underline;
