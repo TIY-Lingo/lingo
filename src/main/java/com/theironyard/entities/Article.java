@@ -19,25 +19,25 @@ public class Article {
     @Column (nullable = false)
     String author;
 
-    @Column (length = 25000, nullable = false)
+    @Column (length = 50000)
     String content;
 
-    @Column (length = 25000)
+    @Column (length = 50000)
     String span1;
 
-    @Column (length = 25000)
+    @Column (length = 50000)
     String span2;
 
-    @Column (length = 25000)
+    @Column (length = 50000)
     String span3;
 
-    @Column (length = 25000)
+    @Column (length = 50000)
     String french1;
 
-    @Column (length = 25000)
+    @Column (length = 50000)
     String french2;
 
-    @Column (length = 25000)
+    @Column (length = 50000)
     String french3;
 
     @Column
