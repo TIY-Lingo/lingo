@@ -15,35 +15,33 @@
     <!-- END NAV BAR -->
 
     <!-- PREFERENCES INSTRUCTIONS -->
-    <div class="row">
-        <div class="large-1 columns"></div>
-        <div class="large-9 large-offset-2 columns">
+    <div class="row" id="languageinstructions">
+      <div class="prefs">
+          <h3 id="titlepref">Preferences</h3>
+      </div>
+        <div class="small-12 medium-10 large-12 large-centered columns">
 
             <div class="header panel">
                 <div class="sign">
-                    <h1>new products</h1>
+                    <h1>Step 1:</h1>
                 </div>
-                <p><span>Dude! I Want that!</span> In addition to their portability and minimal space requirements for storage, the Equalizer bars also simplify workouts by consolidating all exercises to a single machine that requires no weight stack adjustments
-                    or significant alterations between them. Each weighs 8 pounds, and the system has been tested to support up to 400 pounds of body weight.</p>
+                <p> Choose the language you'd like to learn and the level of difficulty</p>
             </div>
 
         </div>
     </div>
     <!-- END PREFERENCES INSTRUCTIONS  -->
 
-    <!-- LANGUAGE SELCTOR -->
-    <div class="row column text-center">
-        <h2>Language Preferences</h2>
-        <hr>
-    </div>
+    <!-- LANGUAGE SELECTOR -->
+
     <div class="languageselector">
         <div class="row">
+
 <!-- SPANISH FLAG/LANGUAGE SELECTION -->
             <div class="small-3 columns">
                 <div class="image-wrapper overlay-fade-in">
                     <img src="images/spanish.png" />
                     <div class="image-overlay-content">
-                        <h2>Spanish</h2>
                     </div>
                 </div>
             </div>
@@ -107,37 +105,24 @@
     </div>
     <!-- END LANGUAGE SELECTOR -->
 
-    <div class="row column text-center">
-        <h2>News Preferences</h2>
-        <hr>
+<!--  BEGIN TOPIC SELECTION INSTRUCTIONS -->
+
+<div class="row" id="topicinstructions">
+    <div class="small-12 medium-10 large-12 large-centered columns">
+
+        <div class="header panel">
+            <div class="sign">
+                <h1>Step 2:</h1>
+            </div>
+            <p> Choose the type of new's you'd like to hear about</p>
+        </div>
+
     </div>
+</div>
+
+<!--  ENDTOPIC SELECTION INSTRUCTIONS -->
+
     <div class="small-up-5 columns">
-
-        <!-- TECH PREFERENCE SETTING -->
-        <div class="column">
-            <img class="thumbnail" src="images/computer-mouse.png">
-            <div ng-if="UserPrefences.technology">
-                <h5>Technology</h5>
-                <button id="newsprefbutton" ng-click="toggleTechnology(false)">Turn Off</button>
-            </div>
-            <div ng-if="!UserPrefences.technology">
-                <h5>Technology</h5>
-                <button id="newsprefbutton" ng-click="toggleTechnology(true)">Turn On</button>
-            </div>
-        </div>
-
-        <!-- BUSINESS SETTING -->
-        <div class="column">
-            <img class="thumbnail" src="images/suitcase.png">
-            <div ng-if="UserPrefences.business">
-                <h5>Business</h5>
-                <button id="newsprefbutton" ng-click="toggleBusiness(false)">Turn Off</button>
-            </div>
-            <div ng-if="!UserPrefences.business">
-                <h5>Business</h5>
-                <button id="newsprefbutton" ng-click="toggleBusiness(true)">Turn On</button>
-            </div>
-        </div>
 
         <!-- POLITICS SETTING -->
         <div class="column">
@@ -178,10 +163,71 @@
             </div>
         </div>
     </div>
-    <div class="saveButton">
-        <button ng-click='savePref()' class="small button primary radius" id="savebutton">Save</button>
-    </div>
+
     <hr>
+
+
+    <div class="small-up-5 columns" id="lowerNewsColumn">
+    <!-- TECH PREFERENCE SETTING -->
+    <div class="column">
+        <img class="thumbnail" src="images/computer-mouse.png">
+        <div ng-if="UserPrefences.technology">
+            <h5>Technology</h5>
+            <button id="newsprefbutton" ng-click="toggleTechnology(false)">Turn Off</button>
+        </div>
+        <div ng-if="!UserPrefences.technology">
+            <h5>Technology</h5>
+            <button id="newsprefbutton" ng-click="toggleTechnology(true)">Turn On</button>
+        </div>
+    </div>
+
+    <!-- BUSINESS SETTING -->
+    <div class="column">
+        <img class="thumbnail" src="images/suitcase.png">
+        <div ng-if="UserPrefences.business">
+            <h5>Business</h5>
+            <button id="newsprefbutton" ng-click="toggleBusiness(false)">Turn Off</button>
+        </div>
+        <div ng-if="!UserPrefences.business">
+            <h5>Business</h5>
+            <button id="newsprefbutton" ng-click="toggleBusiness(true)">Turn On</button>
+        </div>
+    </div>
+
+  </div>
+
+  <hr>
+
+    <!-- BEGIN LINGO (SAVE) -->
+    <!-- <div class="bg-skew-contact">
+        <div class="content">
+            <form class="contact">
+                <div class="saveButton">
+                    <button href="#login" ng-click='savePref()'><a href="#login" id="savePreferences">ling<span id="prefSaveBold">GO</span></a></button>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div> -->
+
+    <div class="row" id="topicinstructions">
+        <div class="small-12 medium-10 large-12 large-centered columns">
+
+            <div class="header panel">
+                <div class="sign">
+                    <h1>Step 3:</h1>
+                </div>
+                <div class="saveButton">
+                    <button href="#login" ng-click='savePref()'><a href="#login" id="savePreferences">ling<span id="prefSaveBold">GO</span></a></button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- END LINGO(SAVE) -->
     <!-- BEGIN FOOTER  -->
     <footer class="footer">
         <div class="row">

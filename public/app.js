@@ -280,66 +280,90 @@ app.config(['$routeProvider', function($routeProvider) {
 },{"./controllers/ListViewController":1,"./controllers/NewsController":2,"./controllers/UserController":3,"./services/NewsService":5,"./services/UserService":6}],5:[function(require,module,exports){
 module.exports = function(app) {
 
-   app.factory('NewsService', ['UserService', '$http', '$location', function(UserService, $http, $location) {
+    app.factory('NewsService', ['UserService', '$http', '$location', function(UserService, $http, $location) {
 
-     let personLoggedIn = UserService.getPreferences();
-    //  let userSpecificArticles = [];
-     let artsArticles= [];
-     let sportsArticles= [];
-     let politicsArticles= [];
-     let businessArticles=[];
-     let technologyArticles = [];
+        let personLoggedIn = UserService.getPreferences();
+        //  let userSpecificArticles = [];
+        let artsArticles = [];
+        let sportsArticles = [];
+        let politicsArticles = [];
+        let businessArticles = [];
+        let technologyArticles = [];
 
-     var  newsArray = {
-       async: function(pageNum, perPage) {
+        var newsArray = {
+            async: function(pageNum, perPage) {
 
-           var promise = $http({
-               method: 'GET',
-               url: '/articles',
-           }).then(function(response) {
-              // let newsArrayResponse = response.data;
-              //  newsArrayResponse.filter(function (element){
-              //    if (element.type === "arts") {
-              //      artsArticles.push(element);
-              //    } else if (element.type === "sports") {
-              //      sportsArticles.push(element);
-              //    } else if (element.type === "business") {
-              //      businessArticles.push(element);
-              //    } else if (element.type === "politics") {
-              //      politicsArticles.push(element);
-              //    } else if (element.type === "technology"){
-              //      technologyArticles.push(element);
-              //    }
-              //
-              //  })
+                var promise = $http({
+                    method: 'GET',
+                    url: '/articles',
+                }).then(function(response) {
+                    // 
+                    // let newsArrayResponse = response.data;
+                    // newsArrayResponse.forEach(function(element) {
+                    //         if (element.span1) {
+                    //             element.article = element.span1;
+                    //         })
+                    //         if (element.span2) {
+                    //             element.article = element.span2;
+                    //         })
+                    //         if (element.span3) {
+                    //             element.article = element.span3;
+                    //         })
+                    //         if (element.french1) {
+                    //             element.article = element.french1;
+                    //         })
+                    //         if (element.french2) {
+                    //             element.article = element.french2;
+                    //         })
+                    //         if (element.french3) {
+                    //             element.article = element.french3;
+                    //         })
+                    // }
 
-               let start = (pageNum + 1) * perPage;
+                    //  newsArrayResponse.filter(function (element){
+                    //    if (element.type === "arts") {
+                    //      artsArticles.push(element);
+                    //    } else if (element.type === "sports") {
+                    //      sportsArticles.push(element);
+                    //    } else if (element.type === "business") {
+                    //      businessArticles.push(element);
+                    //    } else if (element.type === "politics") {
+                    //      politicsArticles.push(element);
+                    //    } else if (element.type === "technology"){
+                    //      technologyArticles.push(element);
+                    //    }
+                    //
+                    //  })
 
-               return response.data.slice(start, start + perPage);
+                    let start = (pageNum + 1) * perPage;
 
-           });
-         return promise;
-       },
+                    return response.data.slice(start, start + perPage);
 
-       //////SIGN OUT FUNCTION//////
-                   signOutUser: function(){
+                });
+                return promise;
+            },
 
-                     $http({
-                         url: '/logout',
-                         method: 'POST',
-                         data: {username: 'Winnie'}
-                     })
-                     .then(function(results) {
-                         // $location('#/home')
-                     });
-                   }
-       //////SIGN OUT FUNCTION/////////
+            //////SIGN OUT FUNCTION//////
+            signOutUser: function() {
+
+                    $http({
+                            url: '/logout',
+                            method: 'POST',
+                            data: {
+                                username: 'Winnie'
+                            }
+                        })
+                        .then(function(results) {
+                            // $location('#/home')
+                        });
+                }
+                //////SIGN OUT FUNCTION/////////
 
 
-     };
-     return newsArray;
+        };
+        return newsArray;
 
-   }]);
+    }]);
 };
 
 },{}],6:[function(require,module,exports){
