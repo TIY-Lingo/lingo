@@ -270,7 +270,46 @@ body {
 #articleMenuNav {
   background-color: #003366;
   border-bottom: #C1E120 solid 1px;
-  padding: 1.5rem 3rem; }
+  padding: 1.5rem 3rem;
+  height: auto; }
+  #articleMenuNav .inline-list {
+    text-align: center; }
+    #articleMenuNav .inline-list li {
+      float: none;
+      display: inline-block; }
+    #articleMenuNav .inline-list a {
+      color: #fff;
+      padding-bottom: 0.5rem; }
+      #articleMenuNav .inline-list a:hover {
+        color: #C1E120;
+        transition: all .3s ease-in-out; }
+    #articleMenuNav .inline-list .active a {
+      color: #C1E120; }
+  #articleMenuNav .account {
+    position: absolute;
+    top: 3%;
+    right: 3%; }
+    #articleMenuNav .account a, #articleMenuNav .account i {
+      color: #fff; }
+  @media only screen and (min-width: 40.063em) {
+    #articleMenuNav {
+      height: 5rem; }
+      #articleMenuNav .inline-list {
+        float: left;
+        margin: 0 0 0 1.5rem; }
+      #articleMenuNav a:hover {
+        border-bottom: 2px solid #C1E120; } }
+  #articleMenuNav .account-action {
+    float: right;
+    margin: -.75rem 0 0 0; }
+    #articleMenuNav .account-action li {
+      margin-left: .2rem; }
+    #articleMenuNav .account-action a {
+      padding: 0.75rem 1rem; }
+    #articleMenuNav .account-action a.signup {
+      font-weight: bold;
+      background-color: transparent;
+      border: solid 1px #C1E120; }
 
 .header-subnav {
   float: none;
