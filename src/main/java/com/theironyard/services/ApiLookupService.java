@@ -49,8 +49,8 @@ public class ApiLookupService {
                 String content = doc.select("p").text();                     // this line grabs only the content from the css paragraph tags
                 content = content.substring(27, content.length());           //Chops off advertisement at the beginning of the article
 
-                if (content.length() >= 22999) {                               // if it's over 25k characters cut off anything extra...
-                    content = content.substring(0, 22999);
+                if (content.length() >= 40000) {                               // if it's over 25k characters cut off anything extra...
+                    content = content.substring(0, 35000);
                 }
                 String cleanContent = Jsoup.clean(content, Whitelist.basic());
 
@@ -111,13 +111,6 @@ public class ApiLookupService {
                     contentPlaceholder = contentPlaceholder.replace(dictionaries.findOne(seedValue).getEnglish(), replaced);
 
                     contentPlaceholder = contentPlaceholder.replace(token, dictionaries.findOne(seedValue).getEnglish());
-
-//                            ("<span data-tranny=\"" + dictionaries.findOne(seedValue).getEnglish()  + "\"  class=\"" + language + "\"" +
-//                                    " onmouseover=\"this.innerHTML=$(this).attr('original-word')\" onmouseout=\"this.innerHTML=$(this).attr('translated-word')\" original-word=\""
-//                                    + dictionaries.findOne(seedValue).getEnglish() +
-//                                    "\" translated-word=\"" + langPlaceholder + "\"> " +
-//                                    langPlaceholder +
-//                                    " </span>"));
 
                     count++;
                 } else if (count == 15) {                   //if Level 1 count is hit, save it so if there is a failure it is not lost and continue rolling through the next levels
