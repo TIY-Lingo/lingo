@@ -350,9 +350,8 @@ body {
   margin-top: 1%; }
 
 .pagination {
-  display: -webkit-inline-box;
-  color: #003366;
-  font-size: 22px; }
+  margin-left: 46%;
+  display: -webkit-inline-box; }
 
 @media only screen and (min-width: 40em) {
   .top-bar {
@@ -419,9 +418,6 @@ body {
   background-color: white;
   margin-left: 5%;
   margin-right: 5%; }
-
-#articletitle {
-  width: 90%; }
 
 #author {
   color: #000; }
@@ -533,7 +529,7 @@ body {
       color: #C1E120; }
 
 #homefooter {
-  width: 10%;
+  width: 6%;
   margin-bottom: 5%; }
 
 .hero {
@@ -769,7 +765,6 @@ body {
     .header.panel p span {
       color: #548FCE;
       text-transform: uppercase;
-      letter-spacing: 1px;
       font-size: 75%;
       font-weight: bold; }
   .header.panel .sign {
@@ -1201,7 +1196,51 @@ input[data-toggle]:checked + label:active {
   max-width: 100%;
   white-space: nowrap;
   overflow: hidden;
-  background-color: yellow; }
+  background-color: yellow;
+  color: #000;
+  font-family: "Avenir Next";
+  font-size: 100%; }
+
+#headline {
+  font-size: 215%;
+  text-align: center; }
+
+#articletitle {
+  border: solid 1px transparent;
+  padding: 4px 1px 1px;
+  width: 100%; }
+
+#articletext {
+  color: #000;
+  font-family: "Avenir Next";
+  font-weight: 500; }
+
+.sub-nav {
+  background-color: #f2f2f2;
+  padding: 0.5rem 0.5rem 0.5rem 0; }
+  .sub-nav li {
+    color: #999999;
+    font-size: 0.77778rem;
+    padding-left: 0.88889rem; }
+    .sub-nav li.active a {
+      border-radius: 3px;
+      background: #008CBA;
+      color: #fff;
+      cursor: default;
+      font-weight: normal;
+      padding: 0.16667rem 0.88889rem; }
+
+#articleholder {
+  width: 90%;
+  overflow: scroll; }
+
+#articlecontent {
+  text-align: left; }
+
+#articlebox {
+  border: solid 2px #9e9e9e;
+  background-color: #f2f2f2;
+  margin-top: 0; }
 
 body {
   background-image: url("images/login2new.jpg");

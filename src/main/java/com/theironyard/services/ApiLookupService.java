@@ -49,8 +49,8 @@ public class ApiLookupService {
                 String content = doc.select("p").text();                     // this line grabs only the content from the css paragraph tags
                 content = content.substring(27, content.length());           //Chops off advertisement at the beginning of the article
 
-                if (content.length() >= 22999) {                               // if it's over 25k characters cut off anything extra...
-                    content = content.substring(0, 22999);
+                if (content.length() >= 40000) {                               // if it's over 25k characters cut off anything extra...
+                    content = content.substring(0, 35000);
                 }
                 String cleanContent = Jsoup.clean(content, Whitelist.basic());
 
@@ -60,7 +60,6 @@ public class ApiLookupService {
                 cat.getArticles().add(article);
                 categories.save(cat);
             }
-            System.out.println(articles.count());
             langInjection(article, "french");                               //Run it once for spanish and once for french
             langInjection(article, "spanish");
             System.out.println("Article translation complete");
@@ -75,8 +74,8 @@ public class ApiLookupService {
     String setHTML(String token, String translatedWord, String language) {
 
         String spanTag = "<span class=\"translated\" onMouseOver=\"this.innerHTML=$(this).attr('original-word')\" onMouseOut=\"this.innerHTML=$(this).attr('translated-word')\" original-word=\"%s\" translated-word=\"%s\">%s</span>";
+//    original before adding JS - for reference    String spanTag = "<span class=\"translated\" onMouseOver=\"%s\" onMouseOut=\"%s\" original-word=\"%s\" translated-word=\"%s\">%s</span>";
 
-//        String spanTag = "<span class=\"translated\" onMouseOver=\"%s\" onMouseOut=\"%s\" original-word=\"%s\" translated-word=\"%s\">%s</span>";
         spanTag = String.format(spanTag, token, translatedWord, translatedWord);
 
         return spanTag;
@@ -92,91 +91,76 @@ public class ApiLookupService {
         int count = 0;
         while (count <= 60) {
             int seedValue = (1 +  r.nextInt((int) dictionaries.count()-2));  //random number adjusted for not to produce a zero since our DB doesn't have an ID = 0;
-            if (!seedArray.contains(seedValue)) {     //Check to make sure Seed Value is unique and hasn't been used already.
+            if (!seedArray.contains(seedValue)) {                            //Check to make sure Seed Value is unique and hasn't been used already.
                 seedArray.add(seedArray.size(), seedValue);
                 Object langPlaceholder;
 
-                if (language.equals("spanish")) {    //It sucks but this was needed to make the replacement work a few lines down.
+                if (language.equals("spanish")) {
                     langPlaceholder = dictionaries.findOne(seedValue).getSpanish();
                 } else {
                     langPlaceholder = dictionaries.findOne(seedValue).getFrench();
                 }
 
-                if (contentPlaceholder.contains(dictionaries.findOne(seedValue).getEnglish())) {
-
+                if (contentPlaceholder.contains(dictionaries.findOne(seedValue).getEnglish())) {    // if the article  contains a given word - find and replace it with it's counterpart
                     String token = "$$" + langPlaceholder.toString();
-
-                    String replaced = setHTML(token, langPlaceholder.toString(), language);
-
-                    contentPlaceholder = contentPlaceholder.replace(dictionaries.findOne(seedValue).getEnglish(), replaced);
-
-                    contentPlaceholder = contentPlaceholder.replace(token, dictionaries.findOne(seedValue).getEnglish());
-
-//                            ("<span data-tranny=\"" + dictionaries.findOne(seedValue).getEnglish()  + "\"  class=\"" + language + "\"" +
-//                                    " onmouseover=\"this.innerHTML=$(this).attr('original-word')\" onmouseout=\"this.innerHTML=$(this).attr('translated-word')\" original-word=\""
-//                                    + dictionaries.findOne(seedValue).getEnglish() +
-//                                    "\" translated-word=\"" + langPlaceholder + "\"> " +
-//                                    langPlaceholder +
-//                                    " </span>"));
-
-                    count++;
-                } else if (count == 15) {                   //if Level 1 count is hit, save it so if there is a failure it is not lost and continue rolling through the next levels
-                    if (language.equals("spanish")) {
-                        article.setSpan1(contentPlaceholder);
-                        articles.save(article);
-                        count++;
-                        System.out.println("level 1 complete");
-                    } else if (language.equals("french")) {
-                        article.setFrench1(contentPlaceholder);
-                        articles.save(article);
-                        count++;
-                        System.out.println("level 1 complete");
-                    } else {
-                        System.out.println("This should never happen, You have 2 options: spanish or french");
-                    }
-                } else if (count == 30) {                  //if Level 2 count is hit, save it so if there is a failure it is not lost and continue rolling through the next levels
-                    if (language.equals("spanish")) {
-                        article.setSpan2(contentPlaceholder);
-                        articles.save(article);
-                        count++;
-                        System.out.println("level 2 complete");
-                    } else if (language.equals("french")) {
-                        article.setFrench2(contentPlaceholder);
-                        articles.save(article);
-                        count++;
-                        System.out.println("level 2 complete");
-                    } else {
-                        System.out.println("This should never happen, You have 2 options: spanish or french");
-                    }
-                } else if (count == 60) {                    ////if Level 3 count is hit, save the content and kick out of the while loop
-                    if (language.equals("spanish")) {
-                        article.setSpan3(contentPlaceholder);
-                        articles.save(article);
-                        count++;
-                        System.out.println("level 3 complete");
-                        break;
-                    } else if (language.equals("french")) {
-                        article.setFrench3(contentPlaceholder);
-                        articles.save(article);
-                        count++;
-                        System.out.println("level 3 complete");
-                        break;
-                    } else {
-                        System.out.println("This should never happen, You have 2 options: spanish or french");
+                    String replaced = setHTML(token, langPlaceholder.toString(), language);                   //injects the proper html tags needed by the FEE to use a hover over animation
+                    contentPlaceholder = contentPlaceholder.replace(dictionaries.findOne(seedValue).getEnglish(), replaced);// The first cycle replaces target word with a token word
+                    contentPlaceholder = contentPlaceholder.replace(token, dictionaries.findOne(seedValue).getEnglish());   // second pass replaces the token with the proper translation -
+                    count++;                                                                                                // we did this to avoid nesting of the span tag which popped up in rare cases
+                    if (count == 15) {                   //if Level 1 count is hit, save it so if there is a failure it is not lost and continue rolling through the next levels
+                        if (language.equals("spanish")) {
+                            article.setSpan1(contentPlaceholder);
+                            articles.save(article);
+                            System.out.println("level 1 complete");
+                        } else if (language.equals("french")) {
+                            article.setFrench1(contentPlaceholder);
+                            articles.save(article);
+                            System.out.println("level 1 complete");
+                        } else {
+                            System.out.println("This should never happen, You have 2 options: spanish or french");
+                        }
+                    } else if (count == 30) {                  //if Level 2 count is hit, save it so if there is a failure it is not lost and continue rolling through the next levels
+                        if (language.equals("spanish")) {
+                            article.setSpan2(contentPlaceholder);
+                            articles.save(article);
+                            System.out.println("level 2 complete");
+                        } else if (language.equals("french")) {
+                            article.setFrench2(contentPlaceholder);
+                            articles.save(article);
+                            System.out.println("level 2 complete");
+                        } else {
+                            System.out.println("This should never happen, You have 2 options: spanish or french");
+                        }
+                    } else if (count == 60) {                    ////if Level 3 count is hit, save the content and kick out of the while loop
+                        if (language.equals("spanish")) {
+                            article.setSpan3(contentPlaceholder);
+                            articles.save(article);
+                            System.out.println("level 3 complete");
+                            break;
+                        } else if (language.equals("french")) {
+                            article.setFrench3(contentPlaceholder);
+                            articles.save(article);
+                            System.out.println("level 3 complete");
+                            break;
+                        } else {
+                            System.out.println("This should never happen, You have 2 options: spanish or french");
+                        }
                     }
                 } else {
                 }
 
-
             } else if (seedArray.size() == dictionaries.count()-3) {
-                if (language.equals("spanish")) {                        //They save along the way regardless so we only have to save the level based on where the Counter is at
+                if (language.equals("spanish")) {                        //They save along the way regardless so we only have to save the current level based on where the Counter is at
                     if (count <= 15) {
                         article.setSpan1(contentPlaceholder);
+                        article.setSpan2(contentPlaceholder);
+                        article.setSpan3(contentPlaceholder);
                         articles.save(article);
                         System.out.println("S failed before level 1 complete");
                         break;
                     } else if (count > 15 && count <= 30) {
                         article.setSpan2(contentPlaceholder);
+                        article.setSpan3(contentPlaceholder);
                         articles.save(article);
                         System.out.println("S failed before level 2 complete");
                         break;
@@ -189,18 +173,21 @@ public class ApiLookupService {
                 } else if (language.equals("french")) {
                     if (count <= 15) {
                         article.setFrench1(contentPlaceholder);
+                        article.setFrench2(contentPlaceholder);
+                        article.setFrench3(contentPlaceholder);
                         articles.save(article);
-                        System.out.println("F failed before level 1 complete");
+                        System.out.println("French translation failed before level 1 complete");
                         break;
                     } else if (count > 15 && count <= 30) {
-                        article.setSpan2(contentPlaceholder);
+                        article.setFrench2(contentPlaceholder);
+                        article.setFrench3(contentPlaceholder);
                         articles.save(article);
-                        System.out.println("F failed before level 2 complete");
+                        System.out.println("French translation failed before level 2 complete");
                         break;
                     } else if (count > 30) {
-                        article.setSpan3(contentPlaceholder);
+                        article.setFrench3(contentPlaceholder);
                         articles.save(article);
-                        System.out.println("F failed before level 3 complete");
+                        System.out.println("French translation failed before level 3 complete");
                         break;
                     }
                 } else {
