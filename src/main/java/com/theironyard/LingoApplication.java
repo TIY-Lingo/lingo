@@ -38,36 +38,22 @@ public class LingoApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		long start = System.currentTimeMillis();
-		// parseDictionary();
+		boolean isRunning = true;
 
-		Future<ResultContainter> page1 = apiLookupService.findResults("https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=289858bf10514c09b02e561994f4ab45");
-		Future<ResultContainter> page2 = apiLookupService.findResults("https://api.nytimes.com/svc/topstories/v2/sports.json?api-key=289858bf10514c09b02e561994f4ab45");
-		Future<ResultContainter> page3 = apiLookupService.findResults("https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=289858bf10514c09b02e561994f4ab45");
-		Future<ResultContainter> page4 = apiLookupService.findResults("https://api.nytimes.com/svc/topstories/v2/politics.json?api-key=289858bf10514c09b02e561994f4ab45");
-		Future<ResultContainter> page5 = apiLookupService.findResults("https://api.nytimes.com/svc/topstories/v2/business.json?api-key=289858bf10514c09b02e561994f4ab45");
-
-
+		// Every 24 hours scrape and translate articles from these 5 categories at the New York Times
+		while(isRunning) {
+			Future<ResultContainter> page1 = apiLookupService.findResults("https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=289858bf10514c09b02e561994f4ab45");
+			Future<ResultContainter> page2 = apiLookupService.findResults("https://api.nytimes.com/svc/topstories/v2/sports.json?api-key=289858bf10514c09b02e561994f4ab45");
+			Future<ResultContainter> page3 = apiLookupService.findResults("https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=289858bf10514c09b02e561994f4ab45");
+			Future<ResultContainter> page4 = apiLookupService.findResults("https://api.nytimes.com/svc/topstories/v2/politics.json?api-key=289858bf10514c09b02e561994f4ab45");
+			Future<ResultContainter> page5 = apiLookupService.findResults("https://api.nytimes.com/svc/topstories/v2/business.json?api-key=289858bf10514c09b02e561994f4ab45");
+			Thread.sleep(86400000);
+		}
 
 		System.out.println("Elapsed time: " + (System.currentTimeMillis() - start));
+
 	} //end run method
 
-
-	public void parseDictionary() throws FileNotFoundException {
-
-		if(dictionaries.count() == 0) {
-			File f = new File("Tri-Lingual-Library.csv");
-			Scanner scanner = new Scanner(f);
-			scanner.nextLine();
-			while (scanner.hasNext()) {
-				String[] arrayString = scanner.nextLine().split(",");
-				Dictionary dictEntry = new Dictionary(arrayString[0], arrayString[1], arrayString[2]);
-				dictionaries.save(dictEntry);
-			}
-			System.out.println("Language Dictionary has been created");//for console testing
-		} else {
-			System.out.println("Language Dictionary already exists");//for console testing
-		}
-	}
 	public static void main(String[] args) throws IOException {
 		SpringApplication.run(LingoApplication.class, args);
 	}
