@@ -154,12 +154,8 @@ body {
   color: white;
   height: 500px; }
 
-.prefbody {
-  background-image: url("images/login2new.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%; }
+#prefNavMenu {
+  margin-bottom: 3%; }
 
 .small-up-5.columns {
   box-shadow: transparent;
@@ -181,9 +177,6 @@ body {
     box-shadow: 0 0 0 0; }
   .small-up-5.columns h5 {
     color: #003366; }
-
-.small-3.columns {
-  float: right; }
 
 #newsprefbutton {
   border-radius: 5%;
@@ -219,13 +212,30 @@ body {
   width: 100%;
   background-color: #003366;
   opacity: 0.95;
-  margin-top: -1%; }
+  margin-top: 0%; }
 
 #titlepref {
   text-align: center;
   color: white;
   font: bolder 4rem "Avenir Next";
   font-family: "Avenir Next"; }
+
+.languageselector {
+  background-color: #FFF;
+  opacity: .95;
+  height: 300px; }
+
+#languageSelectorRow {
+  margin-top: 2%; }
+
+.button-group.round.toggle {
+  display: inline-flex;
+  margin-left: 0; }
+  .button-group.round.toggle #languageButtonLabel {
+    color: #548FCE;
+    background-color: transparent;
+    border: #C1E120 solid 1px;
+    border-radius: 10%; }
 
 .header.panel {
   margin: 3rem auto;
@@ -638,7 +648,7 @@ body {
       border: #C1E120 solid 1px; }
 
 .loginBody {
-  background-image: url("images/login2new.png");
+  background-image: url("images/login2new.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1144,6 +1154,29 @@ nav {
       text-align: center;
       line-height: 2rem; }
 
+#spanishFlag {
+  margin-left: 20%; }
+
+#frenchFlag {
+  margin-right: 20%; }
+
+#languageLevelRowFrench .small-9.small-centered.columns {
+  margin-left: 10%; }
+
+#languageLevelRowFrench .frenchButtons {
+  margin-right: 3%; }
+  #languageLevelRowFrench .frenchButtons:hover {
+    transform: scale(1.1); }
+
+#languageLevelRowSpanish .small-9.small-centered.columns {
+  margin: 0;
+  margin-left: 5%; }
+
+#languageLevelRowSpanish .spanishButtons {
+  margin-right: 3%; }
+  #languageLevelRowSpanish .spanishButtons:hover {
+    transform: scale(1.1); }
+
 input[data-toggle] {
   display: none; }
 
@@ -1156,7 +1189,7 @@ input[data-toggle]:checked + label:active {
   margin: 0 -0.9rem; }
 
 .articlebody {
-  background-image: url("images/login2new.png");
+  background-image: url("images/login2new.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1169,3 +1202,10 @@ input[data-toggle]:checked + label:active {
   white-space: nowrap;
   overflow: hidden;
   background-color: yellow; }
+
+body {
+  background-image: url("images/login2new.jpg");
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+  width: 100%; }

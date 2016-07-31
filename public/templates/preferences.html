@@ -1,9 +1,9 @@
-<div class="prefbody">
+<body class="prefBody" ng-cloak>
 
     <!-- NAV BAR -->
     <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 
-    <nav class="menu">
+    <nav class="menu" id="prefNavMenu">
         <a href="#login"><img src="images/O(white).png" alt="earth" class="homeglobe" /></a>
         <ul class="inline-list">
         </ul>
@@ -16,9 +16,9 @@
 
     <!-- PREFERENCES INSTRUCTIONS -->
     <div class="row" id="languageinstructions">
-      <div class="prefs">
-          <h3 id="titlepref">Preferences</h3>
-      </div>
+        <div class="prefs">
+            <h3 id="titlepref">Preferences</h3>
+        </div>
         <div class="small-12 medium-10 large-12 large-centered columns">
 
             <div class="header panel">
@@ -35,92 +35,86 @@
     <!-- LANGUAGE SELECTOR -->
 
     <div class="languageselector">
-        <div class="row">
+        <div class="row" id="languageSelectorRow">
 
-<!-- SPANISH FLAG/LANGUAGE SELECTION -->
-            <div class="small-3 columns">
+            <!-- SPANISH FLAG/LANGUAGE SELECTION -->
+            <div class="small-3 columns" id="spanishFlag">
                 <div class="image-wrapper overlay-fade-in">
                     <img src="images/spanish.png" />
                     <div class="image-overlay-content">
                     </div>
                 </div>
-            </div>
-<!-- END SPANISH FLAG/LANGUAGE SELECTION -->
+                <div class="row" id="languageLevelRowSpanish"> <!-- SPANISH LEVEL BUTTONS -->
+                    <div class="small-9 small-centered columns">
 
-<!-- SPANISH LEVEL BUTTONS -->
-<div class="row">
-    <div class="small-9 small-centered columns">
-
-        <ul class="button-group round toggle" data-toggle="buttons-radio">
-            <li>
-                <input ng-click='toggleSpanishEasyLevel()' type="radio" id="spanlevel1" name="r-group" data-toggle="button">
-                <label class="button" for="spanlevel1">Spanish 1</label>
-            </li>
-            <li>
-                <input ng-click='toggleSpanishMediumLevel()' type="radio" id="spanlevel2" name="r-group" data-toggle="button">
-                <label class="button" for="spanlevel2">Spanish 2</label>
-            </li>
-            <li>
-                <input ng-click='toggleSpanishHardLevel()' type="radio" id="spanlevel3" name="r-group" data-toggle="button">
-                <label class="button" for="spanlevel3">Spanish 3</label>
-            </li>
-        </ul>
-    </div>
-</div>
-<!-- SPANISH LEVEL BUTTONS END -->
-
-<!-- FRENCH FLAG/LANGUAGE SELECTION -->
-            <div class="small-3 columns">
-                <div class="image-wrapper overlay-fade-in">
-                    <img src="images/french.png" />
-                    <div class="image-overlay-content">
-                        <h2>French</h2>
+                        <div class="button-group round toggle" data-toggle="buttons-radio">
+                            <div class="spanishButtons">
+                                <input ng-click='toggleSpanishEasyLevel()' type="radio" id="spanlevel1" name="r-group" data-toggle="button">
+                                <label id="languageButtonLabel" class="button" for="spanlevel1">Spanish 1</label>
+                            </div>
+                            <div class="spanishButtons">
+                                <input ng-click='toggleSpanishMediumLevel()' type="radio" id="spanlevel2" name="r-group" data-toggle="button">
+                                <label id="languageButtonLabel" class="button" for="spanlevel2">Spanish 2</label>
+                            </div>
+                            <div class="spanishButtons">
+                                <input ng-click='toggleSpanishHardLevel()' type="radio" id="spanlevel3" name="r-group" data-toggle="button">
+                                <label id="languageButtonLabel" class="button" for="spanlevel3">Spanish 3</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-<!-- END FRENCH FLAG/LANGUAGE SELECTION -->
+            <!-- END SPANISH FLAG/LANGUAGE SELECTION -->
 
-<!-- FRENCH LEVEL BUTTONS -->
-<div class="row">
-    <div class="small-9 small-centered columns">
+            <!-- FRENCH FLAG/LANGUAGE SELECTION -->
+            <div class="small-3 columns" id="frenchFlag">
+                <div class="image-wrapper overlay-fade-in">
+                    <img src="images/french.png" />
+                    <div class="image-overlay-content">
+                    </div>
+                </div>
 
-        <ul class="button-group round toggle" data-toggle="buttons-radio">
-            <li>
-                <input ng-click='toggleFrenchEasyLevel()' type="radio" id="frenchlevel1" name="r-group" data-toggle="button">
-                <label class="button" for="frenchlevel1">French 1</label>
-            </li>
-            <li>
-                <input ng-click='toggleFrenchMediumLevel()' type="radio" id="frenchlevel2" name="r-group" data-toggle="button">
-                <label class="button" for="frenchlevel2">French 2</label>
-            </li>
-            <li>
-                <input ng-click='toggleFrenchHardLevel()' type="radio" id="frenchlevel3" name="r-group" data-toggle="button">
-                <label class="button" for="frenchlevel3">French 3</label>
-            </li>
-        </ul>
-    </div>
-</div>
-<!-- FRENCH LEVEL BUTTONS END -->
+                <div class="row" id="languageLevelRowFrench"> <!-- FRENCH LEVEL BUTTONS -->
+                    <div class="small-9 small-centered columns">
+
+                        <div class="button-group round toggle" data-toggle="buttons-radio">
+                            <div class="frenchButtons">
+                                <input ng-click='toggleFrenchEasyLevel()' type="radio" id="frenchlevel1" name="r-group" data-toggle="button">
+                                <label id="languageButtonLabel" class="button" for="frenchlevel1">French 1</label>
+                            </div>
+                            <<div class="frenchButtons">
+                                <input ng-click='toggleFrenchMediumLevel()' type="radio" id="frenchlevel2" name="r-group" data-toggle="button">
+                                <label id="languageButtonLabel" class="button" for="frenchlevel2">French 2</label>
+                            </div>
+                            <<div class="frenchButtons">
+                                <input ng-click='toggleFrenchHardLevel()' type="radio" id="frenchlevel3" name="r-group" data-toggle="button">
+                                <label id="languageButtonLabel" class="button" for="frenchlevel3">French 3</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END FRENCH FLAG/LANGUAGE SELECTION -->
         </div>
     </div>
     <!-- END LANGUAGE SELECTOR -->
 
-<!--  BEGIN TOPIC SELECTION INSTRUCTIONS -->
+    <!--  BEGIN TOPIC SELECTION INSTRUCTIONS -->
 
-<div class="row" id="topicinstructions">
-    <div class="small-12 medium-10 large-12 large-centered columns">
+    <div class="row" id="topicinstructions">
+        <div class="small-12 medium-10 large-12 large-centered columns">
 
-        <div class="header panel">
-            <div class="sign">
-                <h1>Step 2:</h1>
+            <div class="header panel">
+                <div class="sign">
+                    <h1>Step 2:</h1>
+                </div>
+                <p> Choose the type of news you'd like to hear about</p>
             </div>
-            <p> Choose the type of new's you'd like to hear about</p>
+
         </div>
-
     </div>
-</div>
 
-<!--  ENDTOPIC SELECTION INSTRUCTIONS -->
+    <!--  ENDTOPIC SELECTION INSTRUCTIONS -->
 
     <div class="small-up-5 columns">
 
@@ -168,35 +162,35 @@
 
 
     <div class="small-up-5 columns" id="lowerNewsColumn">
-    <!-- TECH PREFERENCE SETTING -->
-    <div class="column">
-        <img class="thumbnail" src="images/computer-mouse.png">
-        <div ng-if="UserPrefences.technology">
-            <h5>Technology</h5>
-            <button id="newsprefbutton" ng-click="toggleTechnology(false)">Turn Off</button>
+        <!-- TECH PREFERENCE SETTING -->
+        <div class="column">
+            <img class="thumbnail" src="images/computer-mouse.png">
+            <div ng-if="UserPrefences.technology">
+                <h5>Technology</h5>
+                <button id="newsprefbutton" ng-click="toggleTechnology(false)">Turn Off</button>
+            </div>
+            <div ng-if="!UserPrefences.technology">
+                <h5>Technology</h5>
+                <button id="newsprefbutton" ng-click="toggleTechnology(true)">Turn On</button>
+            </div>
         </div>
-        <div ng-if="!UserPrefences.technology">
-            <h5>Technology</h5>
-            <button id="newsprefbutton" ng-click="toggleTechnology(true)">Turn On</button>
+
+        <!-- BUSINESS SETTING -->
+        <div class="column">
+            <img class="thumbnail" src="images/suitcase.png">
+            <div ng-if="UserPrefences.business">
+                <h5>Business</h5>
+                <button id="newsprefbutton" ng-click="toggleBusiness(false)">Turn Off</button>
+            </div>
+            <div ng-if="!UserPrefences.business">
+                <h5>Business</h5>
+                <button id="newsprefbutton" ng-click="toggleBusiness(true)">Turn On</button>
+            </div>
         </div>
+
     </div>
 
-    <!-- BUSINESS SETTING -->
-    <div class="column">
-        <img class="thumbnail" src="images/suitcase.png">
-        <div ng-if="UserPrefences.business">
-            <h5>Business</h5>
-            <button id="newsprefbutton" ng-click="toggleBusiness(false)">Turn Off</button>
-        </div>
-        <div ng-if="!UserPrefences.business">
-            <h5>Business</h5>
-            <button id="newsprefbutton" ng-click="toggleBusiness(true)">Turn On</button>
-        </div>
-    </div>
-
-  </div>
-
-  <hr>
+    <hr>
 
     <!-- BEGIN LINGO (SAVE) -->
     <!-- <div class="bg-skew-contact">
@@ -242,5 +236,4 @@
             </div>
         </div>
     </footer>
-</div>
-</div>
+</body>
