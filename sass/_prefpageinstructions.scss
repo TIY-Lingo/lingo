@@ -1,6 +1,3 @@
-body {
-    // background: #333;
-}
 .header.panel {
     margin: 3rem auto;
     border: 2px solid #444;
@@ -34,4 +31,33 @@ body {
             line-height: 2rem;
         }
     }
+}
+#spanishFlag {
+  margin-left: 20%;
+}
+#frenchFlag {
+  margin-right: 20%;
+}
+#languageLevelRowFrench {
+  .small-9.small-centered.columns {
+    margin-left: 10%;
+  }
+  .frenchButtons {
+    margin-right: 3%;
+    &:hover {
+    transform: scale(1.1);
+    }
+  }
+}
+#languageLevelRowSpanish {
+  .small-9.small-centered.columns {
+    margin: 0;
+    margin-left: 5%;
+  }
+  .spanishButtons {
+    margin-right: 3%;
+    &:hover {
+    transform: scale(1.1);
+    }
+  }
 }

@@ -1,18 +1,11 @@
-.prefbody {
-    background-image: url('images/login2new.png');
-    // background-color: red;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
+#prefNavMenu {
+    margin-bottom: 3%;
 }
 .small-up-5.columns {
-    // background-color: #FFF;
     box-shadow: transparent;
     opacity: 0.95;
     width: 93%;
     display: inherit;
-    // margin-left: 14.5%;
     margin-bottom: 2%;
     .column {
         text-align: center;
@@ -31,9 +24,6 @@
     h5 {
         color: #003366;
     }
-}
-.small-3.columns {
-    float: right;
 }
 #newsprefbutton {
     border-radius: 5%;
@@ -72,11 +62,29 @@
     width: 100%;
     background-color: #003366;
     opacity: 0.95;
-    margin-top: -1%;
+    margin-top: 0%;
 }
 #titlepref {
     text-align: center;
     color: white;
     font: bolder 4rem "Avenir Next";
     font-family: "Avenir Next";
+}
+.languageselector {
+  background-color: #FFF;
+  opacity: .95;
+  height: 300px;
+}
+#languageSelectorRow {
+  margin-top: 2%;
+}
+.button-group.round.toggle {
+  display: inline-flex;
+  margin-left: 0;
+    #languageButtonLabel {
+      color: #548FCE;
+      background-color: transparent;
+      border: #C1E120 solid 1px;
+      border-radius: 10%;
+    }
 }
