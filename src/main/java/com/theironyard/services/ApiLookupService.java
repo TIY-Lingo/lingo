@@ -146,20 +146,21 @@ public class ApiLookupService {
                             System.out.println("This should never happen, You have 2 options: spanish or french");
                         }
                     }
-
                 } else {
                 }
-
 
             } else if (seedArray.size() == dictionaries.count()-3) {
                 if (language.equals("spanish")) {                        //They save along the way regardless so we only have to save the current level based on where the Counter is at
                     if (count <= 15) {
                         article.setSpan1(contentPlaceholder);
+                        article.setSpan2(contentPlaceholder);
+                        article.setSpan3(contentPlaceholder);
                         articles.save(article);
                         System.out.println("S failed before level 1 complete");
                         break;
                     } else if (count > 15 && count <= 30) {
                         article.setSpan2(contentPlaceholder);
+                        article.setSpan3(contentPlaceholder);
                         articles.save(article);
                         System.out.println("S failed before level 2 complete");
                         break;
@@ -172,16 +173,19 @@ public class ApiLookupService {
                 } else if (language.equals("french")) {
                     if (count <= 15) {
                         article.setFrench1(contentPlaceholder);
+                        article.setFrench2(contentPlaceholder);
+                        article.setFrench3(contentPlaceholder);
                         articles.save(article);
                         System.out.println("French translation failed before level 1 complete");
                         break;
                     } else if (count > 15 && count <= 30) {
-                        article.setSpan2(contentPlaceholder);
+                        article.setFrench2(contentPlaceholder);
+                        article.setFrench3(contentPlaceholder);
                         articles.save(article);
                         System.out.println("French translation failed before level 2 complete");
                         break;
                     } else if (count > 30) {
-                        article.setSpan3(contentPlaceholder);
+                        article.setFrench3(contentPlaceholder);
                         articles.save(article);
                         System.out.println("French translation failed before level 3 complete");
                         break;
