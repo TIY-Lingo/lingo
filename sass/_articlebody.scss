@@ -1,15 +1,62 @@
-.articlebody {
-  background-image: url('images/login2new.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-}
+// .articlebody {
+//   background-image: url('images/login2new.png');
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   width: 100%;
+// }
 .translated {
-  text-decoration: underline;
-  cursor: pointer;
-  max-width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  background-color: yellow;
+    text-decoration: underline;
+    cursor: pointer;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    background-color: yellow;
+    color: #000;
+font-family: "Avenir Next";
+font-size: 100%;
+}
+
+#headline {
+    font-size: 215%;
+    text-align: center;
+}
+#articletitle {
+    border: solid 1px transparent;
+    padding: 4px 1px 1px;
+    width: 100%;
+}
+#articletext {
+    color: #000;
+    font-family: "Avenir Next";
+    font-weight: 500;
+}
+.sub-nav {
+    background-color: #f2f2f2;
+    padding: 0.5rem 0.5rem 0.5rem 0;
+    li {
+        color: #999999;
+        font-size: 0.77778rem;
+        padding-left: 0.88889rem;
+        &.active a {
+            border-radius: 3px;
+            background: #008CBA;
+            color: #fff;
+            cursor: default;
+            font-weight: normal;
+            padding: 0.16667rem 0.88889rem;
+        }
+    }
+}
+#articleholder {
+    width: 90%;
+    overflow: scroll;
+}
+#articlecontent {
+    text-align: left;
+}
+#articlebox {
+    border: solid 2px #9e9e9e;
+    background-color: #f2f2f2;;
+    margin-top: 0;
 }
