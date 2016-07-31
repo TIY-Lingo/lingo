@@ -60,7 +60,6 @@ public class ApiLookupService {
                 cat.getArticles().add(article);
                 categories.save(cat);
             }
-            System.out.println(articles.count());
             langInjection(article, "french");                               //Run it once for spanish and once for french
             langInjection(article, "spanish");
             System.out.println("Article translation complete");
@@ -162,7 +161,7 @@ public class ApiLookupService {
 
 
             } else if (seedArray.size() == dictionaries.count()-3) {
-                if (language.equals("spanish")) {                        //They save along the way regardless so we only have to save the level based on where the Counter is at
+                if (language.equals("spanish")) {                        //They save along the way regardless so we only have to save the current level based on where the Counter is at
                     if (count <= 15) {
                         article.setSpan1(contentPlaceholder);
                         articles.save(article);
@@ -183,17 +182,17 @@ public class ApiLookupService {
                     if (count <= 15) {
                         article.setFrench1(contentPlaceholder);
                         articles.save(article);
-                        System.out.println("F failed before level 1 complete");
+                        System.out.println("French translation failed before level 1 complete");
                         break;
                     } else if (count > 15 && count <= 30) {
                         article.setSpan2(contentPlaceholder);
                         articles.save(article);
-                        System.out.println("F failed before level 2 complete");
+                        System.out.println("French translation failed before level 2 complete");
                         break;
                     } else if (count > 30) {
                         article.setSpan3(contentPlaceholder);
                         articles.save(article);
-                        System.out.println("F failed before level 3 complete");
+                        System.out.println("French translation failed before level 3 complete");
                         break;
                     }
                 } else {
