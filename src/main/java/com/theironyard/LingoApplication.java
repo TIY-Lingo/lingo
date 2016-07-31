@@ -40,17 +40,18 @@ public class LingoApplication implements CommandLineRunner {
 		long start = System.currentTimeMillis();
 		boolean isRunning = true;
 
-		// once Every 24 hours scrape and translate articles from these 5 categories at the New York Times - an infinite Loop as isRunning will never be set to false (hopefully)
+		// Every 24 hours scrape and translate articles from these 5 categories at the New York Times
 		while(isRunning) {
 			Future<ResultContainter> page1 = apiLookupService.findResults("https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=289858bf10514c09b02e561994f4ab45");
 			Future<ResultContainter> page2 = apiLookupService.findResults("https://api.nytimes.com/svc/topstories/v2/sports.json?api-key=289858bf10514c09b02e561994f4ab45");
 			Future<ResultContainter> page3 = apiLookupService.findResults("https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=289858bf10514c09b02e561994f4ab45");
 			Future<ResultContainter> page4 = apiLookupService.findResults("https://api.nytimes.com/svc/topstories/v2/politics.json?api-key=289858bf10514c09b02e561994f4ab45");
 			Future<ResultContainter> page5 = apiLookupService.findResults("https://api.nytimes.com/svc/topstories/v2/business.json?api-key=289858bf10514c09b02e561994f4ab45");
-			Thread.sleep(86400000);  //sleep for 24 hours
+			Thread.sleep(86400000);
 		}
 
 		System.out.println("Elapsed time: " + (System.currentTimeMillis() - start));
+
 	} //end run method
 
 	public static void main(String[] args) throws IOException {
