@@ -75,26 +75,23 @@ public class LingoRestController {
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public Boolean login(@RequestBody User user, HttpSession session,  java.util.Date date) throws Exception {
 
-        User user1 = users.findByUsername(user.getUsername());
-        if (user1 == null) {
+        User user1 = users.findByUsername(user.getUsername());            //check to see if supplied username is in the DB
+        if (user1 == null) {                                              //if it isn't, return false so front end to handle it
             return false;
         }
-        else if (!PasswordStorage.verifyPassword(user.getPassword(), user1.getPassword())){
+        else if (!PasswordStorage.verifyPassword(user.getPassword(), user1.getPassword())){  //if it is, check the Password supplied against the stored password, return false if not the same
             return false;
         }
-//        user1.setTimestamp(LocalDateTime.now());
-//        users.save(user1);
         session.setAttribute("username", user1.getUsername());
         return true;
     }
 
     @RequestMapping(path = "/registerUser", method = RequestMethod.POST)
     public Boolean register(@RequestBody User user, HttpServletResponse response, HttpSession session) throws PasswordStorage.CannotPerformOperationException, IOException {
-        if(users.findByUsername(user.getUsername())!= null){   // If the username is in the DB return false
+        if(users.findByUsername(user.getUsername())!= null){          // If the username is in the DB return false
             return false;
-        }else {                                                 //Otherwise create the user and add it to the DB
+        }else {                                                       //Otherwise create the user and add it to the DB
             User user1 = new User(user.getUsername(), PasswordStorage.createHash(user.getPassword()));
-
             users.save(user1);
             session.setAttribute("username", user1.getUsername());
             return true;
@@ -103,21 +100,20 @@ public class LingoRestController {
 
     @RequestMapping(path = "/preferences", method = RequestMethod.GET)
     public User getPreferences( HttpSession session) throws Exception {
-       if (session.getAttribute("username") != null){
+       if (session.getAttribute("username") != null){                 //if the session is valid, return user preferences from the DB
            return users.findByUsername((String) session.getAttribute("username"));
        } else{
-           throw new Exception("you mst be logged in to change preferences");
+           throw new Exception("you must be logged in to change preferences");
        }
     }
 
     @RequestMapping(path = "/preferences", method = RequestMethod.POST)
     public User setPreferences(@RequestBody User user, HttpSession session) throws Exception {
-        if (session.getAttribute("username") ==null){
-            throw new Exception("You must Login to view or change preferences!");
+        if (session.getAttribute("username") ==null){                  //check session to make sure it's valid
+            throw new Exception("You must Login to view or change your preferences!");
         }else {
-            User userA = users.findByUsername((String) session.getAttribute("username"));
-            userA.setLanguage(user.getLanguage());
-
+            User userA = users.findByUsername((String) session.getAttribute("username"));  //grab the user and info from the db
+            userA.setLanguage(user.getLanguage());                       //set the new preferences
             userA.setTechnology(user.getTechnology());
             userA.setArts(user.getArts());
             userA.setBusiness(user.getBusiness());
@@ -126,7 +122,7 @@ public class LingoRestController {
             userA.setLangLevel(user.getLangLevel());
 
 
-            if (user.getArts()) {
+            if (user.getArts()) {                                           // if a preference is set to true - add the relationship
                 Category cat = categories.findFirstByType("arts");
                 userA.getCatList().add(cat);
             }
@@ -147,10 +143,10 @@ public class LingoRestController {
                 userA.getCatList().add(cat);
             }
 
-            users.save(userA);
+            users.save(userA);                                               // after all the changes, save the updated user to the DB
             System.out.println("User saved to Database...");
 
-            return users.save(userA);
+            return users.save(userA);                                       //return the updated user object for the Front End
 
         }
     }
@@ -161,18 +157,22 @@ public class LingoRestController {
             throw new Exception("You must log in to view this page");
         }else {
             User user = users.findByUsername((String) session.getAttribute("username"));
-            System.out.println(user.getLangLevel());
+
+            //this query pulls articles based on preference using the User-category relationship and the article-Category relationship
             String sql = "SELECT ca.CATEGORY_ID, a." + user.getLangLevel() + ", a.title, a.type"  + "  FROM Articles a " +
             "INNER JOIN CATEGORY_ARTICLE ca ON ca.article_id = a.ID " +
             "INNER JOIN USERS_CATEGORIES uc on uc.catlist_ID = ca.CATEGORY_ID " +
             "WHERE uc.user_id = ? ";
 
+            //had to create a separate connection to h2 db using jdbc to use a custom query. Hibernate was resisting the power of our query
             Connection conn = DriverManager.getConnection("jdbc:h2:./main;DB_CLOSE_ON_EXIT=FALSE", "sa", "");
             PreparedStatement stmnt = conn.prepareStatement(sql);
             stmnt.setInt(1, user.getId());
             ResultSet results = stmnt.executeQuery();
 
             ArrayList<ReturnArticle> returnArray = new ArrayList<>();
+
+            // creating a new object with category ID, translation, title, and type for the FEE for each article present
             while(results.next()){
                 int categoryId = results.getInt(1);
                 String translation = results.getString(2);
@@ -183,7 +183,6 @@ public class LingoRestController {
             }
 
             conn.close();
-            System.out.println(" ");
             return returnArray;
         }
     }
@@ -191,10 +190,10 @@ public class LingoRestController {
     @RequestMapping(path = "/logout", method = RequestMethod.POST)
     public void logout(HttpSession session) throws IOException {
         session.invalidate();
-        System.out.println("Session has been invalidated");
     }
 
     public void parseDictionary() throws FileNotFoundException {
+        //Parsing the language dictionary from a csv file into the db at runtime if it hasn't already been created.
 
         if(dictionaries.count() == 0) {
             File f = new File("Tri-Lingual-Library.csv");
