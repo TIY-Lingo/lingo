@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 
@@ -183,10 +184,33 @@ public class LingoRestController {
                 returnArray.add(ra1);
             }
 
+            ArrayList<ReturnArticle> limitedArray = new ArrayList<>();
+            int i = 0;
+            do{
+                Random rm = new Random();
+                ArrayList<Integer> seedArray = new ArrayList<Integer>();
+                int seedValue = rm.nextInt(returnArray.size());
+
+                if (!seedArray.contains(seedValue)) {
+                    seedArray.add(seedValue);
+                    limitedArray.add(returnArray.get(seedValue));
+                    i++;
+                }
+            } while(i<20);
+
             conn.close();
-            return returnArray;
+            return limitedArray;
         }
     }
+
+    @RequestMapping(path = "/articles/{{id}}", method=RequestMethod.GET)
+    public Article returnOne(HttpSession session, int articleID) throws Exception{
+
+        Article justTheOne = articles.findById(articleID);
+
+        return justTheOne;
+    }
+
 
     @RequestMapping(path = "/logout", method = RequestMethod.POST)
     public void logout(HttpSession session) throws IOException {
