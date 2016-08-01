@@ -1,58 +1,61 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 module.exports = function(app) {
-    app.controller('ListViewController', ['NewsService', 'UserService', '$scope', '$location', function(NewsService, UserService, $scope, $location) {
-        $scope.pageNumber = 1;
-        $scope.itemsPerPage = 25;
-
-        $scope.specificPref = UserService.getPreferences();
-
-        $scope.getId = NewsService.allTheArticles;
-
-
-        var getArts = function() {
-            NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
-                $scope.newsArray = newsArray;
-            });
-        }
-
-        getArts();
-
-
-        $scope.goback = function() {
-
-            $scope.pageNumber -= 1;
+    app.controller('ListViewController', ['NewsService', 'UserService', '$routeParams',
+        '$scope', '$location',
+        function(NewsService, UserService, $scope, $routeParams, $location) {
+            $scope.pageNumber = 1;
             $scope.itemsPerPage = 25;
 
-            NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
-                $scope.newsArray = newsArray;
-            });
+            $scope.specificPref = UserService.getPreferences();
+
+            let articleId = parseInt($routeParams.articleId);
+
+            if (articleId) {
+                $scope.currentArticle = NewsService.getArticeById(articleId);
+            }
+
+            var getArts = function() {
+                NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
+                    $scope.newsArray = newsArray;
+                });
+            }
+
+            getArts();
+
+
+            $scope.goback = function() {
+
+                $scope.pageNumber -= 1;
+                $scope.itemsPerPage = 25;
+
+                NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
+                    $scope.newsArray = newsArray;
+                });
+
+            }
+            $scope.goforward = function() {
+
+                $scope.pageNumber += 1;
+                $scope.itemsPerPage = 25;
+
+                NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
+                    $scope.newsArray = newsArray;
+                });
+
+            }
+
+            $scope.signOut = function() {
+                NewsService.signOutUser();
+            };
+
+
+
+
+
+
 
         }
-        $scope.goforward = function() {
-
-            $scope.pageNumber += 1;
-            $scope.itemsPerPage = 25;
-
-            NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
-                $scope.newsArray = newsArray;
-            });
-
-        }
-
-        $scope.signOut = function() {
-            NewsService.signOutUser();
-        };
-
-
-        // click headline and display full article associated w/ that headline///
-
-        $scope.clickedHeadline = function() {
-            // console.log("this is the id", $scope.getId);
-        }
-
-
-
-    }]);
+    ]);
 }
 
 },{}],2:[function(require,module,exports){
@@ -81,7 +84,6 @@ module.exports = function(app) {
         var getArts = function() {
             NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
                 $scope.newsArray = newsArray;
-                console.log("this is the data", $scope.newsArray);
             });
         }
 
@@ -114,21 +116,8 @@ module.exports = function(app) {
             NewsService.signOutUser();
         };
 
-        $scope.clickedFullArticle = function() {
 
-        };
-        $scope.clickedListView = function() {
 
-        };
-
-        // var getPolitics = function() {
-        //     NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function() {
-        //         $scope.politicsArticles = NewsService.politicsArticles($scope.pageNumber, $scope.itemsPerPage);
-        //         console.log("theses are the politics", $scope.politicsArticles);
-        //     });
-        // }
-        //
-        // getPolitics();
     }]);
 }
 
@@ -251,10 +240,6 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: 'UserController',
             templateUrl: 'templates/login.html',
         })
-        // .when('/register', {
-        //     controller: 'UserController',
-        //     templateUrl: 'templates/registerUser.html',
-        // })
         .when('/preferences', {
             controller: 'UserController',
             templateUrl: 'templates/preferences.html',
@@ -271,10 +256,11 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: 'ListViewController',
             templateUrl: 'templates/listview.html',
         })
-        .when('/news/politics', {
-            controller: 'NewsController',
-            templateUrl: 'templates/politics.html',
+        .when('/article/:articleId', {
+            controller: 'ListViewController',
+            templateUrl: 'templates/listviewclicked.html',
         })
+
 
 }]);
 
@@ -284,7 +270,6 @@ module.exports = function(app) {
     app.factory('NewsService', ['UserService', '$http', '$location', function(UserService, $http, $location) {
 
         let personLoggedIn = UserService.getPreferences();
-        let allTheArticles = [];
 
         var newsArray = {
             async: function(pageNum, perPage) {
@@ -293,37 +278,6 @@ module.exports = function(app) {
                     method: 'GET',
                     url: '/articles',
                 }).then(function(response) {
-                    // // console.log(response.data);
-                    // let newsArrayResponse = response.data;
-                    // artsArticles = [];
-                    // sportsArticles = [];
-                    // politicsArticles = [];
-                    // businessArticles = [];
-                    // technologyArticles = [];
-                    //
-                    // // console.log("element categorization begin");
-                    //
-                    // newsArrayResponse.forEach(function(element) {
-                    //     if (element.category_id === 775) {
-                    //         // console.log("art element.category_id: " + 775);
-                    //         artsArticles.push(element)
-                    //     } else if (element.category_id === 772) {
-                    //         // console.log("biz element.category_id: " + 772);
-                    //         businessArticles.push(element)
-                    //     } else if (element.category_id === 774) {
-                    //         // console.log("sports element.category_id: " + 774);
-                    //         sportsArticles.push(element)
-                    //     } else if (element.category_id === 773) {
-                    //         // console.log("poly element.category_id: " + 773);
-                    //         politicsArticles.push(element)
-                    //     } else if (element.category_id === 776) {
-                    //         // console.log("tech element.category_id: " + 776);
-                    //         technologyArticles.push(element)
-                    //     } else {
-                    //         // console.log("else element.category_id: " + element.category_id);
-                    //     }
-                    // })
-
 
 
                     let start = (pageNum + 1) * perPage;
@@ -334,15 +288,19 @@ module.exports = function(app) {
                 return promise;
             },
 
-            // politicsArticles: function(pageNum, perPage) {
-            //     console.log("politicsArticles: " + politicsArticles.length);
-            //     let start = (pageNum + 1) * perPage;
-            //
-            //     if (politicsArticles) {
-            //         return politicsArticles.slice(start, start + perPage);
-            //     }
-            //
-            // },
+            getArticeById: function(id){
+
+              var promise = $http({
+                  method: 'GET',
+                  url: '/articles/' + id,
+              }).then(function(response) {
+
+                return response;
+
+              });
+              return promise;
+
+            },
 
             //////SIGN OUT FUNCTION//////
             signOutUser: function() {

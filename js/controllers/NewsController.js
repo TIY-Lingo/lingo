@@ -23,7 +23,6 @@ module.exports = function(app) {
         var getArts = function() {
             NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
                 $scope.newsArray = newsArray;
-                console.log("this is the data", $scope.newsArray);
             });
         }
 
@@ -56,20 +55,7 @@ module.exports = function(app) {
             NewsService.signOutUser();
         };
 
-        $scope.clickedFullArticle = function() {
 
-        };
-        $scope.clickedListView = function() {
 
-        };
-
-        // var getPolitics = function() {
-        //     NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function() {
-        //         $scope.politicsArticles = NewsService.politicsArticles($scope.pageNumber, $scope.itemsPerPage);
-        //         console.log("theses are the politics", $scope.politicsArticles);
-        //     });
-        // }
-        //
-        // getPolitics();
     }]);
 }
