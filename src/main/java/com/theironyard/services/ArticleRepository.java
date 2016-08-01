@@ -13,6 +13,7 @@ import java.util.List;
 @Repository
 public interface ArticleRepository extends CrudRepository<Article, Integer>{
     Article findByTitle(String title);
+    Article findById(int id);
 //    Iterable<Article> findByType(String type);
 //    ArrayList<Article> findArticleByType(String type);
 //    Article findById(int Id);
