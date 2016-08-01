@@ -11,10 +11,7 @@ import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.theironyard.services.ArticleRepository;
 import com.theironyard.services.UserRepository;
 
@@ -203,8 +200,8 @@ public class LingoRestController {
         }
     }
 
-    @RequestMapping(path = "/articles/{{id}}", method=RequestMethod.GET)
-    public Article returnOne(HttpSession session, int articleID) throws Exception{
+    @RequestMapping(path = "/article/{id}", method=RequestMethod.GET)
+    public Article returnOne(HttpSession session, @PathVariable int articleID) throws Exception{
 
         Article justTheOne = articles.findById(articleID);
 
