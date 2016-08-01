@@ -12,6 +12,7 @@ module.exports = function(app) {
                     url: '/articles',
                 }).then(function(response) {
 
+                    console.log("/articles reponse", response);
 
                     let start = (pageNum + 1) * perPage;
 

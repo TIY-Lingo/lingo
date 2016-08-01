@@ -2,12 +2,12 @@
 module.exports = function(app) {
     app.controller('ListViewController', ['NewsService', 'UserService', '$routeParams',
         '$scope', '$location',
-        function(NewsService, UserService, $scope, $routeParams, $location) {
+        function(NewsService, UserService, $routeParams,$scope, $location) {
             $scope.pageNumber = 1;
             $scope.itemsPerPage = 5;
 
             $scope.specificPref = UserService.getPreferences();
-            
+
             let articleId = parseInt($routeParams.articleId);
 
             if (articleId) {
@@ -17,6 +17,7 @@ module.exports = function(app) {
             var getArts = function() {
               console.log("in get arts!");
                 NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
+                  console.log("all done", newsArray);
                     $scope.newsArray = newsArray;
                 });
             }
@@ -274,6 +275,7 @@ module.exports = function(app) {
                     url: '/articles',
                 }).then(function(response) {
 
+                    console.log("/articles reponse", response);
 
                     let start = (pageNum + 1) * perPage;
 
