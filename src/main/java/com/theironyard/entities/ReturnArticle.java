@@ -6,18 +6,14 @@ public class ReturnArticle {
     String span1;
     String title;
     String type;
+    int articleId;
 
-    public ReturnArticle(int category_id, String span1, String title, String type) {
+    public ReturnArticle(int category_id, String span1, String title, String type, int articleId) {
         this.category_id = category_id;
         this.span1 = span1;
         this.title = title;
         this.type = type;
-    }
-
-    public ReturnArticle(int category_id, String span1, String title) {
-        this.category_id = category_id;
-        this.span1 = span1;
-        this.title = title;
+        this.articleId = articleId;
     }
 
     public ReturnArticle(int category_id, String span1) {
@@ -58,5 +54,13 @@ public class ReturnArticle {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public int getArticleId() {
+        return articleId;
+    }
+
+    public void setArticleId(int articleId) {
+        this.articleId = articleId;
     }
 }

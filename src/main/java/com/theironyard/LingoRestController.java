@@ -159,7 +159,7 @@ public class LingoRestController {
             User user = users.findByUsername((String) session.getAttribute("username"));
 
             //this query pulls articles based on preference using the User-category relationship and the article-Category relationship
-            String sql = "SELECT ca.CATEGORY_ID, a." + user.getLangLevel() + ", a.title, a.type"  + "  FROM Articles a " +
+            String sql = "SELECT ca.CATEGORY_ID, a." + user.getLangLevel() + ", a.title, a.type, a.id"  + "  FROM Articles a " +
             "INNER JOIN CATEGORY_ARTICLE ca ON ca.article_id = a.ID " +
             "INNER JOIN USERS_CATEGORIES uc on uc.catlist_ID = ca.CATEGORY_ID " +
             "WHERE uc.user_id = ? ";
@@ -178,7 +178,8 @@ public class LingoRestController {
                 String translation = results.getString(2);
                 String title = results.getString(3);
                 String type = results.getString(4);
-                ReturnArticle ra1 = new ReturnArticle(categoryId, translation, title, type);
+                int articleId = results.getInt(5);
+                ReturnArticle ra1 = new ReturnArticle(categoryId, translation, title, type, articleId);
                 returnArray.add(ra1);
             }
 
