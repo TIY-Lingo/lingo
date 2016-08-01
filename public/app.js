@@ -127,10 +127,10 @@ module.exports = function(app) {
         $scope.userInput = '';
         $scope.userPassword = '';
 
-        $scope.UserPrefences = UserService.getPreferences();
+        $scope.UserPreferences = UserService.getPreferences();
 
         $scope.signIn = function() {
-            console.log("clicked log in", $scope.UserPrefences);
+            console.log("clicked log in", $scope.UserPreferences);
             UserService.postExistingUser($scope.userInput, $scope.userPassword)
         }
 
@@ -142,79 +142,79 @@ module.exports = function(app) {
 
         // SPANISH LANGUAGE DIFFICULTY
         $scope.toggleSpanishEasyLevel = function() {
-          $scope.UserPrefences.langLevel = 'span1';
-          $scope.UserPrefences.language = "spanish";
-          console.log('spanish is:', $scope.UserPrefences.langLevel);
+          $scope.UserPreferences.langLevel = 'span1';
+          $scope.UserPreferences.language = "spanish";
+          console.log('spanish is:', $scope.UserPreferences.langLevel);
           console.log('Your lengua es Espanol');
         };
         $scope.toggleSpanishMediumLevel = function() {
-          $scope.UserPrefences.langLevel = 'span2';
-          $scope.UserPrefences.language = "spanish";
-          console.log('spanish is:', $scope.UserPrefences.langLevel);
+          $scope.UserPreferences.langLevel = 'span2';
+          $scope.UserPreferences.language = "spanish";
+          console.log('spanish is:', $scope.UserPreferences.langLevel);
           console.log('Your lengua es Espanol');
         };
         $scope.toggleSpanishHardLevel = function() {
-          $scope.UserPrefences.langLevel = 'span3';
-          $scope.UserPrefences.language = "spanish";
-          console.log('spanish is:', $scope.UserPrefences.langLevel);
+          $scope.UserPreferences.langLevel = 'span3';
+          $scope.UserPreferences.language = "spanish";
+          console.log('spanish is:', $scope.UserPreferences.langLevel);
           console.log('Your lengua es Espanol');
         };
 
         // FRENCH LANGUAGE DIFFICULTY
         $scope.toggleFrenchEasyLevel = function() {
-          $scope.UserPrefences.langLevel = 'french1';
-          $scope.UserPrefences.language = "french"
-          console.log('french is:', $scope.UserPrefences.langLevel);
+          $scope.UserPreferences.langLevel = 'french1';
+          $scope.UserPreferences.language = "french"
+          console.log('french is:', $scope.UserPreferences.langLevel);
           console.log("Wee wee!!!!");
         };
         $scope.toggleFrenchMediumLevel = function() {
-          $scope.UserPrefences.language = "french"
-          $scope.UserPrefences.langLevel = 'french2';
-          console.log('french is:', $scope.UserPrefences.langLevel);
+          $scope.UserPreferences.language = "french"
+          $scope.UserPreferences.langLevel = 'french2';
+          console.log('french is:', $scope.UserPreferences.langLevel);
           console.log("Wee wee!!!!");
         };
         $scope.toggleFrenchHardLevel = function() {
-          $scope.UserPrefences.language = "french"
-          $scope.UserPrefences.langLevel = 'french3';
-          console.log('french is:', $scope.UserPrefences.langLevel);
+          $scope.UserPreferences.language = "french"
+          $scope.UserPreferences.langLevel = 'french3';
+          console.log('french is:', $scope.UserPreferences.langLevel);
           console.log("Wee wee!!!!");
         };
 
         // TOGGLE ON AND OFF TECHNOLOGY PREFERENCE
         $scope.toggleTechnology = function(value) {
             console.log("Tech is: ", value);
-            $scope.UserPrefences.technology = value;
+            $scope.UserPreferences.technology = value;
         };
         // TOGGLE ON AND OFF BUSINESS PREFERENCE
         $scope.toggleBusiness = function(value) {
             console.log("Busy-ness is: ", value);
-            $scope.UserPrefences.business = value;
+            $scope.UserPreferences.business = value;
         };
         // TOGGLE ON AND OFF POLITICS PREFERENCE
         $scope.togglePolitics = function(value) {
             console.log("Politics is: ", value);
-            $scope.UserPrefences.politics = value;
+            $scope.UserPreferences.politics = value;
         };
         // TOGGLE ON AND OFF ARTS PREFERENCE
         $scope.toggleArts = function(value) {
             console.log("Arts is: ", value);
-            $scope.UserPrefences.arts = value;
+            $scope.UserPreferences.arts = value;
         };
         // TOGGLE ON AND OFF SPORTS PREFERENCE
         $scope.toggleSports = function(value) {
             console.log("Sports is: ", value);
-            $scope.UserPrefences.sports = value;
+            $scope.UserPreferences.sports = value;
         };
         //when controller loads, we get our user Preference object from the server;
         //this saves our object to the server with our current values that changed on our model
         $scope.savePref = function() {
-            // console.log('saving saving saving Technology is: ', $scope.UserPrefences.technology);
-            UserService.updatePreferences($scope.UserPrefences).then(function(result) {
+            // console.log('saving saving saving Technology is: ', $scope.UserPreferences.technology);
+            UserService.updatePreferences($scope.UserPreferences).then(function(result) {
                 // console.log("result > updatePreferences", result);
-                $scope.UserPrefences = UserService.getPreferences();
-                // console.log('saved saved saved Technology is: ', $scope.UserPrefences.technology);
+                $scope.UserPreferences = UserService.getPreferences();
+                // console.log('saved saved saved Technology is: ', $scope.UserPreferences.technology);
             });
-            //console.log('saving preferencesss:', $scope.UserPrefences);
+            //console.log('saving preferencesss:', $scope.UserPreferences);
         };
     }]);
 }
@@ -393,8 +393,7 @@ module.exports = function(app) {
                 }).then(function(response) {
                     console.log("posted preferences", response);
                     if (response.data.langLevel === null) {
-                      console.log('yo prefs are null');
-                      alert('dkdkdk');
+                      alert('Please select your preferences.');
                     } else {
                       $location.path('/news');
                     };
