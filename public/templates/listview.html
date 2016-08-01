@@ -13,6 +13,13 @@
 
 <!-- END ARTICLE HEADER -->
 
+<!-- SECOND NAV -->
+<ul class="sub-nav menu" role="navigation" title="Filter Menu List">
+    <li class="sub-nav-title">Filter:</li>
+    <li class="active"><span class="show-for-sr">You're viewing </span><a href="#news" ng-click='clickedListView()'>Full Article</a></li>
+    <li ><a href="#news/list" ng-click='clickedFullArticle()'>By Headline</a></li>
+</ul>
+
 <!-- START CATEGORIES -->
 <!-- <div class="row">
     <div class="small-3 columns">
@@ -46,6 +53,19 @@
 </div>
 </div>
 <!-- END ARTICLE BODY -->
+
+
+<!-- SECOND FOOTER -->
+<ul class="sub-nav menu" role="navigation" title="Filter Menu List">
+    <li class="sub-nav-title">You're now viewing articles about:</li>
+    <li ng-show="specificPref.arts">Arts</li>
+    <li ng-show="specificPref.sports">Sports</li>
+    <li ng-show="specificPref.technology">Technology</li>
+    <li ng-show="specificPref.business">Business</li>
+    <li ng-show="specificPref.politics">Politics</li>
+    <li><a href="#preferences" >Not seeing what you like?</a></li>
+</ul>
+<!-- SECOND FOOTER  -->
 
 <!-- ARTICLE FOOTER -->
 

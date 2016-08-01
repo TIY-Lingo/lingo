@@ -200,7 +200,7 @@ public class LingoRestController {
         }
     }
 
-    @RequestMapping(path = "/article/{id}", method=RequestMethod.GET)
+    @RequestMapping(path = "/article/{articleID}", method=RequestMethod.GET)
     public Article returnOne(HttpSession session, @PathVariable int articleID) throws Exception{
 
         Article justTheOne = articles.findById(articleID);
