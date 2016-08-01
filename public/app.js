@@ -1,60 +1,61 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 module.exports = function(app) {
-    app.controller('ListViewController', ['NewsService', 'UserService', '$scope', '$location', function(NewsService, UserService, $scope, $location) {
-        $scope.pageNumber = 1;
-        $scope.itemsPerPage = 25;
-
-        $scope.specificPref = UserService.getPreferences();
-
-
-        var getArts = function() {
-            NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
-                $scope.newsArray = newsArray;
-            });
-        }
-
-        getArts();
-
-        console.log('this is the news array:', $scope.newsArray)
-
-        $scope.goback = function() {
-
-            $scope.pageNumber -= 1;
+    app.controller('ListViewController', ['NewsService', 'UserService', '$routeParams',
+        '$scope', '$location',
+        function(NewsService, UserService, $scope, $routeParams, $location) {
+            $scope.pageNumber = 1;
             $scope.itemsPerPage = 25;
 
-            NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
-                $scope.newsArray = newsArray;
-            });
+            $scope.specificPref = UserService.getPreferences();
+
+            let articleId = parseInt($routeParams.articleId);
+
+            if (articleId) {
+                $scope.currentArticle = NewsService.getArticeById(articleId);
+            }
+
+            var getArts = function() {
+                NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
+                    $scope.newsArray = newsArray;
+                });
+            }
+
+            getArts();
+
+
+            $scope.goback = function() {
+
+                $scope.pageNumber -= 1;
+                $scope.itemsPerPage = 25;
+
+                NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
+                    $scope.newsArray = newsArray;
+                });
+
+            }
+            $scope.goforward = function() {
+
+                $scope.pageNumber += 1;
+                $scope.itemsPerPage = 25;
+
+                NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
+                    $scope.newsArray = newsArray;
+                });
+
+            }
+
+            $scope.signOut = function() {
+                NewsService.signOutUser();
+            };
+
+
+
+
+
+
 
         }
-        $scope.goforward = function() {
-
-            $scope.pageNumber += 1;
-            $scope.itemsPerPage = 25;
-
-            NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
-                $scope.newsArray = newsArray;
-            });
-
-        }
-
-        $scope.signOut = function() {
-            NewsService.signOutUser();
-        };
-
-        $scope.selectedArticle = function(id) {
-
-          console.log("id is: ", id);
-
-
-          // Go to server and get article (id)
-          // return article content
-
-      }
-
-
-
-    }]);
+    ]);
 }
 
 },{}],2:[function(require,module,exports){
@@ -75,7 +76,6 @@ module.exports = function(app) {
 
 
         $scope.makeArticleSafe = function(article) {
-            console.log("article", article);
             return $sce.trustAsHtml(article);
         }
 
@@ -84,7 +84,6 @@ module.exports = function(app) {
         var getArts = function() {
             NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
                 $scope.newsArray = newsArray;
-                console.log($scope.newsArray);
             });
         }
 
@@ -101,10 +100,11 @@ module.exports = function(app) {
             });
 
         }
-        $scope.goforward = function() {
+        $scope.goforward = function(category) {
 
             $scope.pageNumber += 1;
             $scope.itemsPerPage = 1;
+
 
             NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
                 $scope.newsArray = newsArray;
@@ -116,16 +116,8 @@ module.exports = function(app) {
             NewsService.signOutUser();
         };
 
-        $scope.clickedFullArticle = function() {
 
-        };
-        $scope.clickedListView = function() {
 
-        };
-
-        // $scope.clickedPolitics = function(){
-        //   NewsService.
-        // }
     }]);
 }
 
@@ -135,10 +127,10 @@ module.exports = function(app) {
         $scope.userInput = '';
         $scope.userPassword = '';
 
-        $scope.UserPrefences = UserService.getPreferences();
+        $scope.UserPreferences = UserService.getPreferences();
 
         $scope.signIn = function() {
-            console.log("clicked log in", $scope.UserPrefences);
+            console.log("clicked log in", $scope.UserPreferences);
             UserService.postExistingUser($scope.userInput, $scope.userPassword)
         }
 
@@ -148,84 +140,81 @@ module.exports = function(app) {
 
         }
 
-        //when controller loads, we get our user Preference object from the server;
-        //this saves our object to the server with our current values that changed on our model
-        $scope.savePref = function() {
-            console.log('saving saving saving Technology is: ', $scope.UserPrefences.technology);
-            UserService.updatePreferences($scope.UserPrefences).then(function(result) {
-                console.log("result > updatePreferences", result);
-                //$scope.UserPrefences = UserService.getPreferences();
-                console.log('saved saved saved Technology is: ', $scope.UserPrefences.technology);
-                $location.path('/news');
-            });
-            //console.log('saving preferencesss:', $scope.UserPrefences);
-
-        };
-
         // SPANISH LANGUAGE DIFFICULTY
         $scope.toggleSpanishEasyLevel = function() {
-          $scope.UserPrefences.langLevel = 'span1';
-          $scope.UserPrefences.language = "spanish";
-          console.log('spanish is:', $scope.UserPrefences.langLevel);
+          $scope.UserPreferences.langLevel = 'span1';
+          $scope.UserPreferences.language = "spanish";
+          console.log('spanish is:', $scope.UserPreferences.langLevel);
           console.log('Your lengua es Espanol');
         };
         $scope.toggleSpanishMediumLevel = function() {
-          $scope.UserPrefences.langLevel = 'span2';
-          $scope.UserPrefences.language = "spanish";
-          console.log('spanish is:', $scope.UserPrefences.langLevel);
+          $scope.UserPreferences.langLevel = 'span2';
+          $scope.UserPreferences.language = "spanish";
+          console.log('spanish is:', $scope.UserPreferences.langLevel);
           console.log('Your lengua es Espanol');
         };
         $scope.toggleSpanishHardLevel = function() {
-          $scope.UserPrefences.langLevel = 'span3';
-          $scope.UserPrefences.language = "spanish";
-          console.log('spanish is:', $scope.UserPrefences.langLevel);
+          $scope.UserPreferences.langLevel = 'span3';
+          $scope.UserPreferences.language = "spanish";
+          console.log('spanish is:', $scope.UserPreferences.langLevel);
           console.log('Your lengua es Espanol');
         };
 
         // FRENCH LANGUAGE DIFFICULTY
         $scope.toggleFrenchEasyLevel = function() {
-          $scope.UserPrefences.langLevel = 'french1';
-          $scope.UserPrefences.language = "french"
-          console.log('french is:', $scope.UserPrefences.langLevel);
+          $scope.UserPreferences.langLevel = 'french1';
+          $scope.UserPreferences.language = "french"
+          console.log('french is:', $scope.UserPreferences.langLevel);
           console.log("Wee wee!!!!");
         };
         $scope.toggleFrenchMediumLevel = function() {
-          $scope.UserPrefences.language = "french"
-          $scope.UserPrefences.langLevel = 'french2';
-          console.log('french is:', $scope.UserPrefences.langLevel);
+          $scope.UserPreferences.language = "french"
+          $scope.UserPreferences.langLevel = 'french2';
+          console.log('french is:', $scope.UserPreferences.langLevel);
           console.log("Wee wee!!!!");
         };
         $scope.toggleFrenchHardLevel = function() {
-          $scope.UserPrefences.language = "french"
-          $scope.UserPrefences.langLevel = 'french3';
-          console.log('french is:', $scope.UserPrefences.langLevel);
+          $scope.UserPreferences.language = "french"
+          $scope.UserPreferences.langLevel = 'french3';
+          console.log('french is:', $scope.UserPreferences.langLevel);
           console.log("Wee wee!!!!");
         };
 
         // TOGGLE ON AND OFF TECHNOLOGY PREFERENCE
         $scope.toggleTechnology = function(value) {
             console.log("Tech is: ", value);
-            $scope.UserPrefences.technology = value;
+            $scope.UserPreferences.technology = value;
         };
         // TOGGLE ON AND OFF BUSINESS PREFERENCE
         $scope.toggleBusiness = function(value) {
             console.log("Busy-ness is: ", value);
-            $scope.UserPrefences.business = value;
+            $scope.UserPreferences.business = value;
         };
         // TOGGLE ON AND OFF POLITICS PREFERENCE
         $scope.togglePolitics = function(value) {
             console.log("Politics is: ", value);
-            $scope.UserPrefences.politics = value;
+            $scope.UserPreferences.politics = value;
         };
         // TOGGLE ON AND OFF ARTS PREFERENCE
         $scope.toggleArts = function(value) {
             console.log("Arts is: ", value);
-            $scope.UserPrefences.arts = value;
+            $scope.UserPreferences.arts = value;
         };
         // TOGGLE ON AND OFF SPORTS PREFERENCE
         $scope.toggleSports = function(value) {
             console.log("Sports is: ", value);
-            $scope.UserPrefences.sports = value;
+            $scope.UserPreferences.sports = value;
+        };
+        //when controller loads, we get our user Preference object from the server;
+        //this saves our object to the server with our current values that changed on our model
+        $scope.savePref = function() {
+            // console.log('saving saving saving Technology is: ', $scope.UserPreferences.technology);
+            UserService.updatePreferences($scope.UserPreferences).then(function(result) {
+                // console.log("result > updatePreferences", result);
+                $scope.UserPreferences = UserService.getPreferences();
+                // console.log('saved saved saved Technology is: ', $scope.UserPreferences.technology);
+            });
+            //console.log('saving preferencesss:', $scope.UserPreferences);
         };
     }]);
 }
@@ -251,10 +240,6 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: 'UserController',
             templateUrl: 'templates/login.html',
         })
-        // .when('/register', {
-        //     controller: 'UserController',
-        //     templateUrl: 'templates/registerUser.html',
-        // })
         .when('/preferences', {
             controller: 'UserController',
             templateUrl: 'templates/preferences.html',
@@ -271,10 +256,11 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: 'ListViewController',
             templateUrl: 'templates/listview.html',
         })
-        .when('/news/{articleId}', {
+        .when('/article/:articleId', {
             controller: 'ListViewController',
-            templateUrl: 'templates/articles.html',
+            templateUrl: 'templates/listviewclicked.html',
         })
+
 
 }]);
 
@@ -284,12 +270,6 @@ module.exports = function(app) {
     app.factory('NewsService', ['UserService', '$http', '$location', function(UserService, $http, $location) {
 
         let personLoggedIn = UserService.getPreferences();
-        //  let userSpecificArticles = [];
-        let artsArticles = [];
-        let sportsArticles = [];
-        let politicsArticles = [];
-        let businessArticles = [];
-        let technologyArticles = [];
 
         var newsArray = {
             async: function(pageNum, perPage) {
@@ -298,43 +278,7 @@ module.exports = function(app) {
                     method: 'GET',
                     url: '/articles',
                 }).then(function(response) {
-                    // 
-                    // let newsArrayResponse = response.data;
-                    // newsArrayResponse.forEach(function(element) {
-                    //         if (element.span1) {
-                    //             element.article = element.span1;
-                    //         })
-                    //         if (element.span2) {
-                    //             element.article = element.span2;
-                    //         })
-                    //         if (element.span3) {
-                    //             element.article = element.span3;
-                    //         })
-                    //         if (element.french1) {
-                    //             element.article = element.french1;
-                    //         })
-                    //         if (element.french2) {
-                    //             element.article = element.french2;
-                    //         })
-                    //         if (element.french3) {
-                    //             element.article = element.french3;
-                    //         })
-                    // }
 
-                    //  newsArrayResponse.filter(function (element){
-                    //    if (element.type === "arts") {
-                    //      artsArticles.push(element);
-                    //    } else if (element.type === "sports") {
-                    //      sportsArticles.push(element);
-                    //    } else if (element.type === "business") {
-                    //      businessArticles.push(element);
-                    //    } else if (element.type === "politics") {
-                    //      politicsArticles.push(element);
-                    //    } else if (element.type === "technology"){
-                    //      technologyArticles.push(element);
-                    //    }
-                    //
-                    //  })
 
                     let start = (pageNum + 1) * perPage;
 
@@ -342,6 +286,20 @@ module.exports = function(app) {
 
                 });
                 return promise;
+            },
+
+            getArticeById: function(id){
+
+              var promise = $http({
+                  method: 'GET',
+                  url: '/articles/' + id,
+              }).then(function(response) {
+
+                return response;
+
+              });
+              return promise;
+
             },
 
             //////SIGN OUT FUNCTION//////
@@ -434,6 +392,11 @@ module.exports = function(app) {
                     data: userPref
                 }).then(function(response) {
                     console.log("posted preferences", response);
+                    if (response.data.langLevel === null) {
+                      alert('Please select your preferences.');
+                    } else {
+                      $location.path('/news');
+                    };
                     return response;
                 });
                 return promise;

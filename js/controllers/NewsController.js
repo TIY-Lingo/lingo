@@ -15,7 +15,6 @@ module.exports = function(app) {
 
 
         $scope.makeArticleSafe = function(article) {
-            console.log("article", article);
             return $sce.trustAsHtml(article);
         }
 
@@ -24,7 +23,6 @@ module.exports = function(app) {
         var getArts = function() {
             NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
                 $scope.newsArray = newsArray;
-                console.log($scope.newsArray);
             });
         }
 
@@ -41,10 +39,11 @@ module.exports = function(app) {
             });
 
         }
-        $scope.goforward = function() {
+        $scope.goforward = function(category) {
 
             $scope.pageNumber += 1;
             $scope.itemsPerPage = 1;
+
 
             NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
                 $scope.newsArray = newsArray;
@@ -56,15 +55,7 @@ module.exports = function(app) {
             NewsService.signOutUser();
         };
 
-        $scope.clickedFullArticle = function() {
 
-        };
-        $scope.clickedListView = function() {
 
-        };
-
-        // $scope.clickedPolitics = function(){
-        //   NewsService.
-        // }
     }]);
 }

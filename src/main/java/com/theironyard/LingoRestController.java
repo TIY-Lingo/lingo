@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 
@@ -159,7 +160,7 @@ public class LingoRestController {
             User user = users.findByUsername((String) session.getAttribute("username"));
 
             //this query pulls articles based on preference using the User-category relationship and the article-Category relationship
-            String sql = "SELECT ca.CATEGORY_ID, a." + user.getLangLevel() + ", a.title, a.type"  + "  FROM Articles a " +
+            String sql = "SELECT ca.CATEGORY_ID, a." + user.getLangLevel() + ", a.title, a.type, a.id"  + "  FROM Articles a " +
             "INNER JOIN CATEGORY_ARTICLE ca ON ca.article_id = a.ID " +
             "INNER JOIN USERS_CATEGORIES uc on uc.catlist_ID = ca.CATEGORY_ID " +
             "WHERE uc.user_id = ? ";
@@ -178,14 +179,38 @@ public class LingoRestController {
                 String translation = results.getString(2);
                 String title = results.getString(3);
                 String type = results.getString(4);
-                ReturnArticle ra1 = new ReturnArticle(categoryId, translation, title, type);
+                int articleId = results.getInt(5);
+                ReturnArticle ra1 = new ReturnArticle(categoryId, translation, title, type, articleId);
                 returnArray.add(ra1);
             }
 
+            ArrayList<ReturnArticle> limitedArray = new ArrayList<>();
+            int i = 0;
+            do{
+                Random rm = new Random();
+                ArrayList<Integer> seedArray = new ArrayList<Integer>();
+                int seedValue = rm.nextInt(returnArray.size());
+
+                if (!seedArray.contains(seedValue)) {
+                    seedArray.add(seedValue);
+                    limitedArray.add(returnArray.get(seedValue));
+                    i++;
+                }
+            } while(i<20);
+
             conn.close();
-            return returnArray;
+            return limitedArray;
         }
     }
+
+    @RequestMapping(path = "/articles/{{id}}", method=RequestMethod.GET)
+    public Article returnOne(HttpSession session, int articleID) throws Exception{
+
+        Article justTheOne = articles.findById(articleID);
+
+        return justTheOne;
+    }
+
 
     @RequestMapping(path = "/logout", method = RequestMethod.POST)
     public void logout(HttpSession session) throws IOException {

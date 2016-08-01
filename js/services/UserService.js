@@ -64,6 +64,11 @@ module.exports = function(app) {
                     data: userPref
                 }).then(function(response) {
                     console.log("posted preferences", response);
+                    if (response.data.langLevel === null) {
+                      alert('Please select your preferences.');
+                    } else {
+                      $location.path('/news');
+                    };
                     return response;
                 });
                 return promise;
