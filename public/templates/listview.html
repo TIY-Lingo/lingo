@@ -33,12 +33,11 @@
 
 <div class="small-8 medium-6 large-9 small-centered columns" >
 
-<div class="header panel" ng-repeat="article in newsArray | limitTo: 10" >
+<div class="header panel" ng-repeat="article in newsArray" >
 
  <div class="sign" id="articletitle">
-   <h1 >{{article.title}}</h1>
+   <h1 ><a href="#" ng-click="clickedHeadline()">{{article.title}}</a></h1>
  </div>
-
 
 </div>
 <button ng-click="goback()"><</button>
