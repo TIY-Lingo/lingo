@@ -12,6 +12,7 @@ module.exports = function(app) {
                     url: '/articles',
                 }).then(function(response) {
 
+                    console.log("/articles reponse", response);
 
                     let start = (pageNum + 1) * perPage;
 
@@ -25,7 +26,7 @@ module.exports = function(app) {
 
               var promise = $http({
                   method: 'GET',
-                  url: '/articles/' + id,
+                  url: '/article/' + id,
               }).then(function(response) {
 
                 return response;
