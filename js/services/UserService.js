@@ -64,6 +64,12 @@ module.exports = function(app) {
                     data: userPref
                 }).then(function(response) {
                     console.log("posted preferences", response);
+                    if (response.data.langLevel === null) {
+                      console.log('yo prefs are null');
+                      alert('dkdkdk');
+                    } else {
+                      $location.path('/news');
+                    };
                     return response;
                 });
                 return promise;
