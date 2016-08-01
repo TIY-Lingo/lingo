@@ -148,20 +148,6 @@ module.exports = function(app) {
 
         }
 
-        //when controller loads, we get our user Preference object from the server;
-        //this saves our object to the server with our current values that changed on our model
-        $scope.savePref = function() {
-            console.log('saving saving saving Technology is: ', $scope.UserPrefences.technology);
-            UserService.updatePreferences($scope.UserPrefences).then(function(result) {
-                console.log("result > updatePreferences", result);
-                //$scope.UserPrefences = UserService.getPreferences();
-                console.log('saved saved saved Technology is: ', $scope.UserPrefences.technology);
-                $location.path('/news');
-            });
-            //console.log('saving preferencesss:', $scope.UserPrefences);
-
-        };
-
         // SPANISH LANGUAGE DIFFICULTY
         $scope.toggleSpanishEasyLevel = function() {
           $scope.UserPrefences.langLevel = 'span1';
@@ -226,6 +212,17 @@ module.exports = function(app) {
         $scope.toggleSports = function(value) {
             console.log("Sports is: ", value);
             $scope.UserPrefences.sports = value;
+        };
+        //when controller loads, we get our user Preference object from the server;
+        //this saves our object to the server with our current values that changed on our model
+        $scope.savePref = function() {
+            // console.log('saving saving saving Technology is: ', $scope.UserPrefences.technology);
+            UserService.updatePreferences($scope.UserPrefences).then(function(result) {
+                // console.log("result > updatePreferences", result);
+                $scope.UserPrefences = UserService.getPreferences();
+                // console.log('saved saved saved Technology is: ', $scope.UserPrefences.technology);
+            });
+            //console.log('saving preferencesss:', $scope.UserPrefences);
         };
     }]);
 }
@@ -434,6 +431,12 @@ module.exports = function(app) {
                     data: userPref
                 }).then(function(response) {
                     console.log("posted preferences", response);
+                    if (response.data.langLevel === null) {
+                      console.log('yo prefs are null');
+                      alert('dkdkdk');
+                    } else {
+                      $location.path('/news');
+                    };
                     return response;
                 });
                 return promise;
