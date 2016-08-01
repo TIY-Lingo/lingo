@@ -25,7 +25,7 @@ module.exports = function(app) {
 
               var promise = $http({
                   method: 'GET',
-                  url: '/articles/' + id,
+                  url: '/article/' + id,
               }).then(function(response) {
 
                 return response;

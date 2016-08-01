@@ -4,10 +4,10 @@ module.exports = function(app) {
         '$scope', '$location',
         function(NewsService, UserService, $scope, $routeParams, $location) {
             $scope.pageNumber = 1;
-            $scope.itemsPerPage = 25;
+            $scope.itemsPerPage = 5;
 
             $scope.specificPref = UserService.getPreferences();
-
+            
             let articleId = parseInt($routeParams.articleId);
 
             if (articleId) {
@@ -15,6 +15,7 @@ module.exports = function(app) {
             }
 
             var getArts = function() {
+              console.log("in get arts!");
                 NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
                     $scope.newsArray = newsArray;
                 });
@@ -47,12 +48,6 @@ module.exports = function(app) {
             $scope.signOut = function() {
                 NewsService.signOutUser();
             };
-
-
-
-
-
-
 
         }
     ]);
@@ -292,7 +287,7 @@ module.exports = function(app) {
 
               var promise = $http({
                   method: 'GET',
-                  url: '/articles/' + id,
+                  url: '/article/' + id,
               }).then(function(response) {
 
                 return response;
