@@ -15,10 +15,11 @@
     <!-- END NAV BAR -->
 
     <!-- PREFERENCES INSTRUCTIONS -->
+    <div class="prefs">
+        <h2 id="titlepref">Preferences</h2>
+    </div>
     <div class="row" id="languageinstructions">
-        <div class="prefs">
-            <h3 id="titlepref">Preferences</h3>
-        </div>
+
         <div class="small-12 medium-10 large-12 large-centered columns">
 
             <div class="header panel">
@@ -116,10 +117,10 @@
 
     <!--  ENDTOPIC SELECTION INSTRUCTIONS -->
 
-    <div class="small-up-5 columns">
+    <div class="small-up-5 columns" id="topCategoryRow">
 
         <!-- POLITICS SETTING -->
-        <div class="column">
+        <div class="column" id="categoryBoxesPolitics">
             <img class="thumbnail" src="images/capitol.png">
             <div ng-if="UserPreferences.politics">
                 <h5>Politics</h5>
@@ -132,7 +133,7 @@
         </div>
 
         <!-- ARTS SETTING -->
-        <div class="column">
+        <div class="column" id="categoryBoxesArts">
             <img class="thumbnail" src="images/color-filters.png">
             <div ng-if="UserPreferences.arts">
                 <h5>Arts</h5>
@@ -145,7 +146,7 @@
         </div>
 
         <!-- SPORTS SETTING -->
-        <div class="column">
+        <div class="column" id="categoryBoxesSports">
             <img class="thumbnail" src="images/american-football.png">
             <div ng-if="UserPreferences.sports">
                 <h5>Sports</h5>
@@ -158,12 +159,9 @@
         </div>
     </div>
 
-    <hr>
-
-
-    <div class="small-up-5 columns" id="lowerNewsColumn">
+    <div class="small-up-5 columns" id="bottomCategoryRow">
         <!-- TECH PREFERENCE SETTING -->
-        <div class="column">
+        <div class="column" id="categoryBoxesTech">
             <img class="thumbnail" src="images/computer-mouse.png">
             <div ng-if="UserPreferences.technology">
                 <h5>Technology</h5>
@@ -176,7 +174,7 @@
         </div>
 
         <!-- BUSINESS SETTING -->
-        <div class="column">
+        <div class="column" id="categoryBoxesBusiness">
             <img class="thumbnail" src="images/suitcase.png">
             <div ng-if="UserPreferences.business">
                 <h5>Business</h5>
@@ -187,24 +185,8 @@
                 <button id="newsprefbutton" ng-click="toggleBusiness(true)">Turn On</button>
             </div>
         </div>
-
     </div>
-
-    <hr>
-
     <!-- BEGIN LINGO (SAVE) -->
-    <!-- <div class="bg-skew-contact">
-        <div class="content">
-            <form class="contact">
-                <div class="saveButton">
-                    <button href="#login" ng-click='savePref()'><a href="#login" id="savePreferences">ling<span id="prefSaveBold">GO</span></a></button>
-
-                </div>
-
-            </form>
-
-        </div>
-    </div> -->
 
     <div class="row" id="topicinstructions">
         <div class="small-12 medium-10 large-12 large-centered columns">
