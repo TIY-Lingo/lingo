@@ -1,7 +1,6 @@
 <!-- ARTICLE HEADER -->
 <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
-
-<nav class="menu">
+<nav class="menu" id="articleMenuNav">
     <a href="#login"><img src="images/O(white).png" alt="earth" class="homeglobe" /></a>
     <ul class="inline-list">
     </ul>
@@ -10,13 +9,12 @@
         <li><a href="#home" data-reveal-id="myModal" ng-click="signOut()">Sign Out</a></li>
         <li class=""><a class="signup" href="#home" data-reveal-id="myModal">Home</a></li>
     </ul>
-
 </nav>
 
 <!-- END ARTICLE HEADER -->
 
 <!-- START CATEGORIES -->
-<div class="row">
+<!-- <div class="row">
     <div class="small-3 columns">
         <a href="#news" ng-click="clickedFullArticle()">Full Article</a>
         <a href="#news/list" ng-click="clickedListView()">List View</a>
@@ -26,7 +24,7 @@
         <a href="#" ng-show="specificPref.arts">Arts</a>
         <a href="#" ng-show="specificPref.sports">Sports</a>
     </div>
-</div>
+</div> -->
 <!-- END CATEGORIES -->
 
 <!-- START ARTICLE BODY -->
@@ -35,18 +33,17 @@
 
 <div class="small-8 medium-6 large-9 small-centered columns" >
 
-<div class="header panel" ng-repeat="article in newsArray" >
+<div class="header panel" ng-repeat="article in newsArray | limitTo: 10" >
 
  <div class="sign" id="articletitle">
    <h1 >{{article.title}}</h1>
  </div>
 
- <a href="#" ng-click="clickedFullArticle()">Full Article</a>
- <a href="#news/list" ng-click="clickedListView()">List View</a>
- <button ng-click="goback()"><</button>
-     <span>{{pageNumber}}</span>
-   <button ng-click="goforward()">></button>
+
 </div>
+<button ng-click="goback()"><</button>
+    <span>{{pageNumber}}</span>
+  <button ng-click="goforward()">></button>
 </div>
 </div>
 <!-- END ARTICLE BODY -->
