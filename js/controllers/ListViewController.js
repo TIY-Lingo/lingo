@@ -1,20 +1,26 @@
 module.exports = function(app) {
     app.controller('ListViewController', ['NewsService', 'UserService', '$routeParams',
         '$scope', '$location',
-        function(NewsService, UserService, $scope, $routeParams, $location) {
+        function(NewsService, UserService, $routeParams,$scope, $location) {
             $scope.pageNumber = 1;
-            $scope.itemsPerPage = 25;
+            $scope.itemsPerPage = 5;
 
             $scope.specificPref = UserService.getPreferences();
 
             let articleId = parseInt($routeParams.articleId);
 
             if (articleId) {
-                $scope.currentArticle = NewsService.getArticeById(articleId);
+              console.log("in articleId", articleId);
+                NewsService.getArticeById(articleId).then(function(result) {
+                  console.log("in articleId then", result);
+                  $scope.currentArticle = result.data;
+                });
             }
 
             var getArts = function() {
+              console.log("in get arts!");
                 NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
+                  console.log("all done", newsArray);
                     $scope.newsArray = newsArray;
                 });
             }
@@ -46,12 +52,6 @@ module.exports = function(app) {
             $scope.signOut = function() {
                 NewsService.signOutUser();
             };
-
-
-
-
-
-
 
         }
     ]);
