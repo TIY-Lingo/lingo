@@ -11,7 +11,11 @@ module.exports = function(app) {
             let articleId = parseInt($routeParams.articleId);
 
             if (articleId) {
-                $scope.currentArticle = NewsService.getArticeById(articleId);
+              console.log("in articleId", articleId);
+                NewsService.getArticeById(articleId).then(function(result) {
+                  console.log("in articleId then", result);
+                  $scope.currentArticle = result.data;
+                });
             }
 
             var getArts = function() {
