@@ -18,10 +18,6 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: 'UserController',
             templateUrl: 'templates/login.html',
         })
-        // .when('/register', {
-        //     controller: 'UserController',
-        //     templateUrl: 'templates/registerUser.html',
-        // })
         .when('/preferences', {
             controller: 'UserController',
             templateUrl: 'templates/preferences.html',
@@ -38,9 +34,10 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: 'ListViewController',
             templateUrl: 'templates/listview.html',
         })
-        .when('/news/politics', {
-            controller: 'NewsController',
-            templateUrl: 'templates/politics.html',
+        .when('/article/:articleId', {
+            controller: 'ListViewController',
+            templateUrl: 'templates/listviewclicked.html',
         })
+
 
 }]);

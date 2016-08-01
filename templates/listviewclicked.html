@@ -1,8 +1,8 @@
-<!-- <div class="articlebody"> -->
+<div class="articlebody">
+
     <!-- ARTICLE HEADER -->
     <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
-
-    <nav class="menu">
+    <nav class="menu" id="articleMenuNav">
         <a href="#login"><img src="images/O(white).png" alt="earth" class="homeglobe" /></a>
         <ul class="inline-list">
         </ul>
@@ -11,38 +11,67 @@
             <li><a href="#home" data-reveal-id="myModal" ng-click="signOut()">Sign Out</a></li>
             <li class=""><a class="signup" href="#home" data-reveal-id="myModal">Home</a></li>
         </ul>
-
     </nav>
     <!-- END ARTICLE HEADER -->
 
+    <!-- SECOND NAV -->
+    <ul class="sub-nav menu" role="navigation" title="Filter Menu List">
+        <li class="sub-nav-title">Filter:</li>
+        <li class="active"><span class="show-for-sr">You're viewing </span><a href="#news" ng-click='clickedListView()'>Full Article</a></li>
+        <li ><a href="#news/list" ng-click='clickedFullArticle()'>By Headline</a></li>
+    </ul>
+
+
+
+    <!-- END SECOND NAV -->
+
     <!-- ARTICLE BODY -->
+    <div class="row" id="articleRow">
 
-    <div class="row" >
+        <div class="small-8 medium-6 large-9 small-centered columns" id="articleholder" >
+            <div id="articletitle">
+                <h1 id="headline">{{currentArticle.title}}</h1>
+                <div class="pagination">
+                    <button ng-click="goback()">
+                        <</button>
+                            <span>{{pageNumber}}</span>
+                            <button ng-click="goforward()">></button>
+                </div>
+            </div>
 
- <div class="small-8 medium-6 large-9 small-centered columns" >
+            <div class="header panel" id="articlebox">
 
-   <div class="header panel" ng-repeat="article in newsArray" >
 
-     <div class="sign" id="articletitle">
-       <h1 >{{article.title}}</h1>
-     </div>
-     <p><span >{{article.author}}</span>
+                <p id="articlecontent"><span>{{currentArticle.author}}</span>
 
-       <span ng-bind-html="makeArticleSafe(article.span1)" ></span>
-     </p>
-     <a href="#" ng-click="clickedFullArticle()">Full Article</a>
-     <a href="#news/list" ng-click="clickedListView()">List View</a>
-     <button ng-click="goback()"><</button>
-         <span>{{pageNumber}}</span>
-       <button ng-click="goforward()">></button>
-   </div>
- </div>
-</div>
+                    <span ng-bind-html="makeArticleSafe(currentArticle.span1)" id="articletext"></span>
+                </p>
+                <div class="pagination">
+                    <button ng-click="goback()">
+                        <</button>
+                            <span>{{pageNumber}}</span>
+                            <button ng-click="goforward()">></button>
+                </div>
 
+            </div>
+        </div>
+    </div>
+
+    <!-- SECOND FOOTER -->
+    <ul class="sub-nav menu" role="navigation" title="Filter Menu List">
+        <li class="sub-nav-title">You're now viewing articles about:</li>
+        <li ng-show="specificPref.arts">Arts</li>
+        <li ng-show="specificPref.sports">Sports</li>
+        <li ng-show="specificPref.technology">Technology</li>
+        <li ng-show="specificPref.business">Business</li>
+        <li ng-show="specificPref.politics">Politics</li>
+        <li><a href="#preferences" >Not seeing what you like?</a></li>
+    </ul>
+    <!-- SECOND FOOTER  -->
     <!-- ARTICLE FOOTER -->
 
 
-    <footer class="footer">
+    <footer class="footer" id="articlesFooter">
         <div class="row">
             <div class="small-12 columns">
                 <img src="images/O(white).png" alt="" id="homefooter" />
@@ -56,8 +85,6 @@
             </div>
         </div>
     </footer>
-
-
     <!-- END ARTICLE FOOTER -->
 
-<!-- </div> -->
+</div>
