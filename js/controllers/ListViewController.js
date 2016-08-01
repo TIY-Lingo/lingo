@@ -5,6 +5,8 @@ module.exports = function(app) {
 
         $scope.specificPref = UserService.getPreferences();
 
+        $scope.getId = NewsService.allTheArticles;
+
 
         var getArts = function() {
             NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
@@ -14,7 +16,6 @@ module.exports = function(app) {
 
         getArts();
 
-        console.log('this is the news array:', $scope.newsArray)
 
         $scope.goback = function() {
 
@@ -41,15 +42,12 @@ module.exports = function(app) {
             NewsService.signOutUser();
         };
 
-        $scope.selectedArticle = function(id) {
 
-          console.log("id is: ", id);
+        // click headline and display full article associated w/ that headline///
 
-
-          // Go to server and get article (id)
-          // return article content
-
-      }
+        $scope.clickedHeadline = function() {
+            // console.log("this is the id", $scope.getId);
+        }
 
 
 

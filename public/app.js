@@ -6,6 +6,8 @@ module.exports = function(app) {
 
         $scope.specificPref = UserService.getPreferences();
 
+        $scope.getId = NewsService.allTheArticles;
+
 
         var getArts = function() {
             NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
@@ -15,7 +17,6 @@ module.exports = function(app) {
 
         getArts();
 
-        console.log('this is the news array:', $scope.newsArray)
 
         $scope.goback = function() {
 
@@ -42,15 +43,12 @@ module.exports = function(app) {
             NewsService.signOutUser();
         };
 
-        $scope.selectedArticle = function(id) {
 
-          console.log("id is: ", id);
+        // click headline and display full article associated w/ that headline///
 
-
-          // Go to server and get article (id)
-          // return article content
-
-      }
+        $scope.clickedHeadline = function() {
+            // console.log("this is the id", $scope.getId);
+        }
 
 
 
@@ -75,7 +73,6 @@ module.exports = function(app) {
 
 
         $scope.makeArticleSafe = function(article) {
-            console.log("article", article);
             return $sce.trustAsHtml(article);
         }
 
@@ -84,7 +81,7 @@ module.exports = function(app) {
         var getArts = function() {
             NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
                 $scope.newsArray = newsArray;
-                console.log($scope.newsArray);
+                console.log("this is the data", $scope.newsArray);
             });
         }
 
@@ -101,10 +98,11 @@ module.exports = function(app) {
             });
 
         }
-        $scope.goforward = function() {
+        $scope.goforward = function(category) {
 
             $scope.pageNumber += 1;
             $scope.itemsPerPage = 1;
+
 
             NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function(newsArray) {
                 $scope.newsArray = newsArray;
@@ -123,9 +121,14 @@ module.exports = function(app) {
 
         };
 
-        // $scope.clickedPolitics = function(){
-        //   NewsService.
+        // var getPolitics = function() {
+        //     NewsService.async($scope.pageNumber, $scope.itemsPerPage).then(function() {
+        //         $scope.politicsArticles = NewsService.politicsArticles($scope.pageNumber, $scope.itemsPerPage);
+        //         console.log("theses are the politics", $scope.politicsArticles);
+        //     });
         // }
+        //
+        // getPolitics();
     }]);
 }
 
@@ -271,9 +274,9 @@ app.config(['$routeProvider', function($routeProvider) {
             controller: 'ListViewController',
             templateUrl: 'templates/listview.html',
         })
-        .when('/news/{articleId}', {
-            controller: 'ListViewController',
-            templateUrl: 'templates/articles.html',
+        .when('/news/politics', {
+            controller: 'NewsController',
+            templateUrl: 'templates/politics.html',
         })
 
 }]);
@@ -284,12 +287,7 @@ module.exports = function(app) {
     app.factory('NewsService', ['UserService', '$http', '$location', function(UserService, $http, $location) {
 
         let personLoggedIn = UserService.getPreferences();
-        //  let userSpecificArticles = [];
-        let artsArticles = [];
-        let sportsArticles = [];
-        let politicsArticles = [];
-        let businessArticles = [];
-        let technologyArticles = [];
+        let allTheArticles = [];
 
         var newsArray = {
             async: function(pageNum, perPage) {
@@ -298,43 +296,38 @@ module.exports = function(app) {
                     method: 'GET',
                     url: '/articles',
                 }).then(function(response) {
-                    // 
+                    // // console.log(response.data);
                     // let newsArrayResponse = response.data;
-                    // newsArrayResponse.forEach(function(element) {
-                    //         if (element.span1) {
-                    //             element.article = element.span1;
-                    //         })
-                    //         if (element.span2) {
-                    //             element.article = element.span2;
-                    //         })
-                    //         if (element.span3) {
-                    //             element.article = element.span3;
-                    //         })
-                    //         if (element.french1) {
-                    //             element.article = element.french1;
-                    //         })
-                    //         if (element.french2) {
-                    //             element.article = element.french2;
-                    //         })
-                    //         if (element.french3) {
-                    //             element.article = element.french3;
-                    //         })
-                    // }
-
-                    //  newsArrayResponse.filter(function (element){
-                    //    if (element.type === "arts") {
-                    //      artsArticles.push(element);
-                    //    } else if (element.type === "sports") {
-                    //      sportsArticles.push(element);
-                    //    } else if (element.type === "business") {
-                    //      businessArticles.push(element);
-                    //    } else if (element.type === "politics") {
-                    //      politicsArticles.push(element);
-                    //    } else if (element.type === "technology"){
-                    //      technologyArticles.push(element);
-                    //    }
+                    // artsArticles = [];
+                    // sportsArticles = [];
+                    // politicsArticles = [];
+                    // businessArticles = [];
+                    // technologyArticles = [];
                     //
-                    //  })
+                    // // console.log("element categorization begin");
+                    //
+                    // newsArrayResponse.forEach(function(element) {
+                    //     if (element.category_id === 775) {
+                    //         // console.log("art element.category_id: " + 775);
+                    //         artsArticles.push(element)
+                    //     } else if (element.category_id === 772) {
+                    //         // console.log("biz element.category_id: " + 772);
+                    //         businessArticles.push(element)
+                    //     } else if (element.category_id === 774) {
+                    //         // console.log("sports element.category_id: " + 774);
+                    //         sportsArticles.push(element)
+                    //     } else if (element.category_id === 773) {
+                    //         // console.log("poly element.category_id: " + 773);
+                    //         politicsArticles.push(element)
+                    //     } else if (element.category_id === 776) {
+                    //         // console.log("tech element.category_id: " + 776);
+                    //         technologyArticles.push(element)
+                    //     } else {
+                    //         // console.log("else element.category_id: " + element.category_id);
+                    //     }
+                    // })
+
+
 
                     let start = (pageNum + 1) * perPage;
 
@@ -343,6 +336,16 @@ module.exports = function(app) {
                 });
                 return promise;
             },
+
+            // politicsArticles: function(pageNum, perPage) {
+            //     console.log("politicsArticles: " + politicsArticles.length);
+            //     let start = (pageNum + 1) * perPage;
+            //
+            //     if (politicsArticles) {
+            //         return politicsArticles.slice(start, start + perPage);
+            //     }
+            //
+            // },
 
             //////SIGN OUT FUNCTION//////
             signOutUser: function() {

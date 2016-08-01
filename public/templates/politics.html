@@ -18,7 +18,12 @@
     <ul class="sub-nav menu" role="navigation" title="Filter Menu List">
         <li class="sub-nav-title">Filter:</li>
         <li class="active"><span class="show-for-sr">You're viewing </span><a href="#news" ng-click='clickedListView()'>Full Article</a></li>
-        <li ><a href="#news/list" ng-click='clickedFullArticle()'>By Headline</a></li>
+        <li><a href="#news/list" ng-click='clickedFullArticle()'>By Headline</a></li>
+        <li><a href="#" ng-show="specificPref.arts">Arts</a></li>
+        <li><a href="#" ng-show="specificPref.sports">Sports</a></li>
+        <li><a href="#" ng-show="specificPref.technology">Technology</a></li>
+        <li><a href="#" ng-show="specificPref.business">Business</a></li>
+        <li><a href="#" ng-show="specificPref.politics">Politics</a></li>
     </ul>
 
 
@@ -28,18 +33,18 @@
     <!-- ARTICLE BODY -->
     <div class="row" id="articleRow">
 
-        <div class="small-8 medium-6 large-9 small-centered columns" id="articleholder" ng-repeat="article in newsArray">
-            <div id="articletitle">
-                <h1 id="headline">{{article.title}}</h1>
-                <div class="pagination">
-                    <button ng-click="goback()">
-                        <</button>
-                            <span>{{pageNumber}}</span>
-                            <button ng-click="goforward()">></button>
-                </div>
-            </div>
+        <div class="small-8 medium-6 large-9 small-centered columns" id="articleholder" ng-repeat="article in politicsArticles ">
+          <div id="articletitle">
+              <h1 id="headline">{{article.title}}</h1>
+              <div class="pagination">
+                  <button ng-click="goback()">
+                      <</button>
+                          <span>{{pageNumber}}</span>
+                          <button ng-click="goforward()">></button>
+              </div>
+          </div>
 
-            <div class="header panel" id="articlebox">
+            <div class="header panel" id="articlebox" >
 
 
                 <p id="articlecontent"><span>{{article.author}}</span>
@@ -57,17 +62,8 @@
         </div>
     </div>
 
-    <!-- SECOND FOOTER -->
-    <ul class="sub-nav menu" role="navigation" title="Filter Menu List">
-        <li class="sub-nav-title">You're now viewing articles about:</li>
-        <li ng-show="specificPref.arts">Arts</li>
-        <li ng-show="specificPref.sports">Sports</li>
-        <li ng-show="specificPref.technology">Technology</li>
-        <li ng-show="specificPref.business">Business</li>
-        <li ng-show="specificPref.politics">Politics</li>
-        <li><a href="#preferences" >Not seeing what you like?</a></li>
-    </ul>
-    <!-- SECOND FOOTER  -->
+
+
     <!-- ARTICLE FOOTER -->
 
 
