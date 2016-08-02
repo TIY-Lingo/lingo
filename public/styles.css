@@ -157,6 +157,17 @@ body {
 #prefNavMenu {
   margin-bottom: 3%; }
 
+#titlepref {
+  background-color: #FFF;
+  border: solid 15px #003366;
+  width: 32%;
+  margin-left: 34%;
+  margin-bottom: 0%;
+  text-align: center;
+  font: bolder 4rem "Avenir Next";
+  font-family: "Avenir Next";
+  color: #548FCE; }
+
 .small-up-5.columns {
   box-shadow: transparent;
   opacity: 0.95;
@@ -172,20 +183,21 @@ body {
     padding: 2%;
     margin-right: 1%; }
   .small-up-5.columns .thumbnail {
-    max-width: 20%;
+    max-width: 25%;
     border: none;
     box-shadow: 0 0 0 0; }
   .small-up-5.columns h5 {
-    color: #003366; }
+    font-size: 1.8rem;
+    color: #FFF; }
 
 #newsprefbutton {
-  border-radius: 5%;
-  background-color: transparent;
-  color: #C1E120;
+  background-color: #003366;
+  color: #FFF;
   border: solid 1px #C1E120;
-  font-weight: bold;
   margin-bottom: 12%;
-  margin-top: 15%; }
+  margin-top: 15%;
+  padding: 3%;
+  border-radius: 10%; }
   #newsprefbutton:hover {
     transform: scale(1.1); }
 
@@ -214,12 +226,6 @@ body {
   opacity: 0.95;
   margin-top: 0%; }
 
-#titlepref {
-  text-align: center;
-  color: white;
-  font: bolder 4rem "Avenir Next";
-  font-family: "Avenir Next"; }
-
 .languageselector {
   background-color: #FFF;
   opacity: .95;
@@ -232,9 +238,9 @@ body {
   display: inline-flex;
   margin-left: 0; }
   .button-group.round.toggle #languageButtonLabel {
-    color: #548FCE;
-    background-color: transparent;
-    border: #C1E120 solid 1px;
+    color: #FFF;
+    background-color: #003366;
+    border: #548FCE solid 3px;
     border-radius: 10%; }
 
 .header.panel {
@@ -1155,8 +1161,11 @@ nav {
 #frenchFlag {
   margin-right: 20%; }
 
+.image-wrapper.overlay-fade-in {
+  border: solid 4px #548FCE; }
+
 #languageLevelRowFrench .small-9.small-centered.columns {
-  margin-left: 10%; }
+  margin-left: 7%; }
 
 #languageLevelRowFrench .frenchButtons {
   margin-right: 3%; }
@@ -1165,12 +1174,37 @@ nav {
 
 #languageLevelRowSpanish .small-9.small-centered.columns {
   margin: 0;
-  margin-left: 5%; }
+  margin-left: 2%; }
 
 #languageLevelRowSpanish .spanishButtons {
   margin-right: 3%; }
   #languageLevelRowSpanish .spanishButtons:hover {
     transform: scale(1.1); }
+
+#topCategoryRow {
+  background-color: #FFF;
+  width: 100%;
+  margin-bottom: 0%; }
+
+#bottomCategoryRow {
+  background-color: #FFF;
+  width: 100%;
+  margin-bottom: 0%; }
+
+#categoryBoxesArts, #categoryBoxesSports, #categoryBoxesBusiness {
+  background-color: #548FCE;
+  border: solid 3px #003366; }
+
+#categoryBoxesTech {
+  background-color: #548FCE;
+  border: solid 3px #003366;
+  margin-left: 29.8%;
+  margin-bottom: 3%; }
+
+#categoryBoxesPolitics {
+  background-color: #548FCE;
+  border: solid 3px #003366;
+  margin-left: 20%; }
 
 input[data-toggle] {
   display: none; }

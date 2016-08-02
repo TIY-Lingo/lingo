@@ -201,11 +201,27 @@ public class LingoRestController {
     }
 
     @RequestMapping(path = "/article/{articleID}", method=RequestMethod.GET)
-    public Article returnOne(HttpSession session, @PathVariable int articleID) throws Exception{
-
+    public ReturnArticle returnOne(HttpSession session, @PathVariable int articleID) throws Exception {
+        User user = users.findByUsername((String) session.getAttribute("username"));
         Article justTheOne = articles.findById(articleID);
+        String content = "";
+        if (user.getLangLevel().equals("span1")) {
+            content = justTheOne.getSpan1();
+        } else if (user.getLangLevel().equals("span2")) {
+            content = justTheOne.getSpan2();
+        } else if (user.getLangLevel().equals("span3")) {
+            content = justTheOne.getSpan3();
+        } else if (user.getLangLevel().equals("french1")) {
+            content = justTheOne.getFrench1();
+        } else if (user.getLangLevel().equals("french2")) {
+            content = justTheOne.getFrench2();
+        } else if (user.getLangLevel().equals("french3")) {
+            content = justTheOne.getFrench3();
+        }
 
-        return justTheOne;
+        ReturnArticle ra = new ReturnArticle(0, content, justTheOne.getTitle(), justTheOne.getType(), justTheOne.getId());
+
+        return ra;
     }
 
 

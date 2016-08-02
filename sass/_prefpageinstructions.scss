@@ -34,13 +34,18 @@
 }
 #spanishFlag {
   margin-left: 20%;
+
 }
 #frenchFlag {
   margin-right: 20%;
+
+}
+.image-wrapper.overlay-fade-in {
+  border: solid 4px #548FCE;
 }
 #languageLevelRowFrench {
   .small-9.small-centered.columns {
-    margin-left: 10%;
+    margin-left: 7%;
   }
   .frenchButtons {
     margin-right: 3%;
@@ -52,7 +57,7 @@
 #languageLevelRowSpanish {
   .small-9.small-centered.columns {
     margin: 0;
-    margin-left: 5%;
+    margin-left: 2%;
   }
   .spanishButtons {
     margin-right: 3%;
@@ -60,4 +65,30 @@
     transform: scale(1.1);
     }
   }
+}
+#topCategoryRow {
+  background-color: #FFF;
+  width: 100%;
+  margin-bottom: 0%;
+}
+#bottomCategoryRow {
+  background-color: #FFF;
+  width: 100%;
+  margin-bottom: 0%;
+}
+#categoryBoxesArts, #categoryBoxesSports, #categoryBoxesBusiness {
+  background-color: #548FCE;
+  border: solid 3px #003366;
+}
+#categoryBoxesTech {
+  background-color: #548FCE;
+  border: solid 3px #003366;
+  margin-left: 29.8%;
+  margin-bottom: 3%;
+}
+
+#categoryBoxesPolitics {
+  background-color: #548FCE;
+  border: solid 3px #003366;
+  margin-left: 20%;
 }
