@@ -283,6 +283,8 @@ module.exports = function(app) {
                     method: 'GET',
                     url: '/articles',
                 }).then(function(response) {
+                    let length = angular.element(document.querySelector("original-word"));
+                    console.log("original word", length);
 
                     console.log("/articles reponse", response);
 
