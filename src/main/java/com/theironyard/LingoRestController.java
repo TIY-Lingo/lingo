@@ -88,6 +88,7 @@ public class LingoRestController {
     public Boolean register(@RequestBody User user, HttpServletResponse response, HttpSession session) throws PasswordStorage.CannotPerformOperationException, IOException {
         if(users.findByUsername(user.getUsername())!= null){          // If the username is in the DB return false
             return false;
+
         }else {                                                       //Otherwise create the user and add it to the DB
             User user1 = new User(user.getUsername(), PasswordStorage.createHash(user.getPassword()));
             users.save(user1);
