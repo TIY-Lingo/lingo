@@ -20,13 +20,13 @@
        <div class="small-6 large-centered columns">
             <div class="signup-panel">
                 <p class="welcome"> <img src="images/lingowhite.png" alt="" /></p>
-                <form>
+                <form name="loginForm">
                     <div class="row collapse">
                         <div class="small-2  columns">
                             <span class="prefix"><i class="fi-torso-female"></i></span>
                         </div>
                         <div class="small-10  columns">
-                            <input section="text" placeholder="username" ng-model="userInput">
+                            <input section="text" name="username" placeholder="username" ng-model="userInput" required>
                         </div>
                     </div>
                     <div class="row collapse">
@@ -34,13 +34,14 @@
                             <span class="prefix"><i class="fi-lock"></i></span>
                         </div>
                         <div class="small-10 columns ">
-                            <input section="password" type= "password" placeholder="password" ng-model="userPassword">
+                            <input section="password" name="password" type= "password" placeholder="password" ng-model="userPassword" required>
                         </div>
                     </div>
                 </form>
                 <div class="button-group" id="loginPageButtons">
-                    <button href="#preferences" class="small button primary radius" ng-click="signUp($event)"><a href="#preferences">Register</a></button>
-                    <button class="small button success radius" ng-click="signIn($event)"><a href="#">Sign In</a></button>
+                    <button ng-disabled="loginForm.userInput.$dirty && loginForm.userInput.$invalid ||
+ loginForm.userPassword.$dirty && loginForm.userPassword.$invalid" href="#preferences" class="small button primary radius" ng-click="signUp($event)">Register</button>
+                    <button class="small button success radius" ng-click="signIn($event)">Sign In</button>
                 </div>
                 <!-- <a href="#" class="button" ng-click="signUpForm()">Sign Up! </a>
         <p>Already have an account? <a href="#" ng-click="sendToLogin()">Login here &raquo</a></p> -->
