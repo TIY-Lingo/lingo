@@ -25,11 +25,10 @@ module.exports = function(app) {
                   alert("Username and/or Password cannot be empty")
                   return;
             }
-
             UserService.postUserInfo($scope.userInput, $scope.userPassword).then(function (results){
               if (results.data) {
                 console.log('results of register in:', results.data);
-                  $location.path('/news');
+                  $location.path('/preferences');
               } else {
                   alert("Username already taken")
               }
