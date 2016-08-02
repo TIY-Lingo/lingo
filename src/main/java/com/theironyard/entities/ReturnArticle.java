@@ -3,22 +3,23 @@ package com.theironyard.entities;
 
 public class ReturnArticle {
     int category_id;
-    String span1;
+    String content;
     String title;
     String type;
     int articleId;
 
-    public ReturnArticle(int category_id, String span1, String title, String type, int articleId) {
+    public ReturnArticle(int category_id, String content, String title, String type, int articleId) {
         this.category_id = category_id;
-        this.span1 = span1;
+        this.content = content;
         this.title = title;
         this.type = type;
         this.articleId = articleId;
+
     }
 
-    public ReturnArticle(int category_id, String span1) {
+    public ReturnArticle(int category_id, String content) {
         this.category_id = category_id;
-        this.span1 = span1;
+        this.content = content;
     }
 
     public ReturnArticle() {
@@ -32,12 +33,12 @@ public class ReturnArticle {
         this.category_id = category_id;
     }
 
-    public String getSpan1() {
-        return span1;
+    public String getContent() {
+        return content;
     }
 
-    public void setSpan1(String span1) {
-        this.span1 = span1;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getTitle() {
