@@ -8,12 +8,32 @@ module.exports = function(app) {
         $scope.signIn = function(event) {
           event.preventDefault();
             console.log("clicked log in", $scope.UserPreferences);
-            UserService.postExistingUser($scope.userInput, $scope.userPassword)
+            UserService.postExistingUser($scope.userInput, $scope.userPassword).then(function (results){
+              if (results.data) {
+                console.log('results of signin:', results.data);
+                  $location.path('/news');
+              } else {
+                  alert("Username and/or password is incorrect")
+              }
+            });
         }
 
         $scope.signUp = function(event) {
             event.preventDefault();
-            UserService.postUserInfo($scope.userInput, $scope.userPassword)
+
+            if(!$scope.userInput || !$scope.userPassword) {
+                  alert("Username and/or Password cannot be empty")
+                  return;
+            }
+
+            UserService.postUserInfo($scope.userInput, $scope.userPassword).then(function (results){
+              if (results.data) {
+                console.log('results of register in:', results.data);
+                  $location.path('/news');
+              } else {
+                  alert("Username already taken")
+              }
+            });
 
         }
 
