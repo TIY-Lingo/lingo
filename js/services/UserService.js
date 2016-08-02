@@ -7,7 +7,7 @@ module.exports = function(app) {
         ////signIn() click event to post username and password to server//////
         return {
             postUserInfo: function(name, pw) {
-                $http({
+              return $http({
                     url: '/registerUser',
                     method: 'POST',
 
@@ -15,20 +15,11 @@ module.exports = function(app) {
                         username: name,
                         password: pw,
                     },
-                }).then(function(results) {
-                    // console.log("these are the results", results.data);
-                    // console.log("posted new user")
-                    if (results.data === false || results.data === '') {
-                        alert("If you already have an account, please sign in, if not, please choose another Username.")
-                    } else {
-                        $location.path('/preferences');
-                    }
-
                 });
             },
 
             postExistingUser: function(username, password) {
-                $http({
+                return $http({
                     url: '/login',
                     method: 'POST',
 
@@ -36,14 +27,10 @@ module.exports = function(app) {
                         username: username,
                         password: password,
                     },
-                }).then(function(results) {
+                });//.then(function(results) {
                     // console.log("these are the results", results.data);
                     // console.log("posted existing user")
-                    if (results.data === false) {
-                        $location.path('/news');
-                    } else {
-                        alert("Password Incorrect")
-                    }
+
                     // if(response.data.business === true || response.data.technology === true || response.data.business === true ){
                     //   $location.path('/artist');
                     //   angular.copy(response.data, currentUser )
@@ -53,7 +40,7 @@ module.exports = function(app) {
                     // angular.copy(response.data, currentUser);
                     // console.log(currentUser);
 
-                });
+                //});
             },
             // UPDATE user preferences
             updatePreferences: function(userPref) {
