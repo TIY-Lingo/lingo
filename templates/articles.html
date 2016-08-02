@@ -50,9 +50,10 @@
                   </div>
               </div>
 
+
                 <p id="articlecontent"><span>{{article.author}}</span>
 
-                    <span ng-bind-html="makeArticleSafe(article.span1)" id="articletext"></span>
+                    <span ng-bind-html="makeArticleSafe(article.content)" id="articletext"></span>
                 </p>
                 <div class="pagination">
                     <button ng-click="goback()">
