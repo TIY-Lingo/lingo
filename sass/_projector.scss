@@ -23,7 +23,7 @@
     #description {
         margin-bottom: 5%;
         margin-top: -1%;
-    
+
     }
     #signinbutton {
         width: 37%;
@@ -47,6 +47,13 @@
     #loginPageButtons.button-group {
         margin-left: 35%;
     }
+    #languageLevelRowSpanish .small-9.small-centered.columns {
+        margin: 0;
+        margin-left: 58%;
+    }
+    #languageLevelRowFrench .small-9.small-centered.columns {
+    margin-left: 57%;
+}
     #loginPageButtons.button-group .small.button.primary.radius {
         font-size: 0.9rem;
     }
