@@ -28,7 +28,7 @@ body {
   padding: 50px;
   font-size: 20px;
   background-color: #fff;
-  opacity: .95; }
+  opacity: 0.95; }
 
 .homeglobe {
   float: left;
@@ -87,7 +87,9 @@ body {
   margin-left: 37%;
   margin-top: -4%; }
 
-[ng\:cloak], [ng-cloak], .ng-cloak {
+.ng-cloak,
+[ng-cloak],
+[ng\:cloak] {
   display: none !important; }
 
 #loginForm {
@@ -97,7 +99,7 @@ body {
   padding: 15px;
   margin: 0 auto;
   background-color: #003366;
-  opacity: .91;
+  opacity: 0.91;
   border-radius: 20px;
   -webkit-box-shadow: 12px 11px 12px 2px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 12px 11px 12px 2px rgba(0, 0, 0, 0.5);
@@ -108,7 +110,8 @@ body {
     font-size: 30px;
     line-height: 50px;
     color: #FFF; }
-  .signup-panel form input, .signup-panel form span {
+  .signup-panel form input,
+  .signup-panel form span {
     height: 40px;
     text-align: center;
     color: black;
@@ -302,14 +305,15 @@ body {
       padding-bottom: 0.5rem; }
       #articleMenuNav .inline-list a:hover {
         color: #C1E120;
-        transition: all .3s ease-in-out; }
+        transition: all 0.3s ease-in-out; }
     #articleMenuNav .inline-list .active a {
       color: #C1E120; }
   #articleMenuNav .account {
     position: absolute;
     top: 3%;
     right: 3%; }
-    #articleMenuNav .account a, #articleMenuNav .account i {
+    #articleMenuNav .account a,
+    #articleMenuNav .account i {
       color: #fff; }
   @media only screen and (min-width: 40.063em) {
     #articleMenuNav {
@@ -321,9 +325,9 @@ body {
         border-bottom: 2px solid #C1E120; } }
   #articleMenuNav .account-action {
     float: right;
-    margin: -.75rem 0 0 0; }
+    margin: -.75rem 0 0; }
     #articleMenuNav .account-action li {
-      margin-left: .2rem; }
+      margin-left: 0.2rem; }
     #articleMenuNav .account-action a {
       padding: 0.75rem 1rem; }
     #articleMenuNav .account-action a.signup {
@@ -361,7 +365,7 @@ body {
 
 .pagination {
   display: -webkit-inline-box;
-  font-size: .8rem; }
+  font-size: 0.8rem; }
 
 @media only screen and (min-width: 40em) {
   .top-bar {
@@ -527,7 +531,7 @@ ul#linkstoprof {
 
 .footer {
   background-color: #003366;
-  opacity: .95;
+  opacity: 0.95;
   text-align: center;
   font-size: 1.2rem;
   padding: 4rem; }
@@ -569,7 +573,7 @@ ul#linkstoprof {
     right: 0;
     bottom: 0;
     left: 0;
-    opacity: .8; }
+    opacity: 0.8; }
   .hero .intro {
     padding: 3rem;
     position: relative;
@@ -686,6 +690,9 @@ ul#linkstoprof {
 #secondfooterimg {
   width: 6%; }
 
+#homefooterlistview {
+  width: 6%; }
+
 #headlinelistclick {
   font-size: 215%; }
 
@@ -700,7 +707,7 @@ ul#linkstoprof {
   text-align: center;
   font-size: 1.5rem;
   line-height: 1;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   color: #fff; }
   .name i {
     color: #8CC1A7;
@@ -723,14 +730,15 @@ ul#linkstoprof {
       padding-bottom: 0.5rem; }
       .menu .inline-list a:hover {
         color: #C1E120;
-        transition: all .3s ease-in-out; }
+        transition: all 0.3s ease-in-out; }
     .menu .inline-list .active a {
       color: #8CC1A7; }
   .menu .account {
     position: absolute;
     top: 3%;
     right: 3%; }
-    .menu .account a, .menu .account i {
+    .menu .account a,
+    .menu .account i {
       color: #fff; }
   @media only screen and (min-width: 40.063em) {
     .menu {
@@ -741,9 +749,9 @@ ul#linkstoprof {
         border-bottom: 2px solid #8CC1A7; } }
   .menu .account-action {
     float: right;
-    margin: -.75rem 0 0 0; }
+    margin: -.75rem 0 0; }
     .menu .account-action li {
-      margin-left: .2rem; }
+      margin-left: 0.2rem; }
     .menu .account-action a {
       padding: 0.75rem 1rem; }
     .menu .account-action a.signup {
@@ -821,14 +829,15 @@ ul#linkstoprof {
       padding-bottom: 0.5rem; }
       .menu .inline-list a:hover {
         color: #C1E120;
-        transition: all .3s ease-in-out; }
+        transition: all 0.3s ease-in-out; }
     .menu .inline-list .active a {
       color: #C1E120; }
   .menu .account {
     position: absolute;
     top: 3%;
     right: 3%; }
-    .menu .account a, .menu .account i {
+    .menu .account a,
+    .menu .account i {
       color: #fff; }
   @media only screen and (min-width: 40.063em) {
     .menu {
@@ -840,9 +849,9 @@ ul#linkstoprof {
         border-bottom: 2px solid #C1E120; } }
   .menu .account-action {
     float: right;
-    margin: -.75rem 0 0 0; }
+    margin: -.75rem 0 0; }
     .menu .account-action li {
-      margin-left: .2rem; }
+      margin-left: 0.2rem; }
     .menu .account-action a {
       padding: 0.75rem 1rem; }
     .menu .account-action a.signup {
@@ -854,7 +863,7 @@ ul#linkstoprof {
   text-align: center;
   font-size: 1.5rem;
   line-height: 1;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   color: #fff; }
   .name i {
     color: #87D37C;
@@ -1275,8 +1284,7 @@ body {
   #loginPageButtons.button-group {
     margin-left: 35%; }
   #languageLevelRowSpanish .small-9.small-centered.columns {
-    margin: 0;
-    margin-left: 58%; }
+    margin: 0 0 0 58%; }
   #languageLevelRowFrench .small-9.small-centered.columns {
     margin-left: 57%; }
   #loginPageButtons.button-group .small.button.primary.radius {
@@ -1293,8 +1301,6 @@ body {
     font-size: 259%; }
   #secondfooter {
     margin-bottom: -3.98%;
-    width: 5%;
-    margin-bottom: 1.02%;
     margin-top: 4%; }
   #listfoot {
     margin-bottom: -4%; }
@@ -1326,6 +1332,16 @@ body {
     width: 66%; }
   .menu {
     font-size: 1.9rem; }
+  #headlinelistclick {
+    font-size: 300%; }
+  #secondfooter {
+    margin-bottom: -3.98%;
+    /* width: 5%; */
+    /* margin-bottom: 1.02%; */
+    margin-top: 4%; }
+  #homefooterlistview {
+    width: 8%;
+    margin-top: 4%; }
   .header.panel p {
     font: 2.3rem "Avenir Next"; }
   .header.panel .sign h1 {

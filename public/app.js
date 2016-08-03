@@ -134,74 +134,74 @@ module.exports = function(app) {
         $scope.UserPreferences = UserService.getPreferences();
 
         $scope.signIn = function(event) {
-          event.preventDefault();
+            event.preventDefault();
             console.log("clicked log in", $scope.UserPreferences);
-            UserService.postExistingUser($scope.userInput, $scope.userPassword).then(function (results){
-              if (results.data) {
-                console.log('results of signin:', results.data);
-                  $location.path('/news');
-              } else {
-                  alert("Username and/or password is incorrect")
-              }
+            UserService.postExistingUser($scope.userInput, $scope.userPassword).then(function(results) {
+                if (results.data) {
+                    console.log('results of signin:', results.data);
+                    $location.path('/news');
+                } else {
+                    alert("Username and/or password is incorrect")
+                }
             });
         }
 
         $scope.signUp = function(event) {
             event.preventDefault();
 
-            if(!$scope.userInput || !$scope.userPassword) {
-                  alert("Username and/or Password cannot be empty")
-                  return;
+            if (!$scope.userInput || !$scope.userPassword) {
+                alert("Username and/or Password cannot be empty")
+                return;
             }
-            UserService.postUserInfo($scope.userInput, $scope.userPassword).then(function (results){
-              if (results.data) {
-                console.log('results of register in:', results.data);
-                  $location.path('/preferences');
-              } else {
-                  alert("Username already taken")
-              }
+            UserService.postUserInfo($scope.userInput, $scope.userPassword).then(function(results) {
+                if (results.data) {
+                    console.log('results of register in:', results.data);
+                    $location.path('/preferences');
+                } else {
+                    alert("Username already taken")
+                }
             });
 
         }
 
         // SPANISH LANGUAGE DIFFICULTY
         $scope.toggleSpanishEasyLevel = function() {
-          $scope.UserPreferences.langLevel = 'span1';
-          $scope.UserPreferences.language = "spanish";
-          console.log('spanish is:', $scope.UserPreferences.langLevel);
-          console.log('Your lengua es Espanol');
+            $scope.UserPreferences.langLevel = 'span1';
+            $scope.UserPreferences.language = "spanish";
+            console.log('spanish is:', $scope.UserPreferences.langLevel);
+            console.log('Your lengua es Espanol');
         };
         $scope.toggleSpanishMediumLevel = function() {
-          $scope.UserPreferences.langLevel = 'span2';
-          $scope.UserPreferences.language = "spanish";
-          console.log('spanish is:', $scope.UserPreferences.langLevel);
-          console.log('Your lengua es Espanol');
+            $scope.UserPreferences.langLevel = 'span2';
+            $scope.UserPreferences.language = "spanish";
+            console.log('spanish is:', $scope.UserPreferences.langLevel);
+            console.log('Your lengua es Espanol');
         };
         $scope.toggleSpanishHardLevel = function() {
-          $scope.UserPreferences.langLevel = 'span3';
-          $scope.UserPreferences.language = "spanish";
-          console.log('spanish is:', $scope.UserPreferences.langLevel);
-          console.log('Your lengua es Espanol');
+            $scope.UserPreferences.langLevel = 'span3';
+            $scope.UserPreferences.language = "spanish";
+            console.log('spanish is:', $scope.UserPreferences.langLevel);
+            console.log('Your lengua es Espanol');
         };
 
         // FRENCH LANGUAGE DIFFICULTY
         $scope.toggleFrenchEasyLevel = function() {
-          $scope.UserPreferences.langLevel = 'french1';
-          $scope.UserPreferences.language = "french"
-          console.log('french is:', $scope.UserPreferences.langLevel);
-          console.log("Wee wee!!!!");
+            $scope.UserPreferences.langLevel = 'french1';
+            $scope.UserPreferences.language = "french"
+            console.log('french is:', $scope.UserPreferences.langLevel);
+            console.log("Wee wee!!!!");
         };
         $scope.toggleFrenchMediumLevel = function() {
-          $scope.UserPreferences.language = "french"
-          $scope.UserPreferences.langLevel = 'french2';
-          console.log('french is:', $scope.UserPreferences.langLevel);
-          console.log("Wee wee!!!!");
+            $scope.UserPreferences.language = "french"
+            $scope.UserPreferences.langLevel = 'french2';
+            console.log('french is:', $scope.UserPreferences.langLevel);
+            console.log("Wee wee!!!!");
         };
         $scope.toggleFrenchHardLevel = function() {
-          $scope.UserPreferences.language = "french"
-          $scope.UserPreferences.langLevel = 'french3';
-          console.log('french is:', $scope.UserPreferences.langLevel);
-          console.log("Wee wee!!!!");
+            $scope.UserPreferences.language = "french"
+            $scope.UserPreferences.langLevel = 'french3';
+            console.log('french is:', $scope.UserPreferences.langLevel);
+            console.log("Wee wee!!!!");
         };
 
         // TOGGLE ON AND OFF TECHNOLOGY PREFERENCE
