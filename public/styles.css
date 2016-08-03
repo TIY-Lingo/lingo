@@ -1323,7 +1323,7 @@ body {
   #title {
     font-size: 1.8rem; }
   #portlink {
-    margin-left: 43%; }
+    margin-left: 39%; }
   #linkstoprof {
     margin-right: 3%; }
   .pagination {
@@ -1347,4 +1347,10 @@ body {
   .header.panel .sign h1 {
     padding: 1%; }
   .header.panel .sign {
-    width: 21%; } }
+    width: 21%; }
+  .subheader {
+    font-size: 35px; }
+  #engineer {
+    font-size: 1.8rem; }
+  #amanda {
+    height: 28em; } }
