@@ -28,7 +28,7 @@ body {
   padding: 50px;
   font-size: 20px;
   background-color: #fff;
-  opacity: .95; }
+  opacity: 0.95; }
 
 .homeglobe {
   float: left;
@@ -87,7 +87,9 @@ body {
   margin-left: 37%;
   margin-top: -4%; }
 
-[ng\:cloak], [ng-cloak], .ng-cloak {
+.ng-cloak,
+[ng-cloak],
+[ng\:cloak] {
   display: none !important; }
 
 #loginForm {
@@ -97,7 +99,7 @@ body {
   padding: 15px;
   margin: 0 auto;
   background-color: #003366;
-  opacity: .91;
+  opacity: 0.91;
   border-radius: 20px;
   -webkit-box-shadow: 12px 11px 12px 2px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 12px 11px 12px 2px rgba(0, 0, 0, 0.5);
@@ -108,7 +110,8 @@ body {
     font-size: 30px;
     line-height: 50px;
     color: #FFF; }
-  .signup-panel form input, .signup-panel form span {
+  .signup-panel form input,
+  .signup-panel form span {
     height: 40px;
     text-align: center;
     color: black;
@@ -165,7 +168,7 @@ body {
   border: solid 15px #003366;
   width: 32%;
   margin-left: 34%;
-  margin-bottom: 0%;
+  margin-bottom: 0;
   text-align: center;
   font: bolder 4rem "Avenir Next";
   font-family: "Avenir Next";
@@ -208,7 +211,8 @@ body {
   border: solid 1px #548FCE;
   font-size: 41px;
   padding: 4px;
-  color: #003366; }
+  color: #003366;
+  border-radius: 5%; }
   #savePreferences:hover {
     border-color: #C1E120; }
 
@@ -226,14 +230,10 @@ body {
 #topicinstructions {
   background-color: #003366;
   opacity: 0.95;
-  margin-top: 0%;
+  margin-top: 0;
   width: 81%;
-  margin-left: 9%; }
-
-.languageselector {
-  background-color: #FFF;
-  opacity: .95;
-  height: 300px; }
+  margin-left: 9%;
+  margin-bottom: 3%; }
 
 #languageSelectorRow {
   margin-top: 2%; }
@@ -244,7 +244,7 @@ body {
   .button-group.round.toggle #languageButtonLabel {
     color: #FFF;
     background-color: #003366;
-    border: #548FCE solid 3px;
+    border: #C1E120 solid 3px;
     border-radius: 10%; }
 
 #prefPageFooter {
@@ -305,14 +305,15 @@ body {
       padding-bottom: 0.5rem; }
       #articleMenuNav .inline-list a:hover {
         color: #C1E120;
-        transition: all .3s ease-in-out; }
+        transition: all 0.3s ease-in-out; }
     #articleMenuNav .inline-list .active a {
       color: #C1E120; }
   #articleMenuNav .account {
     position: absolute;
     top: 3%;
     right: 3%; }
-    #articleMenuNav .account a, #articleMenuNav .account i {
+    #articleMenuNav .account a,
+    #articleMenuNav .account i {
       color: #fff; }
   @media only screen and (min-width: 40.063em) {
     #articleMenuNav {
@@ -324,9 +325,9 @@ body {
         border-bottom: 2px solid #C1E120; } }
   #articleMenuNav .account-action {
     float: right;
-    margin: -.75rem 0 0 0; }
+    margin: -.75rem 0 0; }
     #articleMenuNav .account-action li {
-      margin-left: .2rem; }
+      margin-left: 0.2rem; }
     #articleMenuNav .account-action a {
       padding: 0.75rem 1rem; }
     #articleMenuNav .account-action a.signup {
@@ -364,7 +365,7 @@ body {
 
 .pagination {
   display: -webkit-inline-box;
-  font-size: .8rem; }
+  font-size: 0.8rem; }
 
 @media only screen and (min-width: 40em) {
   .top-bar {
@@ -461,7 +462,7 @@ body {
       text-align: center; }
     .profile-card .profile-info a {
       text-align: center;
-      margin-left: 38%; }
+      margin-left: 34%; }
     .profile-card .profile-info p {
       text-align: center; }
     .profile-card .profile-info .inline-list {
@@ -501,6 +502,19 @@ body {
           transform: scale(1.5);
           transition: all .5s ease-in-out; }
 
+#gabe.profile-card {
+  height: 564px; }
+  #gabe.profile-card p {
+    margin-bottom: 20%; }
+
+#jonG.profile-card {
+  height: 561px; }
+  #jonG.profile-card p {
+    margin-bottom: 20%; }
+
+ul#linkstoprof {
+  margin-left: -4%; }
+
 .hero {
   background: url("http://static.pexels.com/wp-content/uploads/2014/07/beach-coast-holiday-2190-825x550.jpg") no-repeat center center;
   background-size: cover;
@@ -517,7 +531,7 @@ body {
 
 .footer {
   background-color: #003366;
-  opacity: .95;
+  opacity: 0.95;
   text-align: center;
   font-size: 1.2rem;
   padding: 4rem; }
@@ -559,7 +573,7 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    opacity: .8; }
+    opacity: 0.8; }
   .hero .intro {
     padding: 3rem;
     position: relative;
@@ -673,6 +687,19 @@ body {
   #readmore:hover {
     background-color: #C1E120; }
 
+#secondfooterimg {
+  width: 6%; }
+
+#homefooterlistview {
+  width: 6%; }
+
+#headlinelistclick {
+  font-size: 215%; }
+
+#articleboxListView {
+  width: 90%;
+  overflow: scroll; }
+
 .row {
   max-width: 100%; }
 
@@ -680,7 +707,7 @@ body {
   text-align: center;
   font-size: 1.5rem;
   line-height: 1;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   color: #fff; }
   .name i {
     color: #8CC1A7;
@@ -703,14 +730,15 @@ body {
       padding-bottom: 0.5rem; }
       .menu .inline-list a:hover {
         color: #C1E120;
-        transition: all .3s ease-in-out; }
+        transition: all 0.3s ease-in-out; }
     .menu .inline-list .active a {
       color: #8CC1A7; }
   .menu .account {
     position: absolute;
     top: 3%;
     right: 3%; }
-    .menu .account a, .menu .account i {
+    .menu .account a,
+    .menu .account i {
       color: #fff; }
   @media only screen and (min-width: 40.063em) {
     .menu {
@@ -721,9 +749,9 @@ body {
         border-bottom: 2px solid #8CC1A7; } }
   .menu .account-action {
     float: right;
-    margin: -.75rem 0 0 0; }
+    margin: -.75rem 0 0; }
     .menu .account-action li {
-      margin-left: .2rem; }
+      margin-left: 0.2rem; }
     .menu .account-action a {
       padding: 0.75rem 1rem; }
     .menu .account-action a.signup {
@@ -801,14 +829,15 @@ body {
       padding-bottom: 0.5rem; }
       .menu .inline-list a:hover {
         color: #C1E120;
-        transition: all .3s ease-in-out; }
+        transition: all 0.3s ease-in-out; }
     .menu .inline-list .active a {
       color: #C1E120; }
   .menu .account {
     position: absolute;
     top: 3%;
     right: 3%; }
-    .menu .account a, .menu .account i {
+    .menu .account a,
+    .menu .account i {
       color: #fff; }
   @media only screen and (min-width: 40.063em) {
     .menu {
@@ -820,9 +849,9 @@ body {
         border-bottom: 2px solid #C1E120; } }
   .menu .account-action {
     float: right;
-    margin: -.75rem 0 0 0; }
+    margin: -.75rem 0 0; }
     .menu .account-action li {
-      margin-left: .2rem; }
+      margin-left: 0.2rem; }
     .menu .account-action a {
       padding: 0.75rem 1rem; }
     .menu .account-action a.signup {
@@ -834,7 +863,7 @@ body {
   text-align: center;
   font-size: 1.5rem;
   line-height: 1;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   color: #fff; }
   .name i {
     color: #87D37C;
@@ -1037,173 +1066,6 @@ nav {
   #signinbutton:hover {
     transform: scale(1.1); }
 
-.image-wrapper {
-  width: 100%;
-  height: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  overflow: hidden;
-  position: relative;
-  text-align: center;
-  border-radius: 4px; }
-
-.image-overlay-content {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 0; }
-
-.overlay-fade-in p {
-  letter-spacing: 0.15em;
-  color: #f4f4f4;
-  font-size: 28px;
-  opacity: 0;
-  transition: all 0.2s linear; }
-
-.overlay-fade-in img {
-  transition: all 0.2s linear; }
-
-.overlay-fade-in .image-overlay-content {
-  opacity: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  transition: all 0.4s ease-in-out; }
-
-.overlay-fade-in h2 {
-  color: #f2f2f2;
-  font-size: 1.8rem;
-  margin-top: 40%;
-  opacity: 0;
-  transition: all 0.2s ease-in-out;
-  background: rgba(0, 0, 0, 0.7); }
-
-.overlay-fade-in .button {
-  display: inline-block;
-  text-decoration: none;
-  padding: 7px 14px;
-  background: #FFF;
-  color: #222;
-  text-transform: uppercase;
-  box-shadow: 0 0 1px #000;
-  position: relative;
-  border: 1px solid #999;
-  opacity: 0;
-  transition: all 0.2s ease-in-out; }
-  .overlay-fade-in .button:hover {
-    box-shadow: 0 0 5px #000; }
-
-.overlay-fade-in:hover img {
-  transform: scale(1.2); }
-
-.overlay-fade-in:hover .image-overlay-content {
-  opacity: 1; }
-
-.overlay-fade-in:hover h2, .overlay-fade-in p, .overlay-fade-in .button {
-  opacity: 1; }
-
-.overlay-fade-in:hover p {
-  transition-delay: 0.1s; }
-
-.overlay-fade-in:hover .button {
-  transition-delay: 0.2s; }
-
-.overlay-slide-in-left img {
-  transition: all 0.3s ease-in-out; }
-
-.overlay-slide-in-left .image-overlay-content {
-  background-image: url(http://www.awwwards.com/awards/images/2015/04/pattern.jpg);
-  background-color: rgba(0, 0, 0, 0.3);
-  transform: translateX(-110%);
-  opacity: 1;
-  transition: all 0.4s ease-in-out;
-  box-shadow: 0 0 7px #ccc; }
-
-.overlay-slide-in-left h2 {
-  font-size: 1.8rem;
-  background: rgba(255, 255, 255, 0.7);
-  margin-top: 40%;
-  color: #000;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1); }
-
-.overlay-slide-in-left p {
-  opacity: 0;
-  color: #333;
-  transition: all 0.2s linear; }
-
-.overlay-slide-in-left .button {
-  display: inline-block;
-  text-decoration: none;
-  padding: 7px 14px;
-  background: #000;
-  color: #fff;
-  text-transform: uppercase;
-  box-shadow: 0 0 1px #000;
-  position: relative;
-  border-radius: 7px; }
-  .overlay-slide-in-left .button:hover {
-    background-color: #444; }
-
-.overlay-slide-in-left:hover .image-overlay-content {
-  transform: translateX(0px); }
-
-.overlay-slide-in-left:hover img {
-  transform: translateX(80%);
-  transition-delay: 0.1s; }
-
-.overlay-slide-in-left:hover p {
-  opacity: 1;
-  transition-delay: 0.4s; }
-
-.overlay-fade-in-new-background .button {
-  display: inline-block;
-  text-decoration: none;
-  padding: 7px 14px;
-  background: #000;
-  color: #fff;
-  text-transform: uppercase;
-  border-radius: 5px;
-  box-shadow: 0 0 1px #000;
-  position: relative;
-  opacity: 0;
-  transition: all 0.2s ease-in-out; }
-  .overlay-fade-in-new-background .button:hover {
-    box-shadow: 0 0 5px #fff; }
-
-.overlay-fade-in-new-background p {
-  font-size: 28px; }
-
-.overlay-fade-in-new-background h2 {
-  color: #000;
-  font-size: 1.6rem;
-  margin-top: 30%;
-  opacity: 0;
-  transition: all 0.2s ease-in-out; }
-
-.overlay-fade-in-new-background p {
-  opacity: 0;
-  transition: all 0.2s linear; }
-
-.overlay-fade-in-new-background img {
-  transition: all 0.2s ease-in-out; }
-
-.overlay-fade-in-new-background:hover img {
-  filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
-  filter: gray;
-  -webkit-filter: grayscale(100%);
-  transform: scale(1.5); }
-
-.overlay-fade-in-new-background:hover .image-overlay-content {
-  opacity: 1; }
-
-.overlay-fade-in-new-background:hover h2, .overlay-fade-in-new-background p, .overlay-fade-in-new-background .button {
-  opacity: 1; }
-
-.overlay-fade-in-new-background:hover p {
-  transition-delay: 0.1s; }
-
-.overlay-fade-in-new-background:hover .button {
-  transition-delay: 0.2s; }
-
 .profile-card {
   padding: 1rem;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -1306,7 +1168,7 @@ input[data-toggle] {
   display: none; }
 
 input[data-toggle]:checked + label,
-input[data-toggle]:checked + label:active {
+input[data-toggle]:checked + label:focus {
   background-color: salmon;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05); }
 
@@ -1367,7 +1229,9 @@ input[data-toggle]:checked + label:active {
 
 #articlecontent {
   text-align: left;
-  padding: 7%; }
+  padding: 7%;
+  overflow: scroll;
+  height: 700px; }
 
 #articlebox {
   width: 78%;
@@ -1420,8 +1284,7 @@ body {
   #loginPageButtons.button-group {
     margin-left: 35%; }
   #languageLevelRowSpanish .small-9.small-centered.columns {
-    margin: 0;
-    margin-left: 58%; }
+    margin: 0 0 0 58%; }
   #languageLevelRowFrench .small-9.small-centered.columns {
     margin-left: 57%; }
   #loginPageButtons.button-group .small.button.primary.radius {
@@ -1438,10 +1301,7 @@ body {
     font-size: 259%; }
   #secondfooter {
     margin-bottom: -3.98%;
-    width: 5%;
-    margin-bottom: 1.02%;
-    margin-top: 4%;
-    width: 9%; }
+    margin-top: 4%; }
   #listfoot {
     margin-bottom: -4%; }
   #articleglobe {
@@ -1472,6 +1332,16 @@ body {
     width: 66%; }
   .menu {
     font-size: 1.9rem; }
+  #headlinelistclick {
+    font-size: 300%; }
+  #secondfooter {
+    margin-bottom: -3.98%;
+    /* width: 5%; */
+    /* margin-bottom: 1.02%; */
+    margin-top: 4%; }
+  #homefooterlistview {
+    width: 8%;
+    margin-top: 4%; }
   .header.panel p {
     font: 2.3rem "Avenir Next"; }
   .header.panel .sign h1 {
@@ -1502,7 +1372,7 @@ body {
       text-align: center; }
     .profile-card .profile-info a {
       text-align: center;
-      margin-left: 38%; }
+      margin-left: 34%; }
     .profile-card .profile-info p {
       text-align: center; }
     .profile-card .profile-info .inline-list {
@@ -1541,3 +1411,16 @@ body {
         .profile-card .profile-info .inline-list i.fi-social-youtube:hover {
           transform: scale(1.5);
           transition: all .5s ease-in-out; }
+
+#gabe.profile-card {
+  height: 564px; }
+  #gabe.profile-card p {
+    margin-bottom: 20%; }
+
+#jonG.profile-card {
+  height: 561px; }
+  #jonG.profile-card p {
+    margin-bottom: 20%; }
+
+ul#linkstoprof {
+  margin-left: -4%; }

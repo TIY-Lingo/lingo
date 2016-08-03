@@ -1,93 +1,77 @@
 /////TOP NAV CODE
 $background-color: #292c2f;
 $primary-color: #87D37C;
-
 .row {
-  max-width: 100%;
+    max-width: 100%;
 }
-
 .menu {
-  background-color: transparent;
-  padding: 1.5rem 3rem;
-  height: auto;
-
-  .inline-list {
-    text-align: center;
-
-    li {
-      float: none;
-      display: inline-block;
+    background-color: transparent;
+    padding: 1.5rem 3rem;
+    height: auto;
+    .inline-list {
+        text-align: center;
+        li {
+            float: none;
+            display: inline-block;
+        }
+        a {
+            color: #fff;
+            padding-bottom: 0.5rem;
+            &:hover {
+                color: #C1E120;
+                transition: all 0.3s ease-in-out;
+            }
+        }
+        .active a {
+            color: #C1E120;
+        }
     }
-
-    a {
-      color: #fff;
-      padding-bottom: 0.5rem;
-
-      &:hover {
-        color: #C1E120;
-        transition: all .3s ease-in-out;
-      }
+    .account {
+        position: absolute;
+        top: 3%;
+        right: 3%;
+        a,
+        i {
+            color: #fff;
+        }
     }
-
-    .active a {
-      color: #C1E120;
+    @media only screen and (min-width: 40.063em) {
+        height: 5rem;
+        .inline-list {
+            float: left;
+            margin: 0 0 0 1.5rem;
+        }
+        a:hover {
+            border-bottom: 2px solid #C1E120;
+        }
     }
-  }
-
-  .account {
-    position: absolute;
-    top: 3%;
-    right: 3%;
-
-    a , i {
-      color: #fff;
+    .account-action {
+        float: right;
+        margin: -.75rem 0 0;
+        li {
+            margin-left: 0.2rem;
+        }
+        a {
+            padding: 0.75rem 1rem;
+        }
+        a.signup {
+            font-weight: bold;
+            background-color: transparent;
+            border: solid 1px #C1E120;
+        }
     }
-  }
-
-  @media only screen and (min-width: 40.063em) {
-  height: 5rem;
-
-  .inline-list {
-    float: left;
-    margin: 0 0 0 1.5rem;
-    }
-
-    a:hover {
-      border-bottom: 2px solid #C1E120;
-    }
-  }
-
-  .account-action {
-    float: right;
-    margin: -.75rem 0 0 0;
-
-    li {
-      margin-left: .2rem;
-    }
-
-    a { padding: 0.75rem 1rem;}
-
-    a.signup {
-      font-weight: bold;
-      background-color: transparent;
-      border: solid 1px #C1E120;
-    }
-  }
 }
-
 .name {
-  text-align: center;
-  font-size:  1.5rem;
-  line-height: 1;
-  margin: 0 0 1rem 0;
-  color: #fff;
-
-  i {
-    color: $primary-color;
-    margin-right: 0.5rem;
-  }
-
-  @media only screen and (min-width: 40.063em) {
-    float: left;
-  }
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 1;
+    margin: 0 0 1rem;
+    color: #fff;
+    i {
+        color: $primary-color;
+        margin-right: 0.5rem;
+    }
+    @media only screen and (min-width: 40.063em) {
+        float: left;
+    }
 }
