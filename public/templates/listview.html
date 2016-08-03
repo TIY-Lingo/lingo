@@ -1,4 +1,4 @@
-<!-- ARTICLE HEADER -->
+ id="subnav"  id="subnav" <!-- ARTICLE HEADER -->
 <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 <nav class="menu" id="articleMenuNav">
     <a href="#home"><img src="images/O(white).png" alt="earth" class="homeglobe" /></a>
@@ -15,9 +15,9 @@
 
 <!-- SECOND NAV -->
 <ul class="sub-nav menu" role="navigation" title="Filter Menu List" id="topnav">
-    <li class="sub-nav-title">Filter:</li>
-    <li class="active"><span class="show-for-sr">You're viewing </span><a href="#news" ng-click='clickedListView()'>Full Article</a></li>
-    <li><a href="#news/list" ng-click='clickedFullArticle()'>By Headline</a></li>
+    <li class="sub-nav-title"></li>
+    <li  id="subnav"  id="subnav" class="active"><span class="show-for-sr">You're viewing </span><a href="#news" ng-click='clickedListView()'>Random Article</a></li>
+    <li id="subnav"  id="subnav" ><a href="#news/list" ng-click='clickedFullArticle()'>Headlines</a></li>
 </ul>
 
 <!-- START CATEGORIES -->
@@ -103,13 +103,13 @@
 
 <!-- SECOND FOOTER -->
 <ul class="sub-nav menu" role="navigation" title="Filter Menu List">
-    <li class="sub-nav-title">You're now viewing articles about:</li>
-    <li ng-show="specificPref.arts">Arts</li>
-    <li ng-show="specificPref.sports">Sports</li>
-    <li ng-show="specificPref.technology">Technology</li>
-    <li ng-show="specificPref.business">Business</li>
-    <li ng-show="specificPref.politics">Politics</li>
-    <li><a href="#preferences">Not seeing what you like?</a></li>
+    <li  id="subnav" class="sub-nav-title">You're now viewing articles about:</li>
+    <li  id="subnav" ng-show="specificPref.arts">Arts</li>
+    <li  id="subnav" ng-show="specificPref.sports">Sports</li>
+    <li  id="subnav" ng-show="specificPref.technology">Technology</li>
+    <li  id="subnav" ng-show="specificPref.business">Business</li>
+    <li  id="subnav" ng-show="specificPref.politics">Politics</li>
+    <li id="subnav" ><a href="#preferences">Not seeing what you like?</a></li>
 </ul>
 <!-- SECOND FOOTER  -->
 
