@@ -18,9 +18,9 @@
     <div class="allprefpage">
 
 
-    <div class="prefs">
+    <!-- <div class="prefs">
         <h2 id="titlepref">Preferences</h2>
-    </div>
+    </div> -->
     <div class="row" id="languageinstructions">
 
         <div class="small-12 medium-10 large-12 large-centered columns">
@@ -29,7 +29,7 @@
                 <div class="sign">
                     <h1>Step 1:</h1>
                 </div>
-                <p> Choose the language you'd like to learn and the level of difficulty</p>
+                <p> Choose the language you'd like to learn and the level of difficulty.</p>
             </div>
 
         </div>
@@ -37,70 +37,62 @@
     <!-- END PREFERENCES INSTRUCTIONS  -->
 
     <!-- LANGUAGE SELECTOR -->
+    <!-- <div class="row" id="languages"> -->
+        <div class="medium-5 columns" id="spanishCard">
+            <div class="profile-card" id="languageProfileCard">
+                <img src="images/spanishFlagRound.png" alt="Inky">
+                <div class="profile-info">
+                    <h4 class="subheader">Spanish</h4>
+                    <div class="row" id="languageLevelRowSpanish">
+                        <div class="small-9 small-centered columns">
 
-    <div class="languageselector">
-        <div class="row" id="languageSelectorRow">
-
-            <!-- SPANISH FLAG/LANGUAGE SELECTION -->
-            <div class="small-3 columns" id="spanishFlag">
-                <div class="image-wrapper overlay-fade-in">
-                    <img src="images/spanish.png" />
-                    <div class="image-overlay-content">
-                    </div>
-                </div>
-                <div class="row" id="languageLevelRowSpanish"> <!-- SPANISH LEVEL BUTTONS -->
-                    <div class="small-9 small-centered columns">
-
-                        <div class="button-group round toggle" data-toggle="buttons-radio">
-                            <div class="spanishButtons">
-                                <input ng-click='toggleSpanishEasyLevel()' type="radio" id="spanlevel1" name="r-group" data-toggle="button">
-                                <label id="languageButtonLabel" class="button" for="spanlevel1">Beginner</label>
-                            </div>
-                            <div class="spanishButtons">
-                                <input ng-click='toggleSpanishMediumLevel()' type="radio" id="spanlevel2" name="r-group" data-toggle="button">
-                                <label id="languageButtonLabel" class="button" for="spanlevel2">Intermediate</label>
-                            </div>
-                            <div class="spanishButtons">
-                                <input ng-click='toggleSpanishHardLevel()' type="radio" id="spanlevel3" name="r-group" data-toggle="button">
-                                <label id="languageButtonLabel" class="button" for="spanlevel3">Expert</label>
+                            <div class="button-group round toggle" data-toggle="buttons-radio">
+                                <div class="spanishButtons">
+                                    <input ng-click='toggleSpanishEasyLevel()' type="radio" id="spanlevel1" name="r-group" data-toggle="button">
+                                    <label id="languageButtonLabel" class="button" for="spanlevel1">Beginner</label>
+                                </div>
+                                <div class="spanishButtons">
+                                    <input ng-click='toggleSpanishMediumLevel()' type="radio" id="spanlevel2" name="r-group" data-toggle="button">
+                                    <label id="languageButtonLabel" class="button" for="spanlevel2">Intermediate</label>
+                                </div>
+                                <div class="spanishButtons">
+                                    <input ng-click='toggleSpanishHardLevel()' type="radio" id="spanlevel3" name="r-group" data-toggle="button">
+                                    <label id="languageButtonLabel" class="button" for="spanlevel3">Expert</label>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- END SPANISH FLAG/LANGUAGE SELECTION -->
+        </div>
+        <div class="medium-5 columns" id="frenchCard">
+            <div class="profile-card" id="languageProfileCard">
+                <img src="images/frenchFlagRound.png" alt="Yeti">
+                <div class="profile-info">
+                    <h4 class="subheader">French</h4>
+                    <div class="row" id="languageLevelRowFrench">
+                        <div class="small-9 small-centered columns">
 
-            <!-- FRENCH FLAG/LANGUAGE SELECTION -->
-            <div class="small-3 columns" id="frenchFlag">
-                <div class="image-wrapper overlay-fade-in">
-                    <img src="images/french.png" />
-                    <div class="image-overlay-content">
-                    </div>
-                </div>
-
-                <div class="row" id="languageLevelRowFrench"> <!-- FRENCH LEVEL BUTTONS -->
-                    <div class="small-9 small-centered columns">
-
-                        <div class="button-group round toggle" data-toggle="buttons-radio">
-                            <div class="frenchButtons">
-                                <input ng-click='toggleFrenchEasyLevel()' type="radio" id="frenchlevel1" name="r-group" data-toggle="button">
-                                <label id="languageButtonLabel" class="button" for="frenchlevel1">Beginner</label>
-                            </div>
-                            <<div class="frenchButtons">
-                                <input ng-click='toggleFrenchMediumLevel()' type="radio" id="frenchlevel2" name="r-group" data-toggle="button">
-                                <label id="languageButtonLabel" class="button" for="frenchlevel2">Intermediate</label>
+                            <div class="button-group round toggle" data-toggle="buttons-radio">
+                                <div class="frenchButtons">
+                                    <input ng-click='toggleFrenchEasyLevel()' type="radio" id="frenchlevel1" name="r-group" data-toggle="button">
+                                    <label id="languageButtonLabel" class="button" for="frenchlevel1">Beginner</label>
+                                </div>
+                                <<div class="frenchButtons">
+                                    <input ng-click='toggleFrenchMediumLevel()' type="radio" id="frenchlevel2" name="r-group" data-toggle="button">
+                                    <label id="languageButtonLabel" class="button" for="frenchlevel2">Intermediate</label>
                             </div>
                             <<div class="frenchButtons">
                                 <input ng-click='toggleFrenchHardLevel()' type="radio" id="frenchlevel3" name="r-group" data-toggle="button">
                                 <label id="languageButtonLabel" class="button" for="frenchlevel3">Expert</label>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- END FRENCH FLAG/LANGUAGE SELECTION -->
         </div>
+      </div>
     </div>
+  <!-- </div>   -->
     <!-- END LANGUAGE SELECTOR -->
 
     <!--  BEGIN TOPIC SELECTION INSTRUCTIONS -->
@@ -112,7 +104,7 @@
                 <div class="sign">
                     <h1>Step 2:</h1>
                 </div>
-                <p> Choose the type of news you'd like to hear about</p>
+                <p> Choose the type of news you'd like to hear about.</p>
             </div>
 
         </div>
@@ -137,7 +129,7 @@
 
         <!-- ARTS SETTING -->
         <div class="column" id="categoryBoxesArts">
-            <img class="thumbnail" src="images/color-filters.png">
+            <img class="thumbnail" src="images/color-palette.png">
             <div ng-if="UserPreferences.arts">
                 <h5>Arts</h5>
                 <button id="newsprefbutton" ng-click="toggleArts(false)">Turn Off</button>
@@ -150,7 +142,7 @@
 
         <!-- SPORTS SETTING -->
         <div class="column" id="categoryBoxesSports">
-            <img class="thumbnail" src="images/american-football.png">
+            <img class="thumbnail" src="images/olympic-games.png">
             <div ng-if="UserPreferences.sports">
                 <h5>Sports</h5>
                 <button id="newsprefbutton" ng-click="toggleSports(false)">Turn Off</button>
@@ -165,7 +157,7 @@
     <div class="small-up-5 columns" id="bottomCategoryRow">
         <!-- TECH PREFERENCE SETTING -->
         <div class="column" id="categoryBoxesTech">
-            <img class="thumbnail" src="images/computer-mouse.png">
+            <img class="thumbnail" src="images/computer.png">
             <div ng-if="UserPreferences.technology">
                 <h5>Technology</h5>
                 <button id="newsprefbutton" ng-click="toggleTechnology(false)">Turn Off</button>
