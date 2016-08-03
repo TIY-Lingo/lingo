@@ -32,20 +32,9 @@
         }
     }
 }
-#spanishFlag {
-  margin-left: 20%;
-
-}
-#frenchFlag {
-  margin-right: 20%;
-
-}
-.image-wrapper.overlay-fade-in {
-  border: solid 4px #548FCE;
-}
 #languageLevelRowFrench {
   .small-9.small-centered.columns {
-    margin-left: 7%;
+    margin-left: 15%;
   }
   .frenchButtons {
     margin-right: 3%;
@@ -57,7 +46,7 @@
 #languageLevelRowSpanish {
   .small-9.small-centered.columns {
     margin: 0;
-    margin-left: 2%;
+    margin-left: 15%;
   }
   .spanishButtons {
     margin-right: 3%;
@@ -67,28 +56,32 @@
   }
 }
 #topCategoryRow {
-  background-color: #FFF;
   width: 100%;
   margin-bottom: 0%;
 }
 #bottomCategoryRow {
-  background-color: #FFF;
   width: 100%;
   margin-bottom: 0%;
 }
 #categoryBoxesArts, #categoryBoxesSports, #categoryBoxesBusiness {
-  background-color: #548FCE;
-  border: solid 3px #003366;
+  background-color: #FFF;
+  opacity: 0.89;
+  margin-right: 2%;
+  border-radius: 8%;
 }
 #categoryBoxesTech {
-  background-color: #548FCE;
-  border: solid 3px #003366;
+  background-color: #FFF;
   margin-left: 29.8%;
   margin-bottom: 3%;
+  opacity: 0.89;
+  margin-right: 2%;
+  border-radius: 8%;
 }
 
 #categoryBoxesPolitics {
-  background-color: #548FCE;
-  border: solid 3px #003366;
+  background-color: #FFF;
   margin-left: 20%;
+  opacity: 0.89;
+  margin-right: 2%;
+  border-radius: 8%;
 }
