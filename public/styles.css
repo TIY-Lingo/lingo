@@ -1398,7 +1398,8 @@ body {
     .content span {
       font-size: 4.3rem; }
   #description {
-    margin-bottom: 5%; }
+    margin-bottom: 5%;
+    margin-top: -1%; }
   #signinbutton {
     width: 37%;
     font-size: 1.1rem; }
@@ -1415,6 +1416,11 @@ body {
     margin-left: 11%; }
   #loginPageButtons.button-group {
     margin-left: 35%; }
+  #languageLevelRowSpanish .small-9.small-centered.columns {
+    margin: 0;
+    margin-left: 58%; }
+  #languageLevelRowFrench .small-9.small-centered.columns {
+    margin-left: 57%; }
   #loginPageButtons.button-group .small.button.primary.radius {
     font-size: 0.9rem; }
   #loginPageButtons.button-group .small.button.success.radius {
@@ -1428,15 +1434,25 @@ body {
   #headline {
     font-size: 259%; }
   #secondfooter {
-    margin-bottom: -3.98%; }
+    margin-bottom: -3.98%;
+    width: 5%;
+    margin-bottom: 1.02%;
+    margin-top: 4%;
+    width: 9%; }
+  #listfoot {
+    margin-bottom: -4%; }
   #articleglobe {
     width: 8%;
     margin-top: 6%; }
   #articleMenuNav {
-    height: 6rem;
-    padding-top: 1.5%; }
+    height: 8rem;
+    padding-top: 2.5%; }
+  #prefNavMenu {
+    margin-top: 2%; }
   #loginmenu {
     margin-top: 1%; }
+  #whoweare {
+    font-size: 1.5rem; }
   .sub-nav li {
     font-size: 0.9rem; }
   #teamboxes {
