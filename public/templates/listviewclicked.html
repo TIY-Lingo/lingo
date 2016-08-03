@@ -17,8 +17,8 @@
     <!-- SECOND NAV -->
     <ul class="sub-nav menu" role="navigation" title="Filter Menu List">
         <li class="sub-nav-title"></li>
-        <li id="subnav" class="active"><span class="show-for-sr">You're viewing </span><a href="#news" ng-click='clickedListView()'>Random Article</a></li>
-        <li id="subnav" ><a href="#news/list" ng-click='clickedFullArticle()'>Headlines</a></li>
+        <li id="subnav" ><span class="show-for-sr">You're viewing </span><a href="#news" ng-click='clickedListView()'>Random Article</a></li>
+        <li id="subnav"><a href="#news/list" ng-click='clickedFullArticle()'>Headlines</a></li>
     </ul>
 
 
@@ -28,20 +28,16 @@
     <!-- ARTICLE BODY -->
     <div class="row" id="articleRow">
 
-        <div class="small-8 medium-6 large-9 small-centered columns" id="articleholder" >
+        <div class="small-8 medium-6 large-9 small-centered columns" id="articleholder">
 
-          <div id="articletitle">
-              <h1 id="headline">{{currentArticle.title}}</h1>
-              <div class="pagination">
 
-                          <!-- <span>{{pageNumber}}</span> -->
-                          <button ng-click="goforward()">next</button>
-              </div>
-          </div>
 
             <div class="header panel" id="articlebox">
 
+                <div id="articletitle">
+                    <p id="headlinelistclick">{{currentArticle.title}}</p >
 
+                </div>
                 <p id="articlecontent"><span>{{currentArticle.author}}</span>
 
 
@@ -54,17 +50,7 @@
         </div>
     </div>
 
-    <!-- SECOND FOOTER -->
-    <ul class="sub-nav menu" role="navigation" title="Filter Menu List">
-        <li id="subnav" id="subnav" class="sub-nav-title">You're now viewing articles about:</li>
-        <li id="subnav" id="subnav" ng-show="specificPref.arts">Arts</li>
-        <li id="subnav" id="subnav" ng-show="specificPref.sports">Sports</li>
-        <li id="subnav" id="subnav" ng-show="specificPref.technology">Technology</li>
-        <li id="subnav" id="subnav" ng-show="specificPref.business">Business</li>
-        <li id="subnav" id="subnav" ng-show="specificPref.politics">Politics</li>
-        <liid="subnav" id="subnav" ><a href="#preferences" >Not seeing what you like?</a></li>
-    </ul>
-    <!-- SECOND FOOTER  -->
+
     <!-- ARTICLE FOOTER -->
 
 

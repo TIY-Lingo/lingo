@@ -165,7 +165,7 @@ body {
   border: solid 15px #003366;
   width: 32%;
   margin-left: 34%;
-  margin-bottom: 0%;
+  margin-bottom: 0;
   text-align: center;
   font: bolder 4rem "Avenir Next";
   font-family: "Avenir Next";
@@ -226,13 +226,14 @@ body {
 #topicinstructions {
   background-color: #003366;
   opacity: 0.95;
-  margin-top: 0%;
+  margin-top: 0;
   width: 81%;
-  margin-left: 9%; }
+  margin-left: 9%;
+  margin-bottom: 3%; }
 
 .languageselector {
   background-color: #FFF;
-  opacity: .95;
+  opacity: 0.95;
   height: 300px; }
 
 #languageSelectorRow {
@@ -669,6 +670,12 @@ body {
   border-radius: 2%; }
   #readmore:hover {
     background-color: #C1E120; }
+
+#secondfooterimg {
+  width: 6%; }
+
+#headlinelistclick {
+  font-size: 215%; }
 
 .row {
   max-width: 100%; }
@@ -1437,8 +1444,7 @@ body {
     margin-bottom: -3.98%;
     width: 5%;
     margin-bottom: 1.02%;
-    margin-top: 4%;
-    width: 9%; }
+    margin-top: 4%; }
   #listfoot {
     margin-bottom: -4%; }
   #articleglobe {
