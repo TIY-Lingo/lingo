@@ -22,6 +22,8 @@
     }
     #description {
         margin-bottom: 5%;
+        margin-top: -1%;
+
     }
     #signinbutton {
         width: 37%;
@@ -45,6 +47,13 @@
     #loginPageButtons.button-group {
         margin-left: 35%;
     }
+    #languageLevelRowSpanish .small-9.small-centered.columns {
+        margin: 0;
+        margin-left: 58%;
+    }
+    #languageLevelRowFrench .small-9.small-centered.columns {
+    margin-left: 57%;
+}
     #loginPageButtons.button-group .small.button.primary.radius {
         font-size: 0.9rem;
     }
@@ -58,43 +67,55 @@
         margin-top: 4%;
     }
     #subnav {
-          font-size: 1.6rem;
+        font-size: 1.6rem;
     }
     #headline {
         font-size: 259%;
     }
     #secondfooter {
         margin-bottom: -3.98%;
+        width: 5%;
+        margin-bottom: 1.02%;
+        margin-top: 4%;
+        width: 9%;
+    }
+    #listfoot {
+          margin-bottom: -4%;
     }
     #articleglobe {
         width: 8%;
         margin-top: 6%;
     }
     #articleMenuNav {
-        height: 6rem;
-        padding-top: 1.5%;
+      height: 8rem;
+    padding-top: 2.5%;
     }
+    #prefNavMenu {
+    margin-top: 2%;
+  }
     #loginmenu {
         margin-top: 1%;
     }
+    #whoweare {
+      font-size: 1.5rem;
+    }
     .sub-nav li {
-      font-size: 0.9rem;
+        font-size: 0.9rem;
     }
     #teamboxes {
-      margin-top: 2%;
-
+        margin-top: 2%;
     }
     #title {
-    font-size: 1.8rem;
-}
+        font-size: 1.8rem;
+    }
     #portlink {
-    margin-left: 43%;
-}
+        margin-left: 43%;
+    }
     #linkstoprof {
-          margin-right: 3%;
+        margin-right: 3%;
     }
     .pagination {
-      font-size: 1.8rem;
+        font-size: 1.8rem;
     }
     .small-6 {
         width: 66%;
