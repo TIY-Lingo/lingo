@@ -18,27 +18,23 @@
     <div class="allprefpage">
 
 
-    <!-- <div class="prefs">
+        <!-- <div class="prefs">
         <h2 id="titlepref">Preferences</h2>
     </div> -->
-    <div class="row" id="languageinstructions">
-
-        <div class="small-12 medium-10 large-12 large-centered columns">
-
-            <div class="header panel">
-                <div class="sign">
-
-                    <h1>Preferences Step 1:</h1>
+        <div class="row" id="languageinstructions">
+            <div class="small-12 medium-10 large-12 large-centered columns">
+                <div class="header panel">
+                    <div class="sign">
+                        <h1 id="whoweare">Preferences Step 1:</h1>
+                    </div>
+                    <p> Choose the language you'd like to learn and the level of difficulty.</p>
                 </div>
-                <p> Choose the language you'd like to learn and the level of difficulty.</p>
             </div>
-
         </div>
-    </div>
-    <!-- END PREFERENCES INSTRUCTIONS  -->
+        <!-- END PREFERENCES INSTRUCTIONS  -->
 
-    <!-- LANGUAGE SELECTOR -->
-    <!-- <div class="row" id="languages"> -->
+        <!-- LANGUAGE SELECTOR -->
+        <!-- <div class="row" id="languages"> -->
         <div class="medium-5 columns" id="spanishCard">
             <div class="profile-card" id="languageProfileCard">
                 <img src="images/spanishFlagRound.png" alt="Inky">
@@ -91,9 +87,9 @@
                 </div>
             </div>
         </div>
-      </div>
     </div>
-  <!-- </div>   -->
+    </div>
+    <!-- </div>   -->
     <!-- END LANGUAGE SELECTOR -->
 
     <!--  BEGIN TOPIC SELECTION INSTRUCTIONS -->
@@ -120,11 +116,11 @@
             <img class="thumbnail" src="images/capitol.png">
             <div ng-if="UserPreferences.politics">
                 <h5>Politics</h5>
-                <button id="newsprefbutton" ng-click="togglePolitics(false)">Turn Off</button>
+                <button id="newsprefbutton" class="active" ng-click="togglePolitics(false)">Hide</button>
             </div>
             <div ng-if="!UserPreferences.politics">
                 <h5>Politics</h5>
-                <button id="newsprefbutton" ng-click="togglePolitics(true)">Turn On</button>
+                <button id="newsprefbutton"  style="background-color: #C1E120;color:#003366;border-color:#003366;" ng-click="togglePolitics(true)">Show</button>
             </div>
         </div>
 
@@ -133,11 +129,11 @@
             <img class="thumbnail" src="images/color-palette.png">
             <div ng-if="UserPreferences.arts">
                 <h5>Arts</h5>
-                <button id="newsprefbutton" ng-click="toggleArts(false)">Turn Off</button>
+                <button id="newsprefbutton" ng-click="toggleArts(false)">Hide</button>
             </div>
             <div ng-if="!UserPreferences.arts">
                 <h5>Arts</h5>
-                <button id="newsprefbutton" ng-click="toggleArts(true)">Turn On</button>
+                <button id="newsprefbutton" style="background-color: #C1E120;color:#003366;border-color:#003366;" ng-click="toggleArts(true)">Show</button>
             </div>
         </div>
 
@@ -146,11 +142,11 @@
             <img class="thumbnail" src="images/olympic-games.png" id="olympic">
             <div ng-if="UserPreferences.sports">
                 <h5>Sports</h5>
-                <button id="newsprefbutton" ng-click="toggleSports(false)">Turn Off</button>
+                <button id="newsprefbutton" ng-click="toggleSports(false)">Hide</button>
             </div>
             <div ng-if="!UserPreferences.sports">
                 <h5>Sports</h5>
-                <button id="newsprefbutton" ng-click="toggleSports(true)">Turn On</button>
+                <button id="newsprefbutton" style="background-color: #C1E120;color:#003366;border-color:#003366;" ng-click="toggleSports(true)">Show</button>
             </div>
         </div>
     </div>
@@ -161,11 +157,11 @@
             <img class="thumbnail" src="images/computer.png">
             <div ng-if="UserPreferences.technology">
                 <h5>Technology</h5>
-                <button id="newsprefbutton" ng-click="toggleTechnology(false)">Turn Off</button>
+                <button id="newsprefbutton" ng-click="toggleTechnology(false)">Hide</button>
             </div>
             <div ng-if="!UserPreferences.technology">
                 <h5>Technology</h5>
-                <button id="newsprefbutton" ng-click="toggleTechnology(true)">Turn On</button>
+                <button id="newsprefbutton" style="background-color: #C1E120;color:#003366;border-color:#003366;" ng-click="toggleTechnology(true)">Show</button>
             </div>
         </div>
 
@@ -174,11 +170,11 @@
             <img class="thumbnail" src="images/suitcase.png">
             <div ng-if="UserPreferences.business">
                 <h5>Business</h5>
-                <button id="newsprefbutton" ng-click="toggleBusiness(false)">Turn Off</button>
+                <button id="newsprefbutton" ng-click="toggleBusiness(false)">Hide</button>
             </div>
             <div ng-if="!UserPreferences.business">
                 <h5>Business</h5>
-                <button id="newsprefbutton" ng-click="toggleBusiness(true)">Turn On</button>
+                <button id="newsprefbutton" style="background-color: #C1E120;color:#003366;border-color:#003366;" ng-click="toggleBusiness(true)">Show</button>
             </div>
         </div>
     </div>
@@ -200,7 +196,7 @@
         </div>
     </div>
 
-        </div>
+    </div>
     <!-- END LINGO(SAVE) -->
     <!-- BEGIN FOOTER  -->
     <footer class="footer" id="prefPageFooter">
