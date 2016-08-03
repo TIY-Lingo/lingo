@@ -27,7 +27,7 @@
 
             <div class="header panel">
                 <div class="sign">
-                    <h1 id="whoweare">Step 1:</h1>
+                    <h1>Preferences Step 1:</h1>
                 </div>
                 <p> Choose the language you'd like to learn and the level of difficulty.</p>
             </div>
@@ -142,7 +142,7 @@
 
         <!-- SPORTS SETTING -->
         <div class="column" id="categoryBoxesSports">
-            <img class="thumbnail" src="images/olympic-games.png">
+            <img class="thumbnail" src="images/olympic-games.png" id="olympic">
             <div ng-if="UserPreferences.sports">
                 <h5>Sports</h5>
                 <button id="newsprefbutton" ng-click="toggleSports(false)">Turn Off</button>
@@ -202,7 +202,7 @@
         </div>
     <!-- END LINGO(SAVE) -->
     <!-- BEGIN FOOTER  -->
-    <footer class="footer">
+    <footer class="footer" id="prefPageFooter">
         <div class="row">
             <div class="small-12 columns">
                 <img src="images/O(white).png" alt="" id="homefooter" />
