@@ -359,7 +359,8 @@ body {
   margin-top: 1%; }
 
 .pagination {
-  display: -webkit-inline-box; }
+  display: -webkit-inline-box;
+  font-size: .8rem; }
 
 @media only screen and (min-width: 40em) {
   .top-bar {
@@ -420,6 +421,9 @@ body {
     #articlesFooter .links a:last-child::after {
       content: "";
       padding: 0 0.4rem 0 0.8rem; }
+
+#articleglobe {
+  width: 7%; }
 
 #articlesview {
   margin-top: 2%;
@@ -1407,6 +1411,8 @@ body {
     max-width: 25%; }
   .footer {
     margin-top: 4%; }
+  #subnav {
+    font-size: 1.6rem; }
   #headline {
     font-size: 259%; }
   #secondfooter {
@@ -1423,10 +1429,14 @@ body {
     font-size: 0.9rem; }
   #teamboxes {
     margin-top: 2%; }
+  #title {
+    font-size: 1.8rem; }
   #portlink {
     margin-left: 43%; }
   #linkstoprof {
     margin-right: 3%; }
+  .pagination {
+    font-size: 1.8rem; }
   .small-6 {
     width: 66%; }
   .menu {
