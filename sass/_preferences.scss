@@ -54,6 +54,7 @@
     font-size: 41px;
     padding: 4px;
     color: #003366;
+    border-radius: 5%;
     &:hover {
         border-color: #C1E120;
     }
@@ -78,11 +79,6 @@
     margin-left: 9%;
     margin-bottom: 3%;
 }
-.languageselector {
-    background-color: #FFF;
-    opacity: 0.95;
-    height: 300px;
-}
 #languageSelectorRow {
     margin-top: 2%;
 }
@@ -90,13 +86,12 @@
     display: inline-flex;
     margin-left: 0;
     #languageButtonLabel {
-        color: #FFF;
-        background-color: #003366;
-        border: #548FCE solid 3px;
-        border-radius: 10%;
+      color: #FFF;
+      background-color: #003366;
+      border: #C1E120 solid 3px;
+      border-radius: 10%;
     }
 }
 #prefPageFooter {
   margin-top: 5%;
-
 }
