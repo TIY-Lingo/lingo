@@ -18,9 +18,9 @@
     <div class="allprefpage">
 
 
-    <div class="prefs">
+    <!-- <div class="prefs">
         <h2 id="titlepref">Preferences</h2>
-    </div>
+    </div> -->
     <div class="row" id="languageinstructions">
 
         <div class="small-12 medium-10 large-12 large-centered columns">
@@ -29,7 +29,7 @@
                 <div class="sign">
                     <h1>Step 1:</h1>
                 </div>
-                <p> Choose the language you'd like to learn and the level of difficulty</p>
+                <p> Choose the language you'd like to learn and the level of difficulty.</p>
             </div>
 
         </div>
@@ -104,7 +104,7 @@
                 <div class="sign">
                     <h1>Step 2:</h1>
                 </div>
-                <p> Choose the type of news you'd like to hear about</p>
+                <p> Choose the type of news you'd like to hear about.</p>
             </div>
 
         </div>
@@ -129,7 +129,7 @@
 
         <!-- ARTS SETTING -->
         <div class="column" id="categoryBoxesArts">
-            <img class="thumbnail" src="images/color-filters.png">
+            <img class="thumbnail" src="images/color-palette.png">
             <div ng-if="UserPreferences.arts">
                 <h5>Arts</h5>
                 <button id="newsprefbutton" ng-click="toggleArts(false)">Turn Off</button>
@@ -142,7 +142,7 @@
 
         <!-- SPORTS SETTING -->
         <div class="column" id="categoryBoxesSports">
-            <img class="thumbnail" src="images/american-football.png">
+            <img class="thumbnail" src="images/olympic-games.png">
             <div ng-if="UserPreferences.sports">
                 <h5>Sports</h5>
                 <button id="newsprefbutton" ng-click="toggleSports(false)">Turn Off</button>
@@ -157,7 +157,7 @@
     <div class="small-up-5 columns" id="bottomCategoryRow">
         <!-- TECH PREFERENCE SETTING -->
         <div class="column" id="categoryBoxesTech">
-            <img class="thumbnail" src="images/computer-mouse.png">
+            <img class="thumbnail" src="images/computer.png">
             <div ng-if="UserPreferences.technology">
                 <h5>Technology</h5>
                 <button id="newsprefbutton" ng-click="toggleTechnology(false)">Turn Off</button>
