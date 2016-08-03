@@ -28,7 +28,7 @@ body {
   padding: 50px;
   font-size: 20px;
   background-color: #fff;
-  opacity: .95; }
+  opacity: 0.95; }
 
 .homeglobe {
   float: left;
@@ -87,7 +87,9 @@ body {
   margin-left: 37%;
   margin-top: -4%; }
 
-[ng\:cloak], [ng-cloak], .ng-cloak {
+.ng-cloak,
+[ng-cloak],
+[ng\:cloak] {
   display: none !important; }
 
 #loginForm {
@@ -97,7 +99,7 @@ body {
   padding: 15px;
   margin: 0 auto;
   background-color: #003366;
-  opacity: .91;
+  opacity: 0.91;
   border-radius: 20px;
   -webkit-box-shadow: 12px 11px 12px 2px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 12px 11px 12px 2px rgba(0, 0, 0, 0.5);
@@ -108,7 +110,8 @@ body {
     font-size: 30px;
     line-height: 50px;
     color: #FFF; }
-  .signup-panel form input, .signup-panel form span {
+  .signup-panel form input,
+  .signup-panel form span {
     height: 40px;
     text-align: center;
     color: black;
@@ -302,14 +305,15 @@ body {
       padding-bottom: 0.5rem; }
       #articleMenuNav .inline-list a:hover {
         color: #C1E120;
-        transition: all .3s ease-in-out; }
+        transition: all 0.3s ease-in-out; }
     #articleMenuNav .inline-list .active a {
       color: #C1E120; }
   #articleMenuNav .account {
     position: absolute;
     top: 3%;
     right: 3%; }
-    #articleMenuNav .account a, #articleMenuNav .account i {
+    #articleMenuNav .account a,
+    #articleMenuNav .account i {
       color: #fff; }
   @media only screen and (min-width: 40.063em) {
     #articleMenuNav {
@@ -321,9 +325,9 @@ body {
         border-bottom: 2px solid #C1E120; } }
   #articleMenuNav .account-action {
     float: right;
-    margin: -.75rem 0 0 0; }
+    margin: -.75rem 0 0; }
     #articleMenuNav .account-action li {
-      margin-left: .2rem; }
+      margin-left: 0.2rem; }
     #articleMenuNav .account-action a {
       padding: 0.75rem 1rem; }
     #articleMenuNav .account-action a.signup {
@@ -361,7 +365,7 @@ body {
 
 .pagination {
   display: -webkit-inline-box;
-  font-size: .8rem; }
+  font-size: 0.8rem; }
 
 @media only screen and (min-width: 40em) {
   .top-bar {
@@ -440,7 +444,7 @@ body {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   margin: 2rem 0;
   background-color: #fff;
-  opacity: .89; }
+  opacity: 0.89; }
   .profile-card img {
     width: 8rem;
     display: block;
@@ -472,31 +476,31 @@ body {
         color: #3b5998; }
         .profile-card .profile-info .inline-list i.fi-social-facebook:hover {
           transform: scale(1.5);
-          transition: all .5s ease-in-out; }
+          transition: all 0.5s ease-in-out; }
       .profile-card .profile-info .inline-list i.fi-social-twitter {
         font-size: 1.5rem;
         color: #55acee; }
         .profile-card .profile-info .inline-list i.fi-social-twitter:hover {
           transform: scale(1.5);
-          transition: all .5s ease-in-out; }
+          transition: all 0.5s ease-in-out; }
       .profile-card .profile-info .inline-list i.fi-social-linkedin {
         font-size: 1.5rem;
         color: #0077b5; }
         .profile-card .profile-info .inline-list i.fi-social-linkedin:hover {
           transform: scale(1.5);
-          transition: all .5s ease-in-out; }
+          transition: all 0.5s ease-in-out; }
       .profile-card .profile-info .inline-list i.fi-social-github {
         font-size: 1.5rem;
         color: #333; }
         .profile-card .profile-info .inline-list i.fi-social-github:hover {
           transform: scale(1.5);
-          transition: all .5s ease-in-out; }
+          transition: all 0.5s ease-in-out; }
       .profile-card .profile-info .inline-list i.fi-social-youtube {
         font-size: 1.5rem;
         color: #cc181e; }
         .profile-card .profile-info .inline-list i.fi-social-youtube:hover {
           transform: scale(1.5);
-          transition: all .5s ease-in-out; }
+          transition: all 0.5s ease-in-out; }
 
 .hero {
   background: url("http://static.pexels.com/wp-content/uploads/2014/07/beach-coast-holiday-2190-825x550.jpg") no-repeat center center;
@@ -514,7 +518,7 @@ body {
 
 .footer {
   background-color: #003366;
-  opacity: .95;
+  opacity: 0.95;
   text-align: center;
   font-size: 1.2rem;
   padding: 4rem; }
@@ -556,7 +560,7 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    opacity: .8; }
+    opacity: 0.8; }
   .hero .intro {
     padding: 3rem;
     position: relative;
@@ -673,6 +677,9 @@ body {
 #secondfooterimg {
   width: 6%; }
 
+#homefooterlistview {
+  width: 6%; }
+
 #headlinelistclick {
   font-size: 215%; }
 
@@ -687,7 +694,7 @@ body {
   text-align: center;
   font-size: 1.5rem;
   line-height: 1;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   color: #fff; }
   .name i {
     color: #8CC1A7;
@@ -710,14 +717,15 @@ body {
       padding-bottom: 0.5rem; }
       .menu .inline-list a:hover {
         color: #C1E120;
-        transition: all .3s ease-in-out; }
+        transition: all 0.3s ease-in-out; }
     .menu .inline-list .active a {
       color: #8CC1A7; }
   .menu .account {
     position: absolute;
     top: 3%;
     right: 3%; }
-    .menu .account a, .menu .account i {
+    .menu .account a,
+    .menu .account i {
       color: #fff; }
   @media only screen and (min-width: 40.063em) {
     .menu {
@@ -728,9 +736,9 @@ body {
         border-bottom: 2px solid #8CC1A7; } }
   .menu .account-action {
     float: right;
-    margin: -.75rem 0 0 0; }
+    margin: -.75rem 0 0; }
     .menu .account-action li {
-      margin-left: .2rem; }
+      margin-left: 0.2rem; }
     .menu .account-action a {
       padding: 0.75rem 1rem; }
     .menu .account-action a.signup {
@@ -808,14 +816,15 @@ body {
       padding-bottom: 0.5rem; }
       .menu .inline-list a:hover {
         color: #C1E120;
-        transition: all .3s ease-in-out; }
+        transition: all 0.3s ease-in-out; }
     .menu .inline-list .active a {
       color: #C1E120; }
   .menu .account {
     position: absolute;
     top: 3%;
     right: 3%; }
-    .menu .account a, .menu .account i {
+    .menu .account a,
+    .menu .account i {
       color: #fff; }
   @media only screen and (min-width: 40.063em) {
     .menu {
@@ -827,9 +836,9 @@ body {
         border-bottom: 2px solid #C1E120; } }
   .menu .account-action {
     float: right;
-    margin: -.75rem 0 0 0; }
+    margin: -.75rem 0 0; }
     .menu .account-action li {
-      margin-left: .2rem; }
+      margin-left: 0.2rem; }
     .menu .account-action a {
       padding: 0.75rem 1rem; }
     .menu .account-action a.signup {
@@ -841,7 +850,7 @@ body {
   text-align: center;
   font-size: 1.5rem;
   line-height: 1;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   color: #fff; }
   .name i {
     color: #87D37C;
@@ -1145,14 +1154,6 @@ nav {
 input[data-toggle] {
   display: none; }
 
-input[data-toggle]:checked + label,
-input[data-toggle]:checked + label:active {
-  background-color: salmon;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05); }
-
-.button-group.toggle li:not(first-child) {
-  margin: 0 -0.9rem; }
-
 .articlebody {
   background-image: url("images/login2new.jpg");
   background-position: center;
@@ -1262,8 +1263,7 @@ body {
   #loginPageButtons.button-group {
     margin-left: 35%; }
   #languageLevelRowSpanish .small-9.small-centered.columns {
-    margin: 0;
-    margin-left: 58%; }
+    margin: 0 0 0 58%; }
   #languageLevelRowFrench .small-9.small-centered.columns {
     margin-left: 57%; }
   #loginPageButtons.button-group .small.button.primary.radius {
@@ -1280,8 +1280,6 @@ body {
     font-size: 259%; }
   #secondfooter {
     margin-bottom: -3.98%;
-    width: 5%;
-    margin-bottom: 1.02%;
     margin-top: 4%; }
   #listfoot {
     margin-bottom: -4%; }
@@ -1313,6 +1311,16 @@ body {
     width: 66%; }
   .menu {
     font-size: 1.9rem; }
+  #headlinelistclick {
+    font-size: 300%; }
+  #secondfooter {
+    margin-bottom: -3.98%;
+    /* width: 5%; */
+    /* margin-bottom: 1.02%; */
+    margin-top: 4%; }
+  #homefooterlistview {
+    width: 8%;
+    margin-top: 4%; }
   .header.panel p {
     font: 2.3rem "Avenir Next"; }
   .header.panel .sign h1 {
@@ -1325,7 +1333,7 @@ body {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   margin: 2rem 0;
   background-color: #fff;
-  opacity: .89; }
+  opacity: 0.89; }
   .profile-card img {
     width: 8rem;
     display: block;
@@ -1357,28 +1365,28 @@ body {
         color: #3b5998; }
         .profile-card .profile-info .inline-list i.fi-social-facebook:hover {
           transform: scale(1.5);
-          transition: all .5s ease-in-out; }
+          transition: all 0.5s ease-in-out; }
       .profile-card .profile-info .inline-list i.fi-social-twitter {
         font-size: 1.5rem;
         color: #55acee; }
         .profile-card .profile-info .inline-list i.fi-social-twitter:hover {
           transform: scale(1.5);
-          transition: all .5s ease-in-out; }
+          transition: all 0.5s ease-in-out; }
       .profile-card .profile-info .inline-list i.fi-social-linkedin {
         font-size: 1.5rem;
         color: #0077b5; }
         .profile-card .profile-info .inline-list i.fi-social-linkedin:hover {
           transform: scale(1.5);
-          transition: all .5s ease-in-out; }
+          transition: all 0.5s ease-in-out; }
       .profile-card .profile-info .inline-list i.fi-social-github {
         font-size: 1.5rem;
         color: #333; }
         .profile-card .profile-info .inline-list i.fi-social-github:hover {
           transform: scale(1.5);
-          transition: all .5s ease-in-out; }
+          transition: all 0.5s ease-in-out; }
       .profile-card .profile-info .inline-list i.fi-social-youtube {
         font-size: 1.5rem;
         color: #cc181e; }
         .profile-card .profile-info .inline-list i.fi-social-youtube:hover {
           transform: scale(1.5);
-          transition: all .5s ease-in-out; }
+          transition: all 0.5s ease-in-out; }

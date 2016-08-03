@@ -47,7 +47,7 @@
 
                             <div class="button-group round toggle" data-toggle="buttons-radio">
                                 <div class="spanishButtons">
-                                    <input ng-click='toggleSpanishEasyLevel()' type="radio" id="spanlevel1" name="r-group" data-toggle="button">
+                                    <input ng-click='toggleSpanishEasyLevel()' ng-class="{'selected': selected == true}" type="radio" id="spanlevel1" name="r-group" data-toggle="button">
                                     <label id="languageButtonLabel" class="button" for="spanlevel1">Beginner</label>
                                 </div>
                                 <div class="spanishButtons">
@@ -124,7 +124,7 @@
             </div>
             <div ng-if="!UserPreferences.politics">
                 <h5>Politics</h5>
-                <button id="newsprefbutton"  style="background-color: #C1E120;color:#003366;border-color:#003366;" ng-click="togglePolitics(true)">Show</button>
+                <button id="newsprefbutton" style="background-color: #C1E120;color:#003366;border-color:#003366;" ng-click="togglePolitics(true)">Show</button>
             </div>
         </div>
 
