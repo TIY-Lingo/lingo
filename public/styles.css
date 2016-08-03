@@ -589,54 +589,81 @@ body {
     .hero p {
       text-align: right; } }
 
-#listViewRow {
-  font-size: 20px; }
+.callout-card {
+  background: #fff;
+  border: 1px solid #333;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  margin: 1rem 0;
+  overflow: hidden; }
+  .callout-card .card-label {
+    border-color: transparent #333 transparent transparent;
+    border-color: rgba(255, 255, 255, 0) #548FCE rgba(255, 255, 255, 0) rgba(255, 255, 255, 0); }
+  .callout-card.primary {
+    border-color: #446CB3; }
+    .callout-card.primary .card-label {
+      border-color: transparent #446CB3 transparent transparent;
+      border-color: rgba(255, 255, 255, 0) #446CB3 rgba(255, 255, 255, 0) rgba(255, 255, 255, 0); }
+  .callout-card.secondary {
+    border-color: #ADB2BD; }
+    .callout-card.secondary .card-label {
+      border-color: transparent #ADB2BD transparent transparent;
+      border-color: rgba(255, 255, 255, 0) #ADB2BD rgba(255, 255, 255, 0) rgba(255, 255, 255, 0); }
+  .callout-card.info {
+    border-color: #89c4f4; }
+    .callout-card.info .card-label {
+      border-color: transparent #89c4f4 transparent transparent;
+      border-color: rgba(255, 255, 255, 0) #89c4f4 rgba(255, 255, 255, 0) rgba(255, 255, 255, 0); }
+  .callout-card.alert {
+    border-color: #F22613; }
+    .callout-card.alert .card-label {
+      border-color: transparent #F22613 transparent transparent;
+      border-color: rgba(255, 255, 255, 0) #F22613 rgba(255, 255, 255, 0) rgba(255, 255, 255, 0); }
+  .callout-card.success {
+    border-color: #87D37C; }
+    .callout-card.success .card-label {
+      border-color: transparent #87D37C transparent transparent;
+      border-color: rgba(255, 255, 255, 0) #87D37C rgba(255, 255, 255, 0) rgba(255, 255, 255, 0); }
+  .callout-card.warning {
+    border-color: #F89406; }
+    .callout-card.warning .card-label {
+      border-color: transparent #F89406 transparent transparent;
+      border-color: rgba(255, 255, 255, 0) #F89406 blue rgba(255, 255, 255, 0); }
+  .callout-card .card-label {
+    border-style: solid;
+    border-width: 0 86px 63px 0;
+    float: right;
+    height: 15px;
+    width: 0px;
+    transform: rotate(360deg); }
+  .callout-card .callout-card-content {
+    padding: 0.5rem 1.5rem 0.875rem; }
+  .callout-card.radius {
+    border-radius: 0.6rem; }
+  .callout-card .label-text {
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    position: relative;
+    right: -33px;
+    top: -2px;
+    white-space: nowrap;
+    transform: rotate(37deg); }
 
-.titlerow {
-  width: 75%; }
+#topnav {
+  margin-bottom: 5%; }
 
-#titles {
-  background-color: white; }
+#title {
+  font-size: .9rem; }
 
-.event {
-  padding: 1rem 1rem 1rem 0;
-  display: table; }
-
-.event-date {
-  width: 6rem;
-  margin: 0 auto 1rem;
-  display: table-cell;
-  width: auto; }
-  .event-date .event-month {
-    margin: 0;
-    background: #eee;
-    padding: 0.5rem 2rem;
-    text-align: center; }
-  .event-date .event-day {
-    margin: 0;
-    border: 1px solid #eee;
-    padding: 0 2rem;
-    text-align: center;
-    font-size: 2rem; }
-
-.event-desc {
-  padding: 0 0 0 1rem;
-  text-align: left;
-  display: table-cell;
-  vertical-align: top;
-  background-color: white; }
-  .event-desc .event-desc-header {
-    margin: 0 0 0.5rem 0;
-    padding: 0; }
-  .event-desc .event-desc-detail {
-    margin: 0 0 0.25rem;
-    padding: 0; }
-  .event-desc .event-desc-time {
-    font-weight: bold; }
-  .event-desc .rsvp.button {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    margin: 0; }
+#readmore {
+  font-size: .7rem;
+  border: solid .5px #C1E120;
+  color: #003366;
+  font-weight: 400;
+  padding: 1%;
+  border-radius: 2%; }
+  #readmore:hover {
+    background-color: #C1E120; }
 
 .row {
   max-width: 100%; }
@@ -813,7 +840,7 @@ body {
   border: 2px solid #C1E120;
   background: #fff; }
   .header.panel p {
-    font: 1.5rem "Avenir Next";
+    font: 1.3rem "Avenir Next";
     padding: 1.2rem 2rem 2rem;
     margin-top: -1.25rem; }
     .header.panel p #lingo {
@@ -823,7 +850,7 @@ body {
       font-weight: bold; }
   .header.panel .sign {
     background: #fff;
-    width: 150px;
+    width: 23%;
     height: 2.4rem;
     border: 2px solid #C1E120;
     position: relative;
@@ -832,10 +859,10 @@ body {
     font-weight: 400; }
     .header.panel .sign h1 {
       text-transform: uppercase;
-      font: bolder 0.875rem "Avenir Next";
+      font: bolder "Avenir Next";
       letter-spacing: 3px;
       color: #003366;
-      font-size: 70%;
+      font-size: 1.4rem;
       text-align: center;
       line-height: 2rem;
       background-color: #fff;
@@ -843,7 +870,8 @@ body {
 
 #description {
   background-color: #003366;
-  opacity: 0.95; }
+  opacity: 0.95;
+  margin-top: 1%; }
 
 .service {
   font-family: "Avenir Next";
@@ -954,11 +982,11 @@ nav {
     color: #fff;
     text-decoration: underline; }
 
-@media only screen and (min-width: 40.063em) and (max-width: 64.062em) {
-  .intro p.subheader {
-    margin-bottom: 14rem; }
-  .intro h2 {
-    margin: 2rem; } }
+ç .intro p.subheader {
+  margin-bottom: 14rem; }
+
+ç .intro h2 {
+  margin: 2rem; }
 
 @media only screen and (min-width: 64.063em) {
   .intro p.subheader {
@@ -1303,7 +1331,7 @@ input[data-toggle]:checked + label:active {
   background-color: #f2f2f2;
   padding: 0.5rem 0.5rem 0.5rem 0; }
   .sub-nav li {
-    color: #999999;
+    color: #003366;
     font-size: 0.77778rem;
     padding-left: 0.88889rem; }
     .sub-nav li.active a {
@@ -1336,3 +1364,39 @@ body {
   background-repeat: repeat;
   background-size: cover;
   width: 100%; }
+
+@media only screen and (min-width: 1900px) {
+  .parallax-content {
+    top: 618px; }
+  .service-heading {
+    font-size: 2.6rem;
+    font-weight: 600; }
+  .service-icon {
+    margin-top: -43%;
+    width: 100%; }
+  .content {
+    margin-top: 5%;
+    font-size: 4.3rem; }
+    .content h2 {
+      font-size: 4.3rem; }
+    .content span {
+      font-size: 4.3rem; }
+  #description {
+    margin-bottom: 5%; }
+  #signinbutton {
+    width: 37%;
+    font-size: 1.1rem; }
+  #registerbutton {
+    width: 40%;
+    font-size: 1.1rem; }
+  #homefooter {
+    width: 20%;
+    margin-top: 9%; }
+  .menu {
+    font-size: 1.9rem; }
+  .header.panel p {
+    font: 2.3rem "Avenir Next"; }
+  .header.panel .sign h1 {
+    padding: 1%; }
+  .header.panel .sign {
+    width: 21%; } }

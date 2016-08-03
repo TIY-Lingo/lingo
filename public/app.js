@@ -157,7 +157,7 @@ module.exports = function(app) {
             UserService.postUserInfo($scope.userInput, $scope.userPassword).then(function (results){
               if (results.data) {
                 console.log('results of register in:', results.data);
-                  $location.path('/news');
+                  $location.path('/preferences');
               } else {
                   alert("Username already taken")
               }
