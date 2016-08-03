@@ -39,12 +39,9 @@
                     </div>
                 </form>
                 <div class="button-group" id="loginPageButtons">
-                    <button ng-disabled="loginForm.userInput.$dirty && loginForm.userInput.$invalid ||
- loginForm.userPassword.$dirty && loginForm.userPassword.$invalid" href="#preferences" class="small button primary radius" ng-click="signUp($event)">Register</button>
+                    <button class="small button primary radius" ng-click="signUp($event)">Register</button>
                     <button class="small button success radius" ng-click="signIn($event)">Sign In</button>
                 </div>
-                <!-- <a href="#" class="button" ng-click="signUpForm()">Sign Up! </a>
-        <p>Already have an account? <a href="#" ng-click="sendToLogin()">Login here &raquo</a></p> -->
             </div>
         </div>
     </div>
