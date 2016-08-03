@@ -191,12 +191,12 @@ body {
     box-shadow: 0 0 0 0; }
   .small-up-5.columns h5 {
     font-size: 1.8rem;
-    color: #FFF; }
+    color: #003366; }
 
 #newsprefbutton {
   background-color: #003366;
   color: #FFF;
-  border: solid 1px #C1E120;
+  border: solid 2px #C1E120;
   margin-bottom: 12%;
   margin-top: 15%;
   padding: 3%;
@@ -224,10 +224,11 @@ body {
 
 #languageinstructions,
 #topicinstructions {
-  width: 100%;
   background-color: #003366;
   opacity: 0.95;
-  margin-top: 0%; }
+  margin-top: 0%;
+  width: 81%;
+  margin-left: 9%; }
 
 .languageselector {
   background-color: #FFF;
@@ -245,6 +246,9 @@ body {
     background-color: #003366;
     border: #548FCE solid 3px;
     border-radius: 10%; }
+
+#prefPageFooter {
+  margin-top: 5%; }
 
 .header.panel {
   margin: 3rem auto;
@@ -359,7 +363,8 @@ body {
   margin-top: 1%; }
 
 .pagination {
-  display: -webkit-inline-box; }
+  display: -webkit-inline-box;
+  font-size: .8rem; }
 
 @media only screen and (min-width: 40em) {
   .top-bar {
@@ -420,6 +425,9 @@ body {
     #articlesFooter .links a:last-child::after {
       content: "";
       padding: 0 0.4rem 0 0.8rem; }
+
+#articleglobe {
+  width: 7%; }
 
 #articlesview {
   margin-top: 2%;
@@ -589,54 +597,81 @@ body {
     .hero p {
       text-align: right; } }
 
-#listViewRow {
-  font-size: 20px; }
+.callout-card {
+  background: #fff;
+  border: 1px solid #333;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  margin: 1rem 0;
+  overflow: hidden; }
+  .callout-card .card-label {
+    border-color: transparent #333 transparent transparent;
+    border-color: rgba(255, 255, 255, 0) #548FCE rgba(255, 255, 255, 0) rgba(255, 255, 255, 0); }
+  .callout-card.primary {
+    border-color: #446CB3; }
+    .callout-card.primary .card-label {
+      border-color: transparent #446CB3 transparent transparent;
+      border-color: rgba(255, 255, 255, 0) #446CB3 rgba(255, 255, 255, 0) rgba(255, 255, 255, 0); }
+  .callout-card.secondary {
+    border-color: #ADB2BD; }
+    .callout-card.secondary .card-label {
+      border-color: transparent #ADB2BD transparent transparent;
+      border-color: rgba(255, 255, 255, 0) #ADB2BD rgba(255, 255, 255, 0) rgba(255, 255, 255, 0); }
+  .callout-card.info {
+    border-color: #89c4f4; }
+    .callout-card.info .card-label {
+      border-color: transparent #89c4f4 transparent transparent;
+      border-color: rgba(255, 255, 255, 0) #89c4f4 rgba(255, 255, 255, 0) rgba(255, 255, 255, 0); }
+  .callout-card.alert {
+    border-color: #F22613; }
+    .callout-card.alert .card-label {
+      border-color: transparent #F22613 transparent transparent;
+      border-color: rgba(255, 255, 255, 0) #F22613 rgba(255, 255, 255, 0) rgba(255, 255, 255, 0); }
+  .callout-card.success {
+    border-color: #87D37C; }
+    .callout-card.success .card-label {
+      border-color: transparent #87D37C transparent transparent;
+      border-color: rgba(255, 255, 255, 0) #87D37C rgba(255, 255, 255, 0) rgba(255, 255, 255, 0); }
+  .callout-card.warning {
+    border-color: #F89406; }
+    .callout-card.warning .card-label {
+      border-color: transparent #F89406 transparent transparent;
+      border-color: rgba(255, 255, 255, 0) #F89406 blue rgba(255, 255, 255, 0); }
+  .callout-card .card-label {
+    border-style: solid;
+    border-width: 0 86px 63px 0;
+    float: right;
+    height: 15px;
+    width: 0;
+    transform: rotate(360deg); }
+  .callout-card .callout-card-content {
+    padding: 0.5rem 1.5rem 0.875rem; }
+  .callout-card.radius {
+    border-radius: 0.6rem; }
+  .callout-card .label-text {
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    position: relative;
+    right: -33px;
+    top: 1px;
+    white-space: nowrap;
+    transform: rotate(40deg); }
 
-.titlerow {
-  width: 75%; }
+#topnav {
+  margin-bottom: 5%; }
 
-#titles {
-  background-color: white; }
+#title {
+  font-size: 0.9rem; }
 
-.event {
-  padding: 1rem 1rem 1rem 0;
-  display: table; }
-
-.event-date {
-  width: 6rem;
-  margin: 0 auto 1rem;
-  display: table-cell;
-  width: auto; }
-  .event-date .event-month {
-    margin: 0;
-    background: #eee;
-    padding: 0.5rem 2rem;
-    text-align: center; }
-  .event-date .event-day {
-    margin: 0;
-    border: 1px solid #eee;
-    padding: 0 2rem;
-    text-align: center;
-    font-size: 2rem; }
-
-.event-desc {
-  padding: 0 0 0 1rem;
-  text-align: left;
-  display: table-cell;
-  vertical-align: top;
-  background-color: white; }
-  .event-desc .event-desc-header {
-    margin: 0 0 0.5rem 0;
-    padding: 0; }
-  .event-desc .event-desc-detail {
-    margin: 0 0 0.25rem;
-    padding: 0; }
-  .event-desc .event-desc-time {
-    font-weight: bold; }
-  .event-desc .rsvp.button {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    margin: 0; }
+#readmore {
+  font-size: 0.7rem;
+  border: solid 0.5px #C1E120;
+  color: #003366;
+  font-weight: 400;
+  padding: 1%;
+  border-radius: 2%; }
+  #readmore:hover {
+    background-color: #C1E120; }
 
 .row {
   max-width: 100%; }
@@ -813,7 +848,7 @@ body {
   border: 2px solid #C1E120;
   background: #fff; }
   .header.panel p {
-    font: 1.5rem "Avenir Next";
+    font: 1.3rem "Avenir Next";
     padding: 1.2rem 2rem 2rem;
     margin-top: -1.25rem; }
     .header.panel p #lingo {
@@ -823,7 +858,7 @@ body {
       font-weight: bold; }
   .header.panel .sign {
     background: #fff;
-    width: 150px;
+    width: 23%;
     height: 2.4rem;
     border: 2px solid #C1E120;
     position: relative;
@@ -832,10 +867,10 @@ body {
     font-weight: 400; }
     .header.panel .sign h1 {
       text-transform: uppercase;
-      font: bolder 0.875rem "Avenir Next";
+      font: bolder "Avenir Next";
       letter-spacing: 3px;
       color: #003366;
-      font-size: 70%;
+      font-size: 1.4rem;
       text-align: center;
       line-height: 2rem;
       background-color: #fff;
@@ -843,7 +878,8 @@ body {
 
 #description {
   background-color: #003366;
-  opacity: 0.95; }
+  opacity: 0.95;
+  margin-top: 1%; }
 
 .service {
   font-family: "Avenir Next";
@@ -954,11 +990,11 @@ nav {
     color: #fff;
     text-decoration: underline; }
 
-@media only screen and (min-width: 40.063em) and (max-width: 64.062em) {
-  .intro p.subheader {
-    margin-bottom: 14rem; }
-  .intro h2 {
-    margin: 2rem; } }
+ç .intro p.subheader {
+  margin-bottom: 14rem; }
+
+ç .intro h2 {
+  margin: 2rem; }
 
 @media only screen and (min-width: 64.063em) {
   .intro p.subheader {
@@ -1136,12 +1172,6 @@ nav {
 .overlay-fade-in-new-background p {
   font-size: 28px; }
 
-.overlay-fade-in-new-background .image-overlay-content {
-  opacity: 0;
-  background-image: url(http://subtlepatterns.com/patterns/gplaypattern.png);
-  background-color: rgba(255, 255, 255, 0.5);
-  transition: all 0.4s ease-in-out; }
-
 .overlay-fade-in-new-background h2 {
   color: #000;
   font-size: 1.6rem;
@@ -1174,6 +1204,28 @@ nav {
 .overlay-fade-in-new-background:hover .button {
   transition-delay: 0.2s; }
 
+.profile-card {
+  padding: 1rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  margin: 2rem 0;
+  background-color: #fff; }
+  .profile-card img {
+    width: 8rem;
+    display: block;
+    margin: 2rem auto;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px #888888; }
+  .profile-card .profile-info {
+    padding: 1rem; }
+    .profile-card .profile-info h4 {
+      margin-top: 0;
+      text-align: center;
+      text-transform: uppercase; }
+
+#spanishCard {
+  margin-left: 8%; }
+
 .header.panel {
   margin: 3rem auto;
   border: 2px solid #444;
@@ -1189,7 +1241,7 @@ nav {
       font-weight: bold; }
   .header.panel .sign {
     background: #fff;
-    width: 150px;
+    width: 30%;
     height: 2.4rem;
     border: 2px solid #C1E120;
     position: relative;
@@ -1204,17 +1256,8 @@ nav {
       text-align: center;
       line-height: 2rem; }
 
-#spanishFlag {
-  margin-left: 20%; }
-
-#frenchFlag {
-  margin-right: 20%; }
-
-.image-wrapper.overlay-fade-in {
-  border: solid 4px #548FCE; }
-
 #languageLevelRowFrench .small-9.small-centered.columns {
-  margin-left: 7%; }
+  margin-left: 15%; }
 
 #languageLevelRowFrench .frenchButtons {
   margin-right: 3%; }
@@ -1223,7 +1266,7 @@ nav {
 
 #languageLevelRowSpanish .small-9.small-centered.columns {
   margin: 0;
-  margin-left: 2%; }
+  margin-left: 15%; }
 
 #languageLevelRowSpanish .spanishButtons {
   margin-right: 3%; }
@@ -1231,29 +1274,33 @@ nav {
     transform: scale(1.1); }
 
 #topCategoryRow {
-  background-color: #FFF;
   width: 100%;
   margin-bottom: 0%; }
 
 #bottomCategoryRow {
-  background-color: #FFF;
   width: 100%;
   margin-bottom: 0%; }
 
 #categoryBoxesArts, #categoryBoxesSports, #categoryBoxesBusiness {
-  background-color: #548FCE;
-  border: solid 3px #003366; }
+  background-color: #FFF;
+  opacity: 0.9;
+  margin-right: 2%;
+  border-radius: 8%; }
 
 #categoryBoxesTech {
-  background-color: #548FCE;
-  border: solid 3px #003366;
+  background-color: #FFF;
   margin-left: 29.8%;
-  margin-bottom: 3%; }
+  margin-bottom: 3%;
+  opacity: 0.9;
+  margin-right: 2%;
+  border-radius: 8%; }
 
 #categoryBoxesPolitics {
-  background-color: #548FCE;
-  border: solid 3px #003366;
-  margin-left: 20%; }
+  background-color: #FFF;
+  margin-left: 20%;
+  opacity: 0.9;
+  margin-right: 2%;
+  border-radius: 8%; }
 
 input[data-toggle] {
   display: none; }
@@ -1303,7 +1350,7 @@ input[data-toggle]:checked + label:active {
   background-color: #f2f2f2;
   padding: 0.5rem 0.5rem 0.5rem 0; }
   .sub-nav li {
-    color: #999999;
+    color: #003366;
     font-size: 0.77778rem;
     padding-left: 0.88889rem; }
     .sub-nav li.active a {
@@ -1336,3 +1383,161 @@ body {
   background-repeat: repeat;
   background-size: cover;
   width: 100%; }
+
+@media only screen and (min-width: 1900px) {
+  .parallax-content {
+    top: 618px; }
+  .service-heading {
+    font-size: 2.6rem;
+    font-weight: 600; }
+  .service-icon {
+    margin-top: -43%;
+    width: 100%; }
+  .content {
+    margin-top: 5%;
+    font-size: 4.3rem; }
+    .content h2 {
+      font-size: 4.3rem; }
+    .content span {
+      font-size: 4.3rem; }
+  #description {
+    margin-bottom: 5%;
+    margin-top: -1%; }
+  #signinbutton {
+    width: 37%;
+    font-size: 1.1rem; }
+  #registerbutton {
+    width: 40%;
+    font-size: 1.1rem; }
+  #homefooter {
+    width: 20%;
+    margin-top: 9%; }
+  #loginbox {
+    margin-top: 5%;
+    margin-left: 13%; }
+  .logininputs {
+    margin-left: 11%; }
+  #loginPageButtons.button-group {
+    margin-left: 35%; }
+  #languageLevelRowSpanish .small-9.small-centered.columns {
+    margin: 0;
+    margin-left: 58%; }
+  #languageLevelRowFrench .small-9.small-centered.columns {
+    margin-left: 57%; }
+  #loginPageButtons.button-group .small.button.primary.radius {
+    font-size: 0.9rem; }
+  #loginPageButtons.button-group .small.button.success.radius {
+    font-size: 0.9rem; }
+  .signup-panel .welcome img {
+    max-width: 25%; }
+  .footer {
+    margin-top: 4%; }
+  #subnav {
+    font-size: 1.6rem; }
+  #headline {
+    font-size: 259%; }
+  #secondfooter {
+    margin-bottom: -3.98%;
+    width: 5%;
+    margin-bottom: 1.02%;
+    margin-top: 4%;
+    width: 9%; }
+  #listfoot {
+    margin-bottom: -4%; }
+  #articleglobe {
+    width: 8%;
+    margin-top: 6%; }
+  #articleMenuNav {
+    height: 8rem;
+    padding-top: 2.5%; }
+  #prefNavMenu {
+    margin-top: 2%; }
+  #loginmenu {
+    margin-top: 1%; }
+  #whoweare {
+    font-size: 1.5rem; }
+  .sub-nav li {
+    font-size: 0.9rem; }
+  #teamboxes {
+    margin-top: 2%; }
+  #title {
+    font-size: 1.8rem; }
+  #portlink {
+    margin-left: 43%; }
+  #linkstoprof {
+    margin-right: 3%; }
+  .pagination {
+    font-size: 1.8rem; }
+  .small-6 {
+    width: 66%; }
+  .menu {
+    font-size: 1.9rem; }
+  .header.panel p {
+    font: 2.3rem "Avenir Next"; }
+  .header.panel .sign h1 {
+    padding: 1%; }
+  .header.panel .sign {
+    width: 21%; } }
+
+.profile-card {
+  padding: 1rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  margin: 2rem 0;
+  background-color: #fff;
+  opacity: .89; }
+  .profile-card img {
+    width: 8rem;
+    display: block;
+    margin: 2rem auto;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px #888888; }
+  .profile-card .profile-info {
+    padding: 1rem; }
+    .profile-card .profile-info h4 {
+      margin-top: 0;
+      text-align: center;
+      text-transform: uppercase; }
+    .profile-card .profile-info h5 {
+      text-align: center; }
+    .profile-card .profile-info a {
+      text-align: center;
+      margin-left: 38%; }
+    .profile-card .profile-info p {
+      text-align: center; }
+    .profile-card .profile-info .inline-list {
+      text-align: center;
+      margin-bottom: 1rem; }
+      .profile-card .profile-info .inline-list li {
+        float: none;
+        display: inline-block; }
+      .profile-card .profile-info .inline-list i.fi-social-facebook {
+        font-size: 1.5rem;
+        color: #3b5998; }
+        .profile-card .profile-info .inline-list i.fi-social-facebook:hover {
+          transform: scale(1.5);
+          transition: all .5s ease-in-out; }
+      .profile-card .profile-info .inline-list i.fi-social-twitter {
+        font-size: 1.5rem;
+        color: #55acee; }
+        .profile-card .profile-info .inline-list i.fi-social-twitter:hover {
+          transform: scale(1.5);
+          transition: all .5s ease-in-out; }
+      .profile-card .profile-info .inline-list i.fi-social-linkedin {
+        font-size: 1.5rem;
+        color: #0077b5; }
+        .profile-card .profile-info .inline-list i.fi-social-linkedin:hover {
+          transform: scale(1.5);
+          transition: all .5s ease-in-out; }
+      .profile-card .profile-info .inline-list i.fi-social-github {
+        font-size: 1.5rem;
+        color: #333; }
+        .profile-card .profile-info .inline-list i.fi-social-github:hover {
+          transform: scale(1.5);
+          transition: all .5s ease-in-out; }
+      .profile-card .profile-info .inline-list i.fi-social-youtube {
+        font-size: 1.5rem;
+        color: #cc181e; }
+        .profile-card .profile-info .inline-list i.fi-social-youtube:hover {
+          transform: scale(1.5);
+          transition: all .5s ease-in-out; }

@@ -148,6 +148,7 @@
 }
 .pagination {
   display: -webkit-inline-box;
+      font-size: .8rem;
 }
 // ARTICLE FOOTER
 // larger screen styles
@@ -227,6 +228,9 @@
             padding: 0 0.4rem 0 0.8rem;
         }
     }
+}
+#articleglobe {
+      width: 7%;
 }
 #articlesview {
     margin-top: 2%;

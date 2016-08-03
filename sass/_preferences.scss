@@ -1,3 +1,5 @@
+
+
 #prefNavMenu {
     margin-bottom: 3%;
 }
@@ -34,13 +36,13 @@
     }
     h5 {
       font-size: 1.8rem;
-      color: #FFF;
+      color: #003366;
     }
 }
 #newsprefbutton {
   background-color: #003366;
   color: #FFF;
-  border: solid 1px #C1E120;
+  border: solid 2px #C1E120;
   margin-bottom: 12%;
   margin-top: 15%;
   padding: 3%;
@@ -71,10 +73,11 @@
 }
 #languageinstructions,
 #topicinstructions {
-    width: 100%;
     background-color: #003366;
     opacity: 0.95;
     margin-top: 0%;
+    width: 81%;
+    margin-left: 9%;
 }
 .languageselector {
   background-color: #FFF;
@@ -93,4 +96,8 @@
       border: #548FCE solid 3px;;
       border-radius: 10%;
     }
+}
+#prefPageFooter {
+  margin-top: 5%;
+
 }
