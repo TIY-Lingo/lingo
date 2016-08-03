@@ -5,8 +5,8 @@
 
 <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 
-<nav class="menu">
-    <a href="#login"><img src="images/O(white).png" alt="earth" class="homeglobe" /></a>
+<nav class="menu" id="loginmenu">
+    <a href="#home"><img src="images/O(white).png" alt="earth" class="homeglobe" /></a>
     <ul class="inline-list">
     </ul>
     <ul class="inline-list hide-for-small-only account-action">
@@ -16,11 +16,11 @@
 </nav>
     <!-- END NAV BAR -->
 <div id="loginForm" ng-cloak>
-    <div class="row">
+    <div class="row" id="loginbox">
        <div class="small-6 large-centered columns">
             <div class="signup-panel">
                 <p class="welcome"> <img src="images/lingowhite.png" alt="" /></p>
-                <form name="loginForm">
+                <form name="loginForm" class="logininputs">
                     <div class="row collapse">
                         <div class="small-2  columns">
                             <span class="prefix"><i class="fi-torso-female"></i></span>
@@ -49,16 +49,15 @@
 <!-- BEGIN FOOTER  -->
 
 <footer class="footer">
-  <div class="row">
-    <div class="small-12 columns">
-      <p class="slogan"><img src="images/O(white).png" alt="" /></p>
-      <p class="links">
-        <a href="#home">Home</a>
-        <a href="#team">Meet The Team</a>
-        <a href="#home">Sign Out</a>
-      </p>
-      <p class="copywrite">The Iron Yard © 2016</p>
+    <div class="row">
+        <div class="small-12 columns">
+            <img src="images/O(white).png" alt="" id="homefooter" />
+            <p class="links">
+                <a href="#home">Home</a>
+                <a href="#team">Meet The Team</a>
+            </p>
+            <p class="copywrite">The Iron Yard © 2016</p>
+        </div>
     </div>
-  </div>
 </footer>
 </body>
