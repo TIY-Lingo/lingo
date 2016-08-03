@@ -1,63 +1,63 @@
 <body class="loginBody" ng-cloak>
 
 
-<!-- NAV BAR -->
+    <!-- NAV BAR -->
 
-<link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 
-<nav class="menu" id="loginmenu">
-    <a href="#home"><img src="images/O(white).png" alt="earth" class="homeglobe" /></a>
-    <ul class="inline-list">
-    </ul>
-    <ul class="inline-list hide-for-small-only account-action">
-        <li class=""><a class="signup" href="#home" data-reveal-id="myModal">Home</a></li>
-    </ul>
+    <nav class="menu" id="loginmenu">
+        <a href="#home"><img src="images/O(white).png" alt="earth" class="homeglobe" /></a>
+        <ul class="inline-list">
+        </ul>
+        <ul class="inline-list hide-for-small-only account-action">
+            <li class=""><a class="signup" href="#home" data-reveal-id="myModal">Home</a></li>
+        </ul>
 
-</nav>
+    </nav>
     <!-- END NAV BAR -->
-<div id="loginForm" ng-cloak>
-    <div class="row" id="loginbox">
-       <div class="small-6 large-centered columns">
-            <div class="signup-panel">
-                <p class="welcome"> <img src="images/lingowhite.png" alt="" /></p>
-                <form name="loginForm" class="logininputs">
-                    <div class="row collapse">
-                        <div class="small-2  columns">
-                            <span class="prefix"><i class="fi-torso-female"></i></span>
+    <div id="loginForm" ng-cloak>
+        <div class="row" id="loginbox">
+            <div class="small-6 large-centered columns">
+                <div class="signup-panel">
+                    <p class="welcome"> <img src="images/lingowhite.png" alt="" /></p>
+                    <form name="loginForm" class="logininputs">
+                        <div class="row collapse">
+                            <div class="small-2  columns">
+                                <span class="prefix"><i class="fi-torso-female"></i></span>
+                            </div>
+                            <div class="small-10  columns">
+                                <input section="text" name="username" placeholder="username" ng-model="userInput" required>
+                            </div>
                         </div>
-                        <div class="small-10  columns">
-                            <input section="text" name="username" placeholder="username" ng-model="userInput" required>
+                        <div class="row collapse">
+                            <div class="small-2 columns ">
+                                <span class="prefix"><i class="fi-lock"></i></span>
+                            </div>
+                            <div class="small-10 columns ">
+                                <input section="password" name="password" type="password" placeholder="password" ng-model="userPassword" required>
+                            </div>
                         </div>
+                    </form>
+                    <div class="button-group" id="loginPageButtons">
+                        <button class="small button primary radius" ng-click="signUp($event)">Register</button>
+                        <button class="small button success radius" ng-click="signIn($event)">Sign In</button>
                     </div>
-                    <div class="row collapse">
-                        <div class="small-2 columns ">
-                            <span class="prefix"><i class="fi-lock"></i></span>
-                        </div>
-                        <div class="small-10 columns ">
-                            <input section="password" name="password" type= "password" placeholder="password" ng-model="userPassword" required>
-                        </div>
-                    </div>
-                </form>
-                <div class="button-group" id="loginPageButtons">
-                    <button class="small button primary radius" ng-click="signUp($event)">Register</button>
-                    <button class="small button success radius" ng-click="signIn($event)">Sign In</button>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- BEGIN FOOTER  -->
+    <!-- BEGIN FOOTER  -->
 
-<footer class="footer">
-    <div class="row">
-        <div class="small-12 columns">
-            <img src="images/O(white).png" alt="" id="homefooter" />
-            <p class="links">
-                <a href="#home">Home</a>
-                <a href="#team">Meet The Team</a>
-            </p>
-            <p class="copywrite">The Iron Yard © 2016</p>
+    <footer class="footer">
+        <div class="row">
+            <div class="small-12 columns">
+                <img src="images/O(white).png" alt="" id="homefooter" />
+                <p class="links">
+                    <a href="#home">Home</a>
+                    <a href="#team">Meet The Team</a>
+                </p>
+                <p class="copywrite">The Iron Yard © 2016</p>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 </body>

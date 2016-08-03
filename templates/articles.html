@@ -18,7 +18,7 @@
     <ul class="sub-nav menu" role="navigation" title="Filter Menu List">
         <li class="sub-nav-title"></li>
         <li class="active" id="subnav"><span class="show-for-sr">You're viewing </span><a href="#news" ng-click='clickedListView()'>Random Article</a></li>
-        <li id="subnav" ><a href="#news/list" ng-click='clickedFullArticle()'>Headlines</a></li>
+        <li id="subnav"><a href="#news/list" ng-click='clickedFullArticle()'>Headlines</a></li>
     </ul>
 
 
@@ -40,15 +40,15 @@
             </div> -->
 
             <div class="header panel" id="articlebox">
-              <div id="articletitle">
-                  <h1 id="headline">{{article.title}}</h1>
-                  <div class="pagination">
-                      <!-- <button ng-click="goback()">
+                <div id="articletitle">
+                    <h1 id="headline">{{article.title}}</h1>
+                    <div class="pagination">
+                        <!-- <button ng-click="goback()">
                           <</button> -->
-                              <!-- <span>{{pageNumber}}</span> -->
-                              <button ng-click="goforward()">next</button>
-                  </div>
-              </div>
+                        <!-- <span>{{pageNumber}}</span> -->
+                        <button ng-click="goforward()">next</button>
+                    </div>
+                </div>
 
 
                 <p id="articlecontent"><span>{{article.author}}</span>
@@ -58,8 +58,8 @@
                 <div class="pagination">
                     <!-- <button ng-click="goback()">
                         <</button> -->
-                            <!-- <span>{{pageNumber}}</span> -->
-                            <button ng-click="goforward()">next</button>
+                    <!-- <span>{{pageNumber}}</span> -->
+                    <button ng-click="goforward()">next</button>
                 </div>
 
             </div>
@@ -68,13 +68,13 @@
 
     <!-- SECOND FOOTER -->
     <ul class="sub-nav menu" role="navigation" title="Filter Menu List" id="secondfooter">
-        <li  id="subnav" class="sub-nav-title">You're now viewing articles about:</li>
-        <li  id="subnav" ng-show="specificPref.arts">Arts</li>
-        <li  id="subnav" ng-show="specificPref.sports">Sports</li>
-        <li  id="subnav" ng-show="specificPref.technology">Technology</li>
-        <li  id="subnav" ng-show="specificPref.business">Business</li>
-        <li  id="subnav" ng-show="specificPref.politics">Politics</li>
-        <li id="subnav" ><a href="#preferences" >Not seeing what you like?</a></li>
+        <li id="subnav" class="sub-nav-title">You're now viewing articles about:</li>
+        <li id="subnav" ng-show="specificPref.arts">Arts</li>
+        <li id="subnav" ng-show="specificPref.sports">Sports</li>
+        <li id="subnav" ng-show="specificPref.technology">Technology</li>
+        <li id="subnav" ng-show="specificPref.business">Business</li>
+        <li id="subnav" ng-show="specificPref.politics">Politics</li>
+        <li id="subnav"><a href="#preferences">Not seeing what you like?</a></li>
     </ul>
     <!-- SECOND FOOTER  -->
     <!-- ARTICLE FOOTER -->

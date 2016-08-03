@@ -23,7 +23,6 @@
     #description {
         margin-bottom: 5%;
         margin-top: -1%;
-
     }
     #signinbutton {
         width: 37%;
@@ -48,12 +47,11 @@
         margin-left: 35%;
     }
     #languageLevelRowSpanish .small-9.small-centered.columns {
-        margin: 0;
-        margin-left: 58%;
+        margin: 0 0 0 58%;
     }
     #languageLevelRowFrench .small-9.small-centered.columns {
-    margin-left: 57%;
-}
+        margin-left: 57%;
+    }
     #loginPageButtons.button-group .small.button.primary.radius {
         font-size: 0.9rem;
     }
@@ -74,29 +72,27 @@
     }
     #secondfooter {
         margin-bottom: -3.98%;
-        width: 5%;
-        margin-bottom: 1.02%;
         margin-top: 4%;
     }
     #listfoot {
-          margin-bottom: -4%;
+        margin-bottom: -4%;
     }
     #articleglobe {
         width: 8%;
         margin-top: 6%;
     }
     #articleMenuNav {
-      height: 8rem;
-    padding-top: 2.5%;
+        height: 8rem;
+        padding-top: 2.5%;
     }
     #prefNavMenu {
-    margin-top: 2%;
-  }
+        margin-top: 2%;
+    }
     #loginmenu {
         margin-top: 1%;
     }
     #whoweare {
-      font-size: 1.5rem;
+        font-size: 1.5rem;
     }
     .sub-nav li {
         font-size: 0.9rem;
@@ -121,6 +117,19 @@
     }
     .menu {
         font-size: 1.9rem;
+    }
+    #headlinelistclick {
+        font-size: 300%;
+    }
+    #secondfooter {
+        margin-bottom: -3.98%;
+        /* width: 5%; */
+        /* margin-bottom: 1.02%; */
+        margin-top: 4%;
+    }
+    #homefooterlistview {
+        width: 8%;
+        margin-top: 4%;
     }
     .header.panel {
         p {
