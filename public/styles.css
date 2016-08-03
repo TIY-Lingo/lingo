@@ -676,6 +676,10 @@ body {
 #headlinelistclick {
   font-size: 215%; }
 
+#articleboxListView {
+  width: 90%;
+  overflow: scroll; }
+
 .row {
   max-width: 100%; }
 
@@ -1203,7 +1207,9 @@ input[data-toggle]:checked + label:active {
 
 #articlecontent {
   text-align: left;
-  padding: 7%; }
+  padding: 7%;
+  overflow: scroll;
+  height: 700px; }
 
 #articlebox {
   width: 78%;
