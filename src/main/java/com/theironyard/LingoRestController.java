@@ -48,7 +48,7 @@ public class LingoRestController {
 
     @PostConstruct
     public void init() throws SQLException, IOException, InterruptedException {
-        dbui.createWebServer().start();
+        dbui.createWebServer("-webPort", "54647").start();
         parseDictionary();
 
         Category cat = new Category("business", 1);
